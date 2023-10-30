@@ -443,7 +443,7 @@ h3 {
   left: 0;
   right: 0;
   height: 2px;
-  background-color: gold;
+ /* background-color: gold;  */
 }
 
 .company-type {
@@ -623,5 +623,12 @@ input {
   border-radius: 0 4px 4px 0;
   padding-left: 8px;
 }
+/* Registered address css element */
+.registeredOfficeAddress{
+  color: #0195B9;
+}
+/* Branch address css element */
 
-
+.branchAddresses{
+  color: #0195B9;
+}
