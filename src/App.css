@@ -14,6 +14,10 @@ body {
   width: 100%;
 }
 
+h3 {
+  color: #0195B9
+}
+
 /* NavBar Styles */
 .navbar {
   display: flex;
@@ -443,16 +447,16 @@ h3 {
   left: 0;
   right: 0;
   height: 2px;
-  background-color: gold;
-}
+ 
+} */
 
 .company-type {
   display: flex;
   align-items:flex-end;
   gap: 10px;
   font-size: 14px;
-  margin-right: auto; /* Push it closer to Company Profile} */
-
+  margin-right: auto; /* Push it closer to Company Profile */
+}
 
 input[type="radio"] {
   margin: 0 5px;
@@ -624,10 +628,113 @@ input {
   border-radius: 0 4px 4px 0;
   padding-left: 8px;
 }
-/* Registered address css element */
-.registeredOfficeAddress{
-  color: #0195B9;
+
+
+
+
+/* MenuBar.css */
+
+.menu-bar-container {
+  margin-top: 20px;  /* Adding some top margin here */
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  background: #EDEDED;
+  border-radius: 16px;
+  width: 830px;
+  height: 36px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  margin-bottom: 20px;
 }
-/* Branch address css element */
 
+.menu-bar-button {
+  flex: 1;
+  height: 100%;
+  white-space: nowrap;
+  background: none;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+  color: #A9A9A9;
+  padding: 0 15px;  /* Updated padding here for all buttons */
+  margin: 0;
+  border-radius: 16px;
+  text-align: center;
+  transition: background 0.3s, color 0.3s;
+}
 
+.menu-bar-button:hover, .menu-bar-button.active {
+  background: #0196B9;
+  color: #FFFFFF;
+}
+
+.business-button {
+  padding: 0 20px; /* Adjusted the padding for Business Legal Information button */
+}
+
+/*footer button style*/
+
+.footer-buttons {
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px;
+}
+
+/* Adjusted the margin between the buttons */
+.footer-buttons button {
+  margin-left: 2.5px; 
+  margin-right: 2.5px;
+}
+
+.footer-buttons button:first-child {
+  margin-left: 0;
+}
+
+.footer-buttons button:last-child {
+  margin-right: 0;
+}
+
+.save-btn {
+  background-color: #4CAF50; /* Green color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.preview-btn {
+  background-color: #FF5722; /* Orange color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.share-btn {
+  background-color: #00BCD4; /* Cyan color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background-color: #F44336; /* Red color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* General styles for icons */
+.footer-buttons i {
+  margin-right: 5px; /* Space between the icon and the text */
+}
