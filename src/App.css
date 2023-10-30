@@ -1,6 +1,6 @@
 /* Global Styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: Roboto, Medium;
 }
 
 .app {
@@ -72,7 +72,7 @@ body {
 .main-content {
   flex-grow: 1;
   padding: 10px 30px;
-  background-color: #ecf0f1;
+  background-color: #ffffff;
 }
 
 
@@ -436,14 +436,14 @@ h3 {
   align-items: flex-start;
 }
 
-.profile-title::after {
+/* .profile-title::after {
   content: "";
   position: absolute;
   bottom: -5px;
   left: 0;
   right: 0;
   height: 2px;
- /* background-color: gold;  */
+  background-color: gold;
 }
 
 .company-type {
@@ -489,6 +489,7 @@ input[type="radio"] {
   gap: 10px;
   align-items: flex-start;
   justify-content: flex-start;
+  margin-bottom: 20px;
 }
 
 .cp-column {
@@ -629,6 +630,4 @@ input {
 }
 /* Branch address css element */
 
-.branchAddresses{
-  color: #0195B9;
-}
+

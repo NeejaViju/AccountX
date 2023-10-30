@@ -99,15 +99,14 @@ function SideBar() {
 function MainContent() {
   return (
     <div className="main-content">
-      <CompanyProfileHeader />
-      <CompanyProfile />
-      <RegisteredAddresses />
-      <BranchAddresses />
-      {/* <PersonalDetails />
+      <CompanyProfileHeader/>
+      <CompanyProfile/>
+      {/* <Addresses />
+      <PersonalDetails />
       <BusinessLegalInfo />
       <BankAccountDetails />
       <SigningContactPerson />
-      <ActionButtons />  */}
+      <ActionButtons /> */}
     </div>
   );
 }
@@ -177,156 +176,53 @@ function CompanyProfile() {
     </div>
   );
 }
-//   Registered Addresses Component Here
 
-function RegisteredAddresses() {
-  return (
-    <div className="registeredOfficeAddress">
-      <h2>Registered Office Address</h2>
 
-      <div className="cp-company-container">
-        <div className="cp-column">
-          {/* First Row */}
-          <div className="cp-row">
-            <div className="cp-input-with-dropdown">
-              <div className="profile-container">
-                <input type="text" placeholder="Address Type" />
-                <button className="dropdown-icon-right"></button>
-              </div>
-            </div>
-            {/* + add button */}
-            <div className="cp-input-with-dropdown">
-              <input type="text" placeholder="Select Branch" />
-              <button className="dropdown-icon-right"></button>
-            </div>
-            {/* + add button */}
-            <div className="cp-input-with-dropdown">
-              <input type="text" placeholder="Unit/Division" />
-              <button className="dropdown-icon-right"></button>
-            </div>
-          </div>
-          {/* + add button */}
-          {/* Second Row */}
-          <div className="cp-row">
-            <input type="text" placeholder="Door No" />
-            <input type="text" placeholder="Building Name" />
-            <input type="text" placeholder="Street Name" />
-            <input type="text" placeholder="Area/Taluk" />
-          </div>
-          {/* Third Row */}
-          <div className="cp-row">
-            <input type="text" placeholder="City" />
-            <div className="cp-input-with-icon">
-              <input type="text" placeholder="State" />
-              <i className="fa fa-search icon-button"></i>
-            </div>
-            <div className="cp-input-with-icon">
-              <input type="text" placeholder="District" />
-              <i className="fa fa-search icon-button"></i>
-            </div>
-            <input type="text" placeholder="PIN Code" />
-            {/* </div> */}
-          </div>
-          {/* fourth row */}
-          <div className="cp-row">
-            <div className="cp-input-with-icon">
-              <input type="text" placeholder="Country" />
-              <i className="fa fa-search icon-button"></i>
-            </div>
-            <input type="text" placeholder="GST Number" />
-            <div className="cp-input-with-icon">
-              <input type="text" placeholder="Place of Supply" />
-              <i className="fa fa-search icon-button"></i>
-            </div>
-            {/* </div> */}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-//Branch Addresses here
-function BranchAddresses() {
-  return (
-    <div className="branchAddresses">
-      <h2> Branch Office Address</h2>
 
-      <div className="cp-company-container">
-        <div className="cp-column">
-          {/* First Row */}
-          <div className="cp-row">
-            <div className="cp-input-with-dropdown">
-              <div className="profile-container">
-                <input type="text" placeholder="Address Type" />
-                <button className="dropdown-icon-right"></button>
-              </div>
-            </div>
-            {/* + add button */}
-            <div className="cp-input-with-dropdown">
-              <input type="text" placeholder="Select Branch" />
-              <button className="dropdown-icon-right"></button>
-            </div>
-            <div className="cp-input-with-dropdown">
-              <input type="text" placeholder="Unit/Division" />
-              <button className="dropdown-icon-right"></button>
-            </div>
-          </div>
-          {/* + add button */}
-          {/* Second Row */}
-          <div className="cp-row">
-            <input type="text" placeholder="Door No" />
-            <input type="text" placeholder="Building Name" />
-            <input type="text" placeholder="Street Name" />
-            <input type="text" placeholder="Area/Taluk" />
-          </div>
-          {/* Third Row */}
-          <div className="cp-row">
-            <input type="text" placeholder="City" />
-            <div className="cp-input-with-icon">
-              <input type="text" placeholder="State" />
-              <i className="fa fa-search icon-button"></i>
-            </div>
-            <div className="cp-input-with-icon">
-              <input type="text" placeholder="District" />
-              <i className="fa fa-search icon-button"></i>
-            </div>
-            <input type="text" placeholder="PIN Code" />
-            {/* </div> */}
-          </div>
-          {/* fourth row */}
-          <div className="cp-row">
-            <div className="cp-input-with-icon">
-              <input type="text" placeholder="Country" />
-              <i className="fa fa-search icon-button"></i>
-            </div>
-            <input type="text" placeholder="GST Number" />
-            <div className="cp-input-with-icon">
-              <input type="text" placeholder="Place of Supply" />
-              <i className="fa fa-search icon-button"></i>
-            </div>
-            {/* </div> */}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
+
+// function Addresses() {
+//   return <div>Addresses Component Here...</div>;
+// }
 
 // function PersonalDetails() {
 //   return <div>PersonalDetails Component Here...</div>;
 // }
 
-// function BusinessLegalInfo() {
-//   return <div>BusinessLegalInfo Component Here...</div>;
-// }
+function BusinessLegalInfoComponent() {
+  return <div>BusinessLegalInfo Component Here...</div>;
+}
 
-// function BankAccountDetails() {
-//   return <div>BankAccountDetails Component Here...</div>;
-// }
+function BankDetailsComponent() {
+  return <div>BankAccountDetails Component Here...</div>;
+}
 
-// function SigningContactPerson() {
-//   return <div>SigningContactPerson Component Here...</div>;
-// }
+function ContactPersonsComponent() {
+  return <div>SigningContactPerson Component Here...</div>;
+}
+
+function FooterButtons() {
+  return (
+    <div className="footer-buttons">
+      <button className="save-btn">
+        <i className="fa fa-floppy-o" aria-hidden="true"></i>
+        Save
+      </button>
+      <button className="preview-btn">
+        <i className="fa fa-eye" aria-hidden="true"></i>
+        Preview
+      </button>
+      <button className="share-btn">
+        <i className="fa fa-share-alt" aria-hidden="true"></i>
+        Share
+      </button>
+      <button className="cancel-btn">
+        <i className="fa fa-times" aria-hidden="true"></i>
+        Cancel
+      </button>
+    </div>
+  );
+}
+
 
 // function ActionButtons() {
 //   return <div>ActionButtons Component Here...</div>;
