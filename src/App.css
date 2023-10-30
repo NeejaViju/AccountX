@@ -451,8 +451,8 @@ h3 {
   align-items:flex-end;
   gap: 10px;
   font-size: 14px;
-  margin-right: auto; /* Push it closer to Company Profile */
-}
+  margin-right: auto; /* Push it closer to Company Profile} */
+
 
 input[type="radio"] {
   margin: 0 5px;
