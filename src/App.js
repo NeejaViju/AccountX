@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import 'font-awesome/css/font-awesome.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faSearch, faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
@@ -33,8 +34,8 @@ function NavBar() {
         <input type="text" placeholder="Search..." className="navbar-search" />
       </div>
       
-      <button className="btn voucher-entry">VOUCHER ENTRY</button>
-      <button className="btn upgrade">UPGRADE</button>
+      {/* <button className="btn voucher-entry">VOUCHER ENTRY</button>
+      <button className="btn upgrade">UPGRADE</button> */}
     
 
       <i className="fa fa-bell" aria-hidden="true"></i>
@@ -59,14 +60,14 @@ function SideBar() {
 
   return (
       <div className="sidebar">
-          <h3>📊 Dashboard</h3>
+          {/* <h3>📊 Dashboard</h3>
 
           <div 
               className="menu-item master"
               onClick={() => setShowSubmenu(!showSubmenu)}
           >
               🛠 Masters
-          </div>
+          </div> */}
 
           {showSubmenu && (
               <div className="submenu">
@@ -83,20 +84,20 @@ function SideBar() {
               </div>
           )}
 
-          <div className="menu-item">🛒 Sales</div>
+          {/* <div className="menu-item">🛒 Sales</div>
           <div className="menu-item">📦 Purchases</div>
           <div className="menu-item">💼 Expenses</div>
           <div className="menu-item">🏦 Banking</div>
           <div className="menu-item">✅ Approvals</div>
-          <div className="menu-item">💹 Accounts</div>
+          <div className="menu-item">💹 Accounts</div> */}
           {/* ... Repeat similar divs for the other sections ... */}
-          <div className="menu-item">📊 Reports</div>
+          {/* <div className="menu-item">📊 Reports</div>
           <div className="menu-item">📃 e-Way Bills</div>
           <div className="menu-item">📜 e-Invoices</div>
           <div className="menu-item">📋 Task</div>
           <div className="menu-item">🎉 Promotions</div>
           <div className="menu-item">📁 Tax Filings</div>
-          <div className="menu-item">📄 Subscriptions</div>
+          <div className="menu-item">📄 Subscriptions</div> */}
       </div>
   );
 }
@@ -133,8 +134,8 @@ function CompanyProfileHeader() {
         <input type="radio" id="unregistered" name="companyType" value="unregistered" />
         <label htmlFor="unregistered">Unregistered</label>
       </div>
-      <button className="back-btn">← Back</button>
-      <button className="save-exit-btn">Save & Exit</button>
+      {/* <button className="back-btn">← Back</button>
+      <button className="save-exit-btn">Save & Exit</button> */}
     </div>
   );
 }
@@ -311,7 +312,7 @@ function addressFields() {
 }
 
 function PersonalDetailsComponent() {
-  return <div>PersonalDetails Component Here...</div>;
+  return <div>PersonalDetailsComponent Here...</div>;
 }
 
 function BusinessLegalInfoComponent() {
@@ -322,9 +323,91 @@ function BankDetailsComponent() {
   return <div>BankAccountDetails Component Here...</div>;
 }
 
+
+
 function ContactPersonsComponent() {
-  return <div>SigningContactPerson Component Here...</div>;
+  // const [gender, setGender] = useState('Mrs');
+  // const [countryCode, setCountryCode] = useState('+91');
+  // const [designation, setDesignation] = useState('Designation');
+  // const [digitalSignature, setDigitalSignature] = useState('');
+  // const [signatureImage, setSignatureImage] = useState('');
+
+  // return (
+  //     <div className="cp-container">
+
+  //         <div className="cp-row1">
+  //             <div className="cp-gender">
+  //                 <select value={gender} onChange={(e) => setGender(e.target.value)}>
+  //                     <option>Mr.</option>
+  //                     <option>Mrs.</option>
+  //                 </select>
+  //                 <input type="text" placeholder="Person Name" />
+  //             </div>
+  //             <div className="cp-designation">
+  //                 <select value={designation} onChange={(e) => setDesignation(e.target.value)}>
+  //                     <option>Designation</option>
+  //                 </select>
+  //             </div>
+  //             <button className="cp-addBtn">+</button>
+  //         </div>
+
+  //         <div className="cp-row2">
+  //             <div className="cp-country">
+  //                 <select value={countryCode} onChange={(e) => setCountryCode(e.target.value)}>
+  //                     <option>+91</option>
+  //                 </select>
+  //                 <input type="text" placeholder="9876543210" />
+  //             </div>
+  //             <input type="text" className="cp-email" placeholder="email id" />
+  //             <div className="cp-landline">
+  //                 <select>
+  //                     <option>0443</option>
+  //                 </select>
+  //                 <input type="text" />
+  //             </div>
+  //         </div>
+
+  //         <div className="cp-row3">
+  //             <label>Digital signature</label>
+  //             <button>upload digital signature</button>
+  //             <input type="text" placeholder="Name of the person" />
+  //             <input type="date" />
+  //         </div>
+
+  //         <div className="cp-row4">
+  //             <label>Signature image</label>
+  //             <button>upload signature image</button>
+  //             <input type="text" placeholder="Name of the person" />
+  //         </div>
+
+  //         <div className="cp-row5">
+  //             <div className="cp-signingCheckbox">
+  //                 <input type="checkbox" id="signingPerson" />
+  //                 <label htmlFor="signingPerson">Set as Signing person</label>
+  //             </div>
+  //             <textarea className="cp-sampleSign" placeholder="sample sign"></textarea>
+  //         </div>
+
+  //         <div className="cp-row6">
+  //             <label>Invoice Sign option</label>
+  //             <div className="cp-signatureCheckbox">
+  //                 <input type="checkbox" id="digitalSignature" />
+  //                 <label htmlFor="digitalSignature">Digital Signature</label>
+  //             </div>
+  //             <div className="cp-imageCheckbox">
+  //                 <input type="checkbox" id="imageSignature" />
+  //                 <label htmlFor="imageSignature">Image Signature</label>
+  //             </div>
+  //         </div>
+
+  //         <div className="cp-row7">
+  //             <button className="cp-addContactBtn">ADD CONTACT PERSON</button>
+  //         </div>
+
+  //     </div>
+  // );
 }
+
 
 function FooterButtons() {
   return (

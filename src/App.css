@@ -52,7 +52,7 @@ h3 {
 /* SideBar Styles */
 .sidebar {
   width: 200px;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   height: calc(100vh - 60px);
 }
 
@@ -242,7 +242,7 @@ h3 {
 /* Styling for the back button with the left arrow icon */
 .sidebar {
   width: 220px;
-  background-color: #F4F5F7;
+  background-color: #ffffff;
   height: 100vh;
   
 }
@@ -563,6 +563,7 @@ input {
   width: 120px; 
   height: 140px; 
   flex: 0 0 auto;
+  text-align: center;
 }
 
 /* Additional Styles */
@@ -737,4 +738,70 @@ input {
 /* General styles for icons */
 .footer-buttons i {
   margin-right: 5px; /* Space between the icon and the text */
+}
+
+
+/* ContactPersonsComponent.css */
+.cp-container {
+  width: 100%;
+  padding: 20px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.cp-row1, .cp-row2, .cp-row3, .cp-row4, .cp-row5, .cp-row6, .cp-row7 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.cp-gender, .cp-designation, .cp-country, .cp-landline {
+  position: relative;
+  width: calc(33.33% - 10px);
+}
+
+.cp-gender select, .cp-designation select, .cp-country select, .cp-landline select {
+  width: 50%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.cp-gender input, .cp-designation input, .cp-country input, .cp-landline input, .cp-email {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.cp-email {
+  width: calc(33.33% - 10px);
+}
+
+.cp-addBtn, .cp-addContactBtn {
+  padding: 10px 15px;
+  background-color: #007BFF;
+  color: #FFF;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cp-signingCheckbox, .cp-signatureCheckbox, .cp-imageCheckbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cp-sampleSign {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  height: 60px;
+}
+
+button:hover {
+  background-color: #0056b3;
 }
