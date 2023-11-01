@@ -293,7 +293,7 @@ function addressFields() {
           <div className="cp-input-with-dropdown">
             <select>
               <option value="" disabled selected hidden>
-                Office address/Principle place of Business
+                Address Type
               </option>
               <option value="type1">Office address</option>
               <option value="type2">Principle place of Business</option>
@@ -341,6 +341,12 @@ function addressFields() {
               <i className="fa fa-chevron-down"></i>
             </button>
           </div>
+          {/* add button */}
+          <button className="button-container">
+            <div className="add-plus-container">
+              <i className="fa fa-plus-circle" aria-hidden="true"></i>
+            </div>
+          </button>
         </div>
 
         {/* Second Row */}
@@ -628,6 +634,135 @@ function bankDetailFields() {
 }
 
 function ContactPersonsComponent() {
+  
+  
+  return (
+    <div className="cp-company-container">
+      <div className="cp-column">
+        {/* First Row */}
+        <div className="cp-row">
+        <div className="cp-input-with-icon mobile">
+            <span className="country-code">Mrs</span>
+            <input type="text" placeholder="Person Name" />
+          </div>
+          <div className="cp-input-with-dropdown">
+          <input type="text" placeholder="Designation" />
+          </div>
+          {/* add button */}
+          <button className="button-container">
+            <div className="add-plus-container">
+              <i className="fa fa-plus-circle" aria-hidden="true"></i>
+            </div>
+          </button>
+        </div>
+  
+       {/* Second Row */}
+       <div className="cp-row">
+        <div className="cp-input-with-icon mobile">
+            <span className="country-code">+91</span>
+            <input type="text" placeholder="Mobile Number" />
+          </div>
+
+          <div className="cp-input-with-dropdown">
+          <input type="text" placeholder="Designation" />
+          </div>
+
+          <div className="cp-input-with-icon mobile">
+            <span className="country-code">0443</span>
+            <input type="text" placeholder="24816100" />
+          </div>
+        </div>
+  
+        {/* Third Row */}
+        <div className="cp-row">
+          <div>
+          <label>Digital signature</label>
+          <button class="upload-dg0signature">upload digital signature</button>
+          </div>
+          
+          <div >
+            <input type="text" placeholder="Name of the person" />
+          </div>
+          <input type="date" placeholder="DD/MM/YYYY" />
+
+        </div>
+
+        {/* Fourth row */}
+        <div className="cp-row">
+          <div>
+          <label>Signature Image</label>
+          <button class="upload-dg0signature">upload digital signature</button>
+          </div>
+          
+          <div >
+            <input type="text" placeholder="Name of the person" />
+          </div>
+          </div>
+
+          {/* Fifth row */}
+          <div className="cp-row">
+          <div>
+          <label class="container">
+            <input type="checkbox"/>
+             <span class="checkmark"></span>
+          </label>
+          </div>
+
+          <div>
+          <label>Signature Image</label>
+          </div>
+          
+          <div >
+            <input class="sample-sign" type="text" placeholder="Sample image" />
+          </div>
+          </div>
+        
+
+         {/* sixth row */}
+         <div className="cp-row">
+          <div>
+          <h3 class="ISV">Invoice Sign Option</h3>
+          </div>
+          </div>
+          
+
+          {/* seventh row */}
+          <div className="cp-row">
+          <div>
+          <label>Signature Image</label>
+          </div>
+          <div>
+          <label class="container">
+            <input type="checkbox" checked="checked"/>
+             <span class="checkmark"></span>
+          </label>
+          </div>
+
+          <div>
+          <label>Image Signature </label>
+          </div>
+          <div>
+          <label class="container">
+            <input type="checkbox" checked="checked"/>
+             <span class="checkmark"></span>
+          </label>
+          </div>
+          </div>
+          
+            {/* eighth row */}
+          <div className="cp-row">
+          <div>
+          
+          <button class="upload-dg0signature">ADD CONTACT PERSON</button>
+          </div>
+          </div>
+          
+
+
+            </div>
+            </div>
+  );
+  
   // const [gender, setGender] = useState('Mrs');
   // const [countryCode, setCountryCode] = useState('+91');
   // const [designation, setDesignation] = useState('Designation');
