@@ -21,36 +21,41 @@ function App() {
 // NavBar Component
 function NavBar() {
   return (
-    <div className="navbar">
-      <img src="src\Capture.PNG" alt="Logo" className="navbar-logo" />
-      
+    <div className="new-navbar">
+      <div className="new-logo">LOGO</div>
+
       {/* Add Icon */}
-      <div className="add-icon-container">
+      <div className="icon-container new-add-icon-container">
         <i className="fa fa-plus-circle" aria-hidden="true"></i>
-      </div>
-
-      <div className="navbar-search-container">
-        <i className="fa fa-search" aria-hidden="true"></i>
-        <input type="text" placeholder="Search..." className="navbar-search" />
-      </div>
-      
-      {/* <button className="btn voucher-entry">VOUCHER ENTRY</button>
-      <button className="btn upgrade">UPGRADE</button> */}
-    
-
-      <i className="fa fa-bell" aria-hidden="true"></i>
-      <div className="profile-container">
         
-        <select className="profile-dropdown">
+      </div>
+
+      <div className="icon-container new-add-icon-container">
+      <i class="fa fa-clock-o" aria-hidden="true"></i>
+        
+      </div>
+
+
+      <div className="icon-container new-search-icon-container">
+      <input type="text" placeholder="Search..." className="new-search-input" />
+        <i className="fa fa-search new-search-icon" aria-hidden="true"></i>
+       
+      </div>
+     
+      <div className="new-profile-container">
+        <i className="fa fa-bell new-bell-icon" aria-hidden="true"></i>
+        <select className="new-profile-dropdown">
           <option>ABC Private Limited</option>
-      
         </select>
-        <i className="fa fa-cog" aria-hidden="true"></i>
-        <i className="fa fa-bars" aria-hidden="true"></i>
+        <i className="fa fa-cog new-cog-icon" aria-hidden="true"></i>
+        <i className="fa fa-bars new-bars-icon" aria-hidden="true"></i>
       </div>
     </div>
   );
 }
+
+
+
 
 
 
@@ -125,20 +130,22 @@ function MainContent() {
 
 function CompanyProfileHeader() {
   return (
-    <div className="profile-header">
-      <div className="profile-title">Company Profile</div>
-      <div className="company-type">
-        <span>Company Type</span>
-        <input type="radio" id="registered" name="companyType" value="registered" />
-        <label htmlFor="registered">Registered</label>
-        <input type="radio" id="unregistered" name="companyType" value="unregistered" />
-        <label htmlFor="unregistered">Unregistered</label>
+    <div className="company-profile-container">
+      <h1 className="company-profile-title">Company Profile</h1>
+      <div className="company-type-section">
+        <span className="company-type-text">Company Type</span>
+        <input type="radio" id="registered" name="companyType" className="radio-btn" defaultChecked />
+        <label htmlFor="registered" className="radio-label">Registered</label>
+        <input type="radio" id="unregistered" name="companyType" className="radio-btn" />
+        <label htmlFor="unregistered" className="radio-label">Unregistered</label>
       </div>
-      {/* <button className="back-btn">← Back</button>
-      <button className="save-exit-btn">Save & Exit</button> */}
     </div>
   );
 }
+
+
+
+
 
 
 function CompanyProfile() {

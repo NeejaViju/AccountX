@@ -176,11 +176,7 @@ h3 {
   background-color: #219f55;
 }
 
-.company-profile-container {
-  background-color: #f7f7f7;
-  padding: 20px;
-  border-radius: 8px;
-}
+
 
 .grid-row {
   display: flex;
@@ -420,72 +416,56 @@ h3 {
 }
 
 
-/*company header*/
+/*company profile header*/
 
-.profile-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 10px 0px;
-  flex-wrap: nowrap;
-}
 
-.profile-title {
+
+.company-profile-title {
   font-size: 24px;
   font-weight: bold;
-  margin-right: 30px; /* Reduced space to bring Company Type closer */
   color: #0195B9;
-  border-bottom: 3px solid gold;
-  flex-shrink: 0;
-  align-items: flex-start;
+  position: relative;
+  margin-bottom: 10px; 
 }
 
-/* .profile-title::after {
+.company-profile-title::after {
   content: "";
   position: absolute;
   bottom: -5px;
   left: 0;
-  right: 0;
-  height: 2px;
- 
-} */
+  width: 15%; 
+  height: 4px; 
+  background-color: orange;
+}
 
-.company-type {
+.company-type-section {
   display: flex;
-  align-items:flex-end;
-  gap: 10px;
-  font-size: 14px;
-  margin-right: auto; /* Push it closer to Company Profile */
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-input[type="radio"] {
-  margin: 0 5px;
-  transform: scale(0.8);
-}
-
-.company-type span {
+.company-type-text {
+  margin-right: 20px;
   white-space: nowrap;
 }
 
-.back-btn, .save-exit-btn {
-  padding: 10px 15px;
-  background-color: #034077;
-  color: white;
-  border: none;
+.radio-btn {
+  margin: 0 10px;
+  width: auto; /* overriding the 100% width */
+  padding: 0; /* removing the padding */
+  border: none; /* removing the border */
+  box-shadow: none; /* in case there's a box shadow you didn't mention */
+  transform: scale(0.9);
+}
+
+.radio-label {
+  margin-right: 20px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  flex-shrink: 0;
-  margin-left: 5px; /* Space between buttons and Company Type */
+  white-space: nowrap;
 }
 
-.save-exit-btn {
-  background-color: #49B881;
-  margin-left: 20px; /* Reduced space between the two buttons */
-}
 
-.back-btn:hover, .save-exit-btn:hover {
-  background-color: #4F9ED6;
-}
 
 /*company profile css*/
 .cp-company-container {
@@ -804,4 +784,92 @@ input {
 
 button:hover {
   background-color: #0056b3;
+}
+
+
+/* General styling for the navbar */
+.new-navbar {
+  display: flex;
+  align-items: center;
+  background-color: #00a7cf;
+  padding: 10px;
+  color: white;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Logo placeholder */
+.new-logo {
+  flex-shrink: 11;
+  width: 240px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #93cedd;
+  border-radius: 5px;
+  margin-right: 20px;
+  padding: 10px 0;
+}
+
+/* Icon containers */
+.icon-container {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  position: relative; /* To place search icon inside the input box */
+  margin-right: 15px;
+}
+
+/* Search icon inside input box */
+.new-search-icon-container {
+  position: relative;
+  width: 500px; /* Set this to match the width of the input box */
+  display: flex;
+  align-items: center;
+}
+
+.fa-search {
+  position: absolute;
+  right: 10px; /* Adjust this if needed */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1; /* To ensure the icon stays on top */
+}
+
+/* Individual icons */
+.new-add-icon,
+.new-bell-icon,
+.new-cog-icon,
+.new-bars-icon {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+/* Search input */
+.new-search-input {
+  padding: 10px 30px 10px 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  width: 500px;
+}
+/* Profile dropdown and container */
+.new-profile-container {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.new-profile-dropdown {
+  background-color: white;
+  border: none;
+  padding: 10px;
+  margin-right: 10px;
+  color: #00a7cf;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 306px;
 }
