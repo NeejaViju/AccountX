@@ -157,9 +157,19 @@ function CompanyProfile() {
         <div className="cp-row">
           <input type="text" placeholder="GST Number" />
           <div className="cp-input-with-dropdown">
-            <input type="text" placeholder="Company Type" />
-            <button className="dropdown-icon-right"></button>
-          </div>
+    <select>
+        <option value="" disabled selected hidden>Company Type</option>
+        <option value="type1">Type 1</option>
+        <option value="type2">Type 2</option>
+        <option value="type3">Type 3</option>
+        
+    </select>
+    <button className="dropdown-icon-right">
+        <i className="fa fa-chevron-down"></i>
+    </button>
+</div>
+
+
           <input type="text" placeholder="Company ID" />
         </div>
 
@@ -263,20 +273,42 @@ function addressFields() {
       <div className="cp-column">
         {/* First Row */}
         <div className="cp-row">
-          <div className="cp-input-with-dropdown">
-            <div className="profile-container">
-              <input type="text" placeholder="Address Type" />
-              <button className="dropdown-icon-right"></button>
-            </div>
-          </div>
-          <div className="cp-input-with-dropdown">
-            <input type="text" placeholder="Select Branch" />
-            <button className="dropdown-icon-right"></button>
-          </div>
-          <div className="cp-input-with-dropdown">
-            <input type="text" placeholder="Unit/Division" />
-            <button className="dropdown-icon-right"></button>
-          </div>
+        <div className="cp-input-with-dropdown">
+    <select>
+        <option value="" disabled selected hidden>Office address/Principle place of Business</option>
+        <option value="type1">Office address</option>
+        <option value="type2">Principle place of Business</option>
+        <option value="type3">Type 3</option>
+        
+    </select>
+    <button className="dropdown-icon-right">
+        <i className="fa fa-chevron-down"></i>
+    </button>
+</div>
+<div className="cp-input-with-dropdown">
+    <select>
+        <option value="" disabled selected hidden>select branch</option>
+        <option value="type1">Type 1</option>
+        <option value="type2">Type 2</option>
+        <option value="type3">Type 3</option>
+        
+    </select>
+    <button className="dropdown-icon-right">
+        <i className="fa fa-chevron-down"></i>
+    </button>
+</div>
+<div className="cp-input-with-dropdown">
+    <select>
+        <option value="" disabled selected hidden>Unit/Division</option>
+        <option value="type1">Type 1</option>
+        <option value="type2">Type 2</option>
+        <option value="type3">Type 3</option>
+        
+    </select>
+    <button className="dropdown-icon-right">
+        <i className="fa fa-chevron-down"></i>
+    </button>
+</div>
         </div>
 
         {/* Second Row */}
