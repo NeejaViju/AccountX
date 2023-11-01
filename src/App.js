@@ -37,10 +37,10 @@ function NavBar() {
 
 
       <div className="icon-container new-search-icon-container">
-      <input type="text" placeholder="Search..." className="new-search-input" />
-        <i className="fa fa-search new-search-icon" aria-hidden="true"></i>
-       
-      </div>
+    <i className="fa fa-search new-search-icon-inside-input" aria-hidden="true"></i>
+    <input type="text" placeholder="Search..." className="new-search-input" />
+</div>
+
      
       <div className="new-profile-container">
         <i className="fa fa-bell new-bell-icon" aria-hidden="true"></i>

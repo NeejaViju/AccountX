@@ -822,20 +822,16 @@ button:hover {
 }
 
 /* Search icon inside input box */
-.new-search-icon-container {
-  position: relative;
-  width: 500px; /* Set this to match the width of the input box */
-  display: flex;
-  align-items: center;
-}
-
-.fa-search {
+.new-search-icon-inside-input {
   position: absolute;
-  right: 10px; /* Adjust this if needed */
+  right: 10px;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 1; /* To ensure the icon stays on top */
+  z-index: 1;
+  color: grey; /* Set the color to grey */
+  background-color: transparent; /* Ensuring that the icon doesn't have any background */
 }
+
 
 /* Individual icons */
 .new-add-icon,
