@@ -502,3 +502,45 @@ button:hover {
   border-radius: 5px;
   width: 306px;
 }
+
+/* address fiels css */
+.button-container{
+  top: 607px;
+ left: 794px;
+ width: 32px;
+ height: 32px;
+  align-items: center; 
+   background: none;
+ border: none;
+ cursor: pointer;
+ padding: 8px;
+ background: #0195B9 0% 0% no-repeat padding-box;
+ color: white;
+ border-left: 1px solid #ccc;
+ border-radius: 0 4px 4px 0;}
+/* bank account details */
+/* .add-account-btn {
+  background-color: #A666F8; 
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+} */
+/* personnal details.css */
+.add-button-container{
+ background-color:#724A1E;
+ color: white;
+ padding: 6px;
+  /* align-items: center; 
+   background: none;
+ border: none;
+ cursor: pointer;
+ padding: 8px;
+ color: white;
+
+ border-radius: 0 4px 4px 0;} */
+}
