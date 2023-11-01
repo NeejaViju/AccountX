@@ -178,7 +178,7 @@ function CompanyProfile() {
           <input type="email" placeholder="Business Email" />
           <div className="cp-input-with-icon">
             <input type="text" placeholder="Industry" />
-            <i className="fa fa-search icon-button"></i>
+            <i class="fa fa-search new-search-icon-inside-input" aria-hidden="true"></i>
           </div>
         </div>
 
@@ -292,11 +292,11 @@ function addressFields() {
           <input type="text" placeholder="City" />
           <div className="cp-input-with-icon">
             <input type="text" placeholder="State" />
-            <i className="fa fa-search icon-button"></i>
+            <i class="fa fa-search new-search-icon-inside-input" aria-hidden="true"></i>
           </div>
           <div className="cp-input-with-icon">
             <input type="text" placeholder="District" />
-            <i className="fa fa-search icon-button"></i>
+            <i class="fa fa-search new-search-icon-inside-input" aria-hidden="true"></i>
           </div>
           <input type="text" placeholder="PIN Code" />
         </div>
@@ -305,12 +305,12 @@ function addressFields() {
         <div className="cp-row">
           <div className="cp-input-with-icon">
             <input type="text" placeholder="Country" />
-            <i className="fa fa-search icon-button"></i>
+            <i class="fa fa-search new-search-icon-inside-input" aria-hidden="true"></i>
           </div>
           <input type="text" placeholder="GST Number" />
           <div className="cp-input-with-icon">
             <input type="text" placeholder="Place of Supply" />
-            <i className="fa fa-search icon-button"></i>
+            <i class="fa fa-search new-search-icon-inside-input" aria-hidden="true"></i>
           </div>
         </div>
       </div>

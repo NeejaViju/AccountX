@@ -113,7 +113,7 @@ h3 {
 .input-group select {
   width: 100%;
   padding: 12px; 
-  border: 1px solid #ccc;
+  border: 1px solid #0196B9;
   border-radius: 4px;
   font-size: 14px;
   margin-top: 5px;
@@ -431,11 +431,11 @@ h3 {
 .company-profile-title::after {
   content: "";
   position: absolute;
-  bottom: -5px;
+  bottom: -7px;
   left: 0;
-  width: 15%; 
-  height: 4px; 
-  background-color: orange;
+  width: 15%;
+  height: 3.5px;
+  background-color: #f99d50;
 }
 
 .company-type-section {
