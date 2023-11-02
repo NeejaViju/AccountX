@@ -519,17 +519,56 @@ button:hover {
  border-left: 1px solid #ccc;
  border-radius: 0 4px 4px 0;}
 /* bank account details */
-/* .add-account-btn {
-  background-color: #A666F8; 
-  color: white;
-  border: none;
+.upload-addBank{
+  background-color:#A666F8;
+  color:white;
+  margin-left: 10px;
+     border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
+}
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/* .bankDetails{
+  color:#A666F8
 } */
+/* .logo-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4vh;
+  background-color: purple;
+} */
+
+
+.circle {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  background-color: blue;
+  border-radius: 50%;
+}
+
+.line {
+  position: absolute;
+  top: 0;
+  left: calc(70% - 7px);
+  width: 0.5px;
+  height: 50%;
+  background-color: white;
+}
+
 /* personnal details.css */
 .add-button-container{
  background-color:#724A1E;
@@ -556,18 +595,6 @@ button:hover {
   cursor: pointer;
 }
 
-.container {
-  display: block;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 22px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
 
 /* Hide the browser's default checkbox */
 .container input {
@@ -636,3 +663,80 @@ button:hover {
   color: black;
 }
 
+
+/* business legal info */
+/* .businessLegalInformationContainer {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Heading */
+/* .businessLegalInformationContainer h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+} */
+
+/* Rows */
+/* .cp-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+} */
+
+/* Input Fields */
+/* .cp-row .cp-input-with-icon {
+  position: relative;
+  width: calc(50% - 10px);
+}
+
+.cp-row .cp-input-with-icon input {
+  width: 100%;
+  padding: 10px 40px 10px 10px;
+  border: 2px solid #e0e0e0;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+}
+
+.cp-row .cp-input-with-icon i.fa {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: green;
+  font-size: 20px;
+} */
+
+/* Button Styles */
+/* .cp-row button {
+  width: calc(50% - 10px);
+  padding: 10px;
+  background-color: #f2f2f2;
+  border: 2px solid #e0e0e0;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cp-row button:hover {
+  background-color: #e0e0e0;
+} */
+
+/* Checkbox Row */
+/* .cp-checkbox-container {
+  display: flex;
+  align-items: center;
+  width: 33.33%;
+  justify-content: start;
+}
+
+.cp-checkbox-container label {
+  margin-right: 10px;
+}
+
+.cp-checkbox-container input[type="checkbox"] {
+  margin-right: 5px;
+  transform: scale(1.5);
+}  */
