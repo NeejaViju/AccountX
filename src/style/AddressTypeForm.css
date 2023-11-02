@@ -1,0 +1,155 @@
+.address-form-container {
+    width: 240px;
+    height: 223px;
+    background-color: #F2FDFF;
+    border: 1px solid #0196B9;
+    border-radius: 4px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 390px;
+    left: 5px;
+    padding: 0;
+}
+
+.title-bar {
+    background-color: #0196B9;
+    height: 36px;
+    line-height: 32px;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 4px 4px 0 0;
+    margin: 0 -1px;
+}
+
+.address-input, .address-select {
+    width: calc(100% - 20px); /* Adjust for the padding */
+    margin: 10px;
+    Margin-top: 13px;
+    padding: 11px;
+    border: 1px solid #0196B9;
+    border-radius: 4px;
+    background-color: transparent;
+    outline: none;
+    font-size: 14px;
+}
+
+.address-btn-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 7px 0px 12px;
+}
+
+.btn-save, .btn-cancel {
+    display: flex;
+    align-items: center; /* Vertically center items inside the button */
+    justify-content: center; /* Horizontally center items */
+    margin-right: 10px;;
+}
+
+.btn-save {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;    /* Space between Save and Cancel buttons */
+}
+
+.btn-save .fa-floppy-o, .btn-cancel .fa-times {
+    margin-right: 5px;      /* Space between the icon and the text */
+}
+
+.btn-cancel {
+    background-color: #F1697B;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;    /* Space between Save and Cancel buttons */
+}
+
+/* Font Awesome specific styling (ensure icons align well with the text) */
+.fa {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/*form container */
+
+.form-container {
+    width: 240px;
+    height: 223px;
+    background-color: #F2FDFF;
+    border: 1px solid #0196B9;
+    border-radius: 4px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 640px;
+    left: 5px;
+    padding: 0;
+}
+
+.form-title-bar {
+    background-color: #0196B9;
+    height: 36px;
+    line-height: 32px;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 4px 4px 0 0;
+    margin: 0 -1px;
+}
+
+.form-input, .form-select {
+    width: calc(100% - 20px); /* Adjust for the padding */
+    margin: 10px;
+    margin-top: 13px;
+    padding: 11px;
+    border: 1px solid #0196B9;
+    border-radius: 4px;
+    background-color: transparent;
+    outline: none;
+    font-size: 14px;
+}
+
+.form-btn-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 7px 0px 12px;
+}
+
+.btn-save, .btn-cancel {
+    display: flex;
+    align-items: center; /* Vertically center items inside the button */
+    justify-content: center; /* Horizontally center items */
+    margin-right: 10px;
+}
+
+.btn-save {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-save .fa-floppy-o, .btn-cancel .fa-times {
+    margin-right: 5px; /* Space between the icon and the text */
+}
+
+.btn-cancel {
+    background-color: #F1697B;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Font Awesome specific styling (ensure icons align well with the text) */
+.fa {
+    display: inline-block;
+    vertical-align: middle;
+}

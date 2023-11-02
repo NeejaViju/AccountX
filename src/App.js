@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import "font-awesome/css/font-awesome.min.css";
+import "./style/AddressTypeForm.css"
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faSearch, faCaretDown } from '@fortawesome/free-solid-svg-icons';
@@ -111,6 +112,9 @@ function MainContent() {
       <CompanyProfileHeader />
       <CompanyProfile />
       <MenuBar />
+      <AddressTypeForm/>
+      <FormContainer/>
+      {/* <AddressBranchForm/> */}
       {/* <Addresses />
       <PersonalDetails />
       <BusinessLegalInfo />
@@ -267,24 +271,57 @@ function MenuBar() {
 }
 
 function AddressesComponent() {
+  const [isAddressFormVisible, setIsAddressFormVisible] = useState(false);
+
   return (
     <div>
       {/* Registered Office Address */}
       <div className="registeredOfficeAddress">
         <h3>Registered Office Address</h3>
-        {addressFields()}
+        {addressFields(setIsAddressFormVisible)}
       </div>
 
       {/* Branch Office Address */}
       <div className="branchAddresses">
         <h3>Branch Office Address</h3>
-        {addressFields()}
+        {addressFields(setIsAddressFormVisible)}
       </div>
+
+      {isAddressFormVisible && (
+        <div className="address-form-container">
+          <div className="title-bar">Add New Address Type</div>
+          <input 
+            type="text" 
+            placeholder="Address Name" 
+            className="address-input"
+          />
+          <select className="address-select">
+            <option value="" disabled selected>Under</option>
+            {/* Additional options can be added here */}
+          </select>
+          <div className="address-btn-container">
+            <button className="btn-save">
+              <i className="fa fa-floppy-o" aria-hidden="true"></i>
+              Save
+            </button>
+            <button className="btn-cancel">
+              <i className="fa fa-times" aria-hidden="true"></i>
+              Cancel
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
 
-function addressFields() {
+function addressFields(setIsAddressFormVisible) {
+  const showAddressForm = () => {
+    console.log("Button clicked");
+    setIsAddressFormVisible(true);
+};
+
+
   return (
     <div className="cp-company-container">
       <div className="cp-column">
@@ -299,7 +336,13 @@ function addressFields() {
               <option value="type2">Principle place of Business</option>
               <option value="type3">Type 3</option>
             </select>
-            <button className="dropdown-icon-right">
+            <button 
+              className="dropdown-icon-right" 
+              onClick={() => {
+                console.log("Inline click");
+                setIsAddressFormVisible(true);
+              }}
+            >
               <i className="fa fa-chevron-down"></i>
             </button>
           </div>
@@ -835,6 +878,73 @@ function ContactPersonsComponent() {
   //     </div>
   // );
 }
+
+
+
+function AddressTypeForm() {
+
+  
+  return (
+      <div className="address-form-container">
+          <div className="title-bar">
+              Add New Address Type
+          </div>
+          <input 
+              type="text" 
+              placeholder="Address Name" 
+              className="address-input"
+          />
+          <select className="address-select">
+              <option value="" disabled selected>Under</option>
+              {/* Additional options can be added here */}
+          </select>
+          <div className="address-btn-container">
+    <button className="btn-save">
+    <i className="fa fa-floppy-o" aria-hidden="true"></i>
+        Save
+       
+    </button>
+    <button className="btn-cancel">
+    <i className="fa fa-times" aria-hidden="true"></i>
+        Cancel
+    </button>
+</div>
+      </div>
+  );
+}
+
+
+function FormContainer() {
+  return (
+      <div className="form-container">
+          <div className="form-title-bar">
+              Add new branch
+          </div>
+          <input 
+              type="text" 
+              placeholder="Branch Name" 
+              className="form-input"
+          />
+          <select className="form-select">
+              <option value="" disabled selected>Under</option>
+              {/* Additional options can be added here */}
+          </select>
+          <div className="form-btn-container">
+    <button className="btn-save">
+    <i className="fa fa-floppy-o" aria-hidden="true"></i>
+        Save
+       
+    </button>
+    <button className="btn-cancel">
+    <i className="fa fa-times" aria-hidden="true"></i>
+        Cancel
+    </button>
+</div>
+      </div>
+  );
+}
+
+
 
 function FooterButtons() {
   return (
