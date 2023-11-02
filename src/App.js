@@ -113,9 +113,11 @@ function MainContent() {
       <CompanyProfileHeader />
       <CompanyProfile />
       <MenuBar />
-      <AddressTypeForm />
       <ButtonList />
+      <AddressTypeForm />
+      <AddressTypeForm />
       <FormContainer />
+      <AddUnitDivision />
       {/* <AddressBranchForm/> */}
       {/* <Addresses />
       <PersonalDetails />
@@ -971,6 +973,35 @@ function FormContainer() {
         {/* Additional options can be added here */}
       </select>
       <div className="form-btn-container">
+        <button className="btn-save">
+          <i className="fa fa-floppy-o" aria-hidden="true"></i>
+          Save
+        </button>
+        <button className="btn-cancel">
+          <i className="fa fa-times" aria-hidden="true"></i>
+          Cancel
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function AddUnitDivision() {
+  return (
+    <div className="unit-division-container">
+      <div className="unit-division-title-bar">Add Unit Division</div>
+      <input
+        type="text"
+        placeholder="Unit/division"
+        className="unit-division-input"
+      />
+      <select className="unit-division-select">
+        <option value="" disabled selected>
+          Under
+        </option>
+        {/* Additional options can be added here */}
+      </select>
+      <div className="unit-division-btn-container">
         <button className="btn-save">
           <i className="fa fa-floppy-o" aria-hidden="true"></i>
           Save
