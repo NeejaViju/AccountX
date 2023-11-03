@@ -1,7 +1,8 @@
 import React, { useState, useRef } from "react";
 import "./App.css";
 import "font-awesome/css/font-awesome.min.css";
-import "./style/AddressTypeForm.css"
+import "./style/AddressTypeForm.css";
+import "./style/ButtonList.css";
 import uploadIcon from './icons/Upload-Icon-Logo-PNG-Photos.png';
 
 
@@ -115,10 +116,11 @@ function MainContent() {
       <CompanyProfileHeader />
       <CompanyProfile />
       <MenuBar />
-      <AddressTypeForm/>
-      <FormContainer/>
-     
-      <AddUnitDivision/>
+      <ButtonList />
+      <AddressTypeForm />
+      <AddressTypeForm />
+      <FormContainer />
+      <AddUnitDivision />
       {/* <AddressBranchForm/> */}
       {/* <Addresses />
       <PersonalDetails />
@@ -247,7 +249,18 @@ function CompanyProfile() {
         </div>
   );
 }
-
+//button list
+const ButtonList = () => {
+  return (
+    <div className="button-list">
+      <button className="btn personal-details">Personal Details</button>
+      <button className="btn business-info">Business Legal Information</button>
+      <button className="btn bank-details">Bank Details</button>
+      <button className="btn contact-persons">Contact Persons</button>
+    </div>
+  );
+};
+//
 function MenuBar() {
   const [activeComponent, setActiveComponent] = useState("Addresses");
 
@@ -331,13 +344,15 @@ function AddressesComponent() {
       {isAddressFormVisible && (
         <div className="address-form-container">
           <div className="title-bar">Add New Address Type</div>
-          <input 
-            type="text" 
-            placeholder="Address Name" 
+          <input
+            type="text"
+            placeholder="Address Name"
             className="address-input"
           />
           <select className="address-select">
-            <option value="" disabled selected>Under</option>
+            <option value="" disabled selected>
+              Under
+            </option>
             {/* Additional options can be added here */}
           </select>
           <div className="address-btn-container">
@@ -360,8 +375,7 @@ function addressFields(setIsAddressFormVisible) {
   const showAddressForm = () => {
     console.log("Button clicked");
     setIsAddressFormVisible(true);
-};
-
+  };
 
   return (
     <div className="cp-company-container">
@@ -377,8 +391,8 @@ function addressFields(setIsAddressFormVisible) {
               <option value="type2">Principle place of Business</option>
               <option value="type3">Type 3</option>
             </select>
-            <button 
-              className="dropdown-icon-right" 
+            <button
+              className="dropdown-icon-right"
               onClick={() => {
                 console.log("Inline click");
                 setIsAddressFormVisible(true);
@@ -961,83 +975,69 @@ function ContactPersonsComponent() {
   // );
 }
 
-
-
-function AddressTypeForm() {  
+function AddressTypeForm() {
   return (
-      <div className="address-form-container">
-          <div className="title-bar">
-              Add New Address Type
-          </div>
-          <input 
-              type="text" 
-              placeholder="Address Name" 
-              className="address-input"
-          />
-          <select className="address-select">
-              <option value="" disabled selected>Under</option>
-              {/* Additional options can be added here */}
-          </select>
-          <div className="address-btn-container">
-    <button className="btn-save">
-    <i className="fa fa-floppy-o" aria-hidden="true"></i>
-        Save
-       
-    </button>
-    <button className="btn-cancel">
-    <i className="fa fa-times" aria-hidden="true"></i>
-        Cancel
-    </button>
-</div>
+    <div className="address-form-container">
+      <div className="title-bar">Add New Address Type</div>
+      <input type="text" placeholder="Address Name" className="address-input" />
+      <select className="address-select">
+        <option value="" disabled selected>
+          Under
+        </option>
+        {/* Additional options can be added here */}
+      </select>
+      <div className="address-btn-container">
+        <button className="btn-save">
+          <i className="fa fa-floppy-o" aria-hidden="true"></i>
+          Save
+        </button>
+        <button className="btn-cancel">
+          <i className="fa fa-times" aria-hidden="true"></i>
+          Cancel
+        </button>
       </div>
+    </div>
   );
 }
-
 
 function FormContainer() {
   return (
-      <div className="form-container">
-          <div className="form-title-bar">
-              Add new branch
-          </div>
-          <input 
-              type="text" 
-              placeholder="Branch Name" 
-              className="form-input"
-          />
-          <select className="form-select">
-              <option value="" disabled selected>Under</option>
-              {/* Additional options can be added here */}
-          </select>
-          <div className="form-btn-container">
-    <button className="btn-save">
-    <i className="fa fa-floppy-o" aria-hidden="true"></i>
-        Save
-       
-    </button>
-    <button className="btn-cancel">
-    <i className="fa fa-times" aria-hidden="true"></i>
-        Cancel
-    </button>
-</div>
+    <div className="form-container">
+      <div className="form-title-bar">Add new branch</div>
+      <input type="text" placeholder="Branch Name" className="form-input" />
+      <select className="form-select">
+        <option value="" disabled selected>
+          Under
+        </option>
+        {/* Additional options can be added here */}
+      </select>
+      <div className="form-btn-container">
+        <button className="btn-save">
+          <i className="fa fa-floppy-o" aria-hidden="true"></i>
+          Save
+        </button>
+        <button className="btn-cancel">
+          <i className="fa fa-times" aria-hidden="true"></i>
+          Cancel
+        </button>
       </div>
+    </div>
   );
 }
-
 
 function AddUnitDivision() {
   return (
     <div className="unit-division-container">
-      <div className="unit-division-title-bar">
-        Add Unit Division
-      </div>
-      <input 
-        type="text" 
-        placeholder="Unit/division" 
+      <div className="unit-division-title-bar">Add Unit Division</div>
+      <input
+        type="text"
+        placeholder="Unit/division"
         className="unit-division-input"
       />
       <select className="unit-division-select">
-        <option value="" disabled selected>Under</option>
+        <option value="" disabled selected>
+          Under
+        </option>
         {/* Additional options can be added here */}
       </select>
       <div className="unit-division-btn-container">
@@ -1053,6 +1053,9 @@ function AddUnitDivision() {
     </div>
   );
 }
+
+
+
 
 
 function FooterButtons() {
