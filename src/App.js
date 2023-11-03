@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./App.css";
 import "font-awesome/css/font-awesome.min.css";
 import "./style/AddressTypeForm.css"
+import uploadIcon from './icons/Upload-Icon-Logo-PNG-Photos.png';
+
+
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faSearch, faCaretDown } from '@fortawesome/free-solid-svg-icons';
@@ -158,6 +161,22 @@ function CompanyProfileHeader() {
 }
 
 function CompanyProfile() {
+  const [logo, setLogo] = useState(null);
+  const fileInputRef = useRef(null);
+
+  const handleLogoUpload = (event) => {
+    const file = event.target.files[0];
+    if (file && file.type.startsWith('image/') && file.size <= 5 * 1024 * 1024) { // Checking if it's an image and is under 5MB
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setLogo(reader.result);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      alert('Please upload a valid image that is under 5MB.');
+    }
+  };
+
   return (
     <div className="cp-company-container">
       <div className="cp-column">
@@ -197,15 +216,35 @@ function CompanyProfile() {
           <div className="cp-input-with-icon">
             <input type="text" placeholder="Industry" />
             <i
-              class="fa fa-search new-search-icon-inside-input"
+              className="fa fa-search new-search-icon-inside-input"
               aria-hidden="true"
             ></i>
           </div>
         </div>
       </div>
 
-      <div className="cp-label-box">Upload your logo</div>
+      <div className="cp-label-box">
+  {logo ? (
+    <img src={logo} alt="Uploaded logo" className="uploaded-logo" />
+  ) : (
+    <div>
+      <input
+        type="file"
+        accept="image/*"
+        ref={fileInputRef}
+        onChange={handleLogoUpload}
+        style={{ display: 'none' }}
+      />
+      <button className="upload-btn" onClick={() => fileInputRef.current.click()}>
+        {/* Insert your SVG here */}
+        <img src={uploadIcon} alt="Upload" style={{ width: '45px', height: '45px' }} />
+
+        Upload Logo
+      </button>
     </div>
+  )}
+</div>
+        </div>
   );
 }
 
@@ -1014,9 +1053,6 @@ function AddUnitDivision() {
     </div>
   );
 }
-
-
-
 
 
 function FooterButtons() {
