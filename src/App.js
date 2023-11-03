@@ -624,7 +624,7 @@ function businessLegalInfoFields() {
         {/* First Row */}
         <div className="cp-row">
           <div className="cp-input-with-icon">
-            <input type="text" placeholder="GST Number**" />
+            <input type="text" placeholder="GST Number*" />
             {/* class="fa fa-search new-search-icon-inside-input" //
             aria-hidden="true" */}
             {/* <i class="fa fa-check-circle-o" aria-hidden="true"></i> */}
