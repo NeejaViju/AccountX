@@ -3,9 +3,12 @@ import "./App.css";
 import "font-awesome/css/font-awesome.min.css";
 import "./style/AddressTypeForm.css";
 import "./style/ButtonList.css";
-import uploadIcon from './icons/Icon feather-upload@2x.png';
-import { AddUnitDivision, AddressTypeForm, AddNewBranch } from './formComponents/unitdivison';
-
+import uploadIcon from "./icons/Icon feather-upload@2x.png";
+import {
+  AddUnitDivision,
+  AddressTypeForm,
+  AddNewBranch,
+} from "./formComponents/unitdivison";
 
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -118,10 +121,10 @@ function MainContent() {
       <CompanyProfile />
       <MenuBar />
       <ButtonList />
-      <AddUnitDivision/>
-      <AddressTypeForm/>
-      <AddNewBranch/>
-      
+      <AddUnitDivision />
+      <AddressTypeForm />
+      <AddNewBranch />
+
       {/* <AddressBranchForm/> */}
       {/* <Addresses />
       <PersonalDetails />
@@ -169,14 +172,19 @@ function CompanyProfile() {
 
   const handleLogoUpload = (event) => {
     const file = event.target.files[0];
-    if (file && file.type.startsWith('image/') && file.size <= 5 * 1024 * 1024) { // Checking if it's an image and is under 5MB
+    if (
+      file &&
+      file.type.startsWith("image/") &&
+      file.size <= 5 * 1024 * 1024
+    ) {
+      // Checking if it's an image and is under 5MB
       const reader = new FileReader();
       reader.onloadend = () => {
         setLogo(reader.result);
       };
       reader.readAsDataURL(file);
     } else {
-      alert('Please upload a valid image that is under 5MB.');
+      alert("Please upload a valid image that is under 5MB.");
     }
   };
 
@@ -227,32 +235,40 @@ function CompanyProfile() {
       </div>
 
       <div className="cp-label-box">
-  {logo ? (
-    <img src={logo} alt="Uploaded logo" className="uploaded-logo" />
-  ) : (
-    <div>
-      <input
-        type="file"
-        accept="image/*"
-        ref={fileInputRef}
-        onChange={handleLogoUpload}
-        style={{ display: 'none' }}
-      />
-     
-      <button className="upload-btn" onClick={() => fileInputRef.current.click()}>
-  <i class="fa fa-apple" aria-hidden="true"></i> {/* Apple logo */}
-  <div className="upload-section"> {/* Wrap upload icon and text */}
-    <img src={uploadIcon} alt="Upload" style={{ width: '20px', height: '20px' }} />
-    Upload Logo
-  </div>
-</button>
+        {logo ? (
+          <img src={logo} alt="Uploaded logo" className="uploaded-logo" />
+        ) : (
+          <div>
+            <input
+              type="file"
+              accept="image/*"
+              ref={fileInputRef}
+              onChange={handleLogoUpload}
+              style={{ display: "none" }}
+            />
+
+            <button
+              className="upload-btn"
+              onClick={() => fileInputRef.current.click()}
+            >
+              <i class="fa fa-apple" aria-hidden="true"></i> {/* Apple logo */}
+              <div className="upload-section">
+                {" "}
+                {/* Wrap upload icon and text */}
+                <img
+                  src={uploadIcon}
+                  alt="Upload"
+                  style={{ width: "20px", height: "20px" }}
+                />
+                Upload Logo
+              </div>
+            </button>
+          </div>
+        )}
+      </div>
     </div>
-  )}
-</div>
-        </div>
   );
 }
-
 
 //button list
 const ButtonList = () => {
@@ -508,7 +524,7 @@ function PersonalDetailsComponent() {
     <div>
       {/* Personal Details */}
       <div className="personalDetails">
-        <h3>Personal Details</h3>
+        <h3 style={{ color: "#9B660E" }}>Personal Details</h3>
         {personalDetailFields()}
       </div>
     </div>
@@ -521,32 +537,50 @@ function personalDetailFields() {
         {/* First Row */}
         <div className="cp-row">
           <div className="cp-input-with-icon mobile">
-            <span className="country-code">Miss.</span>
-            <input type="text" placeholder="First Name" />
+            <div className="inputs-container">
+              <div className="choosePersonal-container">
+                <select>
+                  <option value="miss">M/S</option>
+                  <option value="miss">Mr.</option>
+                  <option value="miss">Mrs.</option>
+                  <option value="miss">Dr.</option>
+                </select>
+                <span className="dropdown-icon"></span>
+              </div>
+            </div>
+            <input
+              type="text"
+              placeholder="Account Name"
+              className="custom-border"
+            />
           </div>
-          {/* <div className="cp-input-with-dropdown">
-            <select>
-              <option value="" disabled selected hidden>
-                Miss.
-              </option>
-              <option value="mr">Mr.</option>
-              <option value="mrs">Mrs.</option>
-            </select>
-            <button className="dropdown-icon-right">
-              <i className="fa fa-chevron-down"></i>
-            </button>
-          </div> */}
 
-          <input type="text" placeholder="Middle Name" />
-          <input type="text" placeholder="Last Name" />
+          <input
+            type="text"
+            placeholder="Middle Name"
+            className="custom-border"
+          />
+          <input
+            type="text"
+            placeholder="Last Name"
+            className="custom-border"
+          />
         </div>
 
         {/* Second Row */}
         <div className="cp-row">
-          <input type="text" placeholder="Father Name" />
-          <input type="text" placeholder="Mother Name" />
+          <input
+            type="text"
+            placeholder="Father Name"
+            className="custom-border"
+          />
+          <input
+            type="text"
+            placeholder="Mother Name"
+            className="custom-border"
+          />
           <div className="cp-input-with-dropdown">
-            <select>
+            <select className="custom-border">
               <option value="" disabled selected hidden>
                 Gender*
               </option>
@@ -561,12 +595,16 @@ function personalDetailFields() {
         {/* Third Row */}
         <div className="cp-row">
           {/* <input type="text" placeholder="Date of Birth" /> */}
-          <input type="date" placeholder="Date of Birth*" />
-          <input type="text" placeholder="PAN" />
-          <input type="text" placeholder="AADHAR" />
-          <input type="text" placeholder="DIN" />
+          <input
+            type="date"
+            placeholder="Date of Birth*"
+            className="custom-border"
+          />
+          <input type="text" placeholder="PAN" className="custom-border" />
+          <input type="text" placeholder="AADHAR" className="custom-border" />
+          <input type="text" placeholder="DIN" className="custom-border" />
           <div className="cp-input-with-icon">
-            <input type="text" placeholder="State" />
+            <input type="text" placeholder="State" className="custom-border" />
             <i
               class="fa fa-search new-search-icon-inside-input"
               aria-hidden="true"
@@ -576,15 +614,25 @@ function personalDetailFields() {
         {/* Fourth Row */}
         <div className="cp-row">
           <div className="cp-input-with-icon">
-            <input type="text" placeholder="Nationality" />
+            <input
+              type="text"
+              placeholder="Nationality"
+              className="custom-border"
+            />
             <i
               class="fa fa-search new-search-icon-inside-input"
               aria-hidden="true"
             ></i>
           </div>
           <div className="cp-input-with-dropdown">
-            <select>
-              <option value="" disabled selected hidden>
+            <select className="custom-border">
+              <option
+                value=""
+                disabled
+                selected
+                hidden
+                className="custom-border"
+              >
                 Designation
               </option>
               <option value="type1">Type 1</option>
@@ -611,7 +659,7 @@ function BusinessLegalInfoComponent() {
     <div>
       {/* Bank Details */}
       <div className="bussinessLegalInformation">
-        <h3>Businesss Legal Information</h3>
+        <h3 style={{ color: "#A3184B" }}>Businesss Legal Information</h3>
         {businessLegalInfoFields()}
       </div>
     </div>
@@ -624,30 +672,67 @@ function businessLegalInfoFields() {
         {/* First Row */}
         <div className="cp-row">
           <div className="cp-input-with-icon">
-            <input type="text" placeholder="GST Number*" />
-            {/* class="fa fa-search new-search-icon-inside-input" //
-            aria-hidden="true" */}
-            {/* <i class="fa fa-check-circle-o" aria-hidden="true"></i> */}
+            <input
+              type="text"
+              placeholder="GST Number*"
+              className="customLegal-border"
+            />
           </div>
 
-          <input type="text" placeholder="Upload GST Certificate" />
-          <input type="text" placeholder="PAN*" />
-          <input type="text" placeholder="Upload PAN" />
+          <input
+            type="text"
+            placeholder="Upload GST Certificate"
+            className="customLegal-border"
+          />
+          <input
+            type="text"
+            placeholder="PAN*"
+            className="customLegal-border"
+          />
+          <input
+            type="text"
+            placeholder="Upload PAN"
+            className="customLegal-border"
+          />
         </div>
         {/* + add button */}
         {/* Second Row */}
         <div className="cp-row">
-          <input type="text" placeholder="CIN" />
-          <input type="text" placeholder="CIN Certificate.pdf" />
-          <input type="text" placeholder="TAN" />
-          <input type="text" placeholder="TAN Certificate.pdf" />
+          <input type="text" placeholder="CIN" className="customLegal-border" />
+          <input
+            type="text"
+            placeholder="CIN Certificate.pdf"
+            className="customLegal-border"
+          />
+          <input type="text" placeholder="TAN" className="customLegal-border" />
+          <input
+            type="text"
+            placeholder="TAN Certificate.pdf"
+            className="customLegal-border"
+          />
         </div>
         {/* Third Row */}
         <div className="cp-row">
-          <input type="text" placeholder="MSME" />
-          <input type="text" placeholder="MSME Certificate.pdf" />
-          <input type="text" placeholder="IE Code" />
-          <input type="text" placeholder="Upload IEC Certificate" />
+          <input
+            type="text"
+            placeholder="MSME"
+            className="customLegal-border"
+          />
+          <input
+            type="text"
+            placeholder="MSME Certificate.pdf"
+            className="customLegal-border"
+          />
+          <input
+            type="text"
+            placeholder="IE Code"
+            className="customLegal-border"
+          />
+          <input
+            type="text"
+            placeholder="Upload IEC Certificate"
+            className="customLegal-border"
+          />
         </div>
         {/* Fourth row */}
         <div className="cp-row">
@@ -690,7 +775,7 @@ function BankDetailsComponent() {
     <div>
       {/* Bank Details */}
       <div className="bankDetails">
-        <h3 color="#A666F8">Bank Account Details</h3>
+        <h3 style={{ color: "#A666F8" }}>Bank Account Details</h3>
         {bankDetailFields()}
       </div>
     </div>
@@ -703,12 +788,34 @@ function bankDetailFields() {
         {/* First Row */}
         <div className="cp-row">
           <div className="cp-input-with-icon mobile">
-            <span className="country-code">M/S.</span>
-            <input type="text" placeholder="Account Name" />
+            <div className="inputs-container">
+              <div className="chooseBank-container">
+                <select>
+                  <option value="miss">M/S</option>
+                  <option value="miss">Mr.</option>
+                  <option value="miss">Mrs.</option>
+                  <option value="miss">Dr.</option>
+                </select>
+                <span className="dropdown-icon"></span>
+              </div>
+              <input
+                type="text"
+                placeholder="Account Name"
+                className="customBank-border"
+              />
+            </div>
           </div>
-          <input type="text" placeholder="Account Number*" />
+          <input
+            type="text"
+            placeholder="Account Number*"
+            className="customBank-border"
+          />
           <div className="cp-input-with-icon">
-            <input type="text" placeholder="IFSC*" />
+            <input
+              type="text"
+              placeholder="IFSC*"
+              className="customBank-border"
+            />
             <i
               class="fa fa-search new-search-icon-inside-input"
               aria-hidden="true"
@@ -724,21 +831,29 @@ function bankDetailFields() {
             </div>
           </div>
           <div className="cp-input-with-icon">
-            <input type="text" placeholder="Bank Name*" />
+            <input
+              type="text"
+              placeholder="Bank Name*"
+              className="customBank-border"
+            />
             <i
               class="fa fa-search new-search-icon-inside-input"
               aria-hidden="true"
             ></i>
           </div>
           <div className="cp-input-with-icon">
-            <input type="text" placeholder="Branch Name" />
+            <input
+              type="text"
+              placeholder="Branch Name"
+              className="customBank-border"
+            />
             <i
               class="fa fa-search new-search-icon-inside-input"
               aria-hidden="true"
             ></i>
           </div>
           <div className="cp-input-with-dropdown">
-            <select>
+            <select className="customBank-border">
               <option value="" disabled selected hidden>
                 Account Type
               </option>
@@ -758,7 +873,11 @@ function bankDetailFields() {
         {/* Third Row */}
         <div className="cp-row">
           <div>
-            <input type="text" placeholder="UPI ID" />
+            <input
+              type="text"
+              placeholder="UPI ID"
+              className="customBank-border"
+            />
           </div>
         </div>
         <div className="cp-row">
@@ -783,7 +902,6 @@ function bankDetailFields() {
 }
 
 function ContactPersonsComponent() {
-
   // Function to handle file selection
   const handleFileUpload = (event, labelId) => {
     const file = event.target.files[0];
@@ -792,7 +910,7 @@ function ContactPersonsComponent() {
       document.getElementById(labelId).innerText = `uploaded successfully`;
     }
   };
-  
+
   return (
     <div className="cp-company-container">
       <div className="cp-column">
@@ -800,10 +918,18 @@ function ContactPersonsComponent() {
         <div className="cp-row">
           <div className="cp-input-with-icon mobile">
             <span className="country-code">Mrs</span>
-            <input type="text" placeholder="Person Name" />
+            <input
+              type="text"
+              placeholder="Person Name"
+              className="customContact-border"
+            />
           </div>
           <div className="cp-input-with-dropdown">
-            <input type="text" placeholder="Designation" />
+            <input
+              type="text"
+              placeholder="Designation"
+              className="customContact-border"
+            />
           </div>
           {/* add button */}
           <button className="button-container">
@@ -817,67 +943,111 @@ function ContactPersonsComponent() {
         <div className="cp-row">
           <div className="cp-input-with-icon mobile">
             <span className="country-code">+91</span>
-            <input type="text" placeholder="Mobile Number" />
+            <input
+              type="text"
+              placeholder="Mobile Number"
+              className="customContact-border"
+            />
           </div>
 
           <div className="cp-input-with-dropdown">
-            <input type="text" placeholder="Designation" />
+            <input
+              type="text"
+              placeholder="Designation"
+              className="customContact-border"
+            />
           </div>
 
           <div className="cp-input-with-icon mobile">
             <span className="country-code">0443</span>
-            <input type="text" placeholder="24816100" />
+            <input
+              type="text"
+              placeholder="24816100"
+              className="customContact-border"
+            />
           </div>
         </div>
 
         {/* Third Row */}
         <div className="cp-row">
-        <div>
-          <label>Digital signature</label>
-          {/* Hidden file input for digital signature */}
-          <input
-            type="file"
-            id="digital-signature-upload"
-            style={{ display: 'none' }}
-            onChange={(event) => handleFileUpload(event, 'digital-signature-label')}
-          />
-          {/* Label to show file upload success message */}
-          <label id="digital-signature-label" className="upload-success-msg"></label>
-          {/* Button to trigger file input */}
-          <button className="upload-dg0signature" onClick={() => document.getElementById('digital-signature-upload').click()}>
-            <i className="fa fa-upload" aria-hidden="true"></i>
-            upload digital signature
-          </button>
-        </div>
+          <div>
+            <label>Digital signature</label>
+            {/* Hidden file input for digital signature */}
+            <input
+              type="file"
+              id="digital-signature-upload"
+              style={{ display: "none" }}
+              onChange={(event) =>
+                handleFileUpload(event, "digital-signature-label")
+              }
+            />
+            {/* Label to show file upload success message */}
+            <label
+              id="digital-signature-label"
+              className="upload-success-msg"
+            ></label>
+            {/* Button to trigger file input */}
+            <button
+              className="upload-dg0signature"
+              onClick={() =>
+                document.getElementById("digital-signature-upload").click()
+              }
+            >
+              <i className="fa fa-upload" aria-hidden="true"></i>
+              upload digital signature
+            </button>
+          </div>
 
           <div>
-            <input type="text" placeholder="Name of the person" />
+            <input
+              type="text"
+              placeholder="Name of the person"
+              className="customContact-border"
+            />
           </div>
-          <input type="date" placeholder="DD/MM/YYYY" />
+          <input
+            type="date"
+            placeholder="DD/MM/YYYY"
+            className="customContact-border"
+          />
         </div>
 
         {/* Fourth row */}
         <div className="cp-row">
-        <div>
-          <label>Signature Image</label>
-          {/* Hidden file input for signature image */}
-          <input
-            type="file"
-            id="signature-image-upload"
-            style={{ display: 'none' }}
-            onChange={(event) => handleFileUpload(event, 'signature-image-label')}
-          />
-          {/* Label to show file upload success message */}
-          <label id="signature-image-label" className="upload-success-msg"></label>
-          {/* Button to trigger file input */}
-          <button className="upload-dg0signature" onClick={() => document.getElementById('signature-image-upload').click()}>
-            <i className="fa fa-upload" aria-hidden="true"></i>
-            upload signature image
-          </button>
-        </div>
+          <div>
+            <label>Signature Image</label>
+            {/* Hidden file input for signature image */}
+            <input
+              type="file"
+              id="signature-image-upload"
+              style={{ display: "none" }}
+              onChange={(event) =>
+                handleFileUpload(event, "signature-image-label")
+              }
+            />
+            {/* Label to show file upload success message */}
+            <label
+              id="signature-image-label"
+              className="upload-success-msg"
+            ></label>
+            {/* Button to trigger file input */}
+            <button
+              className="upload-dg0signature"
+              onClick={() =>
+                document.getElementById("signature-image-upload").click()
+              }
+            >
+              <i className="fa fa-upload" aria-hidden="true"></i>
+              upload signature image
+            </button>
+          </div>
 
           <div>
-            <input type="text" placeholder="Name of the person" />
+            <input
+              type="text"
+              placeholder="Name of the person"
+              className="customContact-border"
+            />
           </div>
         </div>
 
@@ -895,7 +1065,12 @@ function ContactPersonsComponent() {
           </div>
 
           <div>
-            <input class="sample-sign" type="text" placeholder="Sample image" />
+            <input
+              class="sample-sign"
+              type="text"
+              placeholder="Sample image"
+              className="customContact-border"
+            />
           </div>
         </div>
 
@@ -1011,11 +1186,6 @@ function ContactPersonsComponent() {
   //     </div>
   // );
 }
-
-
-
-
-
 
 function FooterButtons() {
   return (
