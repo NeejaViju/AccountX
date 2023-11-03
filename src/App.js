@@ -406,10 +406,10 @@ function addressFields(setIsAddressFormVisible) {
           <div className="cp-input-with-dropdown">
             <select>
               <option value="" disabled selected hidden>
-                Address Type
+                Address Type*
               </option>
-              <option value="type1">Office address</option>
-              <option value="type2">Principle place of Business</option>
+              <option value="type1">Office Address/Principle Place of Business</option>
+              <option value="type2">Type 2</option>
               <option value="type3">Type 3</option>
             </select>
             <button
@@ -431,7 +431,7 @@ function addressFields(setIsAddressFormVisible) {
           <div className="cp-input-with-dropdown">
             <select>
               <option value="" disabled selected hidden>
-                select branch
+                Select Branch
               </option>
               <option value="type1">Type 1</option>
               <option value="type2">Type 2</option>
@@ -540,7 +540,7 @@ function personalDetailFields() {
             <div className="inputs-container">
               <div className="choosePersonal-container">
                 <select>
-                  <option value="miss">M/S</option>
+                  <option value="miss">Miss</option>
                   <option value="miss">Mr.</option>
                   <option value="miss">Mrs.</option>
                   <option value="miss">Dr.</option>
@@ -550,7 +550,7 @@ function personalDetailFields() {
             </div>
             <input
               type="text"
-              placeholder="Account Name"
+              placeholder="Account Name*"
               className="custom-border"
             />
           </div>
@@ -659,7 +659,7 @@ function BusinessLegalInfoComponent() {
     <div>
       {/* Bank Details */}
       <div className="bussinessLegalInformation">
-        <h3 style={{ color: "#A3184B" }}>Businesss Legal Information</h3>
+        <h3 style={{ color: "#A3184B" }}>Business Legal Information</h3>
         {businessLegalInfoFields()}
       </div>
     </div>
@@ -791,7 +791,7 @@ function bankDetailFields() {
             <div className="inputs-container">
               <div className="chooseBank-container">
                 <select>
-                  <option value="miss">M/S</option>
+                  <option value="miss">M/s.</option>
                   <option value="miss">Mr.</option>
                   <option value="miss">Mrs.</option>
                   <option value="miss">Dr.</option>
@@ -800,7 +800,7 @@ function bankDetailFields() {
               </div>
               <input
                 type="text"
-                placeholder="Account Name"
+                placeholder="Account Name*"
                 className="customBank-border"
               />
             </div>
@@ -917,10 +917,10 @@ function ContactPersonsComponent() {
         {/* First Row */}
         <div className="cp-row">
           <div className="cp-input-with-icon mobile">
-            <span className="country-code">Mrs</span>
+            <span className="country-code">Mrs.</span>
             <input
               type="text"
-              placeholder="Person Name"
+              placeholder="Person Name*"
               className="customContact-border"
             />
           </div>
@@ -945,7 +945,7 @@ function ContactPersonsComponent() {
             <span className="country-code">+91</span>
             <input
               type="text"
-              placeholder="Mobile Number"
+              placeholder="Mobile Number*"
               className="customContact-border"
             />
           </div>
@@ -953,7 +953,7 @@ function ContactPersonsComponent() {
           <div className="cp-input-with-dropdown">
             <input
               type="text"
-              placeholder="Designation"
+              placeholder="Email ID"
               className="customContact-border"
             />
           </div>
@@ -971,7 +971,7 @@ function ContactPersonsComponent() {
         {/* Third Row */}
         <div className="cp-row">
           <div>
-            <label>Digital signature</label>
+            <label>Digital Signature</label>
             {/* Hidden file input for digital signature */}
             <input
               type="file"
@@ -994,14 +994,14 @@ function ContactPersonsComponent() {
               }
             >
               <i className="fa fa-upload" aria-hidden="true"></i>
-              upload digital signature
+              Upload Digital Signature
             </button>
           </div>
 
           <div>
             <input
               type="text"
-              placeholder="Name of the person"
+              placeholder="Name of the Person"
               className="customContact-border"
             />
           </div>
@@ -1038,7 +1038,7 @@ function ContactPersonsComponent() {
               }
             >
               <i className="fa fa-upload" aria-hidden="true"></i>
-              upload signature image
+              Upload Signature Image
             </button>
           </div>
 
@@ -1061,14 +1061,14 @@ function ContactPersonsComponent() {
           </div>
 
           <div>
-            <label>Signature Image</label>
+            <label>Set as Signing Person</label>
           </div>
 
           <div>
             <input
               class="sample-sign"
               type="text"
-              placeholder="Sample image"
+              placeholder="Sample Sign"
               className="customContact-border"
             />
           </div>
@@ -1084,7 +1084,7 @@ function ContactPersonsComponent() {
         {/* seventh row */}
         <div className="cp-row">
           <div>
-            <label>Signature Image</label>
+            <label>Digital Signature</label>
           </div>
           <div>
             <label class="container">
