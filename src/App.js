@@ -403,8 +403,8 @@ function addressFields(setIsAddressFormVisible) {
       <div className="cp-column">
         {/* First Row */}
         <div className="cp-row">
-          <div className="cp-input-with-dropdown">
-            <select>
+       <div className="cp-input-with-dropdown">
+            <select className="address-border">
               <option value="" disabled selected hidden>
                 Address Type*
               </option>
@@ -429,7 +429,7 @@ function addressFields(setIsAddressFormVisible) {
             </div>
           </button>
           <div className="cp-input-with-dropdown">
-            <select>
+            <select className="address-border">
               <option value="" disabled selected hidden>
                 Select Branch
               </option>
@@ -448,7 +448,7 @@ function addressFields(setIsAddressFormVisible) {
             </div>
           </button>
           <div className="cp-input-with-dropdown">
-            <select>
+            <select className="address-border">
               <option value="" disabled selected hidden>
                 Unit/Division
               </option>
@@ -470,44 +470,44 @@ function addressFields(setIsAddressFormVisible) {
 
         {/* Second Row */}
         <div className="cp-row">
-          <input type="text" placeholder="Door No*" />
-          <input type="text" placeholder="Building Name" />
-          <input type="text" placeholder="Street Name*" />
-          <input type="text" placeholder="Area/Taluk*" />
+          <input type="text" placeholder="Door No*" className="address-border"/>
+          <input type="text" placeholder="Building Name" className="address-border"/>
+          <input type="text" placeholder="Street Name*" className="address-border"/>
+          <input type="text" placeholder="Area/Taluk*" className="address-border"/>
         </div>
 
         {/* Third Row */}
         <div className="cp-row">
-          <input type="text" placeholder="City*" />
+          <input type="text" placeholder="City*" className="address-border" />
           <div className="cp-input-with-icon">
-            <input type="text" placeholder="State*" />
+            <input type="text" placeholder="State*" className="address-border"/>
             <i
               class="fa fa-search new-search-icon-inside-input"
               aria-hidden="true"
             ></i>
           </div>
           <div className="cp-input-with-icon">
-            <input type="text" placeholder="District*" />
+            <input type="text" placeholder="District*" className="address-border"/>
             <i
               class="fa fa-search new-search-icon-inside-input"
               aria-hidden="true"
             ></i>
           </div>
-          <input type="text" placeholder="PIN Code*" />
+          <input type="text" placeholder="PIN Code*" className="address-border"/>
         </div>
 
         {/* Fourth row */}
         <div className="cp-row">
           <div className="cp-input-with-icon">
-            <input type="text" placeholder="Country*" />
+            <input type="text" placeholder="Country*" className="address-border" />
             <i
               class="fa fa-search new-search-icon-inside-input"
               aria-hidden="true"
             ></i>
           </div>
-          <input type="text" placeholder="GST Number*" />
+          <input type="text" placeholder="GST Number*" className="address-border"/>
           <div className="cp-input-with-icon">
-            <input type="text" placeholder="Place of Supply*" />
+            <input type="text" placeholder="Place of Supply*" className="address-border" />
             <i
               class="fa fa-search new-search-icon-inside-input"
               aria-hidden="true"
@@ -613,17 +613,14 @@ function personalDetailFields() {
         </div>
         {/* Fourth Row */}
         <div className="cp-row">
-          <div className="cp-input-with-icon">
-            <input
-              type="text"
-              placeholder="Nationality"
-              className="custom-border"
-            />
+          <div className="cp-input-with-icon" >
+            <input type="text" placeholder="Nationality" className="custom-border" /> 
             <i
-              class="fa fa-search new-search-icon-inside-input"
-              aria-hidden="true"
+               class="fa fa-search new-search-icon-inside-input"
+              aria-hidden="true" 
             ></i>
-          </div>
+           </div>
+        
           <div className="cp-input-with-dropdown">
             <select className="custom-border">
               <option
