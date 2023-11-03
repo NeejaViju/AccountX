@@ -3,7 +3,8 @@ import "./App.css";
 import "font-awesome/css/font-awesome.min.css";
 import "./style/AddressTypeForm.css";
 import "./style/ButtonList.css";
-import uploadIcon from './icons/Upload-Icon-Logo-PNG-Photos.png';
+import uploadIcon from './icons/Icon feather-upload@2x.png';
+import { AddUnitDivision, AddressTypeForm, AddNewBranch } from './formComponents/unitdivison';
 
 
 // import 'bootstrap/dist/css/bootstrap.min.css';
@@ -117,10 +118,10 @@ function MainContent() {
       <CompanyProfile />
       <MenuBar />
       <ButtonList />
-      <AddressTypeForm />
-      <AddressTypeForm />
-      <FormContainer />
-      <AddUnitDivision />
+      <AddUnitDivision/>
+      <AddressTypeForm/>
+      <AddNewBranch/>
+      
       {/* <AddressBranchForm/> */}
       {/* <Addresses />
       <PersonalDetails />
@@ -237,18 +238,22 @@ function CompanyProfile() {
         onChange={handleLogoUpload}
         style={{ display: 'none' }}
       />
+     
       <button className="upload-btn" onClick={() => fileInputRef.current.click()}>
-        {/* Insert your SVG here */}
-        <img src={uploadIcon} alt="Upload" style={{ width: '45px', height: '45px' }} />
-
-        Upload Logo
-      </button>
+  <i class="fa fa-apple" aria-hidden="true"></i> {/* Apple logo */}
+  <div className="upload-section"> {/* Wrap upload icon and text */}
+    <img src={uploadIcon} alt="Upload" style={{ width: '20px', height: '20px' }} />
+    Upload Logo
+  </div>
+</button>
     </div>
   )}
 </div>
         </div>
   );
 }
+
+
 //button list
 const ButtonList = () => {
   return (
@@ -778,6 +783,16 @@ function bankDetailFields() {
 }
 
 function ContactPersonsComponent() {
+
+  // Function to handle file selection
+  const handleFileUpload = (event, labelId) => {
+    const file = event.target.files[0];
+    if (file) {
+      // Show the uploaded file name (or any other success message) in the label
+      document.getElementById(labelId).innerText = `uploaded successfully`;
+    }
+  };
+  
   return (
     <div className="cp-company-container">
       <div className="cp-column">
@@ -817,12 +832,23 @@ function ContactPersonsComponent() {
 
         {/* Third Row */}
         <div className="cp-row">
-          <div>
-            <label>Digital signature</label>
-            <button class="upload-dg0signature">
-              upload digital signature
-            </button>
-          </div>
+        <div>
+          <label>Digital signature</label>
+          {/* Hidden file input for digital signature */}
+          <input
+            type="file"
+            id="digital-signature-upload"
+            style={{ display: 'none' }}
+            onChange={(event) => handleFileUpload(event, 'digital-signature-label')}
+          />
+          {/* Label to show file upload success message */}
+          <label id="digital-signature-label" className="upload-success-msg"></label>
+          {/* Button to trigger file input */}
+          <button className="upload-dg0signature" onClick={() => document.getElementById('digital-signature-upload').click()}>
+            <i className="fa fa-upload" aria-hidden="true"></i>
+            upload digital signature
+          </button>
+        </div>
 
           <div>
             <input type="text" placeholder="Name of the person" />
@@ -832,12 +858,23 @@ function ContactPersonsComponent() {
 
         {/* Fourth row */}
         <div className="cp-row">
-          <div>
-            <label>Signature Image</label>
-            <button class="upload-dg0signature">
-              upload digital signature
-            </button>
-          </div>
+        <div>
+          <label>Signature Image</label>
+          {/* Hidden file input for signature image */}
+          <input
+            type="file"
+            id="signature-image-upload"
+            style={{ display: 'none' }}
+            onChange={(event) => handleFileUpload(event, 'signature-image-label')}
+          />
+          {/* Label to show file upload success message */}
+          <label id="signature-image-label" className="upload-success-msg"></label>
+          {/* Button to trigger file input */}
+          <button className="upload-dg0signature" onClick={() => document.getElementById('signature-image-upload').click()}>
+            <i className="fa fa-upload" aria-hidden="true"></i>
+            upload signature image
+          </button>
+        </div>
 
           <div>
             <input type="text" placeholder="Name of the person" />
@@ -975,84 +1012,6 @@ function ContactPersonsComponent() {
   // );
 }
 
-function AddressTypeForm() {
-  return (
-    <div className="address-form-container">
-      <div className="title-bar">Add New Address Type</div>
-      <input type="text" placeholder="Address Name" className="address-input" />
-      <select className="address-select">
-        <option value="" disabled selected>
-          Under
-        </option>
-        {/* Additional options can be added here */}
-      </select>
-      <div className="address-btn-container">
-        <button className="btn-save">
-          <i className="fa fa-floppy-o" aria-hidden="true"></i>
-          Save
-        </button>
-        <button className="btn-cancel">
-          <i className="fa fa-times" aria-hidden="true"></i>
-          Cancel
-        </button>
-      </div>
-    </div>
-  );
-}
-
-function FormContainer() {
-  return (
-    <div className="form-container">
-      <div className="form-title-bar">Add new branch</div>
-      <input type="text" placeholder="Branch Name" className="form-input" />
-      <select className="form-select">
-        <option value="" disabled selected>
-          Under
-        </option>
-        {/* Additional options can be added here */}
-      </select>
-      <div className="form-btn-container">
-        <button className="btn-save">
-          <i className="fa fa-floppy-o" aria-hidden="true"></i>
-          Save
-        </button>
-        <button className="btn-cancel">
-          <i className="fa fa-times" aria-hidden="true"></i>
-          Cancel
-        </button>
-      </div>
-    </div>
-  );
-}
-
-function AddUnitDivision() {
-  return (
-    <div className="unit-division-container">
-      <div className="unit-division-title-bar">Add Unit Division</div>
-      <input
-        type="text"
-        placeholder="Unit/division"
-        className="unit-division-input"
-      />
-      <select className="unit-division-select">
-        <option value="" disabled selected>
-          Under
-        </option>
-        {/* Additional options can be added here */}
-      </select>
-      <div className="unit-division-btn-container">
-        <button className="btn-save">
-          <i className="fa fa-floppy-o" aria-hidden="true"></i>
-          Save
-        </button>
-        <button className="btn-cancel">
-          <i className="fa fa-times" aria-hidden="true"></i>
-          Cancel
-        </button>
-      </div>
-    </div>
-  );
-}
 
 
 

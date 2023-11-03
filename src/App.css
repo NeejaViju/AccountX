@@ -116,14 +116,49 @@ h3 {
   margin: auto;
 }
 
-.upload-btn {
-  background-color: #ffffff; /* Change to your desired color */
+.upload-btn  {
+  display: flex;
+  flex-direction: column; /* Stack the elements vertically */
+  align-items: center; /* Center-align them horizontally */
+  margin-top: 8px; /* Add some spacing between the Apple logo and upload section */
+  background-color: white !important;
   border: none;
-  padding: 20px 20px;
-  cursor: pointer;
- 
 }
 
+.upload-section{
+  display: flex;
+  flex-direction: column; /* Stack the elements vertically */
+  align-items: center; /* Center-align them horizontally */
+}
+.upload-btn img {
+  margin-bottom: 5px; /* Add some spacing between the upload icon and the text */
+  margin-top: 5px;
+  margin-right: 3px;
+}
+
+.upload-btn:hover {
+  color: #00a7cf;
+}
+
+.upload-btn i {
+  margin-right: 8px; /* Adds some space between the icon and text */
+}
+
+/* If you need to adjust the alignment of the icon, you might add something like this: */
+.upload-btn i {
+  vertical-align: middle;
+}
+
+.fa-apple:before {
+  content: "\f179";
+  font-size: 60px;
+  color: #B4B4B4;
+}
+
+.upload-btn i.fab.fa-apple {
+  font-size: 24px; /* Adjust this value to your desired size */
+  margin-right: 8px; /* Adjust spacing between the apple icon and the next icon */
+}
 
 .cp-company-container {
   display: flex;
@@ -608,7 +643,16 @@ input {
 
 
 /*contact person*/
-.upload-dg0signature{margin-left: 10px;
+
+.upload-success-msg {
+  margin-left: 8px;
+  margin-top: 8px;
+  font-size: 0.8em;
+  color: green;
+}
+
+.upload-dg0signature{
+  margin-left: 0px;
   background-color: #5C5831;
   color: white;
   border: none;
@@ -677,7 +721,7 @@ input {
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 4px;
-  margin-left: 141px;
+  margin-left: 154px;
   margin-top: 14px;
 }
 
