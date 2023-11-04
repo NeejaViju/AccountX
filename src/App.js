@@ -346,79 +346,39 @@ function MenuBar() {
 }
 
 function AddressesComponent() {
-  const [isAddressFormVisible, setIsAddressFormVisible] = useState(false);
-
   return (
     <div>
       {/* Registered Office Address */}
       <div className="registeredOfficeAddress">
         <h3>Registered Office Address</h3>
-        {addressFields(setIsAddressFormVisible)}
+        {addressFields()}
       </div>
 
       {/* Branch Office Address */}
       <div className="branchAddresses">
         <h3>Branch Office Address</h3>
-        {addressFields(setIsAddressFormVisible)}
+        {addressFields()}
       </div>
-
-      {isAddressFormVisible && (
-        <div className="address-form-container">
-          <div className="title-bar">Add New Address Type</div>
-          <input
-            type="text"
-            placeholder="Address Name"
-            className="address-input"
-          />
-          <select className="address-select">
-            <option value="" disabled selected>
-              Under
-            </option>
-            {/* Additional options can be added here */}
-          </select>
-          <div className="address-btn-container">
-            <button className="btn-save">
-              <i className="fa fa-floppy-o" aria-hidden="true"></i>
-              Save
-            </button>
-            <button className="btn-cancel">
-              <i className="fa fa-times" aria-hidden="true"></i>
-              Cancel
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
 
-function addressFields(setIsAddressFormVisible) {
-  const showAddressForm = () => {
-    console.log("Button clicked");
-    setIsAddressFormVisible(true);
-  };
-
+function addressFields() {
   return (
     <div className="cp-company-container">
       <div className="cp-column">
         {/* First Row */}
         <div className="cp-row">
-       <div className="cp-input-with-dropdown">
+          <div className="cp-input-with-dropdown">
             <select className="address-border">
               <option value="" disabled selected hidden>
                 Address Type*
               </option>
-              <option value="type1">Office Address/Principle Place of Business</option>
+              <option value="type1">Office Address/Principal Place of Business</option>
               <option value="type2">Type 2</option>
               <option value="type3">Type 3</option>
             </select>
-            <button
-              className="dropdown-icon-right"
-              onClick={() => {
-                console.log("Inline click");
-                setIsAddressFormVisible(true);
-              }}
-            >
+            <button className="dropdown-icon-right">
               <i className="fa fa-chevron-down"></i>
             </button>
           </div>
