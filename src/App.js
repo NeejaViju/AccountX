@@ -193,9 +193,9 @@ function CompanyProfile() {
       <div className="cp-column">
         {/* First Row */}
         <div className="cp-row">
-          <input type="text" placeholder="GST Number*" />
+          <input type="text" placeholder="GST Number*" className="address-border" />
           <div className="cp-input-with-dropdown">
-            <select>
+            <select className="address-border">
               <option value="" disabled selected hidden>
                 Company Type*
               </option>
@@ -208,24 +208,24 @@ function CompanyProfile() {
             </button>
           </div>
 
-          <input type="text" placeholder="Company ID" />
+          <input type="text" placeholder="Company ID" className="address-border" /> 
         </div>
 
         {/* Second Row */}
         <div className="cp-row">
-          <input type="text" placeholder="Business Trade Name*" />
-          <input type="text" placeholder="Business Legal Name*" />
+          <input type="text" placeholder="Business Trade Name*" className="address-border" />
+          <input type="text" placeholder="Business Legal Name*" className="address-border" />
         </div>
 
         {/* Third Row */}
         <div className="cp-row">
           <div className="cp-input-with-icon mobile">
             <span className="country-code">+91</span>
-            <input type="text" placeholder="Mobile Number*" />
+            <input type="text" placeholder="Mobile Number*"  className="address-border"/>
           </div>
-          <input type="email" placeholder="Business Email*" />
+          <input type="email" placeholder="Business Email*" className="address-border"/>
           <div className="cp-input-with-icon">
-            <input type="text" placeholder="Industry" />
+            <input type="text" placeholder="Industry" className="address-border"/>
             <i
               className="fa fa-search new-search-icon-inside-input"
               aria-hidden="true"
@@ -899,6 +899,17 @@ function bankDetailFields() {
 }
 
 function ContactPersonsComponent() {
+  return (
+    <div>
+      {/* Contact Details */}
+      <div className="contactDetails">
+        <h3 style={{ color: "#5C5831" }}>Signing & ContactPerson</h3>
+        {contactPersonDetailFields()}
+      </div>
+    </div>
+  );
+}
+function contactPersonDetailFields() {
   // Function to handle file selection
   const handleFileUpload = (event, labelId) => {
     const file = event.target.files[0];
