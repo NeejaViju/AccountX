@@ -479,8 +479,8 @@ function addressFields(setIsAddressFormVisible) {
         {/* Third Row */}
         <div className="cp-row">
           <input type="text" placeholder="City*" className="address-border" />
-          <div className="cp-input-with-icon">
-            <input type="text" placeholder="State*" className="address-border"/>
+            <div className="cp-input-with-icon">
+            <input type="text" placeholder="State*" className="search-border" />
             <i
               class="fa fa-search new-search-icon-inside-input"
               aria-hidden="true"
@@ -903,7 +903,7 @@ function ContactPersonsComponent() {
     <div>
       {/* Contact Details */}
       <div className="contactDetails">
-        <h3 style={{ color: "#5C5831" }}>Signing & ContactPerson</h3>
+        <h3 style={{ color: "#5C5831" }}>Signing & Contact Person</h3>
         {contactPersonDetailFields()}
       </div>
     </div>
