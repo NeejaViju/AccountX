@@ -122,7 +122,7 @@ function MainContent() {
       <MenuBar />
       <ButtonList />
       <AddUnitDivision />
-      <AddressTypeForm />
+      {/* <AddressTypeForm /> */}
       <AddNewBranch />
 
       {/* <AddressBranchForm/> */}
@@ -351,19 +351,28 @@ function AddressesComponent() {
       {/* Registered Office Address */}
       <div className="registeredOfficeAddress">
         <h3>Registered Office Address</h3>
-        {addressFields()}
+        {AddressFields()}
       </div>
 
       {/* Branch Office Address */}
       <div className="branchAddresses">
         <h3>Branch Office Address</h3>
-        {addressFields()}
+        {AddressFields()}
       </div>
     </div>
   );
 }
 
-function addressFields() {
+function AddressFields() {
+  const [isAddressTypeFormVisible, setAddressTypeFormVisible] = useState(
+    false
+  );
+
+  // Function to toggle the visibility of AddressTypeForm
+  const toggleAddressTypeForm = () => {
+    setAddressTypeFormVisible(!isAddressTypeFormVisible);
+  };
+
   return (
     <div className="cp-company-container">
       <div className="cp-column">
@@ -383,11 +392,12 @@ function addressFields() {
             </button>
           </div>
           {/* add button */}
-          <button className="button-container">
+          <button className="button-container" onClick={toggleAddressTypeForm}>
             <div className="add-plus-container">
               <i className="fa fa-plus-circle" aria-hidden="true"></i>
             </div>
           </button>
+          {isAddressTypeFormVisible && <AddressTypeForm toggleForm={toggleAddressTypeForm} />}
           <div className="cp-input-with-dropdown">
             <select className="address-border">
               <option value="" disabled selected hidden>
