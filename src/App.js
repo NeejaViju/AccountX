@@ -8,6 +8,8 @@ import {
   AddUnitDivision,
   AddressTypeForm,
   AddNewBranch,
+  AddNewDesignation,
+  AddAccountType
 } from "./formComponents/unitdivison";
 
 // import 'bootstrap/dist/css/bootstrap.min.css';
@@ -121,9 +123,9 @@ function MainContent() {
       <CompanyProfile />
       <MenuBar />
       <ButtonList />
-      <AddUnitDivision />
+      {/* <AddUnitDivision /> */}
       {/* <AddressTypeForm /> */}
-      <AddNewBranch />
+      {/* <AddNewBranch /> */}
 
       {/* <AddressBranchForm/> */}
       {/* <Addresses />
@@ -364,13 +366,18 @@ function AddressesComponent() {
 }
 
 function AddressFields() {
-  const [isAddressTypeFormVisible, setAddressTypeFormVisible] = useState(
-    false
-  );
+  const [selectedComponent, setSelectedComponent] = useState(null);
 
-  // Function to toggle the visibility of AddressTypeForm
-  const toggleAddressTypeForm = () => {
-    setAddressTypeFormVisible(!isAddressTypeFormVisible);
+  const handleFormClick = (e) => {
+    e.stopPropagation();
+  };
+
+  const toggleComponent = (componentName) => {
+    if (selectedComponent === componentName) {
+      setSelectedComponent(null); // Hide the component if it's already visible
+    } else {
+      setSelectedComponent(componentName); // Show the selected component
+    }
   };
 
   return (
@@ -392,12 +399,18 @@ function AddressFields() {
             </button>
           </div>
           {/* add button */}
-          <button className="button-container" onClick={toggleAddressTypeForm}>
+          <button className="button-container" onClick={() => toggleComponent("Component1")}>
             <div className="add-plus-container">
               <i className="fa fa-plus-circle" aria-hidden="true"></i>
             </div>
           </button>
-          {isAddressTypeFormVisible && <AddressTypeForm toggleForm={toggleAddressTypeForm} />}
+          
+          {/* Render the component conditionally */}
+          {selectedComponent === "Component1" && (
+          <div onClick={handleFormClick}>
+            <AddressTypeForm />
+          </div>
+        )}
           <div className="cp-input-with-dropdown">
             <select className="address-border">
               <option value="" disabled selected hidden>
@@ -412,11 +425,18 @@ function AddressFields() {
             </button>
           </div>
           {/* add button */}
-          <button className="button-container">
+          <button className="button-container"  onClick={() => toggleComponent("Component2")}>
             <div className="add-plus-container">
               <i className="fa fa-plus-circle" aria-hidden="true"></i>
             </div>
           </button>
+          {/* Render the component conditionally */}
+        {selectedComponent === "Component2" && (
+          <div onClick={handleFormClick}>
+            <AddNewBranch />
+          </div>
+        )}
+
           <div className="cp-input-with-dropdown">
             <select className="address-border">
               <option value="" disabled selected hidden>
@@ -431,11 +451,19 @@ function AddressFields() {
             </button>
           </div>
           {/* add button */}
-          <button className="button-container">
+          <button className="button-container" onClick={() => toggleComponent("Component3")}>
             <div className="add-plus-container">
               <i className="fa fa-plus-circle" aria-hidden="true"></i>
             </div>
           </button>
+
+          {/* Render the component conditionally */}
+        {selectedComponent === "Component3" && (
+          <div onClick={handleFormClick}>
+            <AddUnitDivision />
+          </div>
+        )}
+
         </div>
 
         {/* Second Row */}
@@ -490,17 +518,33 @@ function AddressFields() {
 }
 
 function PersonalDetailsComponent() {
+
+  
   return (
     <div>
       {/* Personal Details */}
       <div className="personalDetails">
         <h3 style={{ color: "#9B660E" }}>Personal Details</h3>
-        {personalDetailFields()}
+        {PersonalDetailFields()}
       </div>
     </div>
   );
 }
-function personalDetailFields() {
+function PersonalDetailFields() {
+
+  const [selectedComponent, setSelectedComponent] = useState(null);
+
+  const handleFormClick = (e) => {
+    e.stopPropagation();
+  };
+
+  const toggleComponent = (componentName) => {
+    if (selectedComponent === componentName) {
+      setSelectedComponent(null); // Hide the component if it's already visible
+    } else {
+      setSelectedComponent(componentName); // Show the selected component
+    }
+  };
   return (
     <div className="cp-company-container">
       <div className="cp-column">
@@ -610,11 +654,18 @@ function personalDetailFields() {
             </button>
           </div>
           {/* add button */}
-          <button className="add-button-container">
+          <button className="add-button-container" onClick={() => toggleComponent("Component4")}>
             <div className="add-plus-container">
               <i className="fa fa-plus-circle" aria-hidden="true"></i>
             </div>
           </button>
+
+          {selectedComponent === "Component4" && (
+          <div onClick={handleFormClick}>
+            <AddNewDesignation />
+          </div>
+        )}
+
         </div>
       </div>
     </div>
@@ -743,12 +794,26 @@ function BankDetailsComponent() {
       {/* Bank Details */}
       <div className="bankDetails">
         <h3 style={{ color: "#A666F8" }}>Bank Account Details</h3>
-        {bankDetailFields()}
+        {BankDetailFields()}
       </div>
     </div>
   );
 }
-function bankDetailFields() {
+function BankDetailFields() {
+
+  const [selectedComponent, setSelectedComponent] = useState(null);
+
+  const handleFormClick = (e) => {
+    e.stopPropagation();
+  };
+
+  const toggleComponent = (componentName) => {
+    if (selectedComponent === componentName) {
+      setSelectedComponent(null); // Hide the component if it's already visible
+    } else {
+      setSelectedComponent(componentName); // Show the selected component
+    }
+  };
   return (
     <div className="cp-company-container">
       <div className="cp-column">
@@ -831,11 +896,17 @@ function bankDetailFields() {
               <i className="fa fa-chevron-down"></i>
             </button>
           </div>
-          <button className="button-container">
+          <button className="button-container" onClick={() => toggleComponent("Component5")}>
             <div className="add-plus-container">
               <i className="fa fa-plus-circle" aria-hidden="true"></i>
             </div>
           </button>
+          {selectedComponent === "Component5" && (
+          <div onClick={handleFormClick}>
+            <AddAccountType />
+          </div>
+        )}
+
         </div>
         {/* Third Row */}
         <div className="cp-row">
@@ -869,17 +940,33 @@ function bankDetailFields() {
 }
 
 function ContactPersonsComponent() {
+
+ 
   return (
     <div>
       {/* Contact Details */}
       <div className="contactDetails">
         <h3 style={{ color: "#5C5831" }}>Signing & Contact Person</h3>
-        {contactPersonDetailFields()}
+        {ContactPersonDetailFields()}
       </div>
     </div>
   );
 }
-function contactPersonDetailFields() {
+function ContactPersonDetailFields() {
+
+  const [selectedComponent, setSelectedComponent] = useState(null);
+
+  const handleFormClick = (e) => {
+    e.stopPropagation();
+  };
+
+  const toggleComponent = (componentName) => {
+    if (selectedComponent === componentName) {
+      setSelectedComponent(null); // Hide the component if it's already visible
+    } else {
+      setSelectedComponent(componentName); // Show the selected component
+    }
+  };
   // Function to handle file selection
   const handleFileUpload = (event, labelId) => {
     const file = event.target.files[0];
@@ -910,11 +997,18 @@ function contactPersonDetailFields() {
             />
           </div>
           {/* add button */}
-          <button className="button-container">
+          <button className="button-container" onClick={() => toggleComponent("Component6")}>
             <div className="add-plus-container">
               <i className="fa fa-plus-circle" aria-hidden="true"></i>
             </div>
           </button>
+
+          {selectedComponent === "Component6" && (
+          <div onClick={handleFormClick}>
+            <AddNewDesignation />
+          </div>
+        )}
+
         </div>
 
         {/* Second Row */}
