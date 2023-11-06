@@ -512,85 +512,99 @@ input {
 /* General styling for the navbar */
 .new-navbar {
   display: flex;
-  align-items: center;
+  align-items: stretch; /* changed to stretch to make items fill the height */
   background-color: #00a7cf;
-  padding: 10px;
+  padding: 0; /* removed padding to allow items to stretch to the top and bottom */
   color: white;
   width: 100%;
   box-sizing: border-box;
 }
 
-/* Logo placeholder */
 .new-logo {
-  flex-shrink: 11;
-  width: 240px;
-  height: 19px;
+  width: 220px;
+  height: 56px;
+  background-color: #93cedd;
+  border-radius: 0;
+  margin-right: 20px;
+  padding: 0 15px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #93cedd;
-  border-radius: 5px;
-  margin-right: 20px;
-  padding: 10px 0;
+  flex-grow: 0;
+  flex-shrink: 0;
+  font-size: 24px;
 }
 
-/* Icon containers */
 .icon-container {
-  flex-shrink: 0;
   display: flex;
   align-items: center;
-  position: relative; /* To place search icon inside the input box */
+  position: relative; /* to place the search icon inside the input box */
   margin-right: 15px;
 }
 
-/* Search icon inside input box */
 .new-search-icon-inside-input {
   position: absolute;
   right: 10px;
   top: 50%;
   transform: translateY(-50%);
   z-index: 1;
-  color: grey; /* Set the color to grey */
-  background-color: transparent; /* Ensuring that the icon doesn't have any background */
+  color: grey;
+  background-color: transparent; /* ensuring the icon doesn't have any background */
 }
 
+/* keeping the rest of your individual icon styles unchanged */
 
-/* Individual icons */
-.new-add-icon,
-.new-bell-icon,
-.new-cog-icon,
-.new-bars-icon {
-  font-size: 20px;
-  margin-right: 10px;
+.new-add-icon-container {
+  margin-right: 10px; /* adjusted margin */
 }
 
-/* Search input */
 .new-search-input {
-  padding: 10px 30px 10px 10px;
-  border-radius: 5px;
+  padding: 10px 10px 10px 30px; /* adjusted padding for search icon */
+  border-radius: 0; /* removed border-radius */
   border: none;
   outline: none;
-  width: 500px;
+  width: 100%; /* adjusted width to use available space */
+  flex-grow: 1; /* added to fill the space in flex container */
 }
-/* Profile dropdown and container */
+
 .new-profile-container {
   display: flex;
   align-items: center;
-  flex-grow: 1;
   justify-content: flex-end;
+  flex-grow: 1; /* added to make sure it takes up remaining space */
 }
 
 .new-profile-dropdown {
   background-color: white;
   border: none;
-  padding: 10px;
+  padding: 10px 10px; /* adjusted padding */
   margin-right: 10px;
   color: #00a7cf;
   font-size: 16px;
   cursor: pointer;
-  border-radius: 5px;
-  width: 306px;
+  border-radius: 0; /* removed border-radius */
+  -webkit-appearance: none; /* removes default styling on iOS */
+  -moz-appearance: none; /* removes default styling in Firefox */
+  appearance: none; /* removes default arrow in newer browsers */
 }
+
+/* Add a custom arrow indicator for the dropdown */
+.new-profile-dropdown {
+  background-image: url('data:image/svg+xml;utf8,<svg fill="blue" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+}
+
+/* Adjust the right margin of icons to align with the new layout */
+.new-add-icon,
+.new-bell-icon,
+.new-cog-icon,
+.new-bars-icon {
+  font-size: 20px;
+  margin-right: 10px; /* adjust as needed */
+}
+
 
 /* address fiels css */
 .button-container{
