@@ -393,7 +393,7 @@ function AddressesComponent() {
 
       {/* Branch Office Address */}
       <div className="branchAddresses">
-        <h3 {{ color: "#0196B9" }}>Branch Office Address</h3>
+        <h3 style={{ color: "#0196B9" }}>Branch Office Address</h3>
         {AddressFields()}
       </div>
     </div>
