@@ -286,7 +286,7 @@ input {
   padding: 8px 30px 8px 8px; /* padding added to the right to ensure text doesn't overlap with icon */
   box-sizing: border-box;
   border-radius: 4px;
-  border: 1px solid #ccc;
+ 
   appearance: none;
   font-size: small;
 }
@@ -559,12 +559,16 @@ input {
 }
 
 .new-search-input {
-  padding: 10px 10px 10px 30px; /* adjusted padding for search icon */
-  border-radius: 0; /* removed border-radius */
   border: none;
+  border-radius: 4px;
+  flex-grow: 1;
   outline: none;
-  width: 100%; /* adjusted width to use available space */
-  flex-grow: 1; /* added to fill the space in flex container */
+  padding: 9px 200px 9px 14px; /* Reduced right padding */
+  width: 100%;
+  margin-left: 10px;
+  /* Increase the font size if you want the text to be larger */
+  font-size: 16px; /* Adjust the size as needed */
+ 
 }
 
 .new-profile-container {
@@ -576,35 +580,62 @@ input {
 
 .new-profile-dropdown {
   background-color: white;
-  border: none;
-  padding: 10px 10px; /* adjusted padding */
   margin-right: 10px;
   color: #00a7cf;
   font-size: 16px;
-  cursor: pointer;
-  border-radius: 0; /* removed border-radius */
-  -webkit-appearance: none; /* removes default styling on iOS */
-  -moz-appearance: none; /* removes default styling in Firefox */
-  appearance: none; /* removes default arrow in newer browsers */
+  padding: 10px 185px 10px 10px;
+  border-radius: 4px;
+  font-size: medium;
+  appearance: none;
+
 }
 
-/* Add a custom arrow indicator for the dropdown */
-.new-profile-dropdown {
-  background-image: url('data:image/svg+xml;utf8,<svg fill="blue" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
-  background-repeat: no-repeat;
-  background-position: right 10px center;
-  background-size: 12px;
+.drop-down-nav-bar{
+  margin-right: 10px;
+  background-color: white;
+  color: #00a7cf;
+  font-size: 16px;
+  border-radius: 4px;
+  padding: 9px 133px 9px 12px;
+  font-size: medium;
+  -webkit-appearance: none; /* Removes the default styling for Webkit browsers like Chrome and Safari */
+  -moz-appearance: none;    /* Removes the default styling for Firefox */
+  appearance: none;         /* Removes the default styling for modern browsers */
+  
+  /* Custom styling for your dropdown */
+ 
+  border: 1px solid #ccc;
+
+    /* Add your custom arrow icon */
+    background-image: url('/src/icons/Icon%20ionic-ios-arrow-down.svg');
+    background-repeat: no-repeat;
+    background-position: right 10px center; /* Adjust as needed */
+    background-size: 13px; /* Size of your icon */
+    
 }
+
+
+
 
 /* Adjust the right margin of icons to align with the new layout */
 .new-add-icon,
 .new-bell-icon,
 .new-cog-icon,
 .new-bars-icon {
-  font-size: 20px;
+  font-size: 30px;
   margin-right: 10px; /* adjust as needed */
+  padding-left: 20px;
 }
 
+.new-bars-icon{
+  margin-right: 20px;
+}
+
+.new-bell-icon{
+  margin-right: 20px;
+
+
+}
 
 /* address fiels css */
 .button-container{
