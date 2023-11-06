@@ -58,9 +58,15 @@ function NavBar() {
 
       <div className="new-profile-container">
         <i className="fa fa-bell new-bell-icon" aria-hidden="true"></i>
-        <select className="new-profile-dropdown">
-          <option>ABC Private Limited</option>
-        </select>
+      
+          <select class="drop-down-nav-bar">
+            <option value="" disabled="" hidden="">ABC Private Limited</option>
+            <option value="type1">Type 1</option>
+            <option value="type2">Type 2</option>
+            <option value="type3">Type 3</option>
+            </select>
+           
+        
         <i className="fa fa-cog new-cog-icon" aria-hidden="true"></i>
         <i className="fa fa-bars new-bars-icon" aria-hidden="true"></i>
       </div>
