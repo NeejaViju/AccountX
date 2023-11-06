@@ -58,15 +58,16 @@ function NavBar() {
 
       <div className="new-profile-container">
         <i className="fa fa-bell new-bell-icon" aria-hidden="true"></i>
-      
-          <select class="drop-down-nav-bar">
-            <option value="" disabled="" hidden="">ABC Private Limited</option>
-            <option value="type1">Type 1</option>
-            <option value="type2">Type 2</option>
-            <option value="type3">Type 3</option>
-            </select>
-           
-        
+
+        <select class="drop-down-nav-bar">
+          <option value="" disabled="" hidden="">
+            ABC Private Limited
+          </option>
+          <option value="type1">Type 1</option>
+          <option value="type2">Type 2</option>
+          <option value="type3">Type 3</option>
+        </select>
+
         <i className="fa fa-cog new-cog-icon" aria-hidden="true"></i>
         <i className="fa fa-bars new-bars-icon" aria-hidden="true"></i>
       </div>
@@ -386,13 +387,13 @@ function AddressesComponent() {
     <div>
       {/* Registered Office Address */}
       <div className="registeredOfficeAddress">
-        <h3>Registered Office Address</h3>
+        <h3 style={{ color: "#0196B9" }}>Registered Office Address</h3>
         {AddressFields()}
       </div>
 
       {/* Branch Office Address */}
       <div className="branchAddresses">
-        <h3>Branch Office Address</h3>
+        <h3 {{ color: "#0196B9" }}>Branch Office Address</h3>
         {AddressFields()}
       </div>
     </div>
