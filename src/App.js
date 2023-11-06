@@ -9,7 +9,7 @@ import {
   AddressTypeForm,
   AddNewBranch,
   AddNewDesignation,
-  AddAccountType
+  AddAccountType,
 } from "./formComponents/unitdivison";
 
 // import 'bootstrap/dist/css/bootstrap.min.css';
@@ -195,7 +195,11 @@ function CompanyProfile() {
       <div className="cp-column">
         {/* First Row */}
         <div className="cp-row">
-          <input type="text" placeholder="GST Number*" className="address-border" />
+          <input
+            type="text"
+            placeholder="GST Number*"
+            className="address-border"
+          />
           <div className="cp-input-with-dropdown">
             <select className="address-border">
               <option value="" disabled selected hidden>
@@ -210,24 +214,48 @@ function CompanyProfile() {
             </button>
           </div>
 
-          <input type="text" placeholder="Company ID" className="address-border" /> 
+          <input
+            type="text"
+            placeholder="Company ID"
+            className="address-border"
+          />
         </div>
 
         {/* Second Row */}
         <div className="cp-row">
-          <input type="text" placeholder="Business Trade Name*" className="address-border" />
-          <input type="text" placeholder="Business Legal Name*" className="address-border" />
+          <input
+            type="text"
+            placeholder="Business Trade Name*"
+            className="address-border"
+          />
+          <input
+            type="text"
+            placeholder="Business Legal Name*"
+            className="address-border"
+          />
         </div>
 
         {/* Third Row */}
         <div className="cp-row">
           <div className="cp-input-with-icon mobile">
             <span className="country-code">+91</span>
-            <input type="text" placeholder="Mobile Number*"  className="address-border"/>
+            <input
+              type="text"
+              placeholder="Mobile Number*"
+              className="address-border"
+            />
           </div>
-          <input type="email" placeholder="Business Email*" className="address-border"/>
+          <input
+            type="email"
+            placeholder="Business Email*"
+            className="address-border"
+          />
           <div className="cp-input-with-icon">
-            <input type="text" placeholder="Industry" className="address-border"/>
+            <input
+              type="text"
+              placeholder="Industry"
+              className="address-border"
+            />
             <i
               className="fa fa-search new-search-icon-inside-input"
               aria-hidden="true"
@@ -390,7 +418,9 @@ function AddressFields() {
               <option value="" disabled selected hidden>
                 Address Type*
               </option>
-              <option value="type1">Office Address/Principal Place of Business</option>
+              <option value="type1">
+                Office Address/Principal Place of Business
+              </option>
               <option value="type2">Type 2</option>
               <option value="type3">Type 3</option>
             </select>
@@ -399,18 +429,21 @@ function AddressFields() {
             </button>
           </div>
           {/* add button */}
-          <button className="button-container" onClick={() => toggleComponent("Component1")}>
+          <button
+            className="button-container"
+            onClick={() => toggleComponent("Component1")}
+          >
             <div className="add-plus-container">
               <i className="fa fa-plus-circle" aria-hidden="true"></i>
             </div>
           </button>
-          
+
           {/* Render the component conditionally */}
           {selectedComponent === "Component1" && (
-          <div onClick={handleFormClick}>
-            <AddressTypeForm />
-          </div>
-        )}
+            <div onClick={handleFormClick}>
+              <AddressTypeForm />
+            </div>
+          )}
           <div className="cp-input-with-dropdown">
             <select className="address-border">
               <option value="" disabled selected hidden>
@@ -425,17 +458,20 @@ function AddressFields() {
             </button>
           </div>
           {/* add button */}
-          <button className="button-container"  onClick={() => toggleComponent("Component2")}>
+          <button
+            className="button-container"
+            onClick={() => toggleComponent("Component2")}
+          >
             <div className="add-plus-container">
               <i className="fa fa-plus-circle" aria-hidden="true"></i>
             </div>
           </button>
           {/* Render the component conditionally */}
-        {selectedComponent === "Component2" && (
-          <div onClick={handleFormClick}>
-            <AddNewBranch />
-          </div>
-        )}
+          {selectedComponent === "Component2" && (
+            <div onClick={handleFormClick}>
+              <AddNewBranch />
+            </div>
+          )}
 
           <div className="cp-input-with-dropdown">
             <select className="address-border">
@@ -451,33 +487,51 @@ function AddressFields() {
             </button>
           </div>
           {/* add button */}
-          <button className="button-container" onClick={() => toggleComponent("Component3")}>
+          <button
+            className="button-container"
+            onClick={() => toggleComponent("Component3")}
+          >
             <div className="add-plus-container">
               <i className="fa fa-plus-circle" aria-hidden="true"></i>
             </div>
           </button>
 
           {/* Render the component conditionally */}
-        {selectedComponent === "Component3" && (
-          <div onClick={handleFormClick}>
-            <AddUnitDivision />
-          </div>
-        )}
-
+          {selectedComponent === "Component3" && (
+            <div onClick={handleFormClick}>
+              <AddUnitDivision />
+            </div>
+          )}
         </div>
 
         {/* Second Row */}
         <div className="cp-row">
-          <input type="text" placeholder="Door No*" className="address-border"/>
-          <input type="text" placeholder="Building Name" className="address-border"/>
-          <input type="text" placeholder="Street Name*" className="address-border"/>
-          <input type="text" placeholder="Area/Taluk*" className="address-border"/>
+          <input
+            type="text"
+            placeholder="Door No*"
+            className="address-border"
+          />
+          <input
+            type="text"
+            placeholder="Building Name"
+            className="address-border"
+          />
+          <input
+            type="text"
+            placeholder="Street Name*"
+            className="address-border"
+          />
+          <input
+            type="text"
+            placeholder="Area/Taluk*"
+            className="address-border"
+          />
         </div>
 
         {/* Third Row */}
         <div className="cp-row">
           <input type="text" placeholder="City*" className="address-border" />
-            <div className="cp-input-with-icon">
+          <div className="cp-input-with-icon">
             <input type="text" placeholder="State*" className="search-border" />
             <i
               class="fa fa-search new-search-icon-inside-input"
@@ -485,27 +539,47 @@ function AddressFields() {
             ></i>
           </div>
           <div className="cp-input-with-icon">
-            <input type="text" placeholder="District*" className="address-border"/>
+            <input
+              type="text"
+              placeholder="District*"
+              className="address-border"
+            />
             <i
               class="fa fa-search new-search-icon-inside-input"
               aria-hidden="true"
             ></i>
           </div>
-          <input type="text" placeholder="PIN Code*" className="address-border"/>
+          <input
+            type="text"
+            placeholder="PIN Code*"
+            className="address-border"
+          />
         </div>
 
         {/* Fourth row */}
         <div className="cp-row">
           <div className="cp-input-with-icon">
-            <input type="text" placeholder="Country*" className="address-border" />
+            <input
+              type="text"
+              placeholder="Country*"
+              className="address-border"
+            />
             <i
               class="fa fa-search new-search-icon-inside-input"
               aria-hidden="true"
             ></i>
           </div>
-          <input type="text" placeholder="GST Number*" className="address-border"/>
+          <input
+            type="text"
+            placeholder="GST Number*"
+            className="address-border"
+          />
           <div className="cp-input-with-icon">
-            <input type="text" placeholder="Place of Supply*" className="address-border" />
+            <input
+              type="text"
+              placeholder="Place of Supply*"
+              className="address-border"
+            />
             <i
               class="fa fa-search new-search-icon-inside-input"
               aria-hidden="true"
@@ -518,8 +592,6 @@ function AddressFields() {
 }
 
 function PersonalDetailsComponent() {
-
-  
   return (
     <div>
       {/* Personal Details */}
@@ -531,7 +603,6 @@ function PersonalDetailsComponent() {
   );
 }
 function PersonalDetailFields() {
-
   const [selectedComponent, setSelectedComponent] = useState(null);
 
   const handleFormClick = (e) => {
@@ -627,14 +698,18 @@ function PersonalDetailFields() {
         </div>
         {/* Fourth Row */}
         <div className="cp-row">
-          <div className="cp-input-with-icon" >
-            <input type="text" placeholder="Nationality" className="custom-border" /> 
+          <div className="cp-input-with-icon">
+            <input
+              type="text"
+              placeholder="Nationality"
+              className="custom-border"
+            />
             <i
-               class="fa fa-search new-search-icon-inside-input"
-              aria-hidden="true" 
+              class="fa fa-search new-search-icon-inside-input"
+              aria-hidden="true"
             ></i>
-           </div>
-        
+          </div>
+
           <div className="cp-input-with-dropdown">
             <select className="custom-border">
               <option
@@ -654,18 +729,20 @@ function PersonalDetailFields() {
             </button>
           </div>
           {/* add button */}
-          <button className="add-button-container" onClick={() => toggleComponent("Component4")}>
+          <button
+            className="add-button-container"
+            onClick={() => toggleComponent("Component4")}
+          >
             <div className="add-plus-container">
               <i className="fa fa-plus-circle" aria-hidden="true"></i>
             </div>
           </button>
 
           {selectedComponent === "Component4" && (
-          <div onClick={handleFormClick}>
-            <AddNewDesignation />
-          </div>
-        )}
-
+            <div onClick={handleFormClick}>
+              <AddNewDesignation />
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -684,6 +761,13 @@ function BusinessLegalInfoComponent() {
   );
 }
 function businessLegalInfoFields() {
+  const handleFileUpload = (event, labelId) => {
+    const file = event.target.files[0];
+    if (file) {
+      // Show the uploaded file name (or any other success message) in the label
+      document.getElementById(labelId).innerText = `uploaded successfully`;
+    }
+  };
   return (
     <div className="cp-company-container">
       <div className="cp-column">
@@ -697,22 +781,57 @@ function businessLegalInfoFields() {
             />
           </div>
 
+          {/* GST START */}
           <input
-            type="text"
-            placeholder="Upload GST Certificate"
-            className="customLegal-border"
+            type="file"
+            id="upload-GSTCertificate-upload"
+            style={{ display: "none" }}
+            onChange={(event) =>
+              handleFileUpload(event, "Upload-GSTCertificate-label")
+            }
           />
+          {/* Label to show file upload success message */}
+          <label
+            id="Upload-GSTCertificate-label"
+            className="upload-success-msg"
+          ></label>
+          {/* Button to trigger file input */}
+          <button
+            className="upload-dg0signature-legal"
+            onClick={() =>
+              document.getElementById("upload-GSTCertificate-upload").click()
+            }
+          >
+            <i className="fa fa-upload" aria-hidden="true"></i>
+            Upload GST Certificate
+          </button>
+          {/* GST END */}
           <input
             type="text"
             placeholder="PAN*"
             className="customLegal-border"
           />
+
           <input
-            type="text"
-            placeholder="Upload PAN"
-            className="customLegal-border"
+            type="file"
+            id="upload-PAN-upload"
+            style={{ display: "none" }}
+            onChange={(event) => handleFileUpload(event, "Upload-PAN-label")}
           />
+          {/* Label to show file upload success message */}
+          <label id="Upload-PAN-label" className="upload-success-msg"></label>
+          {/* Button to trigger file input */}
+          <button
+            className="upload-dg0signature-legal"
+            onClick={() => document.getElementById("upload-PAN-upload").click()}
+          >
+            <i className="fa fa-upload" aria-hidden="true"></i>
+            Upload PAN
+          </button>
         </div>
+
+        {/* end */}
+        {/* </div> */}
         {/* + add button */}
         {/* Second Row */}
         <div className="cp-row">
@@ -729,6 +848,7 @@ function businessLegalInfoFields() {
             className="customLegal-border"
           />
         </div>
+
         {/* Third Row */}
         <div className="cp-row">
           <input
@@ -741,17 +861,42 @@ function businessLegalInfoFields() {
             placeholder="MSME Certificate.pdf"
             className="customLegal-border"
           />
+
           <input
             type="text"
             placeholder="IE Code"
             className="customLegal-border"
           />
-          <input
+          {/* <input
             type="text"
             placeholder="Upload IEC Certificate"
             className="customLegal-border"
+          /> */}
+          <input
+            type="file"
+            id="upload-IECCertificate-upload"
+            style={{ display: "none" }}
+            onChange={(event) =>
+              handleFileUpload(event, "Upload-IECCertificate-label")
+            }
           />
+          {/* Label to show file upload success message */}
+          <label
+            id="Upload-IECCertificate-label"
+            className="upload-success-msg"
+          ></label>
+          {/* Button to trigger file input */}
+          <button
+            className="upload-dg0signature-legal"
+            onClick={() =>
+              document.getElementById("upload-IECCertificate-upload").click()
+            }
+          >
+            <i className="fa fa-upload" aria-hidden="true"></i>
+            Upload GST Certificate
+          </button>
         </div>
+
         {/* Fourth row */}
         <div className="cp-row">
           <div>
@@ -800,7 +945,6 @@ function BankDetailsComponent() {
   );
 }
 function BankDetailFields() {
-
   const [selectedComponent, setSelectedComponent] = useState(null);
 
   const handleFormClick = (e) => {
@@ -896,17 +1040,19 @@ function BankDetailFields() {
               <i className="fa fa-chevron-down"></i>
             </button>
           </div>
-          <button className="button-container" onClick={() => toggleComponent("Component5")}>
+          <button
+            className="button-container"
+            onClick={() => toggleComponent("Component5")}
+          >
             <div className="add-plus-container">
               <i className="fa fa-plus-circle" aria-hidden="true"></i>
             </div>
           </button>
           {selectedComponent === "Component5" && (
-          <div onClick={handleFormClick}>
-            <AddAccountType />
-          </div>
-        )}
-
+            <div onClick={handleFormClick}>
+              <AddAccountType />
+            </div>
+          )}
         </div>
         {/* Third Row */}
         <div className="cp-row">
@@ -940,8 +1086,6 @@ function BankDetailFields() {
 }
 
 function ContactPersonsComponent() {
-
- 
   return (
     <div>
       {/* Contact Details */}
@@ -953,7 +1097,6 @@ function ContactPersonsComponent() {
   );
 }
 function ContactPersonDetailFields() {
-
   const [selectedComponent, setSelectedComponent] = useState(null);
 
   const handleFormClick = (e) => {
@@ -997,18 +1140,20 @@ function ContactPersonDetailFields() {
             />
           </div>
           {/* add button */}
-          <button className="button-container" onClick={() => toggleComponent("Component6")}>
+          <button
+            className="button-container"
+            onClick={() => toggleComponent("Component6")}
+          >
             <div className="add-plus-container">
               <i className="fa fa-plus-circle" aria-hidden="true"></i>
             </div>
           </button>
 
           {selectedComponent === "Component6" && (
-          <div onClick={handleFormClick}>
-            <AddNewDesignation />
-          </div>
-        )}
-
+            <div onClick={handleFormClick}>
+              <AddNewDesignation />
+            </div>
+          )}
         </div>
 
         {/* Second Row */}

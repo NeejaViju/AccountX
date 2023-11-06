@@ -692,7 +692,16 @@ input {
   border-radius: 5px;
   cursor: pointer;
 }
-
+/* business legal upload */
+.upload-dg0signature-legal{
+  margin-left: 0px;
+  background-color: #A3184B;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
 /* Hide the browser's default checkbox */
 .container input {
