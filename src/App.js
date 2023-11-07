@@ -17,6 +17,7 @@ import {
 // import { faSearch, faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
 // App Component
+
 function App() {
   return (
     <div className="app">
@@ -737,7 +738,7 @@ function PersonalDetailFields() {
           </div>
           {/* add button */}
           <button
-            className="add-button-container"
+            className="personal-button-container"
             onClick={() => toggleComponent("Component4")}
           >
             <div className="add-plus-container">
@@ -804,7 +805,7 @@ function businessLegalInfoFields() {
           ></label>
           {/* Button to trigger file input */}
           <button
-            className="upload-dg0signature-legal"
+            className="upload-dg0signature-info"
             onClick={() =>
               document.getElementById("upload-GSTCertificate-upload").click()
             }
@@ -838,23 +839,38 @@ function businessLegalInfoFields() {
         </div>
 
         {/* end */}
-        {/* </div> */}
-        {/* + add button */}
+
         {/* Second Row */}
         <div className="cp-row">
           <input type="text" placeholder="CIN" className="customLegal-border" />
-          <input
-            type="text"
-            placeholder="CIN Certificate.pdf"
-            className="customLegal-border"
-          />
+
+          {/* CIN Certificate Download */}
+          <button className="download-button">
+            <a
+              // href="/path-to-your-cin-certificate.pdf" // Replace with the actual link to the CIN certificate PDF
+              download="CIN_Certificate.pdf"
+              className="download-dg0signature-legal"
+            >
+              CIN Certificate.pdf
+              <i className="fa fa-download" aria-hidden="true"></i>
+            </a>
+          </button>
           <input type="text" placeholder="TAN" className="customLegal-border" />
-          <input
-            type="text"
-            placeholder="TAN Certificate.pdf"
-            className="customLegal-border"
-          />
+
+          {/* TAN Certificate Download */}
+          <button className="download-button">
+            <a
+              // href="/path-to-your-tan-certificate.pdf" // Replace with the actual link to the TAN certificate PDF
+              download="TAN_Certificate.pdf"
+              className="download-dg0signature-legal"
+            >
+              TAN Certificate.pdf
+              <i className="fa fa-download" aria-hidden="true"></i>
+            </a>
+          </button>
         </div>
+
+        {/* ... remaining code ... */}
 
         {/* Third Row */}
         <div className="cp-row">
@@ -863,11 +879,21 @@ function businessLegalInfoFields() {
             placeholder="MSME"
             className="customLegal-border"
           />
-          <input
+          {/* <input
             type="text"
             placeholder="MSME Certificate.pdf"
             className="customLegal-border"
-          />
+          /> */}
+          <button className="download-button">
+            <a
+              //href="/path-to-your-cin-certificate.pdf" // Replace with the actual link to the CIN certificate PDF
+              download="MSME_Certificate.pdf"
+              className="download-dg0signature-legal"
+            >
+              MSME Certificate.pdf
+              <i className="fa fa-download" aria-hidden="true"></i>
+            </a>
+          </button>
 
           <input
             type="text"
@@ -900,7 +926,7 @@ function businessLegalInfoFields() {
             }
           >
             <i className="fa fa-upload" aria-hidden="true"></i>
-            Upload GST Certificate
+            Upload IEC Certificate
           </button>
         </div>
 
@@ -912,7 +938,7 @@ function businessLegalInfoFields() {
           <div>
             <label class="container">
               <input type="checkbox" />
-              <span class="checkmark"></span>
+              <span class="checkmark-legal"></span>
             </label>
           </div>
 
@@ -922,7 +948,7 @@ function businessLegalInfoFields() {
           <div>
             <label class="container">
               <input type="checkbox" />
-              <span class="checkmark"></span>
+              <span class="checkmark-legal"></span>
             </label>
           </div>
           <div>
@@ -931,7 +957,7 @@ function businessLegalInfoFields() {
           <div>
             <label class="container">
               <input type="checkbox" />
-              <span class="checkmark"></span>
+              <span class="checkmark-legal"></span>
             </label>
           </div>
         </div>
@@ -1008,7 +1034,7 @@ function BankDetailFields() {
 
         {/* Second Row */}
         <div className="cp-row">
-          <div className="add-button-container">
+          <div className="bank-logo-container">
             <div className="circle">
               <div className="line"></div>
             </div>
@@ -1048,7 +1074,7 @@ function BankDetailFields() {
             </button>
           </div>
           <button
-            className="button-container"
+            className="bank-button-container"
             onClick={() => toggleComponent("Component5")}
           >
             <div className="add-plus-container">
@@ -1075,7 +1101,7 @@ function BankDetailFields() {
           <div>
             <label class="container">
               <input type="checkbox" />
-              <span class="checkmark"></span>
+              <span class="checkmark-info"></span>
             </label>
           </div>
           <div>
@@ -1148,7 +1174,7 @@ function ContactPersonDetailFields() {
           </div>
           {/* add button */}
           <button
-            className="button-container"
+            className="contact-button-container"
             onClick={() => toggleComponent("Component6")}
           >
             <div className="add-plus-container">
@@ -1280,7 +1306,7 @@ function ContactPersonDetailFields() {
           <div>
             <label class="container">
               <input type="checkbox" />
-              <span class="checkmark"></span>
+              <span class="checkmark-contact"></span>
             </label>
           </div>
 
@@ -1313,7 +1339,7 @@ function ContactPersonDetailFields() {
           <div>
             <label class="container">
               <input type="checkbox" />
-              <span class="checkmark"></span>
+              <span class="checkmark-contact"></span>
             </label>
           </div>
 
@@ -1323,7 +1349,7 @@ function ContactPersonDetailFields() {
           <div>
             <label class="container">
               <input type="checkbox" />
-              <span class="checkmark"></span>
+              <span class="checkmark-contact"></span>
             </label>
           </div>
         </div>
