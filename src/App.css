@@ -140,6 +140,73 @@ body {
 
 /*company profile css*/
 
+
+
+.separator {
+  position: absolute;
+  width: 1px;
+  background-color: #B4B4B4;
+ 
+  margin: 4px 2px;
+  height: 33px;
+  margin-left: 62px;
+  margin-top: 4px;
+}
+
+.mobileDropDown{
+  padding-left: 10px;
+}
+
+.cp-input-with-icon.mobile:hover{
+  border: 1.5px solid #00a7cf;
+}
+.floating-label-group {
+  position: relative;
+  /* No need for padding-top if you are positioning the label with JS and class changes */
+}
+
+.address-border {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  position: relative;
+  z-index: 1;
+}
+
+.address-border:focus {
+  border-color: #00a7cf; /* Highlight color when focused */
+}
+
+.floating-label-group label {
+  position: absolute;
+  left: 10px;
+  top: 50%; /* Start at the vertical middle */
+  transform: translateY(-50%); /* Center vertically */
+  transition: all 0.2s ease;
+  color: #aaa; /* Placeholder color */
+  pointer-events: none;
+  background-color: white; /* Ensures the label has a background */
+  padding: 0 3px; /* Provides padding so the background doesn't cut off */
+}
+
+
+
+/* Styles when label is floating */
+.floating-label-group input:focus + label,
+.floating-label-group input.filled + label,
+.floating-label-group select:focus + label,
+.floating-label-group select.filled + label {
+  top: -8px; /* Adjust to position above the input. Consider border size and label font size */
+  left: 10px; /* Adjust this value if you change the padding in your inputs */
+  transform: translateY(0); /* Reset transform */
+  font-size: 12px; /* Smaller font size for the floating label */
+  color: #00a7cf; /* Label color when floating */
+  z-index: 10; /* Ensure label is above input border */
+}
+
+
 .uploaded-logo {
   max-width: 100%;
   max-height: 100%;
@@ -337,6 +404,31 @@ input {
 
 /* MenuBar.css */
 
+.active-addresses {
+  background-color: #0196B9 !important;
+  color: white !important; /* Replace #color1 with the color you want */
+}
+
+.active-personal-details {
+  background-color: #9B660E !important;
+  color: white !important; /* Replace #color2 with the color you want */
+}
+
+
+.active-business {
+  background-color: #A3184B !important; 
+  color: white !important;/* Replace #color3 with the color you want */
+}
+.active-bank-details {
+  background-color: #A666F8 !important; 
+  color: white !important;/* Replace #color4 with the color you want */
+}
+.active-contact-persons {
+  background-color: #5C5831 !important;
+  color: white !important; /* Replace #color5 with the color you want */
+}
+
+
 .menu-bar-container {
   margin-top: 20px;  /* Adding some top margin here */
   display: flex;
@@ -370,8 +462,13 @@ input {
   transition: background 0.3s, color 0.3s;
 }
 
-.menu-bar-button:hover, .menu-bar-button.active {
-  background: #0196B9;
+.active-personal-details:hover {
+  background:#9B660E;
+  color: #FFFFFF;
+}
+
+.active-business:hover{
+  background-color: #A3184B !important; /* Replace #color3 with the color you want */
   color: #FFFFFF;
 }
 
@@ -946,7 +1043,8 @@ input {
 select{
   border: none;
   background-color: transparent;
-  font-size: 16px; 
+  font-size: 14px; 
+  color:#000000;
   /* color: #9B660E; */
 }
 
