@@ -128,7 +128,7 @@ function MainContent() {
       <CompanyProfileHeader />
       <CompanyProfile />
       <MenuBar />
-      <ButtonList />
+      {/* <ButtonList /> */}
       {/* <AddUnitDivision /> */}
       {/* <AddressTypeForm /> */}
       {/* <AddNewBranch /> */}
@@ -356,16 +356,16 @@ function CompanyProfile() {
 }
 
 //button list
-const ButtonList = () => {
-  return (
-    <div className="button-list">
-      <button className="btn personal-details">Personal Details</button>
-      <button className="btn business-info">Business Legal Information</button>
-      <button className="btn bank-details">Bank Details</button>
-      <button className="btn contact-persons">Contact Persons</button>
-    </div>
-  );
-};
+// const ButtonList = () => {
+//   return (
+//     <div className="button-list">
+//       <button className="btn personal-details">Personal Details</button>
+//       <button className="btn business-info">Business Legal Information</button>
+//       <button className="btn bank-details">Bank Details</button>
+//       <button className="btn contact-persons">Contact Persons</button>
+//     </div>
+//   );
+// };
 //
 function MenuBar() {
   const [activeComponent, setActiveComponent] = useState("Addresses");
