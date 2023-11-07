@@ -9,7 +9,7 @@ import {
   AddressTypeForm,
   AddNewBranch,
   AddNewDesignation,
-  AddAccountType,
+  AddAccountType
 } from "./formComponents/unitdivison";
 
 // import 'bootstrap/dist/css/bootstrap.min.css';
@@ -17,7 +17,6 @@ import {
 // import { faSearch, faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
 // App Component
-
 function App() {
   return (
     <div className="app">
@@ -61,13 +60,12 @@ function NavBar() {
         <i className="fa fa-bell new-bell-icon" aria-hidden="true"></i>
 
         <select class="drop-down-nav-bar">
-          <option value="" disabled="" hidden="">
-            ABC Private Limited
-          </option>
+          <option value="" disabled="" hidden="">ABC Private Limited</option>
           <option value="type1">Type 1</option>
           <option value="type2">Type 2</option>
           <option value="type3">Type 3</option>
         </select>
+
 
         <i className="fa fa-cog new-cog-icon" aria-hidden="true"></i>
         <i className="fa fa-bars new-bars-icon" aria-hidden="true"></i>
@@ -176,10 +174,42 @@ function CompanyProfileHeader() {
   );
 }
 
+/*Company Profile*/
+
 function CompanyProfile() {
+
+  /*Floating Label*/
+  const [inputs, setInputs] = useState({
+    gstNumber: '',
+    companyType: '',
+    companyId: '',
+    businessTradeName: '',
+    businessLegalName: '',
+    mobileNumber: '',
+    businessEmail: '',
+    industry: '',
+  });
+  const [focused, setFocused] = useState('');
   const [logo, setLogo] = useState(null);
   const fileInputRef = useRef(null);
 
+  const handleFocus = (fieldName) => {
+    setFocused(fieldName);
+  };
+
+  const handleBlur = (fieldName) => {
+    if (!inputs[fieldName]) {
+      setFocused('');
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setInputs((prevInputs) => ({ ...prevInputs, [name]: value }));
+  };
+
+
+  /*file upload*/
   const handleLogoUpload = (event) => {
     const file = event.target.files[0];
     if (
@@ -187,7 +217,6 @@ function CompanyProfile() {
       file.type.startsWith("image/") &&
       file.size <= 5 * 1024 * 1024
     ) {
-      // Checking if it's an image and is under 5MB
       const reader = new FileReader();
       reader.onloadend = () => {
         setLogo(reader.result);
@@ -203,72 +232,90 @@ function CompanyProfile() {
       <div className="cp-column">
         {/* First Row */}
         <div className="cp-row">
-          <input
-            type="text"
-            placeholder="GST Number*"
-            className="address-border"
-          />
-          <div className="cp-input-with-dropdown">
-            <select className="address-border">
-              <option value="" disabled selected hidden>
-                Company Type*
-              </option>
-              <option value="type1">Type 1</option>
+          {/* GST Number Input */}
+          <div className="floating-label-group">
+            <input
+              type="text"
+              name="gstNumber"
+              placeholder="33WGOPW1208B2Z9"
+              className={`address-border ${inputs.gstNumber ? 'filled' : ''}`}
+              onChange={handleInputChange}
+              onFocus={() => handleFocus('gstNumber')}
+              onBlur={() => handleBlur('gstNumber')}
+              value={inputs.gstNumber}
+            />
+            <label htmlFor="gstNumber" className={focused === 'gstNumber' || inputs.gstNumber ? 'floating' : ''}>
+              GST Number*
+            </label>
+          </div>
+
+          {/* Company Type Dropdown */}
+          <div className="cp-input-with-dropdown floating-label-group">
+            <select
+              name="companyType"
+              className={`address-border ${inputs.companyType ? 'filled' : ''}`}
+              onChange={handleInputChange}
+              onFocus={() => handleFocus('companyType')}
+              onBlur={() => handleBlur('companyType')}
+              value={inputs.companyType}
+            >
+              <option value="" disabled></option>
+              <option value="type1">Proprietorship</option>
               <option value="type2">Type 2</option>
               <option value="type3">Type 3</option>
             </select>
+            <label htmlFor="companyType" className={focused === 'companyType' || inputs.companyType ? 'floating' : ''}>
+              Company Type*
+            </label>
             <button className="dropdown-icon-right">
               <i className="fa fa-chevron-down"></i>
             </button>
           </div>
 
-          <input
-            type="text"
-            placeholder="Company ID"
-            className="address-border"
-          />
+          {/* Company ID Input */}
+          <div className="floating-label-group">
+            <input
+              type="text"
+              name="companyId"
+              placeholder="Company ID"
+              className={`address-border ${inputs.companyId ? 'filled' : ''}`}
+              onChange={handleInputChange}
+              onFocus={() => handleFocus('companyId')}
+              onBlur={() => handleBlur('companyId')}
+              value={inputs.companyId}
+            />
+            <label htmlFor="companyId" className={focused === 'companyId' || inputs.companyId ? 'floating' : ''}>
+              Company ID
+            </label>
+          </div>
         </div>
-
         {/* Second Row */}
         <div className="cp-row">
-          <input
-            type="text"
-            placeholder="Business Trade Name*"
-            className="address-border"
-          />
-          <input
-            type="text"
-            placeholder="Business Legal Name*"
-            className="address-border"
-          />
+          <input type="text" placeholder="Business Trade Name*" className="address-border" />
+          <input type="text" placeholder="Business Legal Name*" className="address-border" />
         </div>
 
         {/* Third Row */}
         <div className="cp-row">
-          <div className="cp-input-with-icon mobile">
-            <span className="country-code">+91</span>
-            <input
-              type="text"
-              placeholder="Mobile Number*"
-              className="address-border"
-            />
-          </div>
-          <input
-            type="email"
-            placeholder="Business Email*"
-            className="address-border"
-          />
+
+        <div class="cp-input-with-icon mobile">
+          <div class="inputs-container">
+            <div class="mobileNumer-dropdown">
+              <select class="mobileDropDown"><option value="miss">+91</option>
+              <option value="miss">+11</option>
+              
+              </select>
+              <span class="dropdown-icon">
+                </span></div></div>
+                <input type="text" placeholder="Mobile Number*" class=""/>
+                </div>
+                <span className="separator"></span> 
+          <input type="email" placeholder="Business Email*" className="address-border" />
           <div className="cp-input-with-icon">
-            <input
-              type="text"
-              placeholder="Industry"
-              className="address-border"
-            />
-            <i
-              className="fa fa-search new-search-icon-inside-input"
-              aria-hidden="true"
-            ></i>
+            <input type="text" placeholder="Industry" className="address-border" />
+            <i className="fa fa-search new-search-icon-inside-input" aria-hidden="true"></i>
           </div>
+
         </div>
       </div>
 
@@ -330,47 +377,37 @@ function MenuBar() {
   return (
     <div>
       <div className="menu-bar-container">
-        <button
-          className={`menu-bar-button ${
-            activeComponent === "Addresses" ? "active" : ""
-          }`}
-          onClick={() => handleClick("Addresses")}
-        >
-          Addresses
-        </button>
-        <button
-          className={`menu-bar-button ${
-            activeComponent === "PersonalDetails" ? "active" : ""
-          }`}
-          onClick={() => handleClick("PersonalDetails")}
-        >
-          Personal Details
-        </button>
-        <button
-          className={`menu-bar-button ${
-            activeComponent === "BusinessLegalInformation" ? "active" : ""
-          } business-button`}
-          onClick={() => handleClick("BusinessLegalInformation")}
-        >
-          Business Legal Information
-        </button>
-        <button
-          className={`menu-bar-button ${
-            activeComponent === "BankDetails" ? "active" : ""
-          }`}
-          onClick={() => handleClick("BankDetails")}
-        >
-          Bank Details
-        </button>
-        <button
-          className={`menu-bar-button ${
-            activeComponent === "ContactPersons" ? "active" : ""
-          }`}
-          onClick={() => handleClick("ContactPersons")}
-        >
-          Contact Persons
-        </button>
-      </div>
+  <button
+    className={`menu-bar-button ${activeComponent === "Addresses" ? "active-addresses" : ""}`}
+    onClick={() => handleClick("Addresses")}
+  >
+    Addresses
+  </button>
+  <button
+    className={`menu-bar-button ${activeComponent === "PersonalDetails" ? "active-personal-details" : ""}`}
+    onClick={() => handleClick("PersonalDetails")}
+  >
+    Personal Details
+  </button>
+  <button
+    className={`menu-bar-button ${activeComponent === "BusinessLegalInformation" ? "active-business" : ""}`}
+    onClick={() => handleClick("BusinessLegalInformation")}
+  >
+    Business Legal Information
+  </button>
+  <button
+    className={`menu-bar-button ${activeComponent === "BankDetails" ? "active-bank-details" : ""}`}
+    onClick={() => handleClick("BankDetails")}
+  >
+    Bank Details
+  </button>
+  <button
+    className={`menu-bar-button ${activeComponent === "ContactPersons" ? "active-contact-persons" : ""}`}
+    onClick={() => handleClick("ContactPersons")}
+  >
+    Contact Persons
+  </button>
+</div>
       {activeComponent === "Addresses" && <AddressesComponent />}
       {activeComponent === "PersonalDetails" && <PersonalDetailsComponent />}
       {activeComponent === "BusinessLegalInformation" && (
@@ -388,13 +425,13 @@ function AddressesComponent() {
     <div>
       {/* Registered Office Address */}
       <div className="registeredOfficeAddress">
-        <h3 style={{ color: "#0196B9" }}>Registered Office Address</h3>
+        <h3>Registered Office Address</h3>
         {AddressFields()}
       </div>
 
       {/* Branch Office Address */}
       <div className="branchAddresses">
-        <h3 style={{ color: "#0196B9" }}>Branch Office Address</h3>
+        <h3>Branch Office Address</h3>
         {AddressFields()}
       </div>
     </div>
@@ -426,9 +463,7 @@ function AddressFields() {
               <option value="" disabled selected hidden>
                 Address Type*
               </option>
-              <option value="type1">
-                Office Address/Principal Place of Business
-              </option>
+              <option value="type1">Office Address/Principal Place of Business</option>
               <option value="type2">Type 2</option>
               <option value="type3">Type 3</option>
             </select>
@@ -437,10 +472,7 @@ function AddressFields() {
             </button>
           </div>
           {/* add button */}
-          <button
-            className="button-container"
-            onClick={() => toggleComponent("Component1")}
-          >
+          <button className="button-container" onClick={() => toggleComponent("Component1")}>
             <div className="add-plus-container">
               <i className="fa fa-plus-circle" aria-hidden="true"></i>
             </div>
@@ -466,10 +498,7 @@ function AddressFields() {
             </button>
           </div>
           {/* add button */}
-          <button
-            className="button-container"
-            onClick={() => toggleComponent("Component2")}
-          >
+          <button className="button-container" onClick={() => toggleComponent("Component2")}>
             <div className="add-plus-container">
               <i className="fa fa-plus-circle" aria-hidden="true"></i>
             </div>
@@ -495,10 +524,7 @@ function AddressFields() {
             </button>
           </div>
           {/* add button */}
-          <button
-            className="button-container"
-            onClick={() => toggleComponent("Component3")}
-          >
+          <button className="button-container" onClick={() => toggleComponent("Component3")}>
             <div className="add-plus-container">
               <i className="fa fa-plus-circle" aria-hidden="true"></i>
             </div>
@@ -510,30 +536,15 @@ function AddressFields() {
               <AddUnitDivision />
             </div>
           )}
+
         </div>
 
         {/* Second Row */}
         <div className="cp-row">
-          <input
-            type="text"
-            placeholder="Door No*"
-            className="address-border"
-          />
-          <input
-            type="text"
-            placeholder="Building Name"
-            className="address-border"
-          />
-          <input
-            type="text"
-            placeholder="Street Name*"
-            className="address-border"
-          />
-          <input
-            type="text"
-            placeholder="Area/Taluk*"
-            className="address-border"
-          />
+          <input type="text" placeholder="Door No*" className="address-border" />
+          <input type="text" placeholder="Building Name" className="address-border" />
+          <input type="text" placeholder="Street Name*" className="address-border" />
+          <input type="text" placeholder="Area/Taluk*" className="address-border" />
         </div>
 
         {/* Third Row */}
@@ -547,47 +558,27 @@ function AddressFields() {
             ></i>
           </div>
           <div className="cp-input-with-icon">
-            <input
-              type="text"
-              placeholder="District*"
-              className="address-border"
-            />
+            <input type="text" placeholder="District*" className="address-border" />
             <i
               class="fa fa-search new-search-icon-inside-input"
               aria-hidden="true"
             ></i>
           </div>
-          <input
-            type="text"
-            placeholder="PIN Code*"
-            className="address-border"
-          />
+          <input type="text" placeholder="PIN Code*" className="address-border" />
         </div>
 
         {/* Fourth row */}
         <div className="cp-row">
           <div className="cp-input-with-icon">
-            <input
-              type="text"
-              placeholder="Country*"
-              className="address-border"
-            />
+            <input type="text" placeholder="Country*" className="address-border" />
             <i
               class="fa fa-search new-search-icon-inside-input"
               aria-hidden="true"
             ></i>
           </div>
-          <input
-            type="text"
-            placeholder="GST Number*"
-            className="address-border"
-          />
+          <input type="text" placeholder="GST Number*" className="address-border" />
           <div className="cp-input-with-icon">
-            <input
-              type="text"
-              placeholder="Place of Supply*"
-              className="address-border"
-            />
+            <input type="text" placeholder="Place of Supply*" className="address-border" />
             <i
               class="fa fa-search new-search-icon-inside-input"
               aria-hidden="true"
@@ -600,6 +591,8 @@ function AddressFields() {
 }
 
 function PersonalDetailsComponent() {
+
+
   return (
     <div>
       {/* Personal Details */}
@@ -611,6 +604,7 @@ function PersonalDetailsComponent() {
   );
 }
 function PersonalDetailFields() {
+
   const [selectedComponent, setSelectedComponent] = useState(null);
 
   const handleFormClick = (e) => {
@@ -706,12 +700,8 @@ function PersonalDetailFields() {
         </div>
         {/* Fourth Row */}
         <div className="cp-row">
-          <div className="cp-input-with-icon">
-            <input
-              type="text"
-              placeholder="Nationality"
-              className="custom-border"
-            />
+          <div className="cp-input-with-icon" >
+            <input type="text" placeholder="Nationality" className="custom-border" />
             <i
               class="fa fa-search new-search-icon-inside-input"
               aria-hidden="true"
@@ -737,10 +727,7 @@ function PersonalDetailFields() {
             </button>
           </div>
           {/* add button */}
-          <button
-            className="personal-button-container"
-            onClick={() => toggleComponent("Component4")}
-          >
+          <button className="add-button-container" onClick={() => toggleComponent("Component4")}>
             <div className="add-plus-container">
               <i className="fa fa-plus-circle" aria-hidden="true"></i>
             </div>
@@ -751,6 +738,7 @@ function PersonalDetailFields() {
               <AddNewDesignation />
             </div>
           )}
+
         </div>
       </div>
     </div>
@@ -769,13 +757,6 @@ function BusinessLegalInfoComponent() {
   );
 }
 function businessLegalInfoFields() {
-  const handleFileUpload = (event, labelId) => {
-    const file = event.target.files[0];
-    if (file) {
-      // Show the uploaded file name (or any other success message) in the label
-      document.getElementById(labelId).innerText = `uploaded successfully`;
-    }
-  };
   return (
     <div className="cp-company-container">
       <div className="cp-column">
@@ -789,89 +770,38 @@ function businessLegalInfoFields() {
             />
           </div>
 
-          {/* GST START */}
           <input
-            type="file"
-            id="upload-GSTCertificate-upload"
-            style={{ display: "none" }}
-            onChange={(event) =>
-              handleFileUpload(event, "Upload-GSTCertificate-label")
-            }
+            type="text"
+            placeholder="Upload GST Certificate"
+            className="customLegal-border"
           />
-          {/* Label to show file upload success message */}
-          <label
-            id="Upload-GSTCertificate-label"
-            className="upload-success-msg"
-          ></label>
-          {/* Button to trigger file input */}
-          <button
-            className="upload-dg0signature-info"
-            onClick={() =>
-              document.getElementById("upload-GSTCertificate-upload").click()
-            }
-          >
-            <i className="fa fa-upload" aria-hidden="true"></i>
-            Upload GST Certificate
-          </button>
-          {/* GST END */}
           <input
             type="text"
             placeholder="PAN*"
             className="customLegal-border"
           />
-
           <input
-            type="file"
-            id="upload-PAN-upload"
-            style={{ display: "none" }}
-            onChange={(event) => handleFileUpload(event, "Upload-PAN-label")}
+            type="text"
+            placeholder="Upload PAN"
+            className="customLegal-border"
           />
-          {/* Label to show file upload success message */}
-          <label id="Upload-PAN-label" className="upload-success-msg"></label>
-          {/* Button to trigger file input */}
-          <button
-            className="upload-dg0signature-legal"
-            onClick={() => document.getElementById("upload-PAN-upload").click()}
-          >
-            <i className="fa fa-upload" aria-hidden="true"></i>
-            Upload PAN
-          </button>
         </div>
-
-        {/* end */}
-
+        {/* + add button */}
         {/* Second Row */}
         <div className="cp-row">
           <input type="text" placeholder="CIN" className="customLegal-border" />
-
-          {/* CIN Certificate Download */}
-          <button className="download-button">
-            <a
-              // href="/path-to-your-cin-certificate.pdf" // Replace with the actual link to the CIN certificate PDF
-              download="CIN_Certificate.pdf"
-              className="download-dg0signature-legal"
-            >
-              CIN Certificate.pdf
-              <i className="fa fa-download" aria-hidden="true"></i>
-            </a>
-          </button>
+          <input
+            type="text"
+            placeholder="CIN Certificate.pdf"
+            className="customLegal-border"
+          />
           <input type="text" placeholder="TAN" className="customLegal-border" />
-
-          {/* TAN Certificate Download */}
-          <button className="download-button">
-            <a
-              // href="/path-to-your-tan-certificate.pdf" // Replace with the actual link to the TAN certificate PDF
-              download="TAN_Certificate.pdf"
-              className="download-dg0signature-legal"
-            >
-              TAN Certificate.pdf
-              <i className="fa fa-download" aria-hidden="true"></i>
-            </a>
-          </button>
+          <input
+            type="text"
+            placeholder="TAN Certificate.pdf"
+            className="customLegal-border"
+          />
         </div>
-
-        {/* ... remaining code ... */}
-
         {/* Third Row */}
         <div className="cp-row">
           <input
@@ -879,57 +809,22 @@ function businessLegalInfoFields() {
             placeholder="MSME"
             className="customLegal-border"
           />
-          {/* <input
+          <input
             type="text"
             placeholder="MSME Certificate.pdf"
             className="customLegal-border"
-          /> */}
-          <button className="download-button">
-            <a
-              //href="/path-to-your-cin-certificate.pdf" // Replace with the actual link to the CIN certificate PDF
-              download="MSME_Certificate.pdf"
-              className="download-dg0signature-legal"
-            >
-              MSME Certificate.pdf
-              <i className="fa fa-download" aria-hidden="true"></i>
-            </a>
-          </button>
-
+          />
           <input
             type="text"
             placeholder="IE Code"
             className="customLegal-border"
           />
-          {/* <input
+          <input
             type="text"
             placeholder="Upload IEC Certificate"
             className="customLegal-border"
-          /> */}
-          <input
-            type="file"
-            id="upload-IECCertificate-upload"
-            style={{ display: "none" }}
-            onChange={(event) =>
-              handleFileUpload(event, "Upload-IECCertificate-label")
-            }
           />
-          {/* Label to show file upload success message */}
-          <label
-            id="Upload-IECCertificate-label"
-            className="upload-success-msg"
-          ></label>
-          {/* Button to trigger file input */}
-          <button
-            className="upload-dg0signature-legal"
-            onClick={() =>
-              document.getElementById("upload-IECCertificate-upload").click()
-            }
-          >
-            <i className="fa fa-upload" aria-hidden="true"></i>
-            Upload IEC Certificate
-          </button>
         </div>
-
         {/* Fourth row */}
         <div className="cp-row">
           <div>
@@ -938,7 +833,7 @@ function businessLegalInfoFields() {
           <div>
             <label class="container">
               <input type="checkbox" />
-              <span class="checkmark-legal"></span>
+              <span class="checkmark"></span>
             </label>
           </div>
 
@@ -948,7 +843,7 @@ function businessLegalInfoFields() {
           <div>
             <label class="container">
               <input type="checkbox" />
-              <span class="checkmark-legal"></span>
+              <span class="checkmark"></span>
             </label>
           </div>
           <div>
@@ -957,7 +852,7 @@ function businessLegalInfoFields() {
           <div>
             <label class="container">
               <input type="checkbox" />
-              <span class="checkmark-legal"></span>
+              <span class="checkmark"></span>
             </label>
           </div>
         </div>
@@ -978,6 +873,7 @@ function BankDetailsComponent() {
   );
 }
 function BankDetailFields() {
+
   const [selectedComponent, setSelectedComponent] = useState(null);
 
   const handleFormClick = (e) => {
@@ -1034,7 +930,7 @@ function BankDetailFields() {
 
         {/* Second Row */}
         <div className="cp-row">
-          <div className="bank-logo-container">
+          <div className="add-button-container">
             <div className="circle">
               <div className="line"></div>
             </div>
@@ -1073,10 +969,7 @@ function BankDetailFields() {
               <i className="fa fa-chevron-down"></i>
             </button>
           </div>
-          <button
-            className="bank-button-container"
-            onClick={() => toggleComponent("Component5")}
-          >
+          <button className="button-container" onClick={() => toggleComponent("Component5")}>
             <div className="add-plus-container">
               <i className="fa fa-plus-circle" aria-hidden="true"></i>
             </div>
@@ -1086,6 +979,7 @@ function BankDetailFields() {
               <AddAccountType />
             </div>
           )}
+
         </div>
         {/* Third Row */}
         <div className="cp-row">
@@ -1101,7 +995,7 @@ function BankDetailFields() {
           <div>
             <label class="container">
               <input type="checkbox" />
-              <span class="checkmark-info"></span>
+              <span class="checkmark"></span>
             </label>
           </div>
           <div>
@@ -1119,6 +1013,8 @@ function BankDetailFields() {
 }
 
 function ContactPersonsComponent() {
+
+
   return (
     <div>
       {/* Contact Details */}
@@ -1130,6 +1026,7 @@ function ContactPersonsComponent() {
   );
 }
 function ContactPersonDetailFields() {
+
   const [selectedComponent, setSelectedComponent] = useState(null);
 
   const handleFormClick = (e) => {
@@ -1157,14 +1054,17 @@ function ContactPersonDetailFields() {
       <div className="cp-column">
         {/* First Row */}
         <div className="cp-row">
-          <div className="cp-input-with-icon mobile">
-            <span className="country-code">Mrs.</span>
-            <input
-              type="text"
-              placeholder="Person Name*"
-              className="customContact-border"
-            />
-          </div>
+        <div class="cp-input-with-icon mobile">
+          <div class="inputs-container">
+            <div class="mobileNumer-dropdown">
+              <select class="mobileDropDown"><option value="miss">Mr</option>
+              <option value="miss">Miss</option>
+              </select>
+              <span class="dropdown-icon">
+                </span></div></div>
+                <input type="text" placeholder="Person Name" class=""/>
+                </div>
+                <span className="separator"></span>
           <div className="cp-input-with-dropdown">
             <input
               type="text"
@@ -1173,10 +1073,7 @@ function ContactPersonDetailFields() {
             />
           </div>
           {/* add button */}
-          <button
-            className="contact-button-container"
-            onClick={() => toggleComponent("Component6")}
-          >
+          <button className="button-container" onClick={() => toggleComponent("Component6")}>
             <div className="add-plus-container">
               <i className="fa fa-plus-circle" aria-hidden="true"></i>
             </div>
@@ -1187,35 +1084,44 @@ function ContactPersonDetailFields() {
               <AddNewDesignation />
             </div>
           )}
+
         </div>
 
         {/* Second Row */}
         <div className="cp-row">
-          <div className="cp-input-with-icon mobile">
-            <span className="country-code">+91</span>
-            <input
-              type="text"
-              placeholder="Mobile Number*"
-              className="customContact-border"
-            />
-          </div>
+        <div class="cp-input-with-icon mobile">
+          <div class="inputs-container">
+            <div class="mobileNumer-dropdown">
+              <select class="mobileDropDown"><option value="miss">+91</option>
+              <option value="miss">Miss</option>
+                </select>
+              <span class="dropdown-icon">
+                </span></div></div>
+                <input type="text" placeholder="Mobile Number*"/>
+                </div>
+                <span className="separator"></span>
 
           <div className="cp-input-with-dropdown">
             <input
               type="text"
               placeholder="Email ID"
-              className="customContact-border"
-            />
+              className="customContact-border"/>
           </div>
 
-          <div className="cp-input-with-icon mobile">
-            <span className="country-code">0443</span>
-            <input
-              type="text"
-              placeholder="24816100"
-              className="customContact-border"
-            />
-          </div>
+          <div class="cp-input-with-icon mobile">
+          <div class="inputs-container">
+            <div class="mobileNumer-dropdown">
+              <select class="mobileDropDown"><option value="miss">0443</option>
+              <option value="miss">Miss</option>
+                </select>
+              <span class="dropdown-icon">
+                </span></div></div>
+                <input type="text" placeholder="24816100"/>
+                <span className="separator"></span>
+                </div>
+               
+
+
         </div>
 
         {/* Third Row */}
@@ -1306,7 +1212,7 @@ function ContactPersonDetailFields() {
           <div>
             <label class="container">
               <input type="checkbox" />
-              <span class="checkmark-contact"></span>
+              <span class="checkmark"></span>
             </label>
           </div>
 
@@ -1339,7 +1245,7 @@ function ContactPersonDetailFields() {
           <div>
             <label class="container">
               <input type="checkbox" />
-              <span class="checkmark-contact"></span>
+              <span class="checkmark"></span>
             </label>
           </div>
 
@@ -1349,7 +1255,7 @@ function ContactPersonDetailFields() {
           <div>
             <label class="container">
               <input type="checkbox" />
-              <span class="checkmark-contact"></span>
+              <span class="checkmark"></span>
             </label>
           </div>
         </div>
