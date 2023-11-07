@@ -727,7 +727,7 @@ function PersonalDetailFields() {
             </button>
           </div>
           {/* add button */}
-          <button className="add-button-container" onClick={() => toggleComponent("Component4")}>
+          <button className="personal-button-container" onClick={() => toggleComponent("Component4")}>
             <div className="add-plus-container">
               <i className="fa fa-plus-circle" aria-hidden="true"></i>
             </div>
@@ -757,6 +757,13 @@ function BusinessLegalInfoComponent() {
   );
 }
 function businessLegalInfoFields() {
+  const handleFileUpload = (event, labelId) => {
+    const file = event.target.files[0];
+    if (file) {
+      // Show the uploaded file name (or any other success message) in the label
+      document.getElementById(labelId).innerText = 'uploaded successfully';
+    }
+  };
   return (
     <div className="cp-company-container">
       <div className="cp-column">
@@ -770,38 +777,89 @@ function businessLegalInfoFields() {
             />
           </div>
 
+          {/* GST START */}
           <input
-            type="text"
-            placeholder="Upload GST Certificate"
-            className="customLegal-border"
+            type="file"
+            id="upload-GSTCertificate-upload"
+            style={{ display: "none" }}
+            onChange={(event) =>
+              handleFileUpload(event, "Upload-GSTCertificate-label")
+            }
           />
+          {/* Label to show file upload success message */}
+          <label
+            id="Upload-GSTCertificate-label"
+            className="upload-success-msg"
+          ></label>
+          {/* Button to trigger file input */}
+          <button
+            className="upload-dg0signature-info"
+            onClick={() =>
+              document.getElementById("upload-GSTCertificate-upload").click()
+            }
+          >
+            <i className="fa fa-upload" aria-hidden="true"></i>
+            Upload GST Certificate
+          </button>
+          {/* GST END */}
           <input
             type="text"
             placeholder="PAN*"
             className="customLegal-border"
           />
+
           <input
-            type="text"
-            placeholder="Upload PAN"
-            className="customLegal-border"
+            type="file"
+            id="upload-PAN-upload"
+            style={{ display: "none" }}
+            onChange={(event) => handleFileUpload(event, "Upload-PAN-label")}
           />
+          {/* Label to show file upload success message */}
+          <label id="Upload-PAN-label" className="upload-success-msg"></label>
+          {/* Button to trigger file input */}
+          <button
+            className="upload-dg0signature-legal"
+            onClick={() => document.getElementById("upload-PAN-upload").click()}
+          >
+            <i className="fa fa-upload" aria-hidden="true"></i>
+            Upload PAN
+          </button>
         </div>
-        {/* + add button */}
+
+        {/* end */}
+
         {/* Second Row */}
         <div className="cp-row">
           <input type="text" placeholder="CIN" className="customLegal-border" />
-          <input
-            type="text"
-            placeholder="CIN Certificate.pdf"
-            className="customLegal-border"
-          />
+
+          {/* CIN Certificate Download */}
+          <button className="download-button">
+            <a
+              // href="/path-to-your-cin-certificate.pdf" // Replace with the actual link to the CIN certificate PDF
+              download="CIN_Certificate.pdf"
+              className="download-dg0signature-legal"
+            >
+              CIN Certificate.pdf
+              <i className="fa fa-download" aria-hidden="true"></i>
+            </a>
+          </button>
           <input type="text" placeholder="TAN" className="customLegal-border" />
-          <input
-            type="text"
-            placeholder="TAN Certificate.pdf"
-            className="customLegal-border"
-          />
+
+          {/* TAN Certificate Download */}
+          <button className="download-button">
+            <a
+              // href="/path-to-your-tan-certificate.pdf" // Replace with the actual link to the TAN certificate PDF
+              download="TAN_Certificate.pdf"
+              className="download-dg0signature-legal"
+            >
+              TAN Certificate.pdf
+              <i className="fa fa-download" aria-hidden="true"></i>
+            </a>
+          </button>
         </div>
+
+        {/* ... remaining code ... */}
+
         {/* Third Row */}
         <div className="cp-row">
           <input
@@ -809,22 +867,57 @@ function businessLegalInfoFields() {
             placeholder="MSME"
             className="customLegal-border"
           />
-          <input
+          {/* <input
             type="text"
             placeholder="MSME Certificate.pdf"
             className="customLegal-border"
-          />
+          /> */}
+          <button className="download-button">
+            <a
+              //href="/path-to-your-cin-certificate.pdf" // Replace with the actual link to the CIN certificate PDF
+              download="MSME_Certificate.pdf"
+              className="download-dg0signature-legal"
+            >
+              MSME Certificate.pdf
+              <i className="fa fa-download" aria-hidden="true"></i>
+            </a>
+          </button>
+
           <input
             type="text"
             placeholder="IE Code"
             className="customLegal-border"
           />
-          <input
+          {/* <input
             type="text"
             placeholder="Upload IEC Certificate"
             className="customLegal-border"
+          /> */}
+          <input
+            type="file"
+            id="upload-IECCertificate-upload"
+            style={{ display: "none" }}
+            onChange={(event) =>
+              handleFileUpload(event, "Upload-IECCertificate-label")
+            }
           />
+          {/* Label to show file upload success message */}
+          <label
+            id="Upload-IECCertificate-label"
+            className="upload-success-msg"
+          ></label>
+          {/* Button to trigger file input */}
+          <button
+            className="upload-dg0signature-legal"
+            onClick={() =>
+              document.getElementById("upload-IECCertificate-upload").click()
+            }
+          >
+            <i className="fa fa-upload" aria-hidden="true"></i>
+            Upload IEC Certificate
+          </button>
         </div>
+
         {/* Fourth row */}
         <div className="cp-row">
           <div>
@@ -833,7 +926,7 @@ function businessLegalInfoFields() {
           <div>
             <label class="container">
               <input type="checkbox" />
-              <span class="checkmark"></span>
+              <span class="checkmark-legal"></span>
             </label>
           </div>
 
@@ -843,7 +936,7 @@ function businessLegalInfoFields() {
           <div>
             <label class="container">
               <input type="checkbox" />
-              <span class="checkmark"></span>
+              <span class="checkmark-legal"></span>
             </label>
           </div>
           <div>
@@ -852,7 +945,7 @@ function businessLegalInfoFields() {
           <div>
             <label class="container">
               <input type="checkbox" />
-              <span class="checkmark"></span>
+              <span class="checkmark-legal"></span>
             </label>
           </div>
         </div>
@@ -929,8 +1022,8 @@ function BankDetailFields() {
         </div>
 
         {/* Second Row */}
-        <div className="cp-row">
-          <div className="add-button-container">
+          <div className="cp-row">
+          <div className="bank-logo-container">
             <div className="circle">
               <div className="line"></div>
             </div>
@@ -969,7 +1062,10 @@ function BankDetailFields() {
               <i className="fa fa-chevron-down"></i>
             </button>
           </div>
-          <button className="button-container" onClick={() => toggleComponent("Component5")}>
+          <button
+            className="bank-button-container"
+            onClick={() => toggleComponent("Component5")}
+          >
             <div className="add-plus-container">
               <i className="fa fa-plus-circle" aria-hidden="true"></i>
             </div>
@@ -979,8 +1075,7 @@ function BankDetailFields() {
               <AddAccountType />
             </div>
           )}
-
-        </div>
+          </div>        
         {/* Third Row */}
         <div className="cp-row">
           <div>
@@ -995,7 +1090,7 @@ function BankDetailFields() {
           <div>
             <label class="container">
               <input type="checkbox" />
-              <span class="checkmark"></span>
+              <span class="checkmark-info"></span>
             </label>
           </div>
           <div>
@@ -1073,7 +1168,7 @@ function ContactPersonDetailFields() {
             />
           </div>
           {/* add button */}
-          <button className="button-container" onClick={() => toggleComponent("Component6")}>
+          <button className="contact-button-container" onClick={() => toggleComponent("Component6")}>
             <div className="add-plus-container">
               <i className="fa fa-plus-circle" aria-hidden="true"></i>
             </div>
@@ -1092,8 +1187,10 @@ function ContactPersonDetailFields() {
         <div class="cp-input-with-icon mobile">
           <div class="inputs-container">
             <div class="mobileNumer-dropdown">
-              <select class="mobileDropDown"><option value="miss">+91</option>
-              <option value="miss">Miss</option>
+              <select class="mobileDropDown"><option value="+91">+91</option>
+              <option value="+65">+65</option>
+              <option value="+44">+44</option>
+              <option value="+1">+1</option>
                 </select>
               <span class="dropdown-icon">
                 </span></div></div>
@@ -1111,8 +1208,8 @@ function ContactPersonDetailFields() {
           <div class="cp-input-with-icon mobile">
           <div class="inputs-container">
             <div class="mobileNumer-dropdown">
-              <select class="mobileDropDown"><option value="miss">0443</option>
-              <option value="miss">Miss</option>
+              <select class="mobileDropDown"><option value="0443">0443</option>
+              <option value="0452">0452</option>
                 </select>
               <span class="dropdown-icon">
                 </span></div></div>
@@ -1212,7 +1309,7 @@ function ContactPersonDetailFields() {
           <div>
             <label class="container">
               <input type="checkbox" />
-              <span class="checkmark"></span>
+              <span class="checkmark-contact"></span>
             </label>
           </div>
 
@@ -1245,7 +1342,7 @@ function ContactPersonDetailFields() {
           <div>
             <label class="container">
               <input type="checkbox" />
-              <span class="checkmark"></span>
+              <span class="checkmark-contact"></span>
             </label>
           </div>
 
@@ -1255,7 +1352,7 @@ function ContactPersonDetailFields() {
           <div>
             <label class="container">
               <input type="checkbox" />
-              <span class="checkmark"></span>
+              <span class="checkmark-contact"></span>
             </label>
           </div>
         </div>

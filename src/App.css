@@ -749,6 +749,59 @@ input {
  color: white;
  border-left: 1px solid #ccc;
  border-radius: 0 4px 4px 0;}
+
+ /* personal details css */
+ .personal-button-container{
+  top: 607px;
+ left: 794px;
+ width: 32px;
+ height: 32px;
+  align-items: center; 
+   background: none;
+ border: none;
+ cursor: pointer;
+ padding: 8px;
+ background: #9B660E 0% 0% no-repeat padding-box;
+ color: white;
+ border-left: 1px solid #ccc;
+ border-radius: 0 4px 4px 0;
+}
+
+
+ /* bank account */
+ .bank-button-container{
+  top: 607px;
+ left: 794px;
+ width: 32px;
+ height: 32px;
+  align-items: center; 
+   background: none;
+ border: none;
+ cursor: pointer;
+ padding: 8px;
+ background: #A666F8 0% 0% no-repeat padding-box;
+ color: white;
+ border-left: 1px solid #ccc;
+ border-radius: 0 4px 4px 0;
+}
+
+/* signing and contact */
+.contact-button-container{
+  top: 607px;
+ left: 794px;
+ width: 32px;
+ height: 32px;
+  align-items: center; 
+   background: none;
+ border: none;
+ cursor: pointer;
+ padding: 8px;
+ background: #5C5831 0% 0% no-repeat padding-box;
+ color: white;
+ border-left: 1px solid #ccc;
+ border-radius: 0 4px 4px 0;
+}
+
 /* bank account details */
 .upload-addBank{
   background-color:#A666F8;
@@ -781,7 +834,12 @@ input {
   height: 4vh;
   background-color: purple;
 } */
-
+.bank-logo-container{
+  border: 1px solid #A666F8;
+  color: white;
+  padding: 6px;
+}
+ 
 
 .circle {
   position: relative;
@@ -1111,4 +1169,228 @@ select{
   border: 1px solid #00BCD4;
   padding: 5px 10px;
   margin-right: 10px;
+}
+/* business legal upload */
+.upload-dg0signature-legal{
+  margin-left: 0px;
+  background-color: #CBCFD9;
+  color: white;
+  border:none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.upload-dg0signature-info{
+  margin-left: 0px;
+  background-color:#A3184B;
+  color: white;
+  border:none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.download-button{
+  margin-left: 0px;
+  background-color: #FFF5FB;
+  color: #A3184B;
+  border: 1px solid #A3184B;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  height: 32px;
+  width: 32px;
+  background-color: #eee;
+  
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 12px;
+  top: 7px;
+  width: 5px;
+  height: 13px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);}
+
+.sample-sign{
+  width: 57%;
+  height: 62px;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-left: 154px;
+  margin-top: 14px;
+}
+
+.ISV{
+  color: black;
+}
+/* LEGAL CHECKMARK */
+
+.checkmark-legal {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  height: 32px;
+  width: 32px;
+  background-color: #eee;
+  
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark-legal {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark-legal {
+  background-color: #A3184B;
+}
+.checkmark-legal:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark-legal:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark-legal:after {
+  left: 12px;
+  top: 7px;
+  width: 5px;
+  height: 13px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);}
+
+
+  /* bank account checkbox */
+
+.checkmark-info{
+  position: absolute;
+  top: -10px;
+  left: 0;
+  height: 32px;
+  width: 32px;
+  background-color: #eee;
+  
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark-info {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark-info {
+  background-color: #A666F8;
+}
+.checkmark-info:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark-info:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark-info:after {
+  left: 12px;
+  top: 7px;
+  width: 5px;
+  height: 13px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+/* contact  person-checkmark */
+
+.checkmark-contact{
+  position: absolute;
+  top: -10px;
+  left: 0;
+  height: 32px;
+  width: 32px;
+  background-color: #eee;
+  
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark-contact {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark-contact {
+  background-color: #5C5831;
+}
+.checkmark-contact:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark-contact:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark-contact:after {
+  left: 12px;
+  top: 7px;
+  width: 5px;
+  height: 13px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
 }
