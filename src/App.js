@@ -962,9 +962,9 @@ function PersonalDetailFields() {
               <div className="choosePersonal-container">
                 <select>
                   <option value="miss">Miss</option>
-                  <option value="miss">Mr.</option>
-                  <option value="miss">Mrs.</option>
-                  <option value="miss">Dr.</option>
+                  <option value="mr">Mr.</option>
+                  <option value="mrs">Mrs.</option>
+                  <option value="dr">Dr.</option>
                 </select>
                 <span className="dropdown-icon"></span>
               </div>
@@ -1381,7 +1381,7 @@ function businessLegalInfoFields() {
               <span class="checkmark-legal"></span>
             </label>
           </div>
-
+          &nbsp;&nbsp;&nbsp;&nbsp;
           <div>
             <label>TDS Deductions</label>
           </div>
@@ -1390,7 +1390,7 @@ function businessLegalInfoFields() {
               <input type="checkbox" />
               <span class="checkmark-legal"></span>
             </label>
-          </div>
+          </div>&nbsp;&nbsp;&nbsp;&nbsp;
           <div>
             <label>TCS Collections</label>
           </div>
@@ -1432,6 +1432,9 @@ function BankDetailFields(){
   
 });
 const [focused, setFocused] = useState("");
+const [logo, setLogo] = useState(null);
+const fileInputRef = useRef(null);
+
 
 const handleFocus = (fieldName) => {
   setFocused(fieldName);
@@ -1447,7 +1450,6 @@ const handleInputChange = (e) => {
   const { name, value } = e.target;
   setInputs((prevInputs) => ({ ...prevInputs, [name]: value }));
 };
-// end
 
 const [selectedComponent, setSelectedComponent] = useState(null);
 
@@ -1479,14 +1481,13 @@ const toggleComponent = (componentName) => {
                 </select>
                 <span className="dropdown-icon"></span>
               </div>
-
-              {/* Account Name Float */}
-              <div className="cp-input-with-icon floating-label-group">
+            </div>
+            <div className="cp-input-with-icon floating-label-group">
             <input
               type="text"
               name="accountName"
-              placeholder="AccountName*"
-              className={`customBank-border ${inputs.accountName ? "filled" : ""}`}
+              placeholder="Account Name*"
+              className={`address-border ${inputs.accountName ? "filled" : ""}`}
               onChange={handleInputChange}
               onFocus={() => handleFocus("accountName")}
               onBlur={() => handleBlur("accountName")}
@@ -1494,22 +1495,20 @@ const toggleComponent = (componentName) => {
             />
             <label
               htmlFor="accountName"
-              className={
-                focused === "accountName" || inputs.accountName ? "floating" : ""
+              className={focused === "accountName" || inputs.accountName ? "floating" : ""
               }
             >
               Account Name*
             </label>
           </div>
-            </div>
           </div>
            {/* Account Number Float */}
-          <div className="customBank-border floating-label-group">
+           <div className=" cp-input-with-icon floating-label-group">
             <input
               type="text"
               name="accountNumber"
-              placeholder="AccountNumber*"
-              className={`customBank-border ${inputs.accountNumber ? "filled" : ""}`}
+              placeholder="Account Number*"
+              className={`address-border ${inputs.accountNumber ? "filled" : ""}`}
               onChange={handleInputChange}
               onFocus={() => handleFocus("accountNumber")}
               onBlur={() => handleBlur("accountNumber")}
@@ -1526,13 +1525,13 @@ const toggleComponent = (componentName) => {
           </div>
 
            {/* IFSC Float */}
-          <div className="cp-input-with-icon">
+         
           <div className="cp-input-with-icon floating-label-group">
             <input
               type="text"
               name="ifsc"
               placeholder="IFSC*"
-              className={`customBank-border ${inputs.ifsc ? "filled" : ""}`}
+              className={`address-border ${inputs.ifsc ? "filled" : ""}`}
               onChange={handleInputChange}
               onFocus={() => handleFocus("ifsc")}
               onBlur={() => handleBlur("ifsc")}
@@ -1546,7 +1545,7 @@ const toggleComponent = (componentName) => {
             >
               IFSC*
             </label>
-            </div>
+            
             <i
               class="fa fa-search new-search-icon-inside-input"
               aria-hidden="true"
@@ -1562,12 +1561,12 @@ const toggleComponent = (componentName) => {
             </div>
           </div>
            {/* Bank Name Float */}
-          <div className="customBank-border floating-label-group">
+           <div className="cp-input-with-icon floating-label-group">
             <input
               type="text"
               name="bankName"
-              placeholder="BankName*"
-              className={`customBank-border ${inputs.bankName ? "filled" : ""}`}
+              placeholder="Bank Name*"
+              className={`address-border ${inputs.bankName ? "filled" : ""}`}
               onChange={handleInputChange}
               onFocus={() => handleFocus("bankName")}
               onBlur={() => handleBlur("bankName")}
@@ -1582,20 +1581,13 @@ const toggleComponent = (componentName) => {
               Bank Name*
             </label>
           </div>
-            <i
-              class="fa fa-search new-search-icon-inside-input"
-              aria-hidden="true"
-            ></i>
-
-             {/* Branch Name Float */}
-         
-          <div className="cp-input-with-icon">
-          <div className="cp-input-with-icon floating-label-group">
+            {/* Branch Name Float */}
+           <div className="cp-input-with-icon floating-label-group">
             <input
               type="text"
               name="branchName"
-              placeholder="BranchName*"
-              className={`customBank-border ${inputs.branchName ? "filled" : ""}`}
+              placeholder="Branch Name*"
+              className={`address-border ${inputs.branchName ? "filled" : ""}`}
               onChange={handleInputChange}
               onFocus={() => handleFocus("branchName")}
               onBlur={() => handleBlur("branchName")}
@@ -1609,12 +1601,11 @@ const toggleComponent = (componentName) => {
             >
               Branch Name*
             </label>
-          </div>
             <i
               class="fa fa-search new-search-icon-inside-input"
               aria-hidden="true"
             ></i>
-          </div>
+           </div>
            {/* Account Type Float */}
           <div className="cp-input-with-dropdown floating-label-group">
             <select
@@ -1640,6 +1631,9 @@ const toggleComponent = (componentName) => {
             >
               Account Type*
             </label>
+            <button className="dropdown-icon-right">
+              <i className="fa fa-chevron-down"></i>
+            </button>
          </div>
           <button
             className="bank-button-container"
@@ -1659,12 +1653,12 @@ const toggleComponent = (componentName) => {
         <div className="cp-row">
           <div>
              {/* UPI ID Float */}
-          <div className="customBank-border floating-label-group">
+          <div className="cp-input-with-icon floating-label-group">
             <input
               type="text"
-              name="upiid"
+              name="upiId"
               placeholder="UPI ID"
-              className={`customBank-border ${inputs.upiId ? "filled" : ""}`}
+              className={`address-border ${inputs.upiId ? "filled" : ""}`}
               onChange={handleInputChange}
               onFocus={() => handleFocus("upiId")}
               onBlur={() => handleBlur("upiId")}
@@ -1680,7 +1674,7 @@ const toggleComponent = (componentName) => {
             </label>
           </div>
           </div>
-        </div>
+          </div>
         <div className="cp-row">
           <div>
             <label class="container">
