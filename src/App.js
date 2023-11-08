@@ -1407,7 +1407,7 @@ const toggleComponent = (componentName) => {
             </div>
           </div>
            {/* Account Number Float */}
-          <div className="cp-input-with-icon floating-label-group">
+          <div className="customBank-border floating-label-group">
             <input
               type="text"
               name="accountNumber"
@@ -1562,7 +1562,7 @@ const toggleComponent = (componentName) => {
         <div className="cp-row">
           <div>
              {/* UPI ID Float */}
-          <div className="cp-input-with-icon floating-label-group">
+          <div className="customBank-border floating-label-group">
             <input
               type="text"
               name="upiid"
