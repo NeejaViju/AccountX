@@ -1113,33 +1113,62 @@ function BusinessLegalInfoComponent() {
   );
 }
 function businessLegalInfoFields() {
-  const handleFileUpload = (event, labelId) => {
-    const file = event.target.files[0];
-    if (file) {
-      // Show the uploaded file name (or any other success message) in the label
-      document.getElementById(labelId).innerText = "uploaded successfully";
+    const [inputs, setInputs] = useState({
+    gstNumber: "",
+    pan: "",
+    cin: "",
+    tan: "",
+    msme: "",
+    ieCode: "",
+     });
+  const [focused, setFocused] = useState("");
+  const [logo, setLogo] = useState(null);
+  const fileInputRef = useRef(null);
+
+  const handleFocus = (fieldName) => {
+    setFocused(fieldName);
+  };
+
+  const handleBlur = (fieldName) => {
+    if (!inputs[fieldName]) {
+      setFocused("");
     }
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setInputs((prevInputs) => ({ ...prevInputs, [name]: value }));
   };
   return (
     <div className="cp-company-container">
       <div className="cp-column">
         {/* First Row */}
-        <div className="cp-row">
-          <div className="cp-input-with-icon">
+          <div className="cp-row">
+          <div className=" cp-input-with-icon floating-label-group">
             <input
               type="text"
+              name="gstNumber"
               placeholder="GST Number*"
-              className="customLegal-border"
+              className={`address-border ${inputs.gstNumber ? "filled" : ""}`}
+              onChange={handleInputChange}
+              onFocus={() => handleFocus("gstNumber")}
+              onBlur={() => handleBlur("gstNumber")}
+              value={inputs.gstNumber}
             />
+            <label
+              htmlFor="gstNumber"
+              className={focused === "gstNumber" || inputs.gstNumber ? "floating" : ""}
+            >
+              GST Number*
+            </label>
           </div>
-
-          {/* GST START */}
+                    {/* GST START */}
           <input
             type="file"
             id="upload-GSTCertificate-upload"
             style={{ display: "none" }}
             onChange={(event) =>
-              handleFileUpload(event, "Upload-GSTCertificate-label")
+              'handleFileUpload'(event, "Upload-GSTCertificate-label")
             }
           />
           {/* Label to show file upload success message */}
@@ -1158,17 +1187,30 @@ function businessLegalInfoFields() {
             GST Certificate
           </button>
           {/* GST END */}
-          <input
-            type="text"
-            placeholder="PAN*"
-            className="customLegal-border"
-          />
+            <div className=" cp-input-with-icon floating-label-group">
+            <input
+              type="text"
+              name="pan"
+              placeholder="PAN*"
+              className={`address-border ${inputs.pan ? "filled" : ""}`}
+              onChange={handleInputChange}
+              onFocus={() => handleFocus("pan")}
+              onBlur={() => handleBlur("pan")}
+              value={inputs.pan}
+            />
+            <label
+              htmlFor="pan"
+              className={focused === "pan" || inputs.pan ? "floating" : ""}
+            >
+              PAN*
+            </label>
+          </div>
 
           <input
             type="file"
             id="upload-PAN-upload"
             style={{ display: "none" }}
-            onChange={(event) => handleFileUpload(event, "Upload-PAN-label")}
+            onChange={(event) => 'handleFileUpload'(event, "Upload-PAN-label")}
           />
           {/* Label to show file upload success message */}
           <label id="Upload-PAN-label" className="upload-success-msg"></label>
@@ -1185,7 +1227,24 @@ function businessLegalInfoFields() {
 
         {/* Second Row */}
         <div className="cp-row">
-          <input type="text" placeholder="CIN" className="customLegal-border" />
+        <div className=" cp-input-with-icon floating-label-group">
+            <input
+              type="text"
+              name="cin"
+              placeholder="CIN*"
+              className={`address-border ${inputs.cin ? "filled" : ""}`}
+              onChange={handleInputChange}
+              onFocus={() => handleFocus("cin")}
+              onBlur={() => handleBlur("cin")}
+              value={inputs.cin}
+            />
+            <label
+              htmlFor="cin"
+              className={focused === "cin" || inputs.cin ? "floating" : ""}
+            >
+              CIN*
+            </label>
+          </div>
 
           {/* CIN Certificate Download */}
           <button className="download-button">
@@ -1198,7 +1257,24 @@ function businessLegalInfoFields() {
               <i className="fa fa-download" aria-hidden="true"></i>
             </a>
           </button>
-          <input type="text" placeholder="TAN" className="customLegal-border" />
+          <div className=" cp-input-with-icon floating-label-group">
+            <input
+              type="text"
+              name="tan"
+              placeholder="TAN*"
+              className={`address-border ${inputs.tan ? "filled" : ""}`}
+              onChange={handleInputChange}
+              onFocus={() => handleFocus("tan")}
+              onBlur={() => handleBlur("tan")}
+              value={inputs.tan}
+            />
+            <label
+              htmlFor="tan"
+              className={focused === "tan" || inputs.tan ? "floating" : ""}
+            >
+              TAN*
+            </label>
+          </div>
 
           {/* TAN Certificate Download */}
           <button className="download-button">
@@ -1217,11 +1293,24 @@ function businessLegalInfoFields() {
 
         {/* Third Row */}
         <div className="cp-row">
-          <input
-            type="text"
-            placeholder="MSME"
-            className="customLegal-border"
-          />
+        <div className=" cp-input-with-icon floating-label-group">
+            <input
+              type="text"
+              name="msme"
+              placeholder="MSME*"
+              className={`address-border ${inputs.msme ? "filled" : ""}`}
+              onChange={handleInputChange}
+              onFocus={() => handleFocus("msme")}
+              onBlur={() => handleBlur("msme")}
+              value={inputs.msme}
+            />
+            <label
+              htmlFor="msme"
+              className={focused === "msme" || inputs.msme ? "floating" : ""}
+            >
+              MSME*
+            </label>
+          </div>
           {/* <input
             type="text"
             placeholder="MSME Certificate.pdf"
@@ -1238,22 +1327,30 @@ function businessLegalInfoFields() {
             </a>
           </button>
 
-          <input
-            type="text"
-            placeholder="IE Code"
-            className="customLegal-border"
-          />
-          {/* <input
-            type="text"
-            placeholder="Upload IEC Certificate"
-            className="customLegal-border"
-          /> */}
+          <div className=" cp-input-with-icon floating-label-group">
+            <input
+              type="text"
+              name="iecode"
+              placeholder="IE Code*"
+              className={`address-border ${inputs.iecode ? "filled" : ""}`}
+              onChange={handleInputChange}
+              onFocus={() => handleFocus("iecode")}
+              onBlur={() => handleBlur("iecode")}
+              value={inputs.iecode}
+            />
+            <label
+              htmlFor="iecode"
+              className={focused === "iecode" || inputs.iecode ? "floating" : ""}
+            >
+              IE Code*
+            </label>
+          </div>
           <input
             type="file"
             id="upload-IECCertificate-upload"
             style={{ display: "none" }}
             onChange={(event) =>
-              handleFileUpload(event, "Upload-IECCertificate-label")
+              'handleFileUpload'(event, "Upload-IECCertificate-label")
             }
           />
           {/* Label to show file upload success message */}
