@@ -1465,7 +1465,7 @@ const toggleComponent = (componentName) => {
             </div>
           </div>
            {/* Bank Name Float */}
-          <div className="cp-input-with-icon floating-label-group">
+          <div className="customBank-border floating-label-group">
             <input
               type="text"
               name="bankName"
