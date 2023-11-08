@@ -798,7 +798,7 @@ function businessLegalInfoFields() {
               document.getElementById("upload-GSTCertificate-upload").click()
             }
           >
-            <i className="fa fa-upload" aria-hidden="true"></i>
+            <i className="fa fa-upload" aria-hidden="true"></i> &nbsp;
             Upload GST Certificate
           </button>
           {/* GST END */}
@@ -821,7 +821,7 @@ function businessLegalInfoFields() {
             className="upload-dg0signature-legal"
             onClick={() => document.getElementById("upload-PAN-upload").click()}
           >
-            <i className="fa fa-upload" aria-hidden="true"></i>
+            <i className="fa fa-upload" aria-hidden="true"></i>&nbsp;
             Upload PAN
           </button>
         </div>
@@ -836,11 +836,11 @@ function businessLegalInfoFields() {
           <button className="download-button">
             <a
               // href="/path-to-your-cin-certificate.pdf" // Replace with the actual link to the CIN certificate PDF
-              download="CIN_Certificate.pdf"
+                download="CIN_Certificate.pdf"
               className="download-dg0signature-legal"
             >
               CIN Certificate.pdf
-              <i className="fa fa-download" aria-hidden="true"></i>
+              &nbsp;<i className="fa fa-download" aria-hidden="true"></i>
             </a>
           </button>
           <input type="text" placeholder="TAN" className="customLegal-border" />
@@ -853,7 +853,7 @@ function businessLegalInfoFields() {
               className="download-dg0signature-legal"
             >
               TAN Certificate.pdf
-              <i className="fa fa-download" aria-hidden="true"></i>
+              &nbsp;<i className="fa fa-download" aria-hidden="true"></i>
             </a>
           </button>
         </div>
@@ -879,7 +879,7 @@ function businessLegalInfoFields() {
               className="download-dg0signature-legal"
             >
               MSME Certificate.pdf
-              <i className="fa fa-download" aria-hidden="true"></i>
+              &nbsp;<i className="fa fa-download" aria-hidden="true"></i>
             </a>
           </button>
 
@@ -913,7 +913,7 @@ function businessLegalInfoFields() {
               document.getElementById("upload-IECCertificate-upload").click()
             }
           >
-            <i className="fa fa-upload" aria-hidden="true"></i>
+            <i className="fa fa-upload" aria-hidden="true"></i>&nbsp;
             Upload IEC Certificate
           </button>
         </div>
@@ -990,9 +990,9 @@ function BankDetailFields() {
               <div className="chooseBank-container">
                 <select>
                   <option value="miss">M/s.</option>
-                  <option value="miss">Mr.</option>
-                  <option value="miss">Mrs.</option>
-                  <option value="miss">Dr.</option>
+                  <option value="mr">Mr.</option>
+                  <option value="mrs">Mrs.</option>
+                  <option value="dr">Dr.</option>
                 </select>
                 <span className="dropdown-icon"></span>
               </div>
@@ -1152,8 +1152,11 @@ function ContactPersonDetailFields() {
         <div class="cp-input-with-icon mobile">
           <div class="inputs-container">
             <div class="mobileNumer-dropdown">
-              <select class="mobileDropDown"><option value="miss">Mr</option>
-              <option value="miss">Miss</option>
+              <select class="mobileDropDown">
+                <option value="mr">Mr.</option>
+              <option value="miss">Miss.</option>
+              <option value="m/s">M/s.</option>
+              <option value="dr">Dr.</option>
               </select>
               <span class="dropdown-icon">
                 </span></div></div>
