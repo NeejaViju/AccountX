@@ -29,7 +29,7 @@ function App() {
   );
 }
 
-// NavBar Component
+// NavBar vComponent
 function NavBar() {
   return (
     <div className="new-navbar">
