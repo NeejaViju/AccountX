@@ -1421,7 +1421,7 @@ const toggleComponent = (componentName) => {
             <label
               htmlFor="accountNumber"
               className={
-                focused === "accountNumber" || inputs.accountName ? "floating" : ""
+                focused === "accountNumber" || inputs.accountNumber ? "floating" : ""
               }
             >
               Account Number*
@@ -1444,18 +1444,18 @@ const toggleComponent = (componentName) => {
             <label
               htmlFor="ifsc"
               className={
-                focused === "ifsc" || inputs.accountName ? "floating" : ""
+                focused === "ifsc" || inputs.ifsc ? "floating" : ""
               }
             >
               IFSC*
             </label>
-          </div>
+            </div>
             <i
               class="fa fa-search new-search-icon-inside-input"
               aria-hidden="true"
             ></i>
           </div>
-        </div>
+         </div>
 
         {/* Second Row */}
         <div className="cp-row">
