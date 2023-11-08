@@ -1128,7 +1128,8 @@ select{
 /*}*/ 
 .customBank-border:focus {
   border-color:#A666F8;
-  outline: none; /* This will remove the default browser outline on focus */
+  outline: none;
+   /* This will remove the default browser outline on focus */
 }
 
 /* BANK SPAN */
