@@ -1107,13 +1107,14 @@ function BusinessLegalInfoComponent() {
       {/* Bank Details */}
       <div className="bussinessLegalInformation">
         <h3 style={{ color: "#A3184B" }}>Business Legal Information</h3>
-        {businessLegalInfoFields()}
+        {BusinessLegalInfoFields()}
       </div>
     </div>
   );
 }
-function businessLegalInfoFields() {
-    const [inputs, setInputs] = useState({
+function BusinessLegalInfoFields() {
+
+    const [inputs, setInputs] = useState ({
     gstNumber: "",
     pan: "",
     cin: "",
@@ -1122,8 +1123,7 @@ function businessLegalInfoFields() {
     ieCode: "",
      });
   const [focused, setFocused] = useState("");
-  const [logo, setLogo] = useState(null);
-  const fileInputRef = useRef(null);
+ 
 
   const handleFocus = (fieldName) => {
     setFocused(fieldName);
@@ -1139,6 +1139,20 @@ function businessLegalInfoFields() {
     const { name, value } = e.target;
     setInputs((prevInputs) => ({ ...prevInputs, [name]: value }));
   };
+
+  const [selectedComponent, setSelectedComponent] = useState(null);
+
+const handleFormClick = (e) => {
+  e.stopPropagation();
+};
+
+const toggleComponent = (componentName) => {
+  if (selectedComponent === componentName) {
+    setSelectedComponent(null); // Hide the component if it's already visible
+  } else {
+    setSelectedComponent(componentName); // Show the selected component
+  }
+};
   return (
     <div className="cp-company-container">
       <div className="cp-column">
