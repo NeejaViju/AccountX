@@ -1722,6 +1722,34 @@ function ContactPersonsComponent() {
   );
 }
 function ContactPersonDetailFields() {
+
+  // Contact person float
+
+  const [inputs, setInputs] = useState({
+    personName: "",
+    designation: "",
+    mobileNumber: "",
+    emailId: "",
+    
+    
+  });
+  const [focused, setFocused] = useState("");
+  
+  const handleFocus = (fieldName) => {
+    setFocused(fieldName);
+  };
+  
+  const handleBlur = (fieldName) => {
+    if (!inputs[fieldName]) {
+      setFocused("");
+    }
+  };
+  
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setInputs((prevInputs) => ({ ...prevInputs, [name]: value }));
+  };
+  // end
   const [selectedComponent, setSelectedComponent] = useState(null);
 
   const handleFormClick = (e) => {
@@ -1761,7 +1789,27 @@ function ContactPersonDetailFields() {
                 <span class="dropdown-icon"></span>
               </div>
             </div>
-            <input type="text" placeholder="Person Name" class="" />
+            {/* Person Name Float */}
+            <div className="cp-input-with-icon floating-label-group">
+            <input
+              type="text"
+              name="personName"
+              placeholder="PersonName*"
+              className={`address-border ${inputs.personName ? "filled" : ""}`}
+              onChange={handleInputChange}
+              onFocus={() => handleFocus("personName")}
+              onBlur={() => handleBlur("personName")}
+              value={inputs.personName}
+            />
+            <label
+              htmlFor="personName"
+              className={
+                focused === "personName" || inputs.personName ? "floating" : ""
+              }
+            >
+              Person Name
+            </label>
+          </div>
           </div>
           <span className="separator"></span>
           <div className="cp-input-with-dropdown">
@@ -1802,16 +1850,50 @@ function ContactPersonDetailFields() {
                 <span class="dropdown-icon"></span>
               </div>
             </div>
-            <input type="text" placeholder="Mobile Number*" />
+            <div className="cp-input-with-icon floating-label-group">
+            <input
+              type="text"
+              name="mobileNumber"
+              placeholder="MobileNumber*"
+              className={`address-border ${inputs.mobileNumber ? "filled" : ""}`}
+              onChange={handleInputChange}
+              onFocus={() => handleFocus("mobileNumber")}
+              onBlur={() => handleBlur("mobileNumber")}
+              value={inputs.mobileNumber}
+            />
+            <label
+              htmlFor="mobileNumber"
+              className={
+                focused === "mobileNumber" || inputs.mobileNumber ? "floating" : ""
+              }
+            >
+             Mobile Number*
+            </label>
+          </div>
           </div>
           <span className="separator"></span>
 
           <div className="cp-input-with-dropdown">
+          <div className="cp-input-with-icon floating-label-group">
             <input
               type="text"
-              placeholder="Email ID"
-              className="customContact-border"
+              name="emailId"
+              placeholder="EmailId*"
+              className={`address-border ${inputs.emailId ? "filled" : ""}`}
+              onChange={handleInputChange}
+              onFocus={() => handleFocus("emailId")}
+              onBlur={() => handleBlur("emailId")}
+              value={inputs.emailId}
             />
+            <label
+              htmlFor="emailId"
+              className={
+                focused === "emailId" || inputs.emailId ? "floating" : ""
+              }
+            >
+              Email ID
+            </label>
+          </div>
           </div>
 
           <div class="cp-input-with-icon mobile">
