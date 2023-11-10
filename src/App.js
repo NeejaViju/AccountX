@@ -939,6 +939,37 @@ function PersonalDetailsComponent() {
   );
 }
 function PersonalDetailFields() {
+  // personal details floating label
+  // const [inputs, setInputs] = useState({
+  //   gstNumber: "",
+  //   companyType: "",
+  //   companyId: "",
+  //   businessTradeName: "",
+  //   businessLegalName: "",
+  //   mobileNumber: "",
+  //   businessEmail: "",
+  //   industry: "",
+  // });
+  // const [focused, setFocused] = useState("");
+  // const [logo, setLogo] = useState(null);
+  // const fileInputRef = useRef(null);
+
+  // const handleFocus = (fieldName) => {
+  //   setFocused(fieldName);
+  // };
+
+  // const handleBlur = (fieldName) => {
+  //   if (!inputs[fieldName]) {
+  //     setFocused("");
+  //   }
+  // };
+
+  // const handleInputChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setInputs((prevInputs) => ({ ...prevInputs, [name]: value }));
+  // };
+  //
+
   const [selectedComponent, setSelectedComponent] = useState(null);
 
   const handleFormClick = (e) => {
@@ -1113,17 +1144,15 @@ function BusinessLegalInfoComponent() {
   );
 }
 function BusinessLegalInfoFields() {
-
-    const [inputs, setInputs] = useState ({
+  const [inputs, setInputs] = useState({
     gstNumber: "",
     pan: "",
     cin: "",
     tan: "",
     msme: "",
     ieCode: "",
-     });
+  });
   const [focused, setFocused] = useState("");
- 
 
   const handleFocus = (fieldName) => {
     setFocused(fieldName);
@@ -1142,22 +1171,22 @@ function BusinessLegalInfoFields() {
 
   const [selectedComponent, setSelectedComponent] = useState(null);
 
-const handleFormClick = (e) => {
-  e.stopPropagation();
-};
+  const handleFormClick = (e) => {
+    e.stopPropagation();
+  };
 
-const toggleComponent = (componentName) => {
-  if (selectedComponent === componentName) {
-    setSelectedComponent(null); // Hide the component if it's already visible
-  } else {
-    setSelectedComponent(componentName); // Show the selected component
-  }
-};
+  const toggleComponent = (componentName) => {
+    if (selectedComponent === componentName) {
+      setSelectedComponent(null); // Hide the component if it's already visible
+    } else {
+      setSelectedComponent(componentName); // Show the selected component
+    }
+  };
   return (
     <div className="cp-company-container">
       <div className="cp-column">
         {/* First Row */}
-          <div className="cp-row">
+        <div className="cp-row">
           <div className=" cp-input-with-icon floating-label-group">
             <input
               type="text"
@@ -1171,18 +1200,20 @@ const toggleComponent = (componentName) => {
             />
             <label
               htmlFor="gstNumber"
-              className={focused === "gstNumber" || inputs.gstNumber ? "floating" : ""}
+              className={
+                focused === "gstNumber" || inputs.gstNumber ? "floating" : ""
+              }
             >
               GST Number*
             </label>
           </div>
-                    {/* GST START */}
+          {/* GST START */}
           <input
             type="file"
             id="upload-GSTCertificate-upload"
             style={{ display: "none" }}
             onChange={(event) =>
-              'handleFileUpload'(event, "Upload-GSTCertificate-label")
+              "handleFileUpload"(event, "Upload-GSTCertificate-label")
             }
           />
           {/* Label to show file upload success message */}
@@ -1201,7 +1232,7 @@ const toggleComponent = (componentName) => {
             GST Certificate
           </button>
           {/* GST END */}
-            <div className=" cp-input-with-icon floating-label-group">
+          <div className=" cp-input-with-icon floating-label-group">
             <input
               type="text"
               name="pan"
@@ -1224,7 +1255,7 @@ const toggleComponent = (componentName) => {
             type="file"
             id="upload-PAN-upload"
             style={{ display: "none" }}
-            onChange={(event) => 'handleFileUpload'(event, "Upload-PAN-label")}
+            onChange={(event) => "handleFileUpload"(event, "Upload-PAN-label")}
           />
           {/* Label to show file upload success message */}
           <label id="Upload-PAN-label" className="upload-success-msg"></label>
@@ -1241,7 +1272,7 @@ const toggleComponent = (componentName) => {
 
         {/* Second Row */}
         <div className="cp-row">
-        <div className=" cp-input-with-icon floating-label-group">
+          <div className=" cp-input-with-icon floating-label-group">
             <input
               type="text"
               name="cin"
@@ -1307,7 +1338,7 @@ const toggleComponent = (componentName) => {
 
         {/* Third Row */}
         <div className="cp-row">
-        <div className=" cp-input-with-icon floating-label-group">
+          <div className=" cp-input-with-icon floating-label-group">
             <input
               type="text"
               name="msme"
@@ -1354,7 +1385,9 @@ const toggleComponent = (componentName) => {
             />
             <label
               htmlFor="iecode"
-              className={focused === "iecode" || inputs.iecode ? "floating" : ""}
+              className={
+                focused === "iecode" || inputs.iecode ? "floating" : ""
+              }
             >
               IE Code*
             </label>
@@ -1364,7 +1397,7 @@ const toggleComponent = (componentName) => {
             id="upload-IECCertificate-upload"
             style={{ display: "none" }}
             onChange={(event) =>
-              'handleFileUpload'(event, "Upload-IECCertificate-label")
+              "handleFileUpload"(event, "Upload-IECCertificate-label")
             }
           />
           {/* Label to show file upload success message */}
@@ -1404,7 +1437,8 @@ const toggleComponent = (componentName) => {
               <input type="checkbox" />
               <span class="checkmark-legal"></span>
             </label>
-          </div>&nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;
           <div>
             <label>TCS Collections</label>
           </div>
@@ -1431,53 +1465,51 @@ function BankDetailsComponent() {
     </div>
   );
 }
-function BankDetailFields(){
- // Bank Field Float
+function BankDetailFields() {
+  // Bank Field Float
 
- const [inputs, setInputs] = useState({
-  accountName: "",
-  accountNumber: "",
-  ifsc: "",
-  doorNo: "",
-  bankName: "",
-  branchName: "",
-  accountType: "",
-  upiId: "",
-  
-});
-const [focused, setFocused] = useState("");
-const [logo, setLogo] = useState(null);
-const fileInputRef = useRef(null);
+  const [inputs, setInputs] = useState({
+    accountName: "",
+    accountNumber: "",
+    ifsc: "",
+    doorNo: "",
+    bankName: "",
+    branchName: "",
+    accountType: "",
+    upiId: "",
+  });
+  const [focused, setFocused] = useState("");
+  const [logo, setLogo] = useState(null);
+  const fileInputRef = useRef(null);
 
+  const handleFocus = (fieldName) => {
+    setFocused(fieldName);
+  };
 
-const handleFocus = (fieldName) => {
-  setFocused(fieldName);
-};
+  const handleBlur = (fieldName) => {
+    if (!inputs[fieldName]) {
+      setFocused("");
+    }
+  };
 
-const handleBlur = (fieldName) => {
-  if (!inputs[fieldName]) {
-    setFocused("");
-  }
-};
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setInputs((prevInputs) => ({ ...prevInputs, [name]: value }));
+  };
 
-const handleInputChange = (e) => {
-  const { name, value } = e.target;
-  setInputs((prevInputs) => ({ ...prevInputs, [name]: value }));
-};
+  const [selectedComponent, setSelectedComponent] = useState(null);
 
-const [selectedComponent, setSelectedComponent] = useState(null);
+  const handleFormClick = (e) => {
+    e.stopPropagation();
+  };
 
-const handleFormClick = (e) => {
-  e.stopPropagation();
-};
-
-const toggleComponent = (componentName) => {
-  if (selectedComponent === componentName) {
-    setSelectedComponent(null); // Hide the component if it's already visible
-  } else {
-    setSelectedComponent(componentName); // Show the selected component
-  }
-};
+  const toggleComponent = (componentName) => {
+    if (selectedComponent === componentName) {
+      setSelectedComponent(null); // Hide the component if it's already visible
+    } else {
+      setSelectedComponent(componentName); // Show the selected component
+    }
+  };
 
   return (
     <div className="cp-company-container">
@@ -1496,33 +1528,46 @@ const toggleComponent = (componentName) => {
                 <span className="dropdown-icon"></span>
               </div>
             </div>
-            <div className="cp-input-with-icon floating-label-group">
             <input
               type="text"
-              name="accountName"
               placeholder="Account Name*"
-              className={`address-border ${inputs.accountName ? "filled" : ""}`}
-              onChange={handleInputChange}
-              onFocus={() => handleFocus("accountName")}
-              onBlur={() => handleBlur("accountName")}
-              value={inputs.accountName}
+              className="custom-border"
             />
-            <label
-              htmlFor="accountName"
-              className={focused === "accountName" || inputs.accountName ? "floating" : ""
-              }
-            >
-              Account Name*
-            </label>
+            <span className="separator"></span>
+            {/* <div className="cp-input-with-icon floating-label-group">
+              <input
+                type="text"
+                name="accountName"
+                placeholder="Account Name*"
+                className={`address-border ${
+                  inputs.accountName ? "filled" : ""
+                }`}
+                onChange={handleInputChange}
+                onFocus={() => handleFocus("accountName")}
+                onBlur={() => handleBlur("accountName")}
+                value={inputs.accountName}
+              />
+              <label
+                htmlFor="accountName"
+                className={
+                  focused === "accountName" || inputs.accountName
+                    ? "floating"
+                    : ""
+                }
+              >
+                Account Name*
+              </label>
+            </div> */}
           </div>
-          </div>
-           {/* Account Number Float */}
-           <div className=" cp-input-with-icon floating-label-group">
+          {/* Account Number Float */}
+          <div className=" cp-input-with-icon floating-label-group">
             <input
               type="text"
               name="accountNumber"
               placeholder="Account Number*"
-              className={`address-border ${inputs.accountNumber ? "filled" : ""}`}
+              className={`address-border ${
+                inputs.accountNumber ? "filled" : ""
+              }`}
               onChange={handleInputChange}
               onFocus={() => handleFocus("accountNumber")}
               onBlur={() => handleBlur("accountNumber")}
@@ -1531,15 +1576,17 @@ const toggleComponent = (componentName) => {
             <label
               htmlFor="accountNumber"
               className={
-                focused === "accountNumber" || inputs.accountNumber ? "floating" : ""
+                focused === "accountNumber" || inputs.accountNumber
+                  ? "floating"
+                  : ""
               }
             >
               Account Number*
             </label>
           </div>
 
-           {/* IFSC Float */}
-         
+          {/* IFSC Float */}
+
           <div className="cp-input-with-icon floating-label-group">
             <input
               type="text"
@@ -1553,19 +1600,17 @@ const toggleComponent = (componentName) => {
             />
             <label
               htmlFor="ifsc"
-              className={
-                focused === "ifsc" || inputs.ifsc ? "floating" : ""
-              }
+              className={focused === "ifsc" || inputs.ifsc ? "floating" : ""}
             >
               IFSC*
             </label>
-            
+
             <i
               class="fa fa-search new-search-icon-inside-input"
               aria-hidden="true"
             ></i>
           </div>
-         </div>
+        </div>
 
         {/* Second Row */}
         <div className="cp-row">
@@ -1574,8 +1619,8 @@ const toggleComponent = (componentName) => {
               <div className="line"></div>
             </div>
           </div>
-           {/* Bank Name Float */}
-           <div className="cp-input-with-icon floating-label-group">
+          {/* Bank Name Float */}
+          <div className="cp-input-with-icon floating-label-group">
             <input
               type="text"
               name="bankName"
@@ -1595,8 +1640,8 @@ const toggleComponent = (componentName) => {
               Bank Name*
             </label>
           </div>
-            {/* Branch Name Float */}
-           <div className="cp-input-with-icon floating-label-group">
+          {/* Branch Name Float */}
+          <div className="cp-input-with-icon floating-label-group">
             <input
               type="text"
               name="branchName"
@@ -1619,8 +1664,8 @@ const toggleComponent = (componentName) => {
               class="fa fa-search new-search-icon-inside-input"
               aria-hidden="true"
             ></i>
-           </div>
-           {/* Account Type Float */}
+          </div>
+          {/* Account Type Float */}
           <div className="cp-input-with-dropdown floating-label-group">
             <select
               name="accountType"
@@ -1640,7 +1685,9 @@ const toggleComponent = (componentName) => {
             <label
               htmlFor="accountType"
               className={
-                focused === "accountType" || inputs.accountType ? "floating"    : ""
+                focused === "accountType" || inputs.accountType
+                  ? "floating"
+                  : ""
               }
             >
               Account Type*
@@ -1648,7 +1695,7 @@ const toggleComponent = (componentName) => {
             <button className="dropdown-icon-right">
               <i className="fa fa-chevron-down"></i>
             </button>
-         </div>
+          </div>
           <button
             className="bank-button-container"
             onClick={() => toggleComponent("Component5")}
@@ -1666,29 +1713,29 @@ const toggleComponent = (componentName) => {
         {/* Third Row */}
         <div className="cp-row">
           <div>
-             {/* UPI ID Float */}
-          <div className="cp-input-with-icon floating-label-group">
-            <input
-              type="text"
-              name="upiId"
-              placeholder="UPI ID"
-              className={`address-border ${inputs.upiId ? "filled" : ""}`}
-              onChange={handleInputChange}
-              onFocus={() => handleFocus("upiId")}
-              onBlur={() => handleBlur("upiId")}
-              value={inputs.upiId}
-            />
-            <label
-              htmlFor="upiId"
-              className={
-                focused === "upiId" || inputs.upiId ? "floating" : ""
-              }
-            >
-              UPI ID
-            </label>
+            {/* UPI ID Float */}
+            <div className="cp-input-with-icon floating-label-group">
+              <input
+                type="text"
+                name="upiId"
+                placeholder="UPI ID"
+                className={`address-border ${inputs.upiId ? "filled" : ""}`}
+                onChange={handleInputChange}
+                onFocus={() => handleFocus("upiId")}
+                onBlur={() => handleBlur("upiId")}
+                value={inputs.upiId}
+              />
+              <label
+                htmlFor="upiId"
+                className={
+                  focused === "upiId" || inputs.upiId ? "floating" : ""
+                }
+              >
+                UPI ID
+              </label>
+            </div>
           </div>
-          </div>
-          </div>
+        </div>
         <div className="cp-row">
           <div>
             <label class="container">
@@ -1722,7 +1769,6 @@ function ContactPersonsComponent() {
   );
 }
 function ContactPersonDetailFields() {
-
   // Contact person float
 
   const [inputs, setInputs] = useState({
@@ -1730,21 +1776,19 @@ function ContactPersonDetailFields() {
     designation: "",
     mobileNumber: "",
     emailId: "",
-    
-    
   });
   const [focused, setFocused] = useState("");
-  
+
   const handleFocus = (fieldName) => {
     setFocused(fieldName);
   };
-  
+
   const handleBlur = (fieldName) => {
     if (!inputs[fieldName]) {
       setFocused("");
     }
   };
-  
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setInputs((prevInputs) => ({ ...prevInputs, [name]: value }));
@@ -1776,42 +1820,50 @@ function ContactPersonDetailFields() {
     <div className="cp-company-container">
       <div className="cp-column">
         {/* First Row */}
+        {/* <div className="cp-row">
+          <div class="cp-input-with-icon mobile">
+            <div class="inputs-container">
+              <div class="mobileNumer-dropdown"> */}
         <div className="cp-row">
           <div class="cp-input-with-icon mobile">
             <div class="inputs-container">
               <div class="mobileNumer-dropdown">
                 <select class="mobileDropDown">
-                  <option value="mr">Mr.</option>
-                  <option value="miss">Miss.</option>
-                  <option value="m/s">M/s.</option>
-                  <option value="dr">Dr.</option>
+                  <option value="miss">Miss</option>
+                  <option value="miss">Mr</option>
                 </select>
                 <span class="dropdown-icon"></span>
               </div>
             </div>
-            {/* Person Name Float */}
-            <div className="cp-input-with-icon floating-label-group">
-            <input
-              type="text"
-              name="personName"
-              placeholder="PersonName*"
-              className={`address-border ${inputs.personName ? "filled" : ""}`}
-              onChange={handleInputChange}
-              onFocus={() => handleFocus("personName")}
-              onBlur={() => handleBlur("personName")}
-              value={inputs.personName}
-            />
-            <label
-              htmlFor="personName"
-              className={
-                focused === "personName" || inputs.personName ? "floating" : ""
-              }
-            >
-              Person Name
-            </label>
-          </div>
+            <input type="text" placeholder="Person Name" class="" />
           </div>
           <span className="separator"></span>
+          {/* Person Name Float */}
+          {/* <div className="cp-input-with-icon floating-label-group">
+              <input
+                type="text"
+                name="personName"
+                placeholder="PersonName*"
+                className={`address-border ${
+                  inputs.personName ? "filled" : ""
+                }`}
+                onChange={handleInputChange}
+                onFocus={() => handleFocus("personName")}
+                onBlur={() => handleBlur("personName")}
+                value={inputs.personName}
+              />
+              <label
+                htmlFor="personName"
+                className={
+                  focused === "personName" || inputs.personName
+                    ? "floating"
+                    : ""
+                }
+              >
+                Person Name
+              </label>
+            </div> */}
+
           <div className="cp-input-with-dropdown">
             <input
               type="text"
@@ -1842,58 +1894,63 @@ function ContactPersonDetailFields() {
             <div class="inputs-container">
               <div class="mobileNumer-dropdown">
                 <select class="mobileDropDown">
-                  <option value="+91">+91</option>
-                  <option value="+65">+65</option>
-                  <option value="+44">+44</option>
-                  <option value="+1">+1</option>
+                  <option value="miss">+91</option>
+                  <option value="miss">+11</option>
                 </select>
                 <span class="dropdown-icon"></span>
               </div>
             </div>
-            <div className="cp-input-with-icon floating-label-group">
-            <input
-              type="text"
-              name="mobileNumber"
-              placeholder="MobileNumber*"
-              className={`address-border ${inputs.mobileNumber ? "filled" : ""}`}
-              onChange={handleInputChange}
-              onFocus={() => handleFocus("mobileNumber")}
-              onBlur={() => handleBlur("mobileNumber")}
-              value={inputs.mobileNumber}
-            />
-            <label
-              htmlFor="mobileNumber"
-              className={
-                focused === "mobileNumber" || inputs.mobileNumber ? "floating" : ""
-              }
-            >
-             Mobile Number*
-            </label>
-          </div>
+            <input type="text" placeholder="Mobile Number*" class="" />
           </div>
           <span className="separator"></span>
 
+          {/* <div className="cp-input-with-icon floating-label-group">
+              <input
+                type="text"
+                name="mobileNumber"
+                placeholder="MobileNumber*"
+                className={`address-border ${
+                  inputs.mobileNumber ? "filled" : ""
+                }`}
+                onChange={handleInputChange}
+                onFocus={() => handleFocus("mobileNumber")}
+                onBlur={() => handleBlur("mobileNumber")}
+                value={inputs.mobileNumber}
+              />
+              <label
+                htmlFor="mobileNumber"
+                className={
+                  focused === "mobileNumber" || inputs.mobileNumber
+                    ? "floating"
+                    : ""
+                }
+              >
+                Mobile Number*
+              </label>
+            </div>
+          </div> */}
+
           <div className="cp-input-with-dropdown">
-          <div className="cp-input-with-icon floating-label-group">
-            <input
-              type="text"
-              name="emailId"
-              placeholder="EmailId*"
-              className={`address-border ${inputs.emailId ? "filled" : ""}`}
-              onChange={handleInputChange}
-              onFocus={() => handleFocus("emailId")}
-              onBlur={() => handleBlur("emailId")}
-              value={inputs.emailId}
-            />
-            <label
-              htmlFor="emailId"
-              className={
-                focused === "emailId" || inputs.emailId ? "floating" : ""
-              }
-            >
-              Email ID
-            </label>
-          </div>
+            <div className="cp-input-with-icon floating-label-group">
+              <input
+                type="text"
+                name="emailId"
+                placeholder="EmailId*"
+                className={`address-border ${inputs.emailId ? "filled" : ""}`}
+                onChange={handleInputChange}
+                onFocus={() => handleFocus("emailId")}
+                onBlur={() => handleBlur("emailId")}
+                value={inputs.emailId}
+              />
+              <label
+                htmlFor="emailId"
+                className={
+                  focused === "emailId" || inputs.emailId ? "floating" : ""
+                }
+              >
+                Email ID
+              </label>
+            </div>
           </div>
 
           <div class="cp-input-with-icon mobile">
