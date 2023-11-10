@@ -990,7 +990,7 @@ function PersonalDetailFields() {
         <div className="cp-row">
           <div className="cp-input-with-icon mobile">
             <div className="inputs-container">
-              <div className="choosePersonal-container">
+              <div className="choosebank-container">
                 <select>
                   <option value="miss">Miss</option>
                   <option value="mr">Mr.</option>
@@ -1022,6 +1022,7 @@ function PersonalDetailFields() {
               className="custom-border"
             />
           </div>
+          <span className="separator"></span>
 
           <input
             type="text"
