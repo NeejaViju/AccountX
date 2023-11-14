@@ -276,8 +276,11 @@ function CompanyProfile() {
             >
               <option value="" disabled></option>
               <option value="type1">Proprietorship</option>
-              <option value="type2">Type 2</option>
-              <option value="type3">Type 3</option>
+              <option value="type2">Partnership [Frim]</option>
+              <option value="type3">Private Limited Company</option>
+              <option value="type4">Limited Liability Partnership</option>
+              <option value="type5">Limited Liability Company</option>
+              <option value="type6">Cooperative</option>
             </select>
             <label
               htmlFor="companyType"
@@ -555,11 +558,13 @@ function AddressFields() {
               value={inputs.addressType}
             >
               <option value="" disabled></option>
-              <option value="type1">
-                Office Address/Principal Place of Business
-              </option>
-              <option value="type2">Type 2</option>
-              <option value="type3">Type 3</option>
+              <option value="type1">Head Office / Principal Place of Business</option>
+              <option value="type2">Present Address</option>
+              <option value="type3">Residential Permanent Address</option>
+              <option value="type3">Godown</option>
+              <option value="type3">Factory</option>
+              <option value="type3">Branch Address</option>
+              <option value="type3">Other Address</option>
             </select>
             <label
               htmlFor="addressType"
@@ -604,9 +609,9 @@ function AddressFields() {
               value={inputs.selectBranch}
             >
               <option value="" disabled selected hidden></option>
-              <option value="type1">Type 1</option>
-              <option value="type2">Type 2</option>
-              <option value="type3">Type 3</option>
+              <option value="type1">Madurai</option>
+              <option value="type2">Salem</option>
+              <option value="type3">Chennai</option>
             </select>
             <label
               htmlFor="selectBranch"
@@ -1008,7 +1013,10 @@ function PersonalDetailFields() {
                   <option value="mr">Mr.</option>
                   <option value="mrs">Mrs.</option>
                   <option value="dr">Dr.</option>
-                </select>
+                  <option value="er">Er.</option>
+                  <option value="prof">Prof.</option>
+                  <option value="ms">Ms.</option>
+                </select>                
                 <span className="dropdown-icon"></span>
               </div>
             </div>
@@ -1067,6 +1075,7 @@ function PersonalDetailFields() {
               </option>
               <option value="male">Male</option>
               <option value="female">Female</option>
+              <option value="others">Others</option>
             </select>
             <button className="dropdown-icon-right">
               <i className="fa fa-chevron-down"></i>
@@ -1117,8 +1126,14 @@ function PersonalDetailFields() {
               >
                 Designation
               </option>
-              <option value="type1">Type 1</option>
-              <option value="type2">Type 2</option>
+              <option value="type1">Proprietor</option>
+              <option value="type2">Director</option>
+              <option value="type3">Chairman</option>
+              <option value="type4">CEO</option>
+              <option value="type5">Partner</option>
+              <option value="type6">Salesman</option>
+              <option value="type7">Cashier</option>
+              <option value="type8">Accountant</option>
             </select>
             <button className="dropdown-icon-right">
               <i className="fa fa-chevron-down"></i>
@@ -1537,7 +1552,10 @@ function BankDetailFields() {
                   <option value="mr">Mr.</option>
                   <option value="mrs">Mrs.</option>
                   <option value="dr">Dr.</option>
-                </select>
+                  <option value="miss">Miss.</option>
+                  <option value="er">Er.</option>
+                  <option value="prof">Prof.</option>
+                  </select>
                 <span className="dropdown-icon"></span>
               </div>
             </div>
@@ -1691,9 +1709,18 @@ function BankDetailFields() {
               value={inputs.accountType}
             >
               <option value="" disabled selected hidden></option>
-              <option value="type1">Type 1</option>
-              <option value="type2">Type 2</option>
-              <option value="type3">Type 3</option>
+              <option value="type1">Saving</option>
+              <option value="type2">Current Account</option>
+              <option value="type3">OD [Over Draft]</option>
+              <option value="type4">CC [Cash Credit]</option>
+              <option value="type5">Salary</option>
+              <option value="type6">Fixed Depost [FD]</option>
+              <option value="type7">Recurring Deposit [RD]</option>
+              <option value="type8">Gold Loan</option>
+              <option value="type9">Home Loan</option>
+              <option value="type10">Personal Loan</option>
+              <option value="type11">Property Loan</option>
+              <option value="type12">Loan agaisnt Deposits</option>
             </select>
             <label
               htmlFor="accountType"
@@ -1845,7 +1872,10 @@ function ContactPersonDetailFields() {
                   <option value="mrs">Mrs.</option>
                   <option value="mr">Mr.</option>
                   <option value="miss">Miss.</option>
+                  <option value="ms">Ms.</option>
                   <option value="dr">Dr.</option>
+                  <option value="er">Er.</option>
+                  <option value="prof">Prof.</option>
                 </select>
                 <span class="dropdown-icon"></span>
               </div>
