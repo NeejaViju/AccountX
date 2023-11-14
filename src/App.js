@@ -178,7 +178,7 @@ function CompanyProfileHeader() {
 /*Company Profile*/
 
 function CompanyProfile() {
-  /*Floating Label*/
+  /* Floating Label */
   const [inputs, setInputs] = useState({
     gstNumber: "",
     companyType: "",
@@ -200,15 +200,26 @@ function CompanyProfile() {
   const handleBlur = (fieldName) => {
     if (!inputs[fieldName]) {
       setFocused("");
+      document.querySelector(`input[name=${fieldName}]`).classList.add("empty");
     }
   };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setInputs((prevInputs) => ({ ...prevInputs, [name]: value }));
+
+    // Remove the 'empty' class when there is data entered
+    const inputElement = document.querySelector(`input[name=${name}]`);
+    const selectElement = document.querySelector(`select[name=${name}]`);
+    if (inputElement) {
+      inputElement.classList.remove("empty");
+    }
+    if (selectElement) {
+      selectElement.classList.remove("empty");
+    }
   };
 
-  /*file upload*/
+  /* File upload */
   const handleLogoUpload = (event) => {
     const file = event.target.files[0];
     if (
@@ -388,6 +399,7 @@ function CompanyProfile() {
     </div>
   );
 }
+
 
 function MenuBar() {
   const [activeComponent, setActiveComponent] = useState("Addresses");

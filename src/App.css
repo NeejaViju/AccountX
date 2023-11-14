@@ -165,6 +165,11 @@ body {
   /* No need for padding-top if you are positioning the label with JS and class changes */
 }
 
+.address-border.filled,
+.address-border.active {
+  border-color: #0196B9;
+}
+
 .address-border {
   width: 100%;
   padding: 8px;
@@ -178,6 +183,13 @@ body {
 .address-border:focus {
   border-color: #00a7cf; /* Highlight color when focused */
 }
+
+/* Change the focus color for the input field and dropdown selection */
+.address-border:focus:not(.empty),
+.cp-input-with-dropdown select:focus:not(.empty) {
+  border-color: #0196B9;
+}
+
 
 .floating-label-group label {
   position: absolute;
@@ -193,17 +205,17 @@ body {
 
 
 
-/* Styles when label is floating */
+/* Style for floating label when input is active */
 .floating-label-group input:focus + label,
 .floating-label-group input.filled + label,
 .floating-label-group select:focus + label,
 .floating-label-group select.filled + label {
-  top: -8px; /* Adjust to position above the input. Consider border size and label font size */
-  left: 10px; /* Adjust this value if you change the padding in your inputs */
-  transform: translateY(0); /* Reset transform */
-  font-size: 12px; /* Smaller font size for the floating label */
-  color: #00a7cf; /* Label color when floating */
-  z-index: 10; /* Ensure label is above input border */
+  top: -8px;
+  left: 10px;
+  transform: translateY(0);
+  font-size: 12px;
+  color: #0196B9;
+  z-index: 10;
 }
 
 
@@ -400,6 +412,20 @@ input {
 
 .dropdown-icon-right i {
     pointer-events: none; /* Ensure icon does not block dropdown selection */
+}
+
+/* Style for input and select without data */
+.address-border.empty {
+  border-color: #ccc;
+}
+
+/* Style for floating label when input is empty */
+.floating-label-group input.empty + label,
+.floating-label-group select.empty + label {
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px; /* Adjust font size as needed */
+  color: #aaa;
 }
 
 /* MenuBar.css */
