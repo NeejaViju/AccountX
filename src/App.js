@@ -1842,8 +1842,10 @@ function ContactPersonDetailFields() {
             <div class="inputs-container">
               <div class="mobileNumer-dropdown">
                 <select class="mobileDropDown">
-                  <option value="miss">Miss</option>
-                  <option value="miss">Mr</option>
+                  <option value="mrs">Mrs.</option>
+                  <option value="mr">Mr.</option>
+                  <option value="miss">Miss.</option>
+                  <option value="dr">Dr.</option>
                 </select>
                 <span class="dropdown-icon"></span>
               </div>
@@ -2006,7 +2008,7 @@ function ContactPersonDetailFields() {
                 document.getElementById("digital-signature-upload").click()
               }
             >
-              <i className="fa fa-upload" aria-hidden="true"></i>
+              <i className="fa fa-upload" aria-hidden="true"></i>&nbsp;
               Upload Digital Signature
             </button>
           </div>
@@ -2050,7 +2052,7 @@ function ContactPersonDetailFields() {
                 document.getElementById("signature-image-upload").click()
               }
             >
-              <i className="fa fa-upload" aria-hidden="true"></i>
+              <i className="fa fa-upload" aria-hidden="true"></i>&nbsp;
               Upload Signature Image
             </button>
           </div>
