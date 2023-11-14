@@ -1850,7 +1850,7 @@ function ContactPersonDetailFields() {
                 <span class="dropdown-icon"></span>
               </div>
             </div>
-            <input type="text" placeholder="Person Name" class="" />
+            <input type="text" placeholder="Person Name*" class="" />
           </div>
           <span className="separator"></span>
           {/* Person Name Float */}
@@ -1950,7 +1950,7 @@ function ContactPersonDetailFields() {
               <input
                 type="text"
                 name="emailId"
-                placeholder="EmailId*"
+                placeholder="Email ID"
                 className={`address-border ${inputs.emailId ? "filled" : ""}`}
                 onChange={handleInputChange}
                 onFocus={() => handleFocus("emailId")}
@@ -2078,7 +2078,7 @@ function ContactPersonDetailFields() {
           <div>
             <label>Set as Signing Person</label>
           </div>
-
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <div>
             <input
               class="sample-sign"
