@@ -36,10 +36,11 @@ function App() {
           <CompanyProfile comProfile={comProfile} selectedCompany={selectedCompany} />
           <MenuBar selectedCompany={selectedCompany} />
         </div>
-      </div>
+      </div>  
     </div>
   );
 }
+
 
 // MainContent Component
 // function MainContent(props) {
@@ -63,6 +64,9 @@ function App() {
 //     </div>
 //   );
 // }
+
+
+
 
 // function ActionButtons() {
 //   return <div>ActionButtons Component Here...</div>;
