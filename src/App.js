@@ -1,46 +1,126 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import "./App.css";
 import "font-awesome/css/font-awesome.min.css";
 import "./style/AddressTypeForm.css";
 import "./style/ButtonList.css";
-
-import NavBar from "./components/navbar";
-import SideBar from "./components/sidebar";
-import Header from "./components/header";
-import CompanyProfile from "./components/companyprofile";
-import MenuBar from "./components/menubar";
+import uploadIcon from "./icons/Icon feather-upload@2x.png";
+import {
+  AddUnitDivision,
+  AddressTypeForm,
+  AddNewBranch,
+  AddNewDesignation,
+  AddAccountType,
+} from "./formComponents/unitdivison";
 
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faSearch, faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
 // App Component
-const URL = 'https://api-accountx.onrender.com/api/profile/getall';
-const reqData = () => fetch(URL).then(res => res.json());
 function App() {
-  const [comProfile, setComProfile] = useState([]);
-  const [selectedCompany, setSelectedCompany] = useState("");
-
-  useEffect(() => {
-    reqData().then(data => { setComProfile(data); setSelectedCompany(data[0]._id); });
-  }, []);
-
   return (
     <div className="app">
-      {/*  */}
-      <NavBar comProfile={comProfile} selectedCompany={selectedCompany} setSelectedCompany={setSelectedCompany} />
+      <NavBar />
       <div className="main-container">
         <SideBar />
-        <div className="main-content">
-          <Header />
-          <CompanyProfile comProfile={comProfile} selectedCompany={selectedCompany} />
-          <MenuBar selectedCompany={selectedCompany} />
-        </div>
-      </div>  
+        <MainContent />
+      </div>
     </div>
   );
 }
 
+// NavBar vComponent
+function NavBar() {
+  return (
+    <div className="new-navbar">
+      <div className="new-logo">LOGO</div>
+
+      {/* Add Icon */}
+      <div className="icon-container new-add-icon-container">
+        <i className="fa fa-plus-circle" aria-hidden="true"></i>
+      </div>
+
+      <div className="icon-container new-add-icon-container">
+        <i class="fa fa-clock-o" aria-hidden="true"></i>
+      </div>
+
+      <div className="icon-container new-search-icon-container">
+        <i
+          className="fa fa-search new-search-icon-inside-input"
+          aria-hidden="true"
+        ></i>
+        <input
+          type="text"
+          placeholder="Search..."
+          className="new-search-input"
+        />
+      </div>
+
+      <div className="new-profile-container">
+        <i className="fa fa-bell new-bell-icon" aria-hidden="true"></i>
+
+        <select class="drop-down-nav-bar">
+          <option value="" disabled="" hidden="">
+            ABC Private Limited
+          </option>
+          <option value="type1">Type 1</option>
+          <option value="type2">Type 2</option>
+          <option value="type3">Type 3</option>
+        </select>
+
+        <i className="fa fa-cog new-cog-icon" aria-hidden="true"></i>
+        <i className="fa fa-bars new-bars-icon" aria-hidden="true"></i>
+      </div>
+    </div>
+  );
+}
+
+// SideBar Component
+function SideBar() {
+  const [showSubmenu, setShowSubmenu] = useState(false);
+
+  return (
+    <div className="sidebar">
+      {/* <h3>📊 Dashboard</h3>
+
+          <div 
+              className="menu-item master"
+              onClick={() => setShowSubmenu(!showSubmenu)}
+          >
+              🛠 Masters
+          </div> */}
+
+      {showSubmenu && (
+        <div className="submenu">
+          <div>Company Profile</div>
+          <div>Item Master</div>
+          <div>Ledger Master</div>
+          <div>Account Master</div>
+          <div>Tax Master</div>
+          <div>Employee Master</div>
+          <div>Opening Balance</div>
+
+          {/* ... Add the other submenu items similarly ... */}
+        </div>
+      )}
+
+      {/* <div className="menu-item">🛒 Sales</div>
+          <div className="menu-item">📦 Purchases</div>
+          <div className="menu-item">💼 Expenses</div>
+          <div className="menu-item">🏦 Banking</div>
+          <div className="menu-item">✅ Approvals</div>
+          <div className="menu-item">💹 Accounts</div> */}
+      {/* ... Repeat similar divs for the other sections ... */}
+      {/* <div className="menu-item">📊 Reports</div>
+          <div className="menu-item">📃 e-Way Bills</div>
+          <div className="menu-item">📜 e-Invoices</div>
+          <div className="menu-item">📋 Task</div>
+          <div className="menu-item">🎉 Promotions</div>
+          <div className="menu-item">📁 Tax Filings</div>
+          <div className="menu-item">📄 Subscriptions</div> */}
+    </div>
+  );
+}
 
 // MainContent Component
 function MainContent() {
@@ -196,8 +276,11 @@ function CompanyProfile() {
             >
               <option value="" disabled></option>
               <option value="type1">Proprietorship</option>
-              <option value="type2">Type 2</option>
-              <option value="type3">Type 3</option>
+              <option value="type2">Partnership [Frim]</option>
+              <option value="type3">Private Limited Company</option>
+              <option value="type4">Limited Liability Partnership</option>
+              <option value="type5">Limited Liability Company</option>
+              <option value="type6">Cooperative</option>
             </select>
             <label
               htmlFor="companyType"
@@ -475,11 +558,13 @@ function AddressFields() {
               value={inputs.addressType}
             >
               <option value="" disabled></option>
-              <option value="type1">
-                Office Address/Principal Place of Business
-              </option>
-              <option value="type2">Type 2</option>
-              <option value="type3">Type 3</option>
+              <option value="type1">Head Office / Principal Place of Business</option>
+              <option value="type2">Present Address</option>
+              <option value="type3">Residential Permanent Address</option>
+              <option value="type3">Godown</option>
+              <option value="type3">Factory</option>
+              <option value="type3">Branch Address</option>
+              <option value="type3">Other Address</option>
             </select>
             <label
               htmlFor="addressType"
@@ -524,9 +609,9 @@ function AddressFields() {
               value={inputs.selectBranch}
             >
               <option value="" disabled selected hidden></option>
-              <option value="type1">Type 1</option>
-              <option value="type2">Type 2</option>
-              <option value="type3">Type 3</option>
+              <option value="type1">Madurai</option>
+              <option value="type2">Salem</option>
+              <option value="type3">Chennai</option>
             </select>
             <label
               htmlFor="selectBranch"
@@ -928,7 +1013,10 @@ function PersonalDetailFields() {
                   <option value="mr">Mr.</option>
                   <option value="mrs">Mrs.</option>
                   <option value="dr">Dr.</option>
-                </select>
+                  <option value="er">Er.</option>
+                  <option value="prof">Prof.</option>
+                  <option value="ms">Ms.</option>
+                </select>                
                 <span className="dropdown-icon"></span>
               </div>
             </div>
@@ -987,6 +1075,7 @@ function PersonalDetailFields() {
               </option>
               <option value="male">Male</option>
               <option value="female">Female</option>
+              <option value="others">Others</option>
             </select>
             <button className="dropdown-icon-right">
               <i className="fa fa-chevron-down"></i>
@@ -1037,8 +1126,14 @@ function PersonalDetailFields() {
               >
                 Designation
               </option>
-              <option value="type1">Type 1</option>
-              <option value="type2">Type 2</option>
+              <option value="type1">Proprietor</option>
+              <option value="type2">Director</option>
+              <option value="type3">Chairman</option>
+              <option value="type4">CEO</option>
+              <option value="type5">Partner</option>
+              <option value="type6">Salesman</option>
+              <option value="type7">Cashier</option>
+              <option value="type8">Accountant</option>
             </select>
             <button className="dropdown-icon-right">
               <i className="fa fa-chevron-down"></i>
@@ -1457,7 +1552,10 @@ function BankDetailFields() {
                   <option value="mr">Mr.</option>
                   <option value="mrs">Mrs.</option>
                   <option value="dr">Dr.</option>
-                </select>
+                  <option value="miss">Miss.</option>
+                  <option value="er">Er.</option>
+                  <option value="prof">Prof.</option>
+                  </select>
                 <span className="dropdown-icon"></span>
               </div>
             </div>
@@ -1611,9 +1709,18 @@ function BankDetailFields() {
               value={inputs.accountType}
             >
               <option value="" disabled selected hidden></option>
-              <option value="type1">Type 1</option>
-              <option value="type2">Type 2</option>
-              <option value="type3">Type 3</option>
+              <option value="type1">Saving</option>
+              <option value="type2">Current Account</option>
+              <option value="type3">OD [Over Draft]</option>
+              <option value="type4">CC [Cash Credit]</option>
+              <option value="type5">Salary</option>
+              <option value="type6">Fixed Depost [FD]</option>
+              <option value="type7">Recurring Deposit [RD]</option>
+              <option value="type8">Gold Loan</option>
+              <option value="type9">Home Loan</option>
+              <option value="type10">Personal Loan</option>
+              <option value="type11">Property Loan</option>
+              <option value="type12">Loan agaisnt Deposits</option>
             </select>
             <label
               htmlFor="accountType"
@@ -1765,7 +1872,10 @@ function ContactPersonDetailFields() {
                   <option value="mrs">Mrs.</option>
                   <option value="mr">Mr.</option>
                   <option value="miss">Miss.</option>
+                  <option value="ms">Ms.</option>
                   <option value="dr">Dr.</option>
+                  <option value="er">Er.</option>
+                  <option value="prof">Prof.</option>
                 </select>
                 <span class="dropdown-icon"></span>
               </div>
