@@ -1004,7 +1004,7 @@ function PersonalDetailFields() {
             <div className="inputs-container">
               <div className="choosebank-container">
                 <select>
-                  <option value="miss">Miss</option>
+                  <option value="miss">Miss.</option>
                   <option value="mr">Mr.</option>
                   <option value="mrs">Mrs.</option>
                   <option value="dr">Dr.</option>
@@ -1030,7 +1030,7 @@ function PersonalDetailFields() {
 
             <input
               type="text"
-              placeholder="Account Name*"
+              placeholder="First Name*"
               className="custom-border"
             />
           </div>
@@ -1319,7 +1319,7 @@ function BusinessLegalInfoFields() {
             <input
               type="text"
               name="tan"
-              placeholder="TAN*"
+              placeholder="TAN"
               className={`address-border ${inputs.tan ? "filled" : ""}`}
               onChange={handleInputChange}
               onFocus={() => handleFocus("tan")}
@@ -1330,7 +1330,7 @@ function BusinessLegalInfoFields() {
               htmlFor="tan"
               className={focused === "tan" || inputs.tan ? "floating" : ""}
             >
-              TAN*
+              TAN
             </label>
           </div>
 
@@ -1389,7 +1389,7 @@ function BusinessLegalInfoFields() {
             <input
               type="text"
               name="iecode"
-              placeholder="IE Code*"
+              placeholder="IE Code"
               className={`address-border ${inputs.iecode ? "filled" : ""}`}
               onChange={handleInputChange}
               onFocus={() => handleFocus("iecode")}
@@ -1402,7 +1402,7 @@ function BusinessLegalInfoFields() {
                 focused === "iecode" || inputs.iecode ? "floating" : ""
               }
             >
-              IE Code*
+              IE Code
             </label>
           </div>
           <input
@@ -1658,7 +1658,7 @@ function BankDetailFields() {
             <input
               type="text"
               name="branchName"
-              placeholder="Branch Name*"
+              placeholder="Branch Name"
               className={`address-border ${inputs.branchName ? "filled" : ""}`}
               onChange={handleInputChange}
               onFocus={() => handleFocus("branchName")}
@@ -1671,7 +1671,7 @@ function BankDetailFields() {
                 focused === "branchName" || inputs.branchName ? "floating" : ""
               }
             >
-              Branch Name*
+              Branch Name
             </label>
             <i
               class="fa fa-search new-search-icon-inside-input"
@@ -1703,7 +1703,7 @@ function BankDetailFields() {
                   : ""
               }
             >
-              Account Type*
+              Account Type
             </label>
             <button className="dropdown-icon-right">
               <i className="fa fa-chevron-down"></i>
