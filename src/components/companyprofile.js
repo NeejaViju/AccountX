@@ -55,6 +55,9 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
                 className={`address-border ${inputs.gstNumber ? "has-data" : ""}`}
                 onChange={handleInputChange}
                 value={selCompany[0].gstNumber}
+                style={{ paddingRight : "60px",
+                        width:"220px",
+                        }}
               />
               <label
                 htmlFor="gstNumber"
