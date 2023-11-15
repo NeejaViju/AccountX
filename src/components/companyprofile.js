@@ -66,8 +66,7 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
                 className={`address-border ${inputs.gstNumber ? "filled" : ""}`}
                 onChange={handleInputChange}
                 onFocus={() => handleFocus("gstNumber")}
-                onBlur={() => handleBlur("gstNumber")}
-                readOnly
+                onBlur={() => handleBlur("gstNumber")}                
                 value={selCompany[0].gstNumber}
               />
               {/* {comProfile !== undefined ? selCompany.gstNumber : ""} */}
