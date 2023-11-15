@@ -38,8 +38,7 @@
 }
 
 .address-border:focus {
-    border-color: #00a7cf;
-    /* Highlight color when focused */
+    border-color: #00a7cf; /* Highlight color when focused */
 }
 
 /* Change the focus color for the input field and dropdown selection */
@@ -47,6 +46,7 @@
 .cp-input-with-dropdown select:focus:not(.empty) {
     border-color: #0196B9;
 }
+
 
 
 .floating-label-group label {
