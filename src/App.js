@@ -178,6 +178,14 @@ function CompanyProfileHeader() {
 /*Company Profile*/
 
 function CompanyProfile() {
+
+  // Function to validate the GST Number format
+  const validateGSTNumber = (gstNumber) => {
+    const gstPattern = /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[0-9A-Z]{1}[Z]{1}[0-9A-Z]{1}$/;
+    return gstPattern.test(gstNumber);
+  };
+
+
   /* Floating Label */
   const [inputs, setInputs] = useState({
     gstNumber: "",
@@ -217,6 +225,14 @@ function CompanyProfile() {
     if (selectElement) {
       selectElement.classList.remove("empty");
     }
+
+    let updatedValue = value;
+    if (name === "gstNumber") {
+      updatedValue = value.toUpperCase().slice(0, 15); // Converts to uppercase
+      const isValidGST = validateGSTNumber(updatedValue);
+      // Here you can integrate icon color change or any other visual feedback
+    }
+
   };
 
   /* File upload */
@@ -247,21 +263,20 @@ function CompanyProfile() {
             <input
               type="text"
               name="gstNumber"
-              placeholder="33WGOPW1208B2Z9"
+              placeholder="GST Number"
               className={`address-border ${inputs.gstNumber ? "filled" : ""}`}
               onChange={handleInputChange}
               onFocus={() => handleFocus("gstNumber")}
               onBlur={() => handleBlur("gstNumber")}
               value={inputs.gstNumber}
+              maxLength={15}  // This ensures the user can't enter more than 15 characters
+              style={{ textTransform: 'uppercase' }} // This ensures text is shown as uppercase
             />
-            <label
-              htmlFor="gstNumber"
-              className={
-                focused === "gstNumber" || inputs.gstNumber ? "floating" : ""
-              }
-            >
+            <label htmlFor="gstNumber" className={focused === "gstNumber" || inputs.gstNumber ? "floating" : ""}>
               GST Number*
             </label>
+            {/* Conditional rendering of icon based on GST validation */}
+            {/* <i className={`fa ${validateGSTNumber(inputs.gstNumber) ? 'fa-check text-success' : 'fa-times text-danger'}`}></i> */}
           </div>
 
           {/* Company Type Dropdown */}
@@ -415,45 +430,40 @@ function MenuBar() {
     <div>
       <div className="menu-bar-container">
         <button
-          className={`menu-bar-button ${
-            activeComponent === "Addresses" ? "active-addresses" : ""
-          }`}
+          className={`menu-bar-button ${activeComponent === "Addresses" ? "active-addresses" : ""
+            }`}
           onClick={() => handleClick("Addresses")}
         >
           Addresses
         </button>
         <button
-          className={`menu-bar-button ${
-            activeComponent === "PersonalDetails"
+          className={`menu-bar-button ${activeComponent === "PersonalDetails"
               ? "active-personal-details"
               : ""
-          }`}
+            }`}
           onClick={() => handleClick("PersonalDetails")}
         >
           Personal Details
         </button>
         <button
-          className={`menu-bar-button ${
-            activeComponent === "BusinessLegalInformation"
+          className={`menu-bar-button ${activeComponent === "BusinessLegalInformation"
               ? "active-business"
               : ""
-          }`}
+            }`}
           onClick={() => handleClick("BusinessLegalInformation")}
         >
           Business Legal Information
         </button>
         <button
-          className={`menu-bar-button ${
-            activeComponent === "BankDetails" ? "active-bank-details" : ""
-          }`}
+          className={`menu-bar-button ${activeComponent === "BankDetails" ? "active-bank-details" : ""
+            }`}
           onClick={() => handleClick("BankDetails")}
         >
           Bank Details
         </button>
         <button
-          className={`menu-bar-button ${
-            activeComponent === "ContactPersons" ? "active-contact-persons" : ""
-          }`}
+          className={`menu-bar-button ${activeComponent === "ContactPersons" ? "active-contact-persons" : ""
+            }`}
           onClick={() => handleClick("ContactPersons")}
         >
           Contact Persons
@@ -600,9 +610,8 @@ function AddressFields() {
           <div className="cp-input-with-dropdown floating-label-group">
             <select
               name="selectBranch"
-              className={`address-border ${
-                inputs.selectBranch ? "filled" : ""
-              }`}
+              className={`address-border ${inputs.selectBranch ? "filled" : ""
+                }`}
               onChange={handleInputChange}
               onFocus={() => handleFocus("selectBranch")}
               onBlur={() => handleBlur("selectBranch")}
@@ -646,9 +655,8 @@ function AddressFields() {
           <div className="cp-input-with-dropdown floating-label-group">
             <select
               name="unitDivision"
-              className={`address-border ${
-                inputs.unitDivision ? "filled" : ""
-              }`}
+              className={`address-border ${inputs.unitDivision ? "filled" : ""
+                }`}
               onChange={handleInputChange}
               onFocus={() => handleFocus("unitDivision")}
               onBlur={() => handleBlur("unitDivision")}
@@ -718,9 +726,8 @@ function AddressFields() {
               type="text"
               name="buildingName"
               placeholder="Building Name"
-              className={`address-border ${
-                inputs.buildingName ? "filled" : ""
-              }`}
+              className={`address-border ${inputs.buildingName ? "filled" : ""
+                }`}
               onChange={handleInputChange}
               onFocus={() => handleFocus("buildingName")}
               onBlur={() => handleBlur("buildingName")}
@@ -915,9 +922,8 @@ function AddressFields() {
               type="text"
               name="placeOfSupply"
               placeholder="Place of Supply*"
-              className={`address-border ${
-                inputs.placeOfSupply ? "filled" : ""
-              }`}
+              className={`address-border ${inputs.placeOfSupply ? "filled" : ""
+                }`}
               onChange={handleInputChange}
               onFocus={() => handleFocus("placeOfSupply")}
               onBlur={() => handleBlur("placeOfSupply")}
@@ -1016,7 +1022,7 @@ function PersonalDetailFields() {
                   <option value="er">Er.</option>
                   <option value="prof">Prof.</option>
                   <option value="ms">Ms.</option>
-                </select>                
+                </select>
                 <span className="dropdown-icon"></span>
               </div>
             </div>
@@ -1555,7 +1561,7 @@ function BankDetailFields() {
                   <option value="miss">Miss.</option>
                   <option value="er">Er.</option>
                   <option value="prof">Prof.</option>
-                  </select>
+                </select>
                 <span className="dropdown-icon"></span>
               </div>
             </div>
@@ -1596,9 +1602,8 @@ function BankDetailFields() {
               type="text"
               name="accountNumber"
               placeholder="Account Number*"
-              className={`address-border ${
-                inputs.accountNumber ? "filled" : ""
-              }`}
+              className={`address-border ${inputs.accountNumber ? "filled" : ""
+                }`}
               onChange={handleInputChange}
               onFocus={() => handleFocus("accountNumber")}
               onBlur={() => handleBlur("accountNumber")}
@@ -1700,9 +1705,8 @@ function BankDetailFields() {
           <div className="cp-input-with-dropdown floating-label-group">
             <select
               name="accountType"
-              className={`customBank-border ${
-                inputs.accountType ? "filled" : ""
-              }`}
+              className={`customBank-border ${inputs.accountType ? "filled" : ""
+                }`}
               onChange={handleInputChange}
               onFocus={() => handleFocus("accountType")}
               onBlur={() => handleBlur("accountType")}
