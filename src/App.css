@@ -194,37 +194,29 @@ body {
 .floating-label-group label {
   position: absolute;
   left: 10px;
-  top: 0; /* Initially set to 0 */
-  transform: translateY(0); /* Initially set to 0 */
+  top: 50%; /* Start at the vertical middle */
+  transform: translateY(-50%); /* Center vertically */
   transition: all 0.2s ease;
   color: #aaa; /* Placeholder color */
   pointer-events: none;
   background-color: white; /* Ensures the label has a background */
   padding: 0 3px; /* Provides padding so the background doesn't cut off */
-  font-size: 14px; /* Initially set font size */
 }
 
 
 
-
-
-/* Style for floating label when input is not empty */
-.floating-label-group input:not(.empty) + label,
-.floating-label-group select:not(.empty) + label {
+/* Style for floating label when input is active */
+.floating-label-group input:focus + label,
+.floating-label-group input.filled + label,
+.floating-label-group select:focus + label,
+.floating-label-group select.filled + label {
   top: -8px;
   left: 10px;
   transform: translateY(0);
-  font-size: 12px; /* Adjust font size as needed */
+  font-size: 12px;
   color: #0196B9;
   z-index: 10;
-  border-color: #0196B9;;
 }
-
-/* Style for input with data (border color is #0196B9) */
-.address-border.has-data {
-  border-color: #0196B9;
-}
-
 
 
 .uploaded-logo {

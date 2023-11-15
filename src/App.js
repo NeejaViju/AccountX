@@ -3,6 +3,7 @@ import "./App.css";
 import "font-awesome/css/font-awesome.min.css";
 import "./style/AddressTypeForm.css";
 import "./style/ButtonList.css";
+import "./style/CompanyProfile.css"
 
 import NavBar from "./components/navbar";
 import SideBar from "./components/sidebar";

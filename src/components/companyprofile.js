@@ -1,4 +1,4 @@
-import { useState, useRef} from "react";
+import { useState, useRef } from "react";
 import uploadIcon from "../icons/Icon feather-upload@2x.png";
 
 export default function CompanyProfile({ comProfile, selectedCompany }) {
@@ -87,6 +87,7 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
               </button>
             </div>
 
+            <div className="cp-row">
             <div className={`floating-label-group ${inputs.companyId ? "filled" : ""}`}>
               <input
                 type="text"
@@ -104,20 +105,49 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
               </label>
             </div>
           </div>
+          </div>
+
 
           <div className="cp-row">
-            <input
-              type="text"
-              placeholder="Business Trade Name*"
-              className="address-border"
-              value={selCompany[0].businessTradeName}
-            />
-            <input
-              type="text"
-              placeholder="Business Legal Name*"
-              className="address-border"
-              value={selCompany[0].businessLegalName}
-            />
+            <div className={`floating-label-group ${inputs.businessTradeName ? "filled" : ""}`}>
+              <input
+                type="text"
+                name="businessTradeName"
+                placeholder="Business Trade Name*"
+                className={`address-border ${inputs.businessTradeName ? "has-data" : ""}`}
+                onChange={handleInputChange}
+                value={selCompany[0].businessTradeName}
+                style={{ 
+              
+              paddingRight : "200px"}}
+              />
+              <label
+                htmlFor="businessTradeName"
+                className={inputs.businessTradeName ? "floating" : ""}
+              >
+                Business Trade Name*
+              </label>
+            </div>
+            <div className={`floating-label-group ${inputs.businessLegalName ? "filled" : ""}`}>
+              <input
+                type="text"
+                name="businessLegalName"
+                placeholder="Business Legal Name*"
+                className={`address-border ${inputs.businessLegalName ? "has-data" : ""}`}
+                onChange={handleInputChange}
+                value={selCompany[0].businessLegalName}
+                style={{ 
+              
+                  paddingRight : "200px"}}
+                  />
+              
+              <label
+                htmlFor="businessLegalName"
+                className={inputs.businessLegalName ? "floating" : ""}
+              >
+                Business Legal Name*
+              </label>
+            </div>
           </div>
 
           <div className="cp-row">
@@ -131,26 +161,56 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
                   <span className="dropdown-icon"></span>
                 </div>
               </div>
-              <input
-                type="text"
-                placeholder="Mobile Number*"
-                value={selCompany[0].mobileNumber}
-              />
+              <div className={`floating-label-group ${inputs.mobileNumber ? "filled" : ""}`}>
+                <input
+                  type="text"
+                  placeholder="Mobile Number*"
+                  value={selCompany[0].mobileNumber}
+                  className={`address-border ${inputs.mobileNumber ? "has-data" : ""}`}
+                />
+                <label
+                  htmlFor="mobileNumber"
+                  className={inputs.mobileNumber ? "floating" : ""}
+                >
+                  Mobile Number*
+                </label>
+              </div>
             </div>
             <span className="separator"></span>
-            <input
-              type="email"
-              placeholder="Business Email*"
-              className="address-border"
-              value={selCompany[0].businessEmail}
-            />
-            <div className={`cp-input-with-icon ${inputs.industry ? "filled" : ""}`}>
+            <div className={`floating-label-group ${inputs.businessEmail ? "filled" : ""}`}>
               <input
-                type="text"
-                placeholder="Industry"
-                className="address-border"
-                value={selCompany[0].industry}
+                type="email"
+                placeholder="Business Email*"
+                className={`address-border ${inputs.businessEmail ? "has-data" : ""}`}
+                value={selCompany[0].businessEmail}
+                onChange={handleInputChange}
               />
+              <label
+                htmlFor="businessEmail"
+                className={inputs.businessEmail ? "floating" : ""}
+              >
+                Business Email*
+              </label>
+            </div>
+
+            <div className={`cp-input-with-icon ${inputs.industry ? "filled" : ""}`}>
+              <div className="floating-label-group">
+                <input
+                  type="text"
+                  placeholder="Industry"
+                  className={`address-border ${inputs.industry ? "has-data" : ""}`}
+                  value={selCompany[0].industry}
+                  onChange={handleInputChange}
+                  name="industry" // Make sure to add the name attribute
+                />
+
+                <label
+                  htmlFor="industry" // Use the correct htmlFor value
+                  className={inputs.industry ? "floating" : ""}
+                >
+                  Industry
+                </label>
+              </div>
               <i
                 className="fa fa-search new-search-icon-inside-input"
                 aria-hidden="true"
