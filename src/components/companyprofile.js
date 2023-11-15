@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef} from "react";
 import uploadIcon from "../icons/Icon feather-upload@2x.png";
 
 export default function CompanyProfile({ comProfile, selectedCompany }) {
@@ -12,30 +12,20 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
     businessEmail: "",
     industry: "",
   });
-  const [focused, setFocused] = useState("");
   const [logo, setLogo] = useState(null);
   const fileInputRef = useRef(null);
+  let selCompany = null; // Define selCompany outside of the conditional block
 
   if (selectedCompany !== "") {
-    
-    const selCompany = comProfile.filter(company => (company._id === selectedCompany));
-    /*Floating Label*/
-    const handleFocus = (fieldName) => {
-      setFocused(fieldName);
-    };
-
-    const handleBlur = (fieldName) => {
-      if (!inputs[fieldName]) {
-        setFocused("");
-      }
-    };
+    selCompany = comProfile.filter(
+      (company) => company._id === selectedCompany
+    );
 
     const handleInputChange = (e) => {
       const { name, value } = e.target;
       setInputs((prevInputs) => ({ ...prevInputs, [name]: value }));
     };
 
-    /*file upload*/
     const handleLogoUpload = (event) => {
       const file = event.target.files[0];
       if (
@@ -52,46 +42,35 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
         alert("Please upload a valid image that is under 5MB.");
       }
     };
+
     return (
       <div className="cp-company-container">
         <div className="cp-column">
-          {/* First Row */}
           <div className="cp-row">
-            {/* GST Number Input */}
-            <div className="floating-label-group">
+            <div className={`floating-label-group ${inputs.gstNumber ? "filled" : ""}`}>
               <input
                 type="text"
                 name="gstNumber"
                 placeholder="Enter GST Number"
-                className={`address-border ${inputs.gstNumber ? "filled" : ""}`}
+                className={`address-border ${inputs.gstNumber ? "has-data" : ""}`}
                 onChange={handleInputChange}
-                onFocus={() => handleFocus("gstNumber")}
-                onBlur={() => handleBlur("gstNumber")}
-                readOnly
                 value={selCompany[0].gstNumber}
               />
-              {/* {comProfile !== undefined ? selCompany.gstNumber : ""} */}
               <label
                 htmlFor="gstNumber"
-                className={
-                  focused === "gstNumber" || inputs.gstNumber ? "floating" : ""
-                }
+                className={inputs.gstNumber ? "floating" : ""}
               >
                 GST Number*
               </label>
             </div>
 
-            {/* Company Type Dropdown */}
-            <div className="cp-input-with-dropdown floating-label-group">
+            <div className={`cp-input-with-dropdown floating-label-group ${inputs.companyType ? "filled" : ""}`}>
               <select
                 name="companyType"
-                className={`address-border ${inputs.companyType ? "filled" : ""}`}
+                className="address-border"
                 onChange={handleInputChange}
-                onFocus={() => handleFocus("companyType")}
-                onBlur={() => handleBlur("companyType")}
                 value={selCompany[0].companyType}
               >
-                {/* {comProfile[indx].companyType} */}
                 <option value="" disabled></option>
                 <option value="Type1">Type 1</option>
                 <option value="Type2">Type 2</option>
@@ -99,9 +78,7 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
               </select>
               <label
                 htmlFor="companyType"
-                className={
-                  focused === "companyType" || inputs.companyType ? "floating" : ""
-                }
+                className={inputs.companyType ? "floating" : ""}
               >
                 Company Type*
               </label>
@@ -110,31 +87,24 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
               </button>
             </div>
 
-            {/* Company ID Input */}
-            <div className="floating-label-group">
+            <div className={`floating-label-group ${inputs.companyId ? "filled" : ""}`}>
               <input
                 type="text"
                 name="companyId"
                 placeholder="Company ID"
-                className={`address-border ${inputs.companyId ? "filled" : ""}`}
+                className="address-border"
                 onChange={handleInputChange}
-                onFocus={() => handleFocus("companyId")}
-                onBlur={() => handleBlur("companyId")}
-                readOnly
                 value={selCompany[0].companyID}
               />
-              {/* {comProfile[indx].companyID} */}
               <label
                 htmlFor="companyId"
-                className={
-                  focused === "companyId" || inputs.companyId ? "floating" : ""
-                }
+                className={inputs.companyId ? "floating" : ""}
               >
                 Company ID
               </label>
             </div>
           </div>
-          {/* Second Row */}
+
           <div className="cp-row">
             <input
               type="text"
@@ -142,17 +112,14 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
               className="address-border"
               value={selCompany[0].businessTradeName}
             />
-            {/* {comProfile[indx].businessTradeName} */}
             <input
               type="text"
               placeholder="Business Legal Name*"
               className="address-border"
               value={selCompany[0].businessLegalName}
             />
-            {/* {comProfile[indx].businessLegalName} */}
           </div>
 
-          {/* Third Row */}
           <div className="cp-row">
             <div className="cp-input-with-icon mobile">
               <div className="inputs-container">
@@ -164,9 +131,11 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
                   <span className="dropdown-icon"></span>
                 </div>
               </div>
-              <input type="text" placeholder="Mobile Number*"
-              value={selCompany[0].mobileNumber} />
-              {/* {comProfile[indx].mobileNumber} */}
+              <input
+                type="text"
+                placeholder="Mobile Number*"
+                value={selCompany[0].mobileNumber}
+              />
             </div>
             <span className="separator"></span>
             <input
@@ -174,15 +143,13 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
               placeholder="Business Email*"
               className="address-border"
               value={selCompany[0].businessEmail}
-            // {comProfile[indx].businessEmail}
             />
-            <div className="cp-input-with-icon">
+            <div className={`cp-input-with-icon ${inputs.industry ? "filled" : ""}`}>
               <input
                 type="text"
                 placeholder="Industry"
                 className="address-border"
                 value={selCompany[0].industry}
-              // {comProfile[indx].industry}
               />
               <i
                 className="fa fa-search new-search-icon-inside-input"
@@ -209,10 +176,8 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
                 className="upload-btn"
                 onClick={() => fileInputRef.current.click()}
               >
-                <i className="fa fa-apple" aria-hidden="true"></i> {/* Apple logo */}
+                <i className="fa fa-apple" aria-hidden="true"></i>
                 <div className="upload-section">
-                  {" "}
-                  {/* Wrap upload icon and text */}
                   <img
                     src={uploadIcon}
                     alt="Upload"
@@ -228,4 +193,5 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
     );
   }
 
+  return null; // Render nothing if selectedCompany is empty
 }
