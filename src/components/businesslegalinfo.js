@@ -214,11 +214,6 @@ export default function BusinessLegalInfo() {
                                 MSME*
                             </label>
                         </div>
-                        {/* <input
-              type="text"
-              placeholder="MSME Certificate.pdf"
-              className="customLegal-border"
-            /> */}
                         <button className="download-button">
                             <a
                                 //href="/path-to-your-cin-certificate.pdf" // Replace with the actual link to the CIN certificate PDF
