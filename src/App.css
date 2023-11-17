@@ -1146,6 +1146,41 @@ select{
   border-color:#A3184B;
   outline: none; /* This will remove the default browser outline on focus */
 }
+
+.floating-label-legal {
+  position: relative;
+  /* No need for padding-top if you are positioning the label with JS and class changes */
+}
+
+.floating-label-legal label {
+  position: absolute;
+  left: 10px;
+  top: 50%; /* Start at the vertical middle */
+  transform: translateY(-50%); /* Center vertically */
+  transition: all 0.2s ease;
+  color: #aaa; /* Placeholder color */
+  pointer-events: none;
+  background-color: white; /* Ensures the label has a background */
+  padding: 0 3px; /* Provides padding so the background doesn't cut off */
+}
+
+
+
+/* Style for floating label when input is active */
+.floating-label-legal input:focus + label,
+.floating-label-legal input.filled + label,
+.floating-label-legal select:focus + label,
+.floating-label-legal select.filled + label {
+  top: -8px;
+  left: 10px;
+  transform: translateY(0);
+  font-size: 12px;
+  color: #A3184B;
+  z-index: 10;
+}
+
+
+
 .customBank-border {
   border: 1px solid #B4B4B4;
 }

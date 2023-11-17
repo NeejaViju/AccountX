@@ -45,7 +45,7 @@ export default function BusinessLegalInfo() {
                 <div className="cp-column">
                     {/* First Row */}
                     <div className="cp-row">
-                        <div className=" cp-input-with-icon floating-label-group">
+                        <div className=" cp-input-with-icon floating-label-legal">
                             <input
                                 type="text"
                                 name="gstNumber"
@@ -90,7 +90,7 @@ export default function BusinessLegalInfo() {
                             GST Certificate
                         </button>
                         {/* GST END */}
-                        <div className=" cp-input-with-icon floating-label-group">
+                        <div className=" cp-input-with-icon floating-label-legal">
                             <input
                                 type="text"
                                 name="pan"
@@ -130,7 +130,7 @@ export default function BusinessLegalInfo() {
 
                     {/* Second Row */}
                     <div className="cp-row">
-                        <div className=" cp-input-with-icon floating-label-group">
+                        <div className=" cp-input-with-icon floating-label-legal">
                             <input
                                 type="text"
                                 name="cin"
@@ -160,7 +160,7 @@ export default function BusinessLegalInfo() {
                                 <i className="fa fa-download" aria-hidden="true"></i>
                             </a>
                         </button>
-                        <div className=" cp-input-with-icon floating-label-group">
+                        <div className=" cp-input-with-icon floating-label-legal">
                             <input
                                 type="text"
                                 name="tan"
@@ -196,7 +196,7 @@ export default function BusinessLegalInfo() {
 
                     {/* Third Row */}
                     <div className="cp-row">
-                        <div className=" cp-input-with-icon floating-label-group">
+                        <div className=" cp-input-with-icon floating-label-legal">
                             <input
                                 type="text"
                                 name="msme"
@@ -225,7 +225,7 @@ export default function BusinessLegalInfo() {
                             </a>
                         </button>
 
-                        <div className=" cp-input-with-icon floating-label-group">
+                        <div className=" cp-input-with-icon floating-label-legal">
                             <input
                                 type="text"
                                 name="iecode"
