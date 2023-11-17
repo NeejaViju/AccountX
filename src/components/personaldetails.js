@@ -73,7 +73,7 @@ export default function PersonalDetails() {
             <input
               type="text"
               name="firstName"
-              placeholder="First Name**"
+              placeholder="First Name*"
               className={'address-border ${inputs.firstName ? "filled" : ""}'}
               onChange={handleInputChange}
               onFocus={() => handleFocus("firstName")}
