@@ -65,7 +65,8 @@ export default function PersonalDetails() {
                     <option value="er">Er.</option>
                     <option value="prof">Prof.</option>
                     <option value="ms">Ms.</option>
-                  </select>                
+                  </select>  
+
                   <span class="dropdown-icon"></span>
                 </div>
               </div>
@@ -88,9 +89,10 @@ export default function PersonalDetails() {
             >
               First Name*
             </label>
+            </div>
             <span className="separator"></span> 
             </div>
-      </div>
+     
             {/* middlename float*/}
             <div className="cp-input-with-icon floating-label-personal">
                 <input

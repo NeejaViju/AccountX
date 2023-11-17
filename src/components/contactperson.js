@@ -60,40 +60,22 @@ export default function ContactPersonDetails() {
                             <div className="inputs-container">
                                 <div className="mobileNumer-dropdown">
                                     <select className="mobileDropDown">
-                                        <option value="miss">Miss</option>
-                                        <option value="miss">Mr</option>
+                                    <option value="miss">Miss.</option>
+                                    <option value="mr">Mr.</option>
+                                    <option value="miss">Mrs.</option>
+                                    <option value="miss">Dr.</option>
+                                    <option value="miss">Er.</option>
+                                    <option value="miss">Prof.</option>
+                                    <option value="miss">M/s.</option>
                                     </select>
                                     <span className="dropdown-icon"></span>
                                 </div>
                             </div>
-                            <input type="text" placeholder="Person Name" className="" />
+                            <input type="text" placeholder="Person Name*" className="" />
                         </div>
                         <span className="separator"></span>
                         {/* Person Name Float */}
-                        {/* <div className="cp-input-with-icon floating-label-group">
-                <input
-                  type="text"
-                  name="personName"
-                  placeholder="PersonName*"
-                  className={`address-border ${
-                    inputs.personName ? "filled" : ""
-                  }`}
-                  onChange={handleInputChange}
-                  onFocus={() => handleFocus("personName")}
-                  onBlur={() => handleBlur("personName")}
-                  value={inputs.personName}
-                />
-                <label
-                  htmlFor="personName"
-                  className={
-                    focused === "personName" || inputs.personName
-                      ? "floating"
-                      : ""
-                  }
-                >
-                  Person Name
-                </label>
-              </div> */}
+                       
 
                         <div className="cp-input-with-dropdown">
                             <input
@@ -133,40 +115,14 @@ export default function ContactPersonDetails() {
                             </div>
                             <input type="text" placeholder="Mobile Number*" className="" />
                         </div>
-                        <span className="separator"></span>
-
-                        {/* <div className="cp-input-with-icon floating-label-group">
-                <input
-                  type="text"
-                  name="mobileNumber"
-                  placeholder="MobileNumber*"
-                  className={`address-border ${
-                    inputs.mobileNumber ? "filled" : ""
-                  }`}
-                  onChange={handleInputChange}
-                  onFocus={() => handleFocus("mobileNumber")}
-                  onBlur={() => handleBlur("mobileNumber")}
-                  value={inputs.mobileNumber}
-                />
-                <label
-                  htmlFor="mobileNumber"
-                  className={
-                    focused === "mobileNumber" || inputs.mobileNumber
-                      ? "floating"
-                      : ""
-                  }
-                >
-                  Mobile Number*
-                </label>
-              </div>
-            </div> */}
+                        <span className="separator"></span>                      
 
                         <div className="cp-input-with-dropdown">
                             <div className="cp-input-with-icon floating-label-group">
                                 <input
                                     type="text"
                                     name="emailId"
-                                    placeholder="EmailId*"
+                                    placeholder="Email ID"
                                     className={`address-border ${inputs.emailId ? "filled" : ""}`}
                                     onChange={handleInputChange}
                                     onFocus={() => handleFocus("emailId")}
@@ -224,7 +180,7 @@ export default function ContactPersonDetails() {
                                     document.getElementById("digital-signature-upload").click()
                                 }
                             >
-                                <i className="fa fa-upload" aria-hidden="true"></i>
+                                <i className="fa fa-upload" aria-hidden="true"></i>&nbsp;
                                 Upload Digital Signature
                             </button>
                         </div>
@@ -268,7 +224,7 @@ export default function ContactPersonDetails() {
                                     document.getElementById("signature-image-upload").click()
                                 }
                             >
-                                <i className="fa fa-upload" aria-hidden="true"></i>
+                                <i className="fa fa-upload" aria-hidden="true"></i>&nbsp;
                                 Upload Signature Image
                             </button>
                         </div>

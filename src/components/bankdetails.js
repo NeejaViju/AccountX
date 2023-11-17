@@ -56,17 +56,18 @@ export default function BankDetails() {
           <div className="cp-row">
             <div className="cp-input-with-icon mobile">
               <div className="inputs-container">
-                <div className="chooseBank-container">
-                <div>
+                 <div className="chooseBank-container">               
               <select className="mobileDropDown">
-              <option value="miss">Miss</option>
-              <option value="miss">Mr</option>
-              <option value="miss">Mrs</option>
+              <option value="miss">Miss.</option>
+              <option value="mr">Mr.</option>
+              <option value="miss">Mrs.</option>
+              <option value="miss">Dr.</option>
+              <option value="miss">Er.</option>
+              <option value="miss">Prof.</option>
+              <option value="miss">M/s.</option>
               </select>
-              <span class="dropdown-icon">
-                </span>
-                </div>
-              
+              <span class="dropdown-icon"></span>          
+             </div>
              </div>
               {/* Account Name Float */}
               <div className="floating-label-bank">
@@ -88,35 +89,11 @@ export default function BankDetails() {
             >
               Account Name*
             </label>
-            <span className="separator"></span> 
-          </div>
-
-              {/* <div className="cp-input-with-icon floating-label-group">
-                <input
-                  type="text"
-                  name="accountName"
-                  placeholder="Account Name*"
-                  className={`address-border ${
-                    inputs.accountName ? "filled" : ""
-                  }`}
-                  onChange={handleInputChange}
-                  onFocus={() => handleFocus("accountName")}
-                  onBlur={() => handleBlur("accountName")}
-                  value={inputs.accountName}
-                />
-                <label
-                  htmlFor="accountName"
-                  className={
-                    focused === "accountName" || inputs.accountName
-                      ? "floating"
-                      : ""
-                  }
-                >
-                  Account Name*
-                </label>
-              </div> */}
             </div>
+            <span className="separator"></span>           
             </div>
+            
+            
             {/* Account Number Float */}
             <div className=" cp-input-with-icon floating-label-bank">
               <input
@@ -167,7 +144,7 @@ export default function BankDetails() {
                 aria-hidden="true"
               ></i>
             </div>
-          </div>
+            </div>
   
           {/* Second Row */}
           <div className="cp-row">
@@ -202,7 +179,7 @@ export default function BankDetails() {
               <input
                 type="text"
                 name="branchName"
-                placeholder="Branch Name*"
+                placeholder="Branch Name"
                 className={`address-border ${inputs.branchName ? "filled" : ""}`}
                 onChange={handleInputChange}
                 onFocus={() => handleFocus("branchName")}
@@ -215,7 +192,7 @@ export default function BankDetails() {
                   focused === "branchName" || inputs.branchName ? "floating" : ""
                 }
               >
-                Branch Name*
+                Branch Name
               </label>
               <i
                 className="fa fa-search new-search-icon-inside-input"
@@ -233,10 +210,14 @@ export default function BankDetails() {
                 onBlur={() => handleBlur("accountType")}
                 value={inputs.accountType}
               >
-                <option value="" disabled  hidden></option>
-                <option value="type1">Type 1</option>
-                <option value="type2">Type 2</option>
-                <option value="type3">Type 3</option>
+                <option value="" disabled hidden></option>
+                <option value="type1">Saving</option>
+                <option value="type2">Current Account</option>
+                <option value="type3">OD [Over Draft]</option>
+                <option value="type2">CC [Cash Credit]</option>
+                <option value="type2">Salary</option>
+                <option value="type2">Fixed Deposit[FD]</option>
+                <option value="type2">Recurring Deposit[RD]</option>
               </select>
               <label
                 htmlFor="accountType"

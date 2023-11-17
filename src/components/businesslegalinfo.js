@@ -134,7 +134,7 @@ export default function BusinessLegalInfo() {
                             <input
                                 type="text"
                                 name="cin"
-                                placeholder="CIN*"
+                                placeholder="CIN"
                                 className={`address-border ${inputs.cin ? "filled" : ""}`}
                                 onChange={handleInputChange}
                                 onFocus={() => handleFocus("cin")}
@@ -145,7 +145,7 @@ export default function BusinessLegalInfo() {
                                 htmlFor="cin"
                                 className={focused === "cin" || inputs.cin ? "floating" : ""}
                             >
-                                CIN*
+                                CIN
                             </label>
                         </div>
 
@@ -164,7 +164,7 @@ export default function BusinessLegalInfo() {
                             <input
                                 type="text"
                                 name="tan"
-                                placeholder="TAN*"
+                                placeholder="TAN"
                                 className={`address-border ${inputs.tan ? "filled" : ""}`}
                                 onChange={handleInputChange}
                                 onFocus={() => handleFocus("tan")}
@@ -175,7 +175,7 @@ export default function BusinessLegalInfo() {
                                 htmlFor="tan"
                                 className={focused === "tan" || inputs.tan ? "floating" : ""}
                             >
-                                TAN*
+                                TAN
                             </label>
                         </div>
 
@@ -200,7 +200,7 @@ export default function BusinessLegalInfo() {
                             <input
                                 type="text"
                                 name="msme"
-                                placeholder="MSME*"
+                                placeholder="MSME"
                                 className={`address-border ${inputs.msme ? "filled" : ""}`}
                                 onChange={handleInputChange}
                                 onFocus={() => handleFocus("msme")}
@@ -211,7 +211,7 @@ export default function BusinessLegalInfo() {
                                 htmlFor="msme"
                                 className={focused === "msme" || inputs.msme ? "floating" : ""}
                             >
-                                MSME*
+                                MSME
                             </label>
                         </div>
                         <button className="download-button">
@@ -229,7 +229,7 @@ export default function BusinessLegalInfo() {
                             <input
                                 type="text"
                                 name="iecode"
-                                placeholder="IE Code*"
+                                placeholder="IE Code"
                                 className={`address-border ${inputs.iecode ? "filled" : ""}`}
                                 onChange={handleInputChange}
                                 onFocus={() => handleFocus("iecode")}
@@ -242,7 +242,7 @@ export default function BusinessLegalInfo() {
                                     focused === "iecode" || inputs.iecode ? "floating" : ""
                                 }
                             >
-                                IE Code*
+                                IE Code
                             </label>
                         </div>
                         <input
