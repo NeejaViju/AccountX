@@ -774,7 +774,7 @@ input {
  background: #0195B9 0% 0% no-repeat padding-box;
  color: white;
  border-left: 1px solid #ccc;
- border-radius: 0 4px 4px 0;}
+ border-radius: 4px 4px 4px 4px;}
 
  /* personal details css */
  .personal-button-container{
@@ -790,7 +790,7 @@ input {
  background: #9B660E 0% 0% no-repeat padding-box;
  color: white;
  border-left: 1px solid #ccc;
- border-radius: 0 4px 4px 0;
+ border-radius: 4px 4px 4px 4px;
 }
 
 
@@ -808,7 +808,7 @@ input {
  background: #A666F8 0% 0% no-repeat padding-box;
  color: white;
  border-left: 1px solid #ccc;
- border-radius: 0 4px 4px 0;
+ border-radius: 4px 4px 4px 4px;
 }
 
 /* signing and contact */
@@ -825,7 +825,7 @@ input {
  background: #5C5831 0% 0% no-repeat padding-box;
  color: white;
  border-left: 1px solid #ccc;
- border-radius: 0 4px 4px 0;
+ border-radius: 4px 4px 4px 4px;
 }
 
 /* bank account details */

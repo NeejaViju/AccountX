@@ -166,9 +166,10 @@ export default function ContactPersonDetails() {
               Mobile Number*
             </label>
             </div>
-                        </div>
+            </div>
                         <span className="separator"></span>                      
-
+                        
+             
                         <div className="cp-input-with-dropdown">
                             <div className="cp-input-with-icon floating-label-contact">
                                 <input
