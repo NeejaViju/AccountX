@@ -21,9 +21,9 @@ const reqData = () => fetch(URL).then(res => res.json());
 function App() {
   const [comProfile, setComProfile] = useState([]);
   const [selectedCompany, setSelectedCompany] = useState("");
-
+  //setSelectedCompany(data[0]._id); 
   useEffect(() => {
-    reqData().then(data => { setComProfile(data); setSelectedCompany(data[0]._id); });
+    reqData().then(data => { setComProfile(data)});
   }, []);
   
   return (

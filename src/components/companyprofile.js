@@ -16,32 +16,32 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
   });
   const [logo, setLogo] = useState(null);
   const fileInputRef = useRef(null);
+  let selCompany = [];
+
+  const loadInputs = () => {
+    setInputs({
+      companyName: selectedCompany !== "" ? selCompany[0]?.companyName : "",
+      companyID: selectedCompany !== "" ? selCompany[0]?.companyID : "",
+      companyType: selectedCompany !== "" ? selCompany[0]?.companyType : "",
+      gstNumber: selectedCompany !== "" ? selCompany[0]?.gstNumber : "",
+      businessTradeName: selectedCompany !== "" ? selCompany[0]?.businessTradeName : "",
+      businessLegalName: selectedCompany !== "" ? selCompany[0]?.businessLegalName : "",
+      mobileNumber: selectedCompany !== "" ? selCompany[0]?.mobileNumber : "",
+      businessEmail: selectedCompany !== "" ? selCompany[0]?.businessEmail : "",
+      industry: selectedCompany !== "" ? selCompany[0]?.industry : "",
+      image: selectedCompany !== "" ? selCompany[0]?.image : ""
+    });
+  };
 
   useEffect(() => {
     loadInputs();
   }, [selectedCompany]);
 
-  if (selectedCompany === "") return null;
+  // if (selectedCompany === "") return null;
 
-  // useEffect(() => {
-  let selCompany = comProfile.filter(company => company._id === selectedCompany);
+  selCompany = comProfile.filter(company => company._id === selectedCompany);
 
-  const loadInputs = () => {
-    setInputs({
-      companyName: selCompany[0]?.companyName,
-      companyID: selCompany[0]?.companyID,
-      companyType: selCompany[0]?.companyType,
-      gstNumber: selCompany[0]?.gstNumber,
-      businessTradeName: selCompany[0]?.businessTradeName,
-      businessLegalName: selCompany[0]?.businessLegalName,
-      mobileNumber: selCompany[0]?.mobileNumber,
-      businessEmail: selCompany[0]?.businessEmail,
-      industry: selCompany[0]?.industry,
-      image: selCompany[0]?.image
-    });
-  };
-
-  console.log(inputs);
+  // console.log(inputs);
 
   const handleInputChange = (e) => {
     // const { name, value } = e.target;
@@ -278,7 +278,4 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
       </div>
     </div>
   );
-  // }
-
-  return null; // Render nothing if selectedCompany is empty
 }

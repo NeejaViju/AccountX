@@ -36,6 +36,7 @@ export default function NavBar({ comProfile, selectedCompany, setSelectedCompany
                 <i className="fa fa-bell new-bell-icon" aria-hidden="true"></i>
 
                 <select value={selectedCompany._id} className="drop-down-nav-bar" onChange={companyChanged}>
+                    <option value="">Select</option>
                     {comProfile && comProfile.length > 0 && comProfile.map(comp => {
                         return <option key={comp._id} value={comp._id}>{comp.companyName}</option>
                     })}
