@@ -57,21 +57,40 @@ export default function BankDetails() {
             <div className="cp-input-with-icon mobile">
               <div className="inputs-container">
                 <div className="chooseBank-container">
-                  <select>
-                    <option value="miss">M/s.</option>
-                    <option value="mr">Mr.</option>
-                    <option value="mrs">Mrs.</option>
-                    <option value="dr">Dr.</option>
-                  </select>
-                  <span className="dropdown-icon"></span>
+                <div>
+              <select className="mobileDropDown">
+              <option value="miss">Miss</option>
+              <option value="miss">Mr</option>
+              <option value="miss">Mrs</option>
+              </select>
+              <span class="dropdown-icon">
+                </span>
                 </div>
-              </div>
-              <input
-                type="text"
-                placeholder="Account Name*"
-                className="custom-border"
-              />
-              <span className="separator"></span>
+              
+             </div>
+              {/* Account Name Float */}
+              <div className="floating-label-bank">
+            <input
+              type="text"
+              name="accountName"
+              placeholder="AccountName*"
+              className={'address-border ${inputs.accountName ? "filled" : ""}'}
+              onChange={handleInputChange}
+              onFocus={() => handleFocus("accountName")}
+              onBlur={() => handleBlur("accountName")}
+              value={inputs.accountName}
+            />
+            <label
+              htmlFor="accountName"
+              className={
+                focused === "accountName" || inputs.accountName ? "floating" : ""
+              }
+            >
+              Account Name*
+            </label>
+            <span className="separator"></span> 
+          </div>
+
               {/* <div className="cp-input-with-icon floating-label-group">
                 <input
                   type="text"
@@ -97,8 +116,9 @@ export default function BankDetails() {
                 </label>
               </div> */}
             </div>
+            </div>
             {/* Account Number Float */}
-            <div className=" cp-input-with-icon floating-label-group">
+            <div className=" cp-input-with-icon floating-label-bank">
               <input
                 type="text"
                 name="accountNumber"
@@ -124,7 +144,7 @@ export default function BankDetails() {
   
             {/* IFSC Float */}
   
-            <div className="cp-input-with-icon floating-label-group">
+            <div className="cp-input-with-icon floating-label-bank">
               <input
                 type="text"
                 name="ifsc"
@@ -157,7 +177,7 @@ export default function BankDetails() {
               </div>
             </div>
             {/* Bank Name Float */}
-            <div className="cp-input-with-icon floating-label-group">
+            <div className="cp-input-with-icon floating-label-bank">
               <input
                 type="text"
                 name="bankName"
@@ -178,7 +198,7 @@ export default function BankDetails() {
               </label>
             </div>
             {/* Branch Name Float */}
-            <div className="cp-input-with-icon floating-label-group">
+            <div className="cp-input-with-icon floating-label-bank">
               <input
                 type="text"
                 name="branchName"
@@ -203,7 +223,7 @@ export default function BankDetails() {
               ></i>
             </div>
             {/* Account Type Float */}
-            <div className="cp-input-with-dropdown floating-label-group">
+            <div className="cp-input-with-dropdown floating-label-bank">
               <select
                 name="accountType"
                 className={`customBank-border ${inputs.accountType ? "filled" : ""
@@ -250,7 +270,7 @@ export default function BankDetails() {
           <div className="cp-row">
             <div>
               {/* UPI ID Float */}
-              <div className="cp-input-with-icon floating-label-group">
+              <div className="cp-input-with-icon floating-label-bank">
                 <input
                   type="text"
                   name="upiId"
