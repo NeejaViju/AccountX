@@ -71,18 +71,51 @@ export default function ContactPersonDetails() {
                                     <span className="dropdown-icon"></span>
                                 </div>
                             </div>
-                            <input type="text" placeholder="Person Name*" className="" />
+                            <div className="floating-label-contact">
+            <input
+              type="text"
+              name="personName"
+              placeholder="Person Name"
+              className={'address-border ${inputs.personName ? "filled" : ""}'}
+              onChange={handleInputChange}
+              onFocus={() => handleFocus("personName")}
+              onBlur={() => handleBlur("personName")}
+              value={inputs.personName}
+            />
+            <label
+              htmlFor="personName"
+              className={
+                focused === "personName" || inputs.personName ? "floating" : ""
+              }
+            >
+              Person Name*
+            </label>
+            </div>
                         </div>
                         <span className="separator"></span>
                         {/* Person Name Float */}
                        
 
-                        <div className="cp-input-with-dropdown">
-                            <input
-                                type="text"
-                                placeholder="Designation"
-                                className="customContact-border"
-                            />
+                        <div className="cp-input-with-dropdown  floating-label-contact">
+                         <input
+              type="text"
+              name="designation"
+              placeholder="Designation"
+              className={'address-border ${inputs.designation ? "filled" : ""}'}
+              onChange={handleInputChange}
+              onFocus={() => handleFocus("designation")}
+              onBlur={() => handleBlur("designation")}
+              value={inputs.designation}
+            />
+            <label
+              htmlFor="designation"
+              className={
+                focused === "designation" || inputs.designation ? "floating" : ""
+              }
+            >
+              Designation
+            </label>
+            
                         </div>
                         {/* add button */}
                         <button
@@ -113,12 +146,31 @@ export default function ContactPersonDetails() {
                                     <span className="dropdown-icon"></span>
                                 </div>
                             </div>
-                            <input type="text" placeholder="Mobile Number*" className="" />
+                            <div className="floating-label-contact">
+            <input
+              type="text"
+              name="mobileNumber"
+              placeholder="Mobile Number"
+              className={'address-border ${inputs.mobileNumber ? "filled" : ""}'}
+              onChange={handleInputChange}
+              onFocus={() => handleFocus("mobileNumber")}
+              onBlur={() => handleBlur("mobileNumber")}
+              value={inputs.mobileNumber}
+            />
+            <label
+              htmlFor="mobileNumber"
+              className={
+                focused === "mobileNumber" || inputs.mobileNumber ? "floating" : ""
+              }
+            >
+              Mobile Number*
+            </label>
+            </div>
                         </div>
                         <span className="separator"></span>                      
 
                         <div className="cp-input-with-dropdown">
-                            <div className="cp-input-with-icon floating-label-group">
+                            <div className="cp-input-with-icon floating-label-contact">
                                 <input
                                     type="text"
                                     name="emailId"

@@ -1283,6 +1283,7 @@ select{
   outline: none; /* This will remove the default browser outline on focus */
 }
 
+
 .choosePersonal-container {
   display: flex;
   align-items: center;
@@ -1521,4 +1522,36 @@ select{
   border: solid white;
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
+}
+
+.floating-label-contact {
+  position: relative;
+  /* No need for padding-top if you are positioning the label with JS and class changes */
+}
+
+.floating-label-contact label {
+  position: absolute;
+  left: 10px;
+  top: 50%; /* Start at the vertical middle */
+  transform: translateY(-50%); /* Center vertically */
+  transition: all 0.2s ease;
+  color: #aaa; /* Placeholder color */
+  pointer-events: none;
+  background-color: white; /* Ensures the label has a background */
+  padding: 0 3px; /* Provides padding so the background doesn't cut off */
+}
+
+
+
+/* Style for floating label when input is active */
+.floating-label-contact input:focus + label,
+.floating-label-contact input.filled + label,
+.floating-label-contact select:focus + label,
+.floating-label-contact select.filled + label {
+  top: -8px;
+  left: 10px;
+  transform: translateY(0);
+  font-size: 12px;
+  color: #5C5831;
+  z-index: 10;
 }
