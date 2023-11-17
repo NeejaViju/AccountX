@@ -1134,6 +1134,40 @@ select{
   /* color: #9B660E; */
 }
 
+
+/* Personal fields Floating label Color CSS*/
+
+.floating-label-personal {
+  position: relative;
+  /* No need for padding-top if you are positioning the label with JS and class changes */
+}
+
+.floating-label-personal label {
+  position: absolute;
+  left: 10px;
+  top: 50%; /* Start at the vertical middle */
+  transform: translateY(-50%); /* Center vertically */
+  transition: all 0.2s ease;
+  color: #aaa; /* Placeholder color */
+  pointer-events: none;
+  background-color: white; /* Ensures the label has a background */
+  padding: 0 3px; /* Provides padding so the background doesn't cut off */
+}
+
+
+
+/* Style for floating label when input is active */
+.floating-label-personal input:focus + label,
+.floating-label-personal input.filled + label,
+.floating-label-personal select:focus + label,
+.floating-label-personal select.filled + label {
+  top: -8px;
+  left: 10px;
+  transform: translateY(0);
+  font-size: 12px;
+  color: #9B660E;
+  z-index: 10;
+}
 .customLegal-border {
   border: 1px solid #B4B4B4;
 }

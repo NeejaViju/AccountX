@@ -57,7 +57,7 @@ export default function PersonalDetails() {
             <div className="cp-input-with-icon mobile">
               <div className="inputs-container">
                 <div className="choosebank-container">
-                  <select>
+                  <select className="mobileDropDown"> 
                     <option value="miss">Miss.</option>
                     <option value="mr">Mr.</option>
                     <option value="mrs">Mrs.</option>
@@ -66,19 +66,33 @@ export default function PersonalDetails() {
                     <option value="prof">Prof.</option>
                     <option value="ms">Ms.</option>
                   </select>                
-                  <span className="dropdown-icon"></span>
+                  <span class="dropdown-icon"></span>
                 </div>
               </div>
-             <input
-                type="text"
-                placeholder="First Name*"
-                className="custom-border"
-              />
+              <div className="floating-label-personal">
+            <input
+              type="text"
+              name="firstName"
+              placeholder="First Name**"
+              className={'address-border ${inputs.firstName ? "filled" : ""}'}
+              onChange={handleInputChange}
+              onFocus={() => handleFocus("firstName")}
+              onBlur={() => handleBlur("firstName")}
+              value={inputs.firstName}
+            />
+            <label
+              htmlFor="firstName"
+              className={
+                focused === "firstName" || inputs.firstName ? "floating" : ""
+              }
+            >
+              First Name*
+            </label>
+            <span className="separator"></span> 
             </div>
-            <span className="separator"></span>
-  
+      </div>
             {/* middlename float*/}
-            <div className="cp-input-with-icon floating-label-group">
+            <div className="cp-input-with-icon floating-label-personal">
                 <input
                   type="text"
                   name="middleName"
@@ -99,7 +113,7 @@ export default function PersonalDetails() {
                 </label>
               </div>
             {/* last name Float */}
-  <div className="cp-input-with-icon floating-label-group">
+  <div className="cp-input-with-icon floating-label-personal">
                 <input
                   type="text"
                   name="lastName"
@@ -128,7 +142,7 @@ export default function PersonalDetails() {
           {/* Second Row */}
           <div className="cp-row">
             {/* father name Float */}
-  <div className=" cp-input-with-icon floating-label-group">
+  <div className=" cp-input-with-icon floating-label-personal">
                 <input
                   type="text"
                   name="fatherName"
@@ -152,7 +166,7 @@ export default function PersonalDetails() {
                 </label>
               </div>
               {/* mother name Float */}
-  <div className=" cp-input-with-icon floating-label-group">
+  <div className=" cp-input-with-icon floating-label-personal">
                 <input
                   type="text"
                   name="motherName"
@@ -176,7 +190,7 @@ export default function PersonalDetails() {
                 </label>
               </div>
               {/* Gender float */}
-            <div className="cp-input-with-dropdown floating-label-group">
+            <div className="cp-input-with-dropdown floating-label-personal">
               <select
                 name="gender"
                 className={'address-border ${inputs.gender ? "filled" : ""}'}
@@ -214,7 +228,7 @@ export default function PersonalDetails() {
               className="custom-border"
             />
              {/* Pan float  */}
-   <div className="cp-input-with-icon floating-label-group">
+   <div className="cp-input-with-icon floating-label-personal">
                 <input
                   type="text"
                   name="pan"
@@ -235,7 +249,7 @@ export default function PersonalDetails() {
                 </label>
               </div>
               {/* AADHAR Float */}
-              <div className="cp-input-with-icon floating-label-group">
+              <div className="cp-input-with-icon floating-label-personal">
                 <input
                   type="text"
                   name="aadhar"
@@ -256,7 +270,7 @@ export default function PersonalDetails() {
                 </label>
               </div>
               {/* DIN Float */}
-              <div className="cp-input-with-icon floating-label-group">
+              <div className="cp-input-with-icon floating-label-personal">
                 <input
                   type="text"
                   name="din"
@@ -276,8 +290,25 @@ export default function PersonalDetails() {
                   DIN
                 </label>
               </div>
-              <div className="cp-input-with-icon">
-                <input type="text" placeholder="State" className="custom-border" />
+              <div className="cp-input-with-icon   floating-label-personal">
+              <input
+                  type="text"
+                  name="state"
+                  placeholder="State"
+                  className={'address-border ${inputs.state ? "filled" : ""}'}
+                  onChange={handleInputChange}
+                  onFocus={() => handleFocus("state")}
+                  onBlur={() => handleBlur("state")}
+                  value={inputs.state}
+                />              
+                <label
+                  htmlFor="state"
+                  className={
+                    focused === "state" || inputs.state ? "floating" : ""
+                  }
+                >
+                  State
+                </label>
                 <i
                   className="fa fa-search new-search-icon-inside-input"
                   aria-hidden="true"
@@ -286,13 +317,27 @@ export default function PersonalDetails() {
             </div>
           {/* Fourth Row */}
           <div className="cp-row">
-            <div className="cp-input-with-icon">
-              <input
-                type="text"
-                placeholder="Nationality"
-                className="custom-border"
-              />
-              <i
+            <div className="cp-input-with-icon  floating-label-personal">
+            <input
+                  type="text"
+                  name="nationality"
+                  placeholder="Nationality"
+                  className={'address-border ${inputs.nationality ? "filled" : ""}'}
+                  onChange={handleInputChange}
+                  onFocus={() => handleFocus("nationality")}
+                  onBlur={() => handleBlur("nationality")}
+                  value={inputs.nationality}
+                />              
+                <label
+                  htmlFor="nationality"
+                  className={
+                    focused === "nationality" || inputs.nationality ? "floating" : ""
+                  }
+                >
+                  Nationality
+                </label>
+
+               <i
                 class="fa fa-search new-search-icon-inside-input"
                 aria-hidden="true"
               ></i>
@@ -300,7 +345,7 @@ export default function PersonalDetails() {
   
            {/* Designation Float */}
   
-  <div className="cp-input-with-dropdown floating-label-group">
+  <div className="cp-input-with-dropdown floating-label-personal">
               <select
                 name="designation"
                 className={'address-border ${inputs.designation ? "filled" : ""}'}
