@@ -12,8 +12,8 @@ export default function Addresses({ selectedCompany }) {
   }, [selectedCompany]);
 
   if (selectedCompany !== "") {
-    console.log(selectedCompany);
-    console.log(data);
+    // console.log(selectedCompany);
+    // console.log(data);
     return (
       <div>
         {/* Registered Office Address */}

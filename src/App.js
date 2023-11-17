@@ -25,7 +25,7 @@ function App() {
   useEffect(() => {
     reqData().then(data => { setComProfile(data); setSelectedCompany(data[0]._id); });
   }, []);
-
+  
   return (
     <div className="app">
       {/*  */}
