@@ -1405,6 +1405,7 @@ select{
   height: 32px;
   width: 32px;
   background-color: #eee;
+  border-radius: 4px 4px 4px 4px;
   
 }
 
@@ -1448,6 +1449,7 @@ select{
   height: 32px;
   width: 32px;
   background-color: #eee;
+  border-radius: 4px 4px 4px 4px;
   
 }
 
@@ -1490,7 +1492,7 @@ select{
   height: 32px;
   width: 32px;
   background-color: #eee;
-  
+  border-radius: 4px 4px 4px 4px;
 }
 
 /* On mouse-over, add a grey background color */
