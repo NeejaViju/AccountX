@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import uploadIcon from "../icons/Icon feather-upload@2x.png";
-// let selCompany = "";
+
 export default function CompanyProfile({ comProfile, selectedCompany }) {
   const [inputs, setInputs] = useState({
     companyName: "",
@@ -16,7 +16,12 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
   });
   const [logo, setLogo] = useState(null);
   const fileInputRef = useRef(null);
-  let selCompany = [];
+  const [inputFocus, setInputFocus] = useState({
+    gstNumber: false,
+    companyType: false,
+    companyID: false,
+    // Add similar properties for other input fields
+  });
 
   const loadInputs = () => {
     setInputs({
@@ -37,28 +42,26 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
     loadInputs();
   }, [selectedCompany]);
 
-  // if (selectedCompany === "") return null;
+  const selCompany = comProfile.filter(company => company._id === selectedCompany);
 
-  selCompany = comProfile.filter(company => company._id === selectedCompany);
-
-  // console.log(inputs);
-
-  
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    let uppercaseValue = value;
   
     if (name === "gstNumber") {
-      uppercaseValue = value.toUpperCase();
+      // Convert value to uppercase only for GST field
+      setInputs((prevInputs) => ({
+        ...prevInputs,
+        [name]: value.toUpperCase(),
+      }));
+    } else {
+      // Keep other fields as they are
+      setInputs((prevInputs) => ({
+        ...prevInputs,
+        [name]: value,
+      }));
     }
-  
-    setInputs((prevInputs) => ({ ...prevInputs, [name]: uppercaseValue }));
   };
   
-  const [selectTouched, setSelectTouched] = useState(false);
-
-
-
 
   const handleLogoUpload = (event) => {
     const file = event.target.files[0];
@@ -77,50 +80,65 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
     }
   };
 
+  const getInputClassName = (fieldName) => {
+    return `address-border ${
+      inputFocus[fieldName] || inputs[fieldName] ? "has-data" : "empty"
+    }`;
+  };
+
+  const getLabelClassName = (fieldName) => {
+    return `${inputFocus[fieldName] || inputs[fieldName] ? "floating" : ""}`;
+  };
+
+  const handleInputFocus = (fieldName) => {
+    setInputFocus({ ...inputFocus, [fieldName]: true });
+  };
+
+  const handleInputBlur = (fieldName) => {
+    setInputFocus({ ...inputFocus, [fieldName]: false });
+  };
+
   return (
     <div className="cp-company-container">
       <div className="cp-column">
         <div className="cp-row">
-          <div className={`floating-label-group ${inputs.gstNumber ? "filled" : ""}`}>
+          <div className={`floating-label-group ${getLabelClassName("gstNumber")}`}>
             <input
               type="text"
               name="gstNumber"
-              placeholder="GST Number*"
-              className={`address-border ${inputs.gstNumber ? "has-data" : ""}`}
+              placeholder="Enter GST Number"
+              className={getInputClassName("gstNumber")}
               onChange={handleInputChange}
               value={inputs.gstNumber}
               maxLength={15}
+              onFocus={() => handleInputFocus("gstNumber")}
+              onBlur={() => handleInputBlur("gstNumber")}
             />
             <label
               htmlFor="gstNumber"
-              className={inputs.gstNumber ? "floating" : ""}
+              className={getLabelClassName("gstNumber")}
             >
               GST Number*
             </label>
           </div>
 
-          <div className={`cp-input-with-dropdown floating-label-group ${inputs.companyType ? "filled" : ""}`}>
+          <div className={`cp-input-with-dropdown floating-label-group ${getLabelClassName("companyType")}`}>
             <select
               name="companyType"
-              className={`address-border ${inputs.companyType ? "has-data" : ""}`}
+              className={getInputClassName("companyType")}
               onChange={handleInputChange}
               value={inputs.companyType}
+              onFocus={() => handleInputFocus("companyType")}
+              onBlur={() => handleInputBlur("companyType")}
             >
-              <option value="" disabled>Company Type*</option>
-              <option value="Type1">Proprietorship</option>
-    <option value="Type2">Partnership [Firm]</option>
-    <option value="Type3">Private Limited Company</option>
-    <option value="Limited Liability Partnership">Limited Liability Partnership</option>
-    <option value="Limited Liability Company">Limited Liability Company</option>
-    <option value="Cooperative">Cooperative</option>
-    <option value="Public Limited Company">Public Limited Company</option>
-    <option value="Public Listed Company">Public Listed Company</option>
-    <option value="Limited Company">Limited Company</option>
-    <option value="Nonprofit">Nonprofit</option>
+              <option value="" hidden>Company Type*</option>
+              <option value="Type1">Type 1</option>
+              <option value="Type2">Type 2</option>
+              <option value="Type3">Type 3</option>
             </select>
             <label
               htmlFor="companyType"
-              className={inputs.companyType ? "floating" : ""}
+              className={getLabelClassName("companyType")}
             >
               Company Type*
             </label>
@@ -130,18 +148,20 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
           </div>
 
           <div className="cp-row">
-            <div className={`floating-label-group ${inputs.companyID ? "filled" : ""}`}>
+            <div className={`floating-label-group ${getLabelClassName("companyID")}`}>
               <input
                 type="text"
                 name="companyID"
                 placeholder="Company ID"
-                className={`address-border ${inputs.companyID ? "has-data" : ""}`}
+                className={getInputClassName("companyID")}
                 onChange={handleInputChange}
                 value={inputs.companyID}
+                onFocus={() => handleInputFocus("companyID")}
+                onBlur={() => handleInputBlur("companyID")}
               />
               <label
                 htmlFor="companyId"
-                className={inputs.companyID ? "floating" : ""}
+                className={getLabelClassName("companyID")}
               >
                 Company ID
               </label>
@@ -149,45 +169,45 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
           </div>
         </div>
 
-
         <div className="cp-row">
-          <div className={`floating-label-group ${inputs.businessTradeName ? "filled" : ""}`}>
+          <div className={`floating-label-group ${getLabelClassName("businessTradeName")}`}>
             <input
               type="text"
               name="businessTradeName"
               placeholder="Business Trade Name*"
-              className={`address-border ${inputs.businessTradeName ? "has-data" : ""}`}
+              className={getInputClassName("businessTradeName")}
               onChange={handleInputChange}
               value={inputs.businessTradeName}
               style={{
-
                 paddingRight: "200px"
               }}
+              onFocus={() => handleInputFocus("businessTradeName")}
+              onBlur={() => handleInputBlur("businessTradeName")}
             />
             <label
               htmlFor="businessTradeName"
-              className={inputs.businessTradeName ? "floating" : ""}
+              className={getLabelClassName("businessTradeName")}
             >
               Business Trade Name*
             </label>
           </div>
-          <div className={`floating-label-group ${inputs.businessTradeName ? "filled" : ""}`}>
+          <div className={`floating-label-group ${getLabelClassName("businessLegalName")}`}>
             <input
               type="text"
               name="businessLegalName"
               placeholder="Business Legal Name*"
-              className={`address-border ${inputs.businessTradeName ? "has-data" : ""}`}
+              className={getInputClassName("businessLegalName")}
               onChange={handleInputChange}
               value={inputs.businessLegalName}
               style={{
-
                 paddingRight: "200px"
               }}
+              onFocus={() => handleInputFocus("businessLegalName")}
+              onBlur={() => handleInputBlur("businessLegalName")}
             />
-
             <label
               htmlFor="businessLegalName"
-              className={inputs.businessTradeName ? "floating" : ""}
+              className={getLabelClassName("businessLegalName")}
             >
               Business Legal Name*
             </label>
@@ -205,54 +225,59 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
                 <span className="dropdown-icon"></span>
               </div>
             </div>
-            <div className={`floating-label-group ${inputs.mobileNumber ? "filled" : ""}`}>
+            <div className={`floating-label-group ${getLabelClassName("mobileNumber")}`}>
               <input
                 name="mobileNumber"
                 type="text"
-                placeholder=" Mobile Number*"
+                placeholder="Mobile Number*"
                 onChange={handleInputChange}
                 value={inputs.mobileNumber}
-                className={`address-border ${inputs.mobileNumber ? "has-data" : ""}`}
+                className={getInputClassName("mobileNumber")}
+                onFocus={() => handleInputFocus("mobileNumber")}
+                onBlur={() => handleInputBlur("mobileNumber")}
               />
               <label
                 htmlFor="mobileNumber"
-                className={inputs.mobileNumber ? "floating" : ""}
+                className={getLabelClassName("mobileNumber")}
               >
                 Mobile Number*
               </label>
             </div>
           </div>
           <span className="separator"></span>
-          <div className={`cp-input-with-dropdown floating-label-group ${inputs.businessEmail ? "filled" : ""}`}>
+          <div className={`cp-input-with-dropdown floating-label-group ${getLabelClassName("businessEmail")}`}>
             <input
               name="businessEmail"
               type="email"
               placeholder="Business Email*"
-              className={`address-border ${inputs.businessEmail ? "has-data" : ""}`}
+              className={getInputClassName("businessEmail")}
               value={inputs.businessEmail}
               onChange={handleInputChange}
+              onFocus={() => handleInputFocus("businessEmail")}
+              onBlur={() => handleInputBlur("businessEmail")}
             />
             <label
               htmlFor="businessEmail"
-              className={inputs.businessEmail ? "floating" : ""}
+              className={getLabelClassName("businessEmail")}
             >
               Business Email*
             </label>
           </div>
-          <div className={`cp-input-with-icon ${inputs.industry ? "filled" : ""}`}>
+          <div className={`cp-input-with-icon ${getLabelClassName("industry")}`}>
             <div className="floating-label-group">
               <input
                 type="text"
                 placeholder="Industry"
-                className={`address-border ${inputs.industry ? "has-data" : ""}`}
+                className={getInputClassName("industry")}
                 value={inputs.industry}
                 onChange={handleInputChange}
-                name="industry" // Make sure to add the name attribute
+                name="industry"
+                onFocus={() => handleInputFocus("industry")}
+                onBlur={() => handleInputBlur("industry")}
               />
-
               <label
-                htmlFor="industry" // Use the correct htmlFor value
-                className={inputs.industry ? "floating" : ""}
+                htmlFor="industry"
+                className={getLabelClassName("industry")}
               >
                 Industry
               </label>
