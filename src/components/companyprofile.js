@@ -43,11 +43,22 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
 
   // console.log(inputs);
 
+  
   const handleInputChange = (e) => {
-    // const { name, value } = e.target;
-    // setInputs((prevInputs) => ({ ...prevInputs, [name]: value }));
-    setInputs(inputs => ({ ...inputs, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    let uppercaseValue = value;
+  
+    if (name === "gstNumber") {
+      uppercaseValue = value.toUpperCase();
+    }
+  
+    setInputs((prevInputs) => ({ ...prevInputs, [name]: uppercaseValue }));
   };
+  
+  const [selectTouched, setSelectTouched] = useState(false);
+
+
+
 
   const handleLogoUpload = (event) => {
     const file = event.target.files[0];
@@ -74,10 +85,11 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
             <input
               type="text"
               name="gstNumber"
-              placeholder="Enter GST Number"
+              placeholder="GST Number*"
               className={`address-border ${inputs.gstNumber ? "has-data" : ""}`}
               onChange={handleInputChange}
               value={inputs.gstNumber}
+              maxLength={15}
             />
             <label
               htmlFor="gstNumber"
@@ -94,10 +106,17 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
               onChange={handleInputChange}
               value={inputs.companyType}
             >
-              <option value="" disabled></option>
-              <option value="Type1">Type 1</option>
-              <option value="Type2">Type 2</option>
-              <option value="Type3">Type 3</option>
+              <option value="" disabled>Company Type*</option>
+              <option value="Type1">Proprietorship</option>
+    <option value="Type2">Partnership [Firm]</option>
+    <option value="Type3">Private Limited Company</option>
+    <option value="Limited Liability Partnership">Limited Liability Partnership</option>
+    <option value="Limited Liability Company">Limited Liability Company</option>
+    <option value="Cooperative">Cooperative</option>
+    <option value="Public Limited Company">Public Limited Company</option>
+    <option value="Public Listed Company">Public Listed Company</option>
+    <option value="Limited Company">Limited Company</option>
+    <option value="Nonprofit">Nonprofit</option>
             </select>
             <label
               htmlFor="companyType"
@@ -190,11 +209,12 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
               <input
                 name="mobileNumber"
                 type="text"
-                placeholder="Mobile Number*"
+                placeholder=" Mobile Number*"
                 onChange={handleInputChange}
                 value={inputs.mobileNumber}
                 className={`address-border ${inputs.mobileNumber ? "has-data" : ""}`}
               />
+              <span className="separator"></span>
               <label
                 htmlFor="mobileNumber"
                 className={inputs.mobileNumber ? "floating" : ""}
@@ -202,8 +222,9 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
                 Mobile Number*
               </label>
             </div>
+            
           </div>
-          <span className="separator"></span>
+          
           <div className={`cp-input-with-dropdown floating-label-group ${inputs.businessEmail ? "filled" : ""}`}>
             <input
               name="businessEmail"
@@ -224,7 +245,7 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
             <div className="floating-label-group">
               <input
                 type="text"
-                placeholder="Industry"
+                placeholder=" Industry"
                 className={`address-border ${inputs.industry ? "has-data" : ""}`}
                 value={inputs.industry}
                 onChange={handleInputChange}

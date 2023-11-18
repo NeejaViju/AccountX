@@ -2,11 +2,10 @@
     position: absolute;
     width: 1px;
     background-color: #B4B4B4;
-
-    margin: 4px 2px;
+    margin: 2px -4px;
     height: 33px;
-    margin-left: 62px;
-    margin-top: 4px;
+    margin-left: -185px;
+    margin-top: -1px;
 }
 
 .mobileDropDown {
@@ -77,7 +76,7 @@
     transform: translateY(0);
     font-size: 12px;
     /* Adjust font size as needed */
-    color: #0196B9;
+
     z-index: 10;
     border-color: #0196B9;
     ;
@@ -299,11 +298,45 @@ input {
 }
 
 /* Style for floating label when input is empty */
-.floating-label-group input.empty+label,
-.floating-label-group select.empty+label {
+.floating-label-group input.empty+label {
     top: 50%;
     transform: translateY(-50%);
     font-size: 14px;
     /* Adjust font size as needed */
     color: #aaa;
 }
+
+.floating-label-group input:placeholder-shown + label {
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+  }
+  
+  .floating-label-group input:not(:placeholder-shown) + label,
+  .floating-label-group input:focus + label {
+    top: -8px; /* Adjust this value so the label floats above correctly */
+    transform: translateY(0%);
+    font-size: 12px;
+    color:#0196B9;
+  }
+  
+
+
+  /* This will position the label in the center of the select when there is no value */
+/* .floating-label-group select + label {
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+  }
+   */
+  /* This will float the label when the select is focused or has a value */
+  .floating-label-group select:focus + label,
+  .floating-label-group select:not([value=""]) + label {
+    top: -8px; 
+    transform: translateY(0%);
+    font-size: 12px;
+    color: #0196B9;
+  }
+  
+
+  
