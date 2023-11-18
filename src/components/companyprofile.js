@@ -214,7 +214,6 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
                 value={inputs.mobileNumber}
                 className={`address-border ${inputs.mobileNumber ? "has-data" : ""}`}
               />
-              <span className="separator"></span>
               <label
                 htmlFor="mobileNumber"
                 className={inputs.mobileNumber ? "floating" : ""}
@@ -222,9 +221,8 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
                 Mobile Number*
               </label>
             </div>
-            
           </div>
-          
+          <span className="separator"></span>
           <div className={`cp-input-with-dropdown floating-label-group ${inputs.businessEmail ? "filled" : ""}`}>
             <input
               name="businessEmail"
@@ -245,7 +243,7 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
             <div className="floating-label-group">
               <input
                 type="text"
-                placeholder=" Industry"
+                placeholder="Industry"
                 className={`address-border ${inputs.industry ? "has-data" : ""}`}
                 value={inputs.industry}
                 onChange={handleInputChange}
