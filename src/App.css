@@ -811,6 +811,7 @@ input {
  border-radius: 4px 4px 4px 4px;
 }
 
+
 /* signing and contact */
 .contact-button-container{
   top: 607px;
@@ -1557,3 +1558,40 @@ select{
   color: #5C5831;
   z-index: 10;
 }
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  position: relative; /* to place the search icon inside the input box */
+  margin-right: 15px;
+}
+
+.new-search-icon-inside-bank {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  color: #A666F8;
+  background-color: transparent; /* ensuring the icon doesn't have any background */
+}
+
+/* keeping the rest of your individual icon styles unchanged */
+
+.new-add-icon-container {
+  margin-right: 10px; /* adjusted margin */
+}
+
+.new-search-bank {
+  border: none;
+  border-radius: 4px;
+  flex-grow: 1;
+  outline: none;
+  padding: 9px 200px 9px 14px; /* Reduced right padding */
+  width: 100%;
+  margin-left: 10px;
+  /* Increase the font size if you want the text to be larger */
+  font-size: 16px; /* Adjust the size as needed */
+ 
+}
+
