@@ -1,18 +1,30 @@
 import { useState, useEffect } from "react";
-import { AddressTypeForm, AddUnitDivision, AddNewBranch } from "./formComponents/unitdivison";
+import {
+  AddressTypeForm,
+  AddUnitDivision,
+  AddNewBranch,
+} from "./formComponents/unitdivison";
 
 export default function Addresses({ selectedCompany }) {
   const [data, setData] = useState({});
 
   useEffect(() => {
-    let URL = 'https://api-accountx.onrender.com/api/address/getall';
+    let URL = "https://api-accountx.onrender.com/api/address/getall";
     if (selectedCompany !== "") {
-      URL = 'https://api-accountx.onrender.com/api/address/getbyaddressid/' + selectedCompany;
+      URL =
+        "https://api-accountx.onrender.com/api/address/getbyaddressid/" +
+        selectedCompany;
     }
     // const URL = 'https://api-accountx.onrender.com/api/address/getbyaddressid/' + selectedCompany;
 
-    const reqData = () => fetch(URL).then(res => res.json());
-    reqData().then(data => { setData(data) }).catch(error => { console.log(error) });
+    const reqData = () => fetch(URL).then((res) => res.json());
+    reqData()
+      .then((data) => {
+        setData(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, [selectedCompany]);
 
   return (
@@ -20,13 +32,21 @@ export default function Addresses({ selectedCompany }) {
       {/* Registered Office Address */}
       <div className="registeredOfficeAddress">
         <h3 style={{ color: "#0195B9" }}>Registered Office Address</h3>
-        <AddressFields data={data} typ={'R'} selectedCompany={selectedCompany} />
+        <AddressFields
+          data={data}
+          typ={"R"}
+          selectedCompany={selectedCompany}
+        />
       </div>
 
       {/* Branch Office Address */}
       <div className="branchAddresses">
         <h3 style={{ color: "#0195B9" }}>Branch Office Address</h3>
-        <AddressFields data={data} typ={'B'} selectedCompany={selectedCompany} />
+        <AddressFields
+          data={data}
+          typ={"B"}
+          selectedCompany={selectedCompany}
+        />
       </div>
     </div>
   );
@@ -51,7 +71,7 @@ function AddressFields({ data, typ, selectedCompany }) {
       pinCode: "",
       country: "",
       gstNumber: "",
-      placeOfSupply: ""
+      placeOfSupply: "",
     },
     branchOfficeAddress: {
       addressType: "",
@@ -67,8 +87,8 @@ function AddressFields({ data, typ, selectedCompany }) {
       pinCode: "",
       country: "",
       gstNumber: "",
-      placeOfSupply: ""
-    }
+      placeOfSupply: "",
+    },
   });
   const [focused, setFocused] = useState("");
   // const [logo, setLogo] = useState(null);
@@ -91,18 +111,17 @@ function AddressFields({ data, typ, selectedCompany }) {
     // setInputs((prevInputs) => ({ ...prevInputs, [name]: value }));
     // setInputs(inputs => ({ ...inputs, [e.target.name]: e.target.value }));
     //setInputs(inputs => ({ ...inputs, [e.target.name]: e.target.value }));
-    setInputs(inputs => (
-      {
-        ...inputs,          
-        regOfficeAddress: {
-          ...inputs.regOfficeAddress,
-          [e.target.name]: e.target.value
-        },
-        branchOfficeAddress: {
-          ...inputs.branchOfficeAddress,
-          [e.target.name]: e.target.value
-        }
-      })); 
+    setInputs((inputs) => ({
+      ...inputs,
+      regOfficeAddress: {
+        ...inputs.regOfficeAddress,
+        [e.target.name]: e.target.value,
+      },
+      branchOfficeAddress: {
+        ...inputs.branchOfficeAddress,
+        [e.target.name]: e.target.value,
+      },
+    }));
   };
 
   const handleFormClick = (e) => {
@@ -130,7 +149,11 @@ function AddressFields({ data, typ, selectedCompany }) {
               onChange={handleInputChange}
               onFocus={() => handleFocus("addressType")}
               onBlur={() => handleBlur("addressType")}
-              value={typ === 'R' ? inputs.regOfficeAddress?.addressType : inputs.branchOfficeAddress?.addressType}
+              value={
+                typ === "R"
+                  ? inputs.regOfficeAddress?.addressType
+                  : inputs.branchOfficeAddress?.addressType
+              }
             >
               <option value="" disabled></option>
               <option value="Head Office / Principal Place of Business">
@@ -150,7 +173,10 @@ function AddressFields({ data, typ, selectedCompany }) {
               Address Type*
             </label>
             <button className="dropdown-icon-right">
-              <i className="fa fa-chevron-down"></i>
+              <i
+                className="fa fa-chevron-down"
+                style={{ color: "#127186" }}
+              ></i>
             </button>
           </div>
           {/* add button */}
@@ -173,12 +199,17 @@ function AddressFields({ data, typ, selectedCompany }) {
           <div className="cp-input-with-dropdown floating-label-group">
             <select
               name="selectBranch"
-              className={`address-border ${inputs.selectBranch ? "filled" : ""
-                }`}
+              className={`address-border ${
+                inputs.selectBranch ? "filled" : ""
+              }`}
               onChange={handleInputChange}
               onFocus={() => handleFocus("selectBranch")}
               onBlur={() => handleBlur("selectBranch")}
-              value={typ === 'R' ? inputs.regOfficeAddress?.branch : inputs.branchOfficeAddress?.branch}
+              value={
+                typ === "R"
+                  ? inputs.regOfficeAddress?.branch
+                  : inputs.branchOfficeAddress?.branch
+              }
             >
               <option value="" disabled hidden></option>
               <option value="Bangalore">Bangalore</option>
@@ -195,7 +226,10 @@ function AddressFields({ data, typ, selectedCompany }) {
             >
               Select Branch
             </label>
-            <button className="dropdown-icon-right">
+            <button
+              className="dropdown-icon-right"
+              style={{ color: "#127186" }}
+            >
               <i className="fa fa-chevron-down"></i>
             </button>
           </div>
@@ -218,12 +252,17 @@ function AddressFields({ data, typ, selectedCompany }) {
           <div className="cp-input-with-dropdown floating-label-group">
             <select
               name="unitDivision"
-              className={`address-border ${inputs.unitDivision ? "filled" : ""
-                }`}
+              className={`address-border ${
+                inputs.unitDivision ? "filled" : ""
+              }`}
               onChange={handleInputChange}
               onFocus={() => handleFocus("unitDivision")}
               onBlur={() => handleBlur("unitDivision")}
-              value={typ === 'R' ? inputs.regOfficeAddress?.unitDiv : inputs.branchOfficeAddress?.unitDiv}
+              value={
+                typ === "R"
+                  ? inputs.regOfficeAddress?.unitDiv
+                  : inputs.branchOfficeAddress?.unitDiv
+              }
             >
               <option value="" disabled hidden></option>
               <option value="Electronic">Electronic</option>
@@ -240,7 +279,10 @@ function AddressFields({ data, typ, selectedCompany }) {
             >
               Unit/Division
             </label>
-            <button className="dropdown-icon-right">
+            <button
+              className="dropdown-icon-right"
+              style={{ color: "#127186" }}
+            >
               <i className="fa fa-chevron-down"></i>
             </button>
           </div>
@@ -273,7 +315,11 @@ function AddressFields({ data, typ, selectedCompany }) {
               onChange={handleInputChange}
               onFocus={() => handleFocus("doorNo")}
               onBlur={() => handleBlur("doorNo")}
-              value={typ === 'R' ? inputs.regOfficeAddress?.doorNo : inputs.branchOfficeAddress?.doorNo}
+              value={
+                typ === "R"
+                  ? inputs.regOfficeAddress?.doorNo
+                  : inputs.branchOfficeAddress?.doorNo
+              }
             />
             <label
               htmlFor="doorNo"
@@ -289,12 +335,17 @@ function AddressFields({ data, typ, selectedCompany }) {
               type="text"
               name="buildingName"
               placeholder="Building Name"
-              className={`address-border ${inputs.buildingName ? "filled" : ""
-                }`}
+              className={`address-border ${
+                inputs.buildingName ? "filled" : ""
+              }`}
               onChange={handleInputChange}
               onFocus={() => handleFocus("buildingName")}
               onBlur={() => handleBlur("buildingName")}
-              value={typ === 'R' ? inputs.regOfficeAddress?.buildingName : inputs.branchOfficeAddress?.buildingName}
+              value={
+                typ === "R"
+                  ? inputs.regOfficeAddress?.buildingName
+                  : inputs.branchOfficeAddress?.buildingName
+              }
             />
             <label
               htmlFor="buildingName"
@@ -316,7 +367,11 @@ function AddressFields({ data, typ, selectedCompany }) {
               onChange={handleInputChange}
               onFocus={() => handleFocus("streetName")}
               onBlur={() => handleBlur("streetName")}
-              value={typ === 'R' ? inputs.regOfficeAddress?.streetName : inputs.branchOfficeAddress?.streetName}
+              value={
+                typ === "R"
+                  ? inputs.regOfficeAddress?.streetName
+                  : inputs.branchOfficeAddress?.streetName
+              }
             />
             <label
               htmlFor="streetName"
@@ -336,7 +391,11 @@ function AddressFields({ data, typ, selectedCompany }) {
               onChange={handleInputChange}
               onFocus={() => handleFocus("areaTaluk")}
               onBlur={() => handleBlur("areaTaluk")}
-              value={typ === 'R' ? inputs.regOfficeAddress?.areaTaluk : inputs.branchOfficeAddress?.areaTaluk}
+              value={
+                typ === "R"
+                  ? inputs.regOfficeAddress?.areaTaluk
+                  : inputs.branchOfficeAddress?.areaTaluk
+              }
             />
             <label
               htmlFor="areaTaluk"
@@ -359,7 +418,11 @@ function AddressFields({ data, typ, selectedCompany }) {
               onChange={handleInputChange}
               onFocus={() => handleFocus("city")}
               onBlur={() => handleBlur("city")}
-              value={typ === 'R' ? inputs.regOfficeAddress?.city : inputs.branchOfficeAddress?.city}
+              value={
+                typ === "R"
+                  ? inputs.regOfficeAddress?.city
+                  : inputs.branchOfficeAddress?.city
+              }
             />
             <label
               htmlFor="city"
@@ -377,7 +440,11 @@ function AddressFields({ data, typ, selectedCompany }) {
               onChange={handleInputChange}
               onFocus={() => handleFocus("state")}
               onBlur={() => handleBlur("state")}
-              value={typ === 'R' ? inputs.regOfficeAddress?.state : inputs.branchOfficeAddress?.state}
+              value={
+                typ === "R"
+                  ? inputs.regOfficeAddress?.state
+                  : inputs.branchOfficeAddress?.state
+              }
             />
             <label
               htmlFor="state"
@@ -387,6 +454,7 @@ function AddressFields({ data, typ, selectedCompany }) {
             </label>
             <i
               className="fa fa-search new-search-icon-inside-input"
+              style={{ color: "#127186" }}
               aria-hidden="true"
             ></i>
           </div>
@@ -399,7 +467,11 @@ function AddressFields({ data, typ, selectedCompany }) {
               onChange={handleInputChange}
               onFocus={() => handleFocus("district")}
               onBlur={() => handleBlur("district")}
-              value={typ === 'R' ? inputs.regOfficeAddress?.district : inputs.branchOfficeAddress?.district}
+              value={
+                typ === "R"
+                  ? inputs.regOfficeAddress?.district
+                  : inputs.branchOfficeAddress?.district
+              }
             />
             <label
               htmlFor="district"
@@ -411,6 +483,7 @@ function AddressFields({ data, typ, selectedCompany }) {
             </label>
             <i
               className="fa fa-search new-search-icon-inside-input"
+              style={{ color: "#127186" }}
               aria-hidden="true"
             ></i>
           </div>
@@ -423,7 +496,11 @@ function AddressFields({ data, typ, selectedCompany }) {
               onChange={handleInputChange}
               onFocus={() => handleFocus("pinCode")}
               onBlur={() => handleBlur("pinCode")}
-              value={typ === 'R' ? inputs.regOfficeAddress?.pinCode : inputs.branchOfficeAddress?.pinCode}
+              value={
+                typ === "R"
+                  ? inputs.regOfficeAddress?.pinCode
+                  : inputs.branchOfficeAddress?.pinCode
+              }
             />
             <label
               htmlFor="pinCode"
@@ -447,7 +524,11 @@ function AddressFields({ data, typ, selectedCompany }) {
               onChange={handleInputChange}
               onFocus={() => handleFocus("country")}
               onBlur={() => handleBlur("country")}
-              value={typ === 'R' ? inputs.regOfficeAddress?.country : inputs.branchOfficeAddress?.country}
+              value={
+                typ === "R"
+                  ? inputs.regOfficeAddress?.country
+                  : inputs.branchOfficeAddress?.country
+              }
             />
             <label
               htmlFor="country"
@@ -457,6 +538,7 @@ function AddressFields({ data, typ, selectedCompany }) {
             </label>
             <i
               className="fa fa-search new-search-icon-inside-input"
+              style={{ color: "#127186" }}
               aria-hidden="true"
             ></i>
           </div>
@@ -469,7 +551,11 @@ function AddressFields({ data, typ, selectedCompany }) {
               onChange={handleInputChange}
               onFocus={() => handleFocus("gstNumber")}
               onBlur={() => handleBlur("gstNumber")}
-              value={typ === 'R' ? inputs.regOfficeAddress?.gstNumber : inputs.branchOfficeAddress?.gstNumber}
+              value={
+                typ === "R"
+                  ? inputs.regOfficeAddress?.gstNumber
+                  : inputs.branchOfficeAddress?.gstNumber
+              }
               readOnly
             />
             <label
@@ -486,12 +572,17 @@ function AddressFields({ data, typ, selectedCompany }) {
               type="text"
               name="placeOfSupply"
               placeholder="Place of Supply*"
-              className={`address-border ${inputs.placeOfSupply ? "filled" : ""
-                }`}
+              className={`address-border ${
+                inputs.placeOfSupply ? "filled" : ""
+              }`}
               onChange={handleInputChange}
               onFocus={() => handleFocus("placeOfSupply")}
               onBlur={() => handleBlur("placeOfSupply")}
-              value={typ === 'R' ? inputs.regOfficeAddress?.placeOfSupply : inputs.branchOfficeAddress?.placeOfSupply}
+              value={
+                typ === "R"
+                  ? inputs.regOfficeAddress?.placeOfSupply
+                  : inputs.branchOfficeAddress?.placeOfSupply
+              }
             />
             <label
               htmlFor="placeOfSupply"
@@ -505,6 +596,7 @@ function AddressFields({ data, typ, selectedCompany }) {
             </label>
             <i
               className="fa fa-search new-search-icon-inside-input"
+              style={{ color: "#127186" }}
               aria-hidden="true"
             ></i>
           </div>

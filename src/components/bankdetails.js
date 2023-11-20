@@ -1,107 +1,111 @@
 import { useState, useRef } from "react";
-import AddAccountType from './formComponents/unitdivison';
+import AddAccountType from "./formComponents/unitdivison";
 
 export default function BankDetails() {
-    // Bank Field Float
-  
-    const [inputs, setInputs] = useState({
-      accountName: "",
-      accountNumber: "",
-      ifsc: "",
-      doorNo: "",
-      bankName: "",
-      branchName: "",
-      accountType: "",
-      upiId: "",
-    });
-    const [focused, setFocused] = useState("");
-    const [logo, setLogo] = useState(null);
-    const fileInputRef = useRef(null);
-  
-    const handleFocus = (fieldName) => {
-      setFocused(fieldName);
-    };
-  
-    const handleBlur = (fieldName) => {
-      if (!inputs[fieldName]) {
-        setFocused("");
-      }
-    };
-  
-    const handleInputChange = (e) => {
-      const { name, value } = e.target;
-      setInputs((prevInputs) => ({ ...prevInputs, [name]: value }));
-    };
-  
-    const [selectedComponent, setSelectedComponent] = useState(null);
-  
-    const handleFormClick = (e) => {
-      e.stopPropagation();
-    };
-  
-    const toggleComponent = (componentName) => {
-      if (selectedComponent === componentName) {
-        setSelectedComponent(null); // Hide the component if it's already visible
-      } else {
-        setSelectedComponent(componentName); // Show the selected component
-      }
-    };
-  
-    return (
-        <div className="bankDetails">
-            <h3 style={{ color: "#A666F8" }}>Bank Account Details</h3>
+  // Bank Field Float
+
+  const [inputs, setInputs] = useState({
+    accountName: "",
+    accountNumber: "",
+    ifsc: "",
+    doorNo: "",
+    bankName: "",
+    branchName: "",
+    accountType: "",
+    upiId: "",
+  });
+  const [focused, setFocused] = useState("");
+  const [logo, setLogo] = useState(null);
+  const fileInputRef = useRef(null);
+
+  const handleFocus = (fieldName) => {
+    setFocused(fieldName);
+  };
+
+  const handleBlur = (fieldName) => {
+    if (!inputs[fieldName]) {
+      setFocused("");
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setInputs((prevInputs) => ({ ...prevInputs, [name]: value }));
+  };
+
+  const [selectedComponent, setSelectedComponent] = useState(null);
+
+  const handleFormClick = (e) => {
+    e.stopPropagation();
+  };
+
+  const toggleComponent = (componentName) => {
+    if (selectedComponent === componentName) {
+      setSelectedComponent(null); // Hide the component if it's already visible
+    } else {
+      setSelectedComponent(componentName); // Show the selected component
+    }
+  };
+
+  return (
+    <div className="bankDetails">
+      <h3 style={{ color: "#A666F8" }}>Bank Account Details</h3>
       <div className="cp-company-container">
         <div className="cp-column">
           {/* First Row */}
           <div className="cp-row">
             <div className="cp-input-with-icon mobile">
               <div className="inputs-container">
-                 <div className="chooseBank-container">               
-              <select className="mobileDropDown">
-              <option value="miss">Miss.</option>
-              <option value="mr">Mr.</option>
-              <option value="miss">Mrs.</option>
-              <option value="miss">Dr.</option>
-              <option value="miss">Er.</option>
-              <option value="miss">Prof.</option>
-              <option value="miss">M/s.</option>
-              </select>
-              <span class="dropdown-icon"></span>          
-             </div>
-             </div>
+                <div className="chooseBank-container">
+                  <select className="mobileDropDown">
+                    <option value="miss">Miss.</option>
+                    <option value="mr">Mr.</option>
+                    <option value="miss">Mrs.</option>
+                    <option value="miss">Dr.</option>
+                    <option value="miss">Er.</option>
+                    <option value="miss">Prof.</option>
+                    <option value="miss">M/s.</option>
+                  </select>
+                  <span class="dropdown-icon"></span>
+                </div>
+              </div>
               {/* Account Name Float */}
               <div className="floating-label-bank">
-            <input
-              type="text"
-              name="accountName"
-              placeholder="AccountName*"
-              className={'address-border ${inputs.accountName ? "filled" : ""}'}
-              onChange={handleInputChange}
-              onFocus={() => handleFocus("accountName")}
-              onBlur={() => handleBlur("accountName")}
-              value={inputs.accountName}
-            />
-            <label
-              htmlFor="accountName"
-              className={
-                focused === "accountName" || inputs.accountName ? "floating" : ""
-              }
-            >
-              Account Name*
-            </label>
+                <input
+                  type="text"
+                  name="accountName"
+                  placeholder="AccountName*"
+                  className={
+                    'address-border ${inputs.accountName ? "filled" : ""}'
+                  }
+                  onChange={handleInputChange}
+                  onFocus={() => handleFocus("accountName")}
+                  onBlur={() => handleBlur("accountName")}
+                  value={inputs.accountName}
+                />
+                <label
+                  htmlFor="accountName"
+                  className={
+                    focused === "accountName" || inputs.accountName
+                      ? "floating"
+                      : ""
+                  }
+                >
+                  Account Name*
+                </label>
+              </div>
+              <span className="separator"></span>
             </div>
-            <span className="separator"></span>           
-            </div>
-            
-            
+
             {/* Account Number Float */}
             <div className=" cp-input-with-icon floating-label-bank">
               <input
                 type="text"
                 name="accountNumber"
                 placeholder="Account Number*"
-                className={`address-border ${inputs.accountNumber ? "filled" : ""
-                  }`}
+                className={`address-border ${
+                  inputs.accountNumber ? "filled" : ""
+                }`}
                 onChange={handleInputChange}
                 onFocus={() => handleFocus("accountNumber")}
                 onBlur={() => handleBlur("accountNumber")}
@@ -118,9 +122,9 @@ export default function BankDetails() {
                 Account Number*
               </label>
             </div>
-  
+
             {/* IFSC Float */}
-  
+
             <div className="cp-input-with-icon floating-label-bank">
               <input
                 type="text"
@@ -138,14 +142,15 @@ export default function BankDetails() {
               >
                 IFSC*
               </label>
-  
+
               <i
                 className="fa fa-search new-search-icon-inside-input"
+                style={{ color: "#A666F8" }}
                 aria-hidden="true"
               ></i>
             </div>
-            </div>
-  
+          </div>
+
           {/* Second Row */}
           <div className="cp-row">
             <div className="bank-logo-container">
@@ -180,7 +185,9 @@ export default function BankDetails() {
                 type="text"
                 name="branchName"
                 placeholder="Branch Name"
-                className={`address-border ${inputs.branchName ? "filled" : ""}`}
+                className={`address-border ${
+                  inputs.branchName ? "filled" : ""
+                }`}
                 onChange={handleInputChange}
                 onFocus={() => handleFocus("branchName")}
                 onBlur={() => handleBlur("branchName")}
@@ -189,13 +196,16 @@ export default function BankDetails() {
               <label
                 htmlFor="branchName"
                 className={
-                  focused === "branchName" || inputs.branchName ? "floating" : ""
+                  focused === "branchName" || inputs.branchName
+                    ? "floating"
+                    : ""
                 }
               >
                 Branch Name
               </label>
               <i
                 className="fa fa-search new-search-icon-inside-input"
+                style={{ color: "#A666F8" }}
                 aria-hidden="true"
               ></i>
             </div>
@@ -203,8 +213,9 @@ export default function BankDetails() {
             <div className="cp-input-with-dropdown floating-label-bank">
               <select
                 name="accountType"
-                className={`customBank-border ${inputs.accountType ? "filled" : ""
-                  }`}
+                className={`customBank-border ${
+                  inputs.accountType ? "filled" : ""
+                }`}
                 onChange={handleInputChange}
                 onFocus={() => handleFocus("accountType")}
                 onBlur={() => handleBlur("accountType")}
@@ -229,7 +240,10 @@ export default function BankDetails() {
               >
                 Account Type*
               </label>
-              <button className="dropdown-icon-right">
+              <button
+                className="dropdown-icon-right"
+                style={{ color: "#A666F8" }}
+              >
                 <i className="fa fa-chevron-down"></i>
               </button>
             </div>
@@ -291,6 +305,6 @@ export default function BankDetails() {
           </div>
         </div>
       </div>
-      </div>
-    );
-  }
+    </div>
+  );
+}

@@ -12,7 +12,7 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
     mobileNumber: "",
     businessEmail: "",
     industry: "",
-    image: ""
+    image: "",
   });
   const [logo, setLogo] = useState(null);
   const fileInputRef = useRef(null);
@@ -29,12 +29,14 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
       companyID: selectedCompany !== "" ? selCompany[0]?.companyID : "",
       companyType: selectedCompany !== "" ? selCompany[0]?.companyType : "",
       gstNumber: selectedCompany !== "" ? selCompany[0]?.gstNumber : "",
-      businessTradeName: selectedCompany !== "" ? selCompany[0]?.businessTradeName : "",
-      businessLegalName: selectedCompany !== "" ? selCompany[0]?.businessLegalName : "",
+      businessTradeName:
+        selectedCompany !== "" ? selCompany[0]?.businessTradeName : "",
+      businessLegalName:
+        selectedCompany !== "" ? selCompany[0]?.businessLegalName : "",
       mobileNumber: selectedCompany !== "" ? selCompany[0]?.mobileNumber : "",
       businessEmail: selectedCompany !== "" ? selCompany[0]?.businessEmail : "",
       industry: selectedCompany !== "" ? selCompany[0]?.industry : "",
-      image: selectedCompany !== "" ? selCompany[0]?.image : ""
+      image: selectedCompany !== "" ? selCompany[0]?.image : "",
     });
   };
 
@@ -42,11 +44,13 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
     loadInputs();
   }, [selectedCompany]);
 
-  const selCompany = comProfile.filter(company => company._id === selectedCompany);
+  const selCompany = comProfile.filter(
+    (company) => company._id === selectedCompany
+  );
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-  
+
     if (name === "gstNumber") {
       // Convert value to uppercase only for GST field
       setInputs((prevInputs) => ({
@@ -61,7 +65,6 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
       }));
     }
   };
-  
 
   const handleLogoUpload = (event) => {
     const file = event.target.files[0];
@@ -102,7 +105,9 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
     <div className="cp-company-container">
       <div className="cp-column">
         <div className="cp-row">
-          <div className={`floating-label-group ${getLabelClassName("gstNumber")}`}>
+          <div
+            className={`floating-label-group ${getLabelClassName("gstNumber")}`}
+          >
             <input
               type="text"
               name="gstNumber"
@@ -122,7 +127,11 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
             </label>
           </div>
 
-          <div className={`cp-input-with-dropdown floating-label-group ${getLabelClassName("companyType")}`}>
+          <div
+            className={`cp-input-with-dropdown floating-label-group ${getLabelClassName(
+              "companyType"
+            )}`}
+          >
             <select
               name="companyType"
               className={getInputClassName("companyType")}
@@ -131,7 +140,9 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
               onFocus={() => handleInputFocus("companyType")}
               onBlur={() => handleInputBlur("companyType")}
             >
-              <option value="" hidden>Company Type*</option>
+              <option value="" hidden>
+                Company Type*
+              </option>
               <option value="Type1">Type 1</option>
               <option value="Type2">Type 2</option>
               <option value="Type3">Type 3</option>
@@ -143,12 +154,19 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
               Company Type*
             </label>
             <button className="dropdown-icon-right">
-              <i className="fa fa-chevron-down"></i>
+              <i
+                className="fa fa-chevron-down"
+                style={{ color: "#127186" }}
+              ></i>
             </button>
           </div>
 
           <div className="cp-row">
-            <div className={`floating-label-group ${getLabelClassName("companyID")}`}>
+            <div
+              className={`floating-label-group ${getLabelClassName(
+                "companyID"
+              )}`}
+            >
               <input
                 type="text"
                 name="companyID"
@@ -170,7 +188,11 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
         </div>
 
         <div className="cp-row">
-          <div className={`floating-label-group ${getLabelClassName("businessTradeName")}`}>
+          <div
+            className={`floating-label-group ${getLabelClassName(
+              "businessTradeName"
+            )}`}
+          >
             <input
               type="text"
               name="businessTradeName"
@@ -179,7 +201,7 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
               onChange={handleInputChange}
               value={inputs.businessTradeName}
               style={{
-                paddingRight: "200px"
+                paddingRight: "200px",
               }}
               onFocus={() => handleInputFocus("businessTradeName")}
               onBlur={() => handleInputBlur("businessTradeName")}
@@ -191,7 +213,11 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
               Business Trade Name*
             </label>
           </div>
-          <div className={`floating-label-group ${getLabelClassName("businessLegalName")}`}>
+          <div
+            className={`floating-label-group ${getLabelClassName(
+              "businessLegalName"
+            )}`}
+          >
             <input
               type="text"
               name="businessLegalName"
@@ -200,7 +226,7 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
               onChange={handleInputChange}
               value={inputs.businessLegalName}
               style={{
-                paddingRight: "200px"
+                paddingRight: "200px",
               }}
               onFocus={() => handleInputFocus("businessLegalName")}
               onBlur={() => handleInputBlur("businessLegalName")}
@@ -218,14 +244,18 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
           <div className="cp-input-with-icon mobile">
             <div className="inputs-container">
               <div className="mobileNumer-dropdown">
-                <select className="mobileDropDown">
+                <select className="mobileDropDown" style={{ color: "#127186" }}>
                   <option value="miss">+91</option>
                   <option value="miss">+11</option>
                 </select>
                 <span className="dropdown-icon"></span>
               </div>
             </div>
-            <div className={`floating-label-group ${getLabelClassName("mobileNumber")}`}>
+            <div
+              className={`floating-label-group ${getLabelClassName(
+                "mobileNumber"
+              )}`}
+            >
               <input
                 name="mobileNumber"
                 type="text"
@@ -245,7 +275,11 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
             </div>
           </div>
           <span className="separator"></span>
-          <div className={`cp-input-with-dropdown floating-label-group ${getLabelClassName("businessEmail")}`}>
+          <div
+            className={`cp-input-with-dropdown floating-label-group ${getLabelClassName(
+              "businessEmail"
+            )}`}
+          >
             <input
               name="businessEmail"
               type="email"
@@ -263,7 +297,9 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
               Business Email*
             </label>
           </div>
-          <div className={`cp-input-with-icon ${getLabelClassName("industry")}`}>
+          <div
+            className={`cp-input-with-icon ${getLabelClassName("industry")}`}
+          >
             <div className="floating-label-group">
               <input
                 type="text"
@@ -284,6 +320,7 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
             </div>
             <i
               className="fa fa-search new-search-icon-inside-input"
+              style={{ color: "#127186" }}
               aria-hidden="true"
             ></i>
           </div>
