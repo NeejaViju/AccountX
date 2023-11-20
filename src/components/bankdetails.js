@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import AddAccountType from "./formComponents/unitdivison";
 
 export default function BankDetails() {
@@ -17,7 +17,12 @@ export default function BankDetails() {
   const [focused, setFocused] = useState("");
   const [logo, setLogo] = useState(null);
   const fileInputRef = useRef(null);
-
+  const [inputFocus, setInputFocus] = useState({
+    accountName: false,
+    accountNumber: false,
+    ifsc: false,
+    // Add similar properties for other input fields
+  });
   const handleFocus = (fieldName) => {
     setFocused(fieldName);
   };
@@ -35,7 +40,7 @@ export default function BankDetails() {
 
   const [selectedComponent, setSelectedComponent] = useState(null);
 
-  const handleFormClick = (e) => {
+ const handleFormClick = (e) => {
     e.stopPropagation();
   };
 
@@ -47,17 +52,36 @@ export default function BankDetails() {
     }
   };
 
+  const getInputClassName = (fieldName) => {
+    return `customBank-border ${
+      inputFocus[fieldName] || inputs[fieldName] ? "has-data" : "empty"
+    }`;
+  };
+
+  const getLabelClassName = (fieldName) => {
+    return `${inputFocus[fieldName] || inputs[fieldName] ? "floating" : ""}`;
+  };
+
+  const handleInputFocus = (fieldName) => {
+    setInputFocus({ ...inputFocus, [fieldName]: true });
+  };
+
+  const handleInputBlur = (fieldName) => {
+    setInputFocus({ ...inputFocus, [fieldName]: false });
+  };
+
   return (
     <div className="bankDetails">
       <h3 style={{ color: "#A666F8" }}>Bank Account Details</h3>
       <div className="cp-company-container">
         <div className="cp-column">
           {/* First Row */}
-          <div className="cp-row">
-            <div className="cp-input-with-icon mobile">
-              <div className="inputs-container">
-                <div className="chooseBank-container">
-                  <select className="mobileDropDown">
+          
+          <div className="cp-row" style={{display: "flex"}}>
+           <div className="cp-input-with-icon mobile" >
+              <div className="inputs-container" >
+                <div className="chooseBank-container" >
+                  <select className="mobileDropDown" >
                     <option value="miss">Miss.</option>
                     <option value="mr">Mr.</option>
                     <option value="miss">Mrs.</option>
@@ -70,40 +94,37 @@ export default function BankDetails() {
                 </div>
               </div>
               {/* Account Name Float */}
-              <div className="floating-label-bank">
-                <input
+              <div className="floating-label-bank" >
+                < input
                   type="text"
                   name="accountName"
-                  placeholder="AccountName*"
-                  className={
-                    'address-border ${inputs.accountName ? "filled" : ""}'
-                  }
-                  onChange={handleInputChange}
-                  onFocus={() => handleFocus("accountName")}
-                  onBlur={() => handleBlur("accountName")}
-                  value={inputs.accountName}
-                />
-                <label
-                  htmlFor="accountName"
-                  className={
-                    focused === "accountName" || inputs.accountName
-                      ? "floating"
-                      : ""
-                  }
-                >
-                  Account Name*
-                </label>
-              </div>
+                  placeholder="Account Name*"
+                  className={'customBank-border ${inputs.accountName ? "filled" : ""}'}
+              onChange={handleInputChange}
+              value={inputs.accountName}
+              onFocus={() => handleInputFocus("accountName")}
+              onBlur={() => handleInputBlur("accountName")}
+            />
+            <label
+              htmlFor="accountName"
+              className={
+                focused === "accountName" || inputs.accountName ? "floating" : ""
+              }
+
+            >
+              Account Name*
+            </label>
+             </div> 
               <span className="separator"></span>
-            </div>
+            </div> 
 
             {/* Account Number Float */}
-            <div className=" cp-input-with-icon floating-label-bank">
+            <div className="cp-input-with-icon floating-label-bank">
               <input
                 type="text"
                 name="accountNumber"
                 placeholder="Account Number*"
-                className={`address-border ${
+                className={`customBank-border ${
                   inputs.accountNumber ? "filled" : ""
                 }`}
                 onChange={handleInputChange}
@@ -125,12 +146,12 @@ export default function BankDetails() {
 
             {/* IFSC Float */}
 
-            <div className="cp-input-with-icon floating-label-bank">
+            <div className=" cp-input-with-icon  floating-label-bank">
               <input
                 type="text"
                 name="ifsc"
                 placeholder="IFSC*"
-                className={`address-border ${inputs.ifsc ? "filled" : ""}`}
+                className={`customBank-border ${inputs.ifsc ? "filled" : ""}`}
                 onChange={handleInputChange}
                 onFocus={() => handleFocus("ifsc")}
                 onBlur={() => handleBlur("ifsc")}
@@ -150,7 +171,7 @@ export default function BankDetails() {
               ></i>
             </div>
           </div>
-
+          
           {/* Second Row */}
           <div className="cp-row">
             <div className="bank-logo-container">
@@ -159,12 +180,12 @@ export default function BankDetails() {
               </div>
             </div>
             {/* Bank Name Float */}
-            <div className="cp-input-with-icon floating-label-bank">
+            <div className="cp-input-with-icon  floating-label-bank">
               <input
                 type="text"
                 name="bankName"
                 placeholder="Bank Name*"
-                className={`address-border ${inputs.bankName ? "filled" : ""}`}
+                className={`customBank-border ${inputs.bankName ? "filled" : ""}`}
                 onChange={handleInputChange}
                 onFocus={() => handleFocus("bankName")}
                 onBlur={() => handleBlur("bankName")}
@@ -180,12 +201,12 @@ export default function BankDetails() {
               </label>
             </div>
             {/* Branch Name Float */}
-            <div className="cp-input-with-icon floating-label-bank">
+            <div className="cp-input-with-icon  floating-label-bank">
               <input
                 type="text"
                 name="branchName"
                 placeholder="Branch Name"
-                className={`address-border ${
+                className={`customBank-border ${
                   inputs.branchName ? "filled" : ""
                 }`}
                 onChange={handleInputChange}
@@ -265,12 +286,12 @@ export default function BankDetails() {
           <div className="cp-row">
             <div>
               {/* UPI ID Float */}
-              <div className="cp-input-with-icon floating-label-bank">
+              <div className=" floating-label-bank">
                 <input
                   type="text"
                   name="upiId"
                   placeholder="UPI ID"
-                  className={`address-border ${inputs.upiId ? "filled" : ""}`}
+                  className={`customBank-border ${inputs.upiId ? "filled" : ""}`}
                   onChange={handleInputChange}
                   onFocus={() => handleFocus("upiId")}
                   onBlur={() => handleBlur("upiId")}

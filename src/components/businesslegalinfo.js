@@ -44,13 +44,13 @@ export default function BusinessLegalInfo() {
             <div className="cp-company-container">
                 <div className="cp-column">
                     {/* First Row */}
-                    <div className="cp-row">
-                        <div className=" cp-input-with-icon floating-label-legal">
+                    <div className="cp-row" style={{display: "flex"}}>
+                        <div className="floating-label-legal">
                             <input
                                 type="text"
                                 name="gstNumber"
                                 placeholder="GST Number*"
-                                className={`address-border ${inputs.gstNumber ? "filled" : ""}`}
+                                className={`customLegal-border ${inputs.gstNumber ? "filled" : ""}`}
                                 onChange={handleInputChange}
                                 onFocus={() => handleFocus("gstNumber")}
                                 onBlur={() => handleBlur("gstNumber")}
@@ -90,12 +90,12 @@ export default function BusinessLegalInfo() {
                             GST Certificate
                         </button>
                         {/* GST END */}
-                        <div className=" cp-input-with-icon floating-label-legal">
+                        <div className="floating-label-legal">
                             <input
                                 type="text"
                                 name="pan"
                                 placeholder="PAN*"
-                                className={`address-border ${inputs.pan ? "filled" : ""}`}
+                                className={`customLegal-border ${inputs.pan ? "filled" : ""}`}
                                 onChange={handleInputChange}
                                 onFocus={() => handleFocus("pan")}
                                 onBlur={() => handleBlur("pan")}
@@ -130,12 +130,12 @@ export default function BusinessLegalInfo() {
 
                     {/* Second Row */}
                     <div className="cp-row">
-                        <div className=" cp-input-with-icon floating-label-legal">
+                        <div className="floating-label-legal">
                             <input
                                 type="text"
                                 name="cin"
                                 placeholder="CIN"
-                                className={`address-border ${inputs.cin ? "filled" : ""}`}
+                                className={`customLegal-border ${inputs.cin ? "filled" : ""}`}
                                 onChange={handleInputChange}
                                 onFocus={() => handleFocus("cin")}
                                 onBlur={() => handleBlur("cin")}
@@ -160,12 +160,12 @@ export default function BusinessLegalInfo() {
                                 <i className="fa fa-download" aria-hidden="true"></i>
                             </a>
                         </button>
-                        <div className=" cp-input-with-icon floating-label-legal">
+                        <div className=" floating-label-legal">
                             <input
                                 type="text"
                                 name="tan"
                                 placeholder="TAN"
-                                className={`address-border ${inputs.tan ? "filled" : ""}`}
+                                className={`customLegal-border ${inputs.tan ? "filled" : ""}`}
                                 onChange={handleInputChange}
                                 onFocus={() => handleFocus("tan")}
                                 onBlur={() => handleBlur("tan")}
@@ -196,12 +196,12 @@ export default function BusinessLegalInfo() {
 
                     {/* Third Row */}
                     <div className="cp-row">
-                        <div className=" cp-input-with-icon floating-label-legal">
+                        <div className="floating-label-legal">
                             <input
                                 type="text"
                                 name="msme"
                                 placeholder="MSME"
-                                className={`address-border ${inputs.msme ? "filled" : ""}`}
+                                className={`customLegal-border ${inputs.msme ? "filled" : ""}`}
                                 onChange={handleInputChange}
                                 onFocus={() => handleFocus("msme")}
                                 onBlur={() => handleBlur("msme")}
@@ -225,12 +225,12 @@ export default function BusinessLegalInfo() {
                             </a>
                         </button>
 
-                        <div className=" cp-input-with-icon floating-label-legal">
+                        <div className=" floating-label-legal">
                             <input
                                 type="text"
                                 name="iecode"
                                 placeholder="IE Code"
-                                className={`address-border ${inputs.iecode ? "filled" : ""}`}
+                                className={`customLegal-border ${inputs.iecode ? "filled" : ""}`}
                                 onChange={handleInputChange}
                                 onFocus={() => handleFocus("iecode")}
                                 onBlur={() => handleBlur("iecode")}

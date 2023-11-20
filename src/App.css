@@ -292,6 +292,7 @@ body {
   gap: 10px;
   align-items: center;
   height: 40px;
+ 
 }
 
 .cp-row > input,
@@ -867,6 +868,7 @@ input {
   border: 1px solid #A666F8;
   color: white;
   padding: 6px;
+  border-radius: 4px 4px 4px 4px;
 }
  
 
@@ -1187,6 +1189,12 @@ select{
   /* No need for padding-top if you are positioning the label with JS and class changes */
 }
 
+
+.customLegal-border.filled,
+.customLegal-border.active {
+  border-color: #A3184B;
+}
+
 .floating-label-legal label {
   position: absolute;
   left: 10px;
@@ -1237,12 +1245,19 @@ select{
   /* border: 1px solid #A666F8; */
   padding: 5px 10px;
   margin-right: 10px;
+  
 }
 
 .floating-label-bank {
   position: relative;
   /* No need for padding-top if you are positioning the label with JS and class changes */
 }
+
+.customBank-border.filled,
+.customBank-border.active {
+  border-color: #A666F8;
+}
+
 
 .floating-label-bank label {
   position: absolute;
