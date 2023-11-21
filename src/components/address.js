@@ -90,6 +90,15 @@ function AddressFields({ data, typ, selectedCompany }) {
       placeOfSupply: "",
     },
   });
+  //
+  const [inputFocus, setInputFocus] = useState({
+    addressType: false,
+    selectBranch: false,
+    unitDivision: false,
+    // Add similar properties for other input fields
+  });
+  //
+
   const [focused, setFocused] = useState("");
   // const [logo, setLogo] = useState(null);
   const [selectedComponent, setSelectedComponent] = useState(null);
@@ -98,7 +107,6 @@ function AddressFields({ data, typ, selectedCompany }) {
   const handleFocus = (fieldName) => {
     setFocused(fieldName);
   };
-
   const handleBlur = (fieldName) => {
     if (!inputs[fieldName]) {
       setFocused("");
@@ -135,6 +143,26 @@ function AddressFields({ data, typ, selectedCompany }) {
       setSelectedComponent(componentName); // Show the selected component
     }
   };
+  //
+  const getInputClassName = (fieldName) => {
+    return `address-border ${
+      inputFocus[fieldName] || inputs[fieldName] ? "has-data" : "empty"
+    }`;
+  };
+
+  const getLabelClassName = (fieldName) => {
+    return `${inputFocus[fieldName] || inputs[fieldName] ? "floating" : ""}`;
+  };
+
+  const handleInputFocus = (fieldName) => {
+    setInputFocus({ ...inputFocus, [fieldName]: true });
+  };
+
+  const handleInputBlur = (fieldName) => {
+    setInputFocus({ ...inputFocus, [fieldName]: false });
+  };
+
+  //
 
   return (
     <div className="cp-company-container">
@@ -142,33 +170,45 @@ function AddressFields({ data, typ, selectedCompany }) {
         {/* First Row */}
         <div className="cp-row">
           {/* Address Type float */}
-          <div className="cp-input-with-dropdown floating-label-group">
+          <div
+            className={`cp-input-with-dropdown floating-label-group ${getLabelClassName(
+              "addressType"
+            )}`}
+          >
             <select
               name="addressType"
-              className={`address-border ${inputs.addressType ? "filled" : ""}`}
+              // placeholder="Address Type"
+              className={getInputClassName("addressType")}
               onChange={handleInputChange}
-              onFocus={() => handleFocus("addressType")}
-              onBlur={() => handleBlur("addressType")}
+              // value={inputs.addressType}
+              onFocus={() => handleInputFocus("addressType")}
+              onBlur={() => handleInputBlur("addressType")}
               value={
                 typ === "R"
                   ? inputs.regOfficeAddress?.addressType
                   : inputs.branchOfficeAddress?.addressType
               }
             >
-              <option value="" disabled></option>
+              <option value="" hidden></option>
               <option value="Head Office / Principal Place of Business">
                 Head Office / Principal Place of Business
               </option>
               <option value="Factory">Factory</option>
               <option value="Registered Office">Registered Office</option>
             </select>
-            <label
+            {/* <label
               htmlFor="addressType"
               className={
                 focused === "addressType" || inputs.addressType
                   ? "floating"
                   : ""
               }
+            >
+              Address Type*
+            </label> */}
+            <label
+              htmlFor="addressType"
+              className={getLabelClassName("addressType")}
             >
               Address Type*
             </label>

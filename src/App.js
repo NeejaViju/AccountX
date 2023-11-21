@@ -3,7 +3,8 @@ import "./App.css";
 import "font-awesome/css/font-awesome.min.css";
 import "./style/AddressTypeForm.css";
 import "./style/ButtonList.css";
-import "./style/CompanyProfile.css"
+import "./style/CompanyProfile.css";
+import "./style/Address.css";
 
 import NavBar from "./components/navbar";
 import SideBar from "./components/sidebar";
@@ -16,32 +17,40 @@ import MenuBar from "./components/menubar";
 // import { faSearch, faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
 // App Component
-const URL = 'https://api-accountx.onrender.com/api/profile/getall';
-const reqData = () => fetch(URL).then(res => res.json());
+const URL = "https://api-accountx.onrender.com/api/profile/getall";
+const reqData = () => fetch(URL).then((res) => res.json());
 function App() {
   const [comProfile, setComProfile] = useState([]);
   const [selectedCompany, setSelectedCompany] = useState("");
-  //setSelectedCompany(data[0]._id); 
+  //setSelectedCompany(data[0]._id);
   useEffect(() => {
-    reqData().then(data => { setComProfile(data)});
+    reqData().then((data) => {
+      setComProfile(data);
+    });
   }, []);
-  
+
   return (
     <div className="app">
       {/*  */}
-      <NavBar comProfile={comProfile} selectedCompany={selectedCompany} setSelectedCompany={setSelectedCompany} />
+      <NavBar
+        comProfile={comProfile}
+        selectedCompany={selectedCompany}
+        setSelectedCompany={setSelectedCompany}
+      />
       <div className="main-container">
         <SideBar />
         <div className="main-content">
           <Header />
-          <CompanyProfile comProfile={comProfile} selectedCompany={selectedCompany} />
+          <CompanyProfile
+            comProfile={comProfile}
+            selectedCompany={selectedCompany}
+          />
           <MenuBar selectedCompany={selectedCompany} />
         </div>
-      </div>  
+      </div>
     </div>
   );
 }
-
 
 // MainContent Component
 // function MainContent(props) {
@@ -65,9 +74,6 @@ function App() {
 //     </div>
 //   );
 // }
-
-
-
 
 // function ActionButtons() {
 //   return <div>ActionButtons Component Here...</div>;
