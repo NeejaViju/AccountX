@@ -78,9 +78,9 @@ export default function PersonalDetails() {
                   type="text"
                   name="firstName"
                   placeholder="First Name*"
-                  className={
-                    'address-border ${inputs.firstName ? "filled" : ""}'
-                  }
+                  className={`address-border ${
+                    inputs.firstName ? "filled" : ""
+                  }`}
                   onChange={handleInputChange}
                   onFocus={() => handleFocus("firstName")}
                   onBlur={() => handleBlur("firstName")}
@@ -106,9 +106,9 @@ export default function PersonalDetails() {
                 type="text"
                 name="middleName"
                 placeholder="Middle Name"
-                className={
-                  'address-border ${inputs.middleName ? "filled" : ""}'
-                }
+                className={`address-border ${
+                  inputs.middleName ? "filled" : ""
+                }`}
                 onChange={handleInputChange}
                 onFocus={() => handleFocus("middleName")}
                 onBlur={() => handleBlur("middleName")}
@@ -204,7 +204,9 @@ export default function PersonalDetails() {
             <div className="cp-input-with-dropdown floating-label-personal">
               <select
                 name="gender"
-                className={'address-border ${inputs.gender ? "filled" : ""}'}
+                className={`address-border ${
+                  inputs.gender ? "filled" : ""
+                }`}
                 onChange={handleInputChange}
                 onFocus={() => handleFocus("gender")}
                 onBlur={() => handleBlur("gender")}
@@ -247,7 +249,9 @@ export default function PersonalDetails() {
                 type="text"
                 name="pan"
                 placeholder="PAN"
-                className={'address-border ${inputs.pan ? "filled" : ""}'}
+                className={`address-border ${
+                  inputs.pan ? "filled" : ""
+                }`}
                 onChange={handleInputChange}
                 onFocus={() => handleFocus("pan")}
                 onBlur={() => handleBlur("pan")}
@@ -266,7 +270,9 @@ export default function PersonalDetails() {
                 type="text"
                 name="aadhar"
                 placeholder="AADHAR"
-                className={'address-border ${inputs.aadhar ? "filled" : ""}'}
+                className={`address-border ${
+                  inputs.aadhar ? "filled" : ""
+                }`}
                 onChange={handleInputChange}
                 onFocus={() => handleFocus("aadhar")}
                 onBlur={() => handleBlur("aadhar")}
@@ -287,7 +293,9 @@ export default function PersonalDetails() {
                 type="text"
                 name="din"
                 placeholder="DIN"
-                className={'address-border ${inputs.din ? "filled" : ""}'}
+                className={`address-border ${
+                  inputs.din ? "filled" : ""
+                }`}
                 onChange={handleInputChange}
                 onFocus={() => handleFocus("din")}
                 onBlur={() => handleBlur("din")}
@@ -305,7 +313,9 @@ export default function PersonalDetails() {
                 type="text"
                 name="state"
                 placeholder="State"
-                className={'address-border ${inputs.state ? "filled" : ""}'}
+                className={`address-border ${
+                  inputs.state ? "filled" : ""
+                }`}
                 onChange={handleInputChange}
                 onFocus={() => handleFocus("state")}
                 onBlur={() => handleBlur("state")}
@@ -333,9 +343,9 @@ export default function PersonalDetails() {
                 type="text"
                 name="nationality"
                 placeholder="Nationality"
-                className={
-                  'address-border ${inputs.nationality ? "filled" : ""}'
-                }
+                className={`address-border ${
+                    inputs.nationality ? "filled" : ""
+                  }`}
                 onChange={handleInputChange}
                 onFocus={() => handleFocus("nationality")}
                 onBlur={() => handleBlur("nationality")}
@@ -364,9 +374,9 @@ export default function PersonalDetails() {
             <div className="cp-input-with-dropdown floating-label-personal">
               <select
                 name="designation"
-                className={
-                  'address-border ${inputs.designation ? "filled" : ""}'
-                }
+                className={`address-border ${
+                  inputs.designation ? "filled" : ""
+                }`}
                 onChange={handleInputChange}
                 onFocus={() => handleFocus("designation")}
                 onBlur={() => handleBlur("designation")}

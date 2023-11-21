@@ -99,7 +99,9 @@ export default function BankDetails() {
                   type="text"
                   name="accountName"
                   placeholder="Account Name*"
-                  className={'customBank-border ${inputs.accountName ? "filled" : ""}'}
+                  className={`customBank-border ${
+                    inputs.accountName ? "filled" : ""
+                  }`}
               onChange={handleInputChange}
               value={inputs.accountName}
               onFocus={() => handleInputFocus("accountName")}

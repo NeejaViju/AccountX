@@ -78,10 +78,10 @@ export default function ContactPersonDetails() {
                 <input
                   type="text"
                   name="personName"
-                  placeholder="Person Name"
-                  className={
-                    'address-border ${inputs.personName ? "filled" : ""}'
-                  }
+                  placeholder="Person Name*"
+                  className={`address-border ${
+                    inputs.personName ? "filled" : ""
+                  }`}
                   onChange={handleInputChange}
                   onFocus={() => handleFocus("personName")}
                   onBlur={() => handleBlur("personName")}
@@ -95,7 +95,7 @@ export default function ContactPersonDetails() {
                       : ""
                   }
                 >
-                  Person Name*
+                  Person Name
                 </label>
               </div>
             </div>
@@ -107,9 +107,9 @@ export default function ContactPersonDetails() {
                 type="text"
                 name="designation"
                 placeholder="Designation"
-                className={
-                  'address-border ${inputs.designation ? "filled" : ""}'
-                }
+                className={`address-border ${
+                  inputs.designation ? "filled" : ""
+                }`}
                 onChange={handleInputChange}
                 onFocus={() => handleFocus("designation")}
                 onBlur={() => handleBlur("designation")}
@@ -163,9 +163,9 @@ export default function ContactPersonDetails() {
                   type="text"
                   name="mobileNumber"
                   placeholder="Mobile Number"
-                  className={
-                    'address-border ${inputs.mobileNumber ? "filled" : ""}'
-                  }
+                  className={`address-border ${
+                    inputs.mobileNumber ? "filled" : ""
+                  }`}
                   onChange={handleInputChange}
                   onFocus={() => handleFocus("mobileNumber")}
                   onBlur={() => handleBlur("mobileNumber")}
