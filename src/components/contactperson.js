@@ -7,6 +7,7 @@ export default function ContactPersonDetails() {
     personName: "",
     designation: "",
     mobileNumber: "",
+    landLine: "",
     emailId: "",
   });
   const [focused, setFocused] = useState("");
@@ -158,6 +159,7 @@ export default function ContactPersonDetails() {
                   <span className="dropdown-icon"></span>
                 </div>
               </div>
+
               <div className="floating-label-contact">
                 <input
                   type="text"
@@ -184,7 +186,6 @@ export default function ContactPersonDetails() {
               </div>
             </div>
             <span className="separator"></span>
-
             <div className="cp-input-with-dropdown">
               <div className="cp-input-with-icon floating-label-contact">
                 <input
@@ -221,11 +222,31 @@ export default function ContactPersonDetails() {
                   ></span>
                 </div>
               </div>
-              <input type="text" placeholder="24816100" />
-              <span className="separator"></span>
+              <div className="floating-label-contact">
+                <input
+                  type="text"
+                  name="landLine"
+                  placeholder="24816100"
+                  className={`address-border ${
+                    inputs.landLine ? "filled" : ""
+                  }`}
+                  onChange={handleInputChange}
+                  onFocus={() => handleFocus("landLine")}
+                  onBlur={() => handleBlur("landLine")}
+                  value={inputs.landLine}
+                />
+                <label
+                  htmlFor="landLine"
+                  className={
+                    focused === "landLine" || inputs.landLine ? "floating" : ""
+                  }
+                >
+                  Landline
+                </label>
+              </div>
             </div>
+            <span className="separator"></span>
           </div>
-
           {/* Third Row */}
           <div className="cp-row">
             <div>
