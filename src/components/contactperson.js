@@ -9,6 +9,7 @@ export default function ContactPersonDetails() {
     mobileNumber: "",
     landLine: "",
     emailId: "",
+    nameofthePerson: "",
   });
   const [focused, setFocused] = useState("");
 
@@ -57,9 +58,9 @@ export default function ContactPersonDetails() {
           {/* First Row */}
 
           <div className="cp-row">
-            <div className="cp-input-with-icon mobile">
+            <div className="cp-input-with-icon contact">
               <div className="inputs-container">
-                <div className="mobileNumer-dropdown">
+               {/* <div className="mobileNumer-dropdown">*/}
                   <select
                     className="mobileDropDown"
                     style={{ color: "#5C5831" }}
@@ -72,8 +73,8 @@ export default function ContactPersonDetails() {
                     <option value="miss">Prof.</option>
                     <option value="miss">M/s.</option>
                   </select>
-                  <span className="dropdown-icon"></span>
-                </div>
+                  <span class="dropdown-icon"></span>
+                 {/*</div>*/}
               </div>
               <div className="floating-label-contact">
                 <input
@@ -108,7 +109,7 @@ export default function ContactPersonDetails() {
                 type="text"
                 name="designation"
                 placeholder="Designation"
-                className={`contact-border ${
+                className={`customContact-border ${
                   inputs.designation ? "filled" : ""
                 }`}
                 onChange={handleInputChange}
@@ -187,13 +188,15 @@ export default function ContactPersonDetails() {
             </div>
             <span className="separator"></span>
 
-            <div className="cp-input-with-dropdown">
+            {/*<div className="cp-input-with-dropdown">*/}
               <div className="cp-input-with-dropdown floating-label-contact">
                 <input
                   type="text"
                   name="emailId"
                   placeholder="Email ID"
-                  className={`contact-border ${inputs.emailId ? "filled" : ""}`}
+                  className={`customContact-border ${
+                    inputs.emailId ? "filled" : ""
+                  }`}
                   onChange={handleInputChange}
                   onFocus={() => handleFocus("emailId")}
                   onBlur={() => handleBlur("emailId")}
@@ -208,9 +211,9 @@ export default function ContactPersonDetails() {
                   Email ID
                 </label>
               </div>
-            </div>
+            {/*</div>*/}
 
-            <div className="cp-input-with-icon CONTACT">
+            <div className="cp-input-with-icon contact">
               <div className="inputs-container">
                 <div className="mobileNumer-dropdown">
                   <select className="mobileDropDown">
@@ -231,7 +234,7 @@ export default function ContactPersonDetails() {
                   type="text"
                   name="landLine"
                   placeholder="24816100"
-                  className={`contact-border ${
+                  className={`customContact-border ${
                     inputs.landLine ? "filled" : ""
                   }`}
                   onChange={handleInputChange}
@@ -349,7 +352,7 @@ export default function ContactPersonDetails() {
 
             <div>
               <input
-                className="sample-sign"
+                className="sample-sign "
                 type="text"
                 placeholder="Sample Sign"
               />

@@ -77,7 +77,7 @@ export default function BankDetails() {
         <div className="cp-column">
           {/* First Row */}
 
-          <div className="cp-row" style={{ display: "flex" }}>
+          <div className="cp-row" >
             <div className="cp-input-with-icon bank">
               <div className="inputs-container">
                 {/* <div className="chooseBank-container"> */}
@@ -99,7 +99,7 @@ export default function BankDetails() {
                   type="text"
                   name="accountName"
                   placeholder="Account Name*"
-                  className={`customBank-border ${
+                  className={`address-border ${
                     inputs.accountName ? "filled" : ""
                   }`}
                   onChange={handleInputChange}
