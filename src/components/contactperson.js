@@ -160,7 +160,7 @@ export default function ContactPersonDetails() {
                 </div>
               </div>
 
-              <div className="floating-label-contact">
+              <div className=" floating-label-contact">
                 <input
                   type="text"
                   name="mobileNumber"
@@ -183,9 +183,10 @@ export default function ContactPersonDetails() {
                 >
                   Mobile Number*
                 </label>
+                <span className="separator"></span>
               </div>
             </div>
-            <span className="separator"></span>
+
             <div className="cp-input-with-dropdown">
               <div className="cp-input-with-icon floating-label-contact">
                 <input
