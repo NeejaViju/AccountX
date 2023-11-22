@@ -101,7 +101,7 @@ export default function ContactPersonDetails() {
               </div>
             </div>
             <span className="separator"></span>
-            {/* Person Name Float */}
+            {/* Designation Float */}
 
             <div className="cp-input-with-dropdown  floating-label-contact">
               <input
@@ -148,18 +148,15 @@ export default function ContactPersonDetails() {
           <div className="cp-row">
             <div className="cp-input-with-icon mobile">
               <div className="inputs-container">
-                <div
-                  className="mobileNumer-dropdown"
-                  style={{ color: "#5C5831" }}
-                >
-                  <select className="mobileDropDown">
+                <div className="mobileNumer-dropdown">
+                  <select className="mobileDropDown"  style={{ color: "#5C5831" }}>
                     <option value="miss">+91</option>
                     <option value="miss">+11</option>
                   </select>
                   <span className="dropdown-icon"></span>
                 </div>
               </div>
-
+              
               <div className="floating-label-contact">
                 <input
                   type="text"
