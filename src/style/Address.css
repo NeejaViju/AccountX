@@ -17,7 +17,7 @@
     border: 1.5px solid #00a7cf;
 }
 
-.floating-label-group {
+.floating-label-group-address {
     position: relative;
     /* No need for padding-top if you are positioning the label with JS and class changes */
 }
@@ -49,7 +49,7 @@
 
 
 
-.floating-label-group label {
+.floating-label-group-address label {
     position: absolute;
     left: 10px;
     top: 0;
@@ -70,8 +70,8 @@
 
 
 /* Style for floating label when input is not empty */
-.floating-label-group input:not(.empty)+label,
-.floating-label-group select:not(.empty)+label {
+.floating-label-group-address input:not(.empty)+label,
+.floating-label-group-address select:not(.empty)+label {
     top: -8px;
     left: 10px;
     transform: translateY(0);
@@ -299,8 +299,8 @@ input {
 }
 
 /* Style for floating label when input is empty */
-.floating-label-group input.empty+label,
-.floating-label-group select.empty+label {
+.floating-label-group-address input.empty+label,
+.floating-label-group-address select.empty+label {
     top: 50%;
     transform: translateY(-50%);
     font-size: 14px;
@@ -309,7 +309,7 @@ input {
 }
 
 /* Hide floating label when input is empty and not focused */
-.floating-label-group input.empty:not(:focus) + label,
-.floating-label-group select.empty:not(:focus) + label {
+.floating-label-group-address input.empty:not(:focus) + label,
+.floating-label-group-address select.empty:not(:focus) + label {
   display: none;
 }

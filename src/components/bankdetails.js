@@ -78,7 +78,7 @@ export default function BankDetails() {
           {/* First Row */}
 
           <div className="cp-row" style={{ display: "flex" }}>
-            <div className="cp-input-with-icon mobile">
+            <div className="cp-input-with-icon bank">
               <div className="inputs-container">
                 {/* <div className="chooseBank-container"> */}
                 <select className="mobileDropDown">
@@ -122,7 +122,7 @@ export default function BankDetails() {
             <span className="separator"></span>
 
             {/* Account Number Float */}
-            <div className="cp-input-with-icon floating-label-bank">
+            <div className="cp-input-with-dropdown floating-label-bank">
               <input
                 type="text"
                 name="accountNumber"
@@ -149,7 +149,7 @@ export default function BankDetails() {
 
             {/* IFSC Float */}
 
-            <div className=" cp-input-with-icon  floating-label-bank">
+            <div className=" cp-input-with-dropdown  floating-label-bank">
               <input
                 type="text"
                 name="ifsc"
@@ -183,7 +183,7 @@ export default function BankDetails() {
               </div>
             </div>
             {/* Bank Name Float */}
-            <div className="cp-input-with-icon  floating-label-bank">
+            <div className="cp-input-with-dropdown  floating-label-bank">
               <input
                 type="text"
                 name="bankName"
@@ -206,7 +206,7 @@ export default function BankDetails() {
               </label>
             </div>
             {/* Branch Name Float */}
-            <div className="cp-input-with-icon  floating-label-bank">
+            <div className="cp-input-with-dropdown  floating-label-bank">
               <input
                 type="text"
                 name="branchName"

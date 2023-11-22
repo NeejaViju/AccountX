@@ -53,7 +53,7 @@ export default function Addresses({ selectedCompany }) {
   // }
 }
 
-function AddressFields({ data, typ, selectedCompany }) {
+function AddressFields({ typ }) {
   // Address Field Float
   const [inputs, setInputs] = useState({
     _comp_id: "",
@@ -90,20 +90,9 @@ function AddressFields({ data, typ, selectedCompany }) {
       placeOfSupply: "",
     },
   });
-  //
-  const [inputFocus, setInputFocus] = useState({
-    addressType: false,
-    selectBranch: false,
-    unitDivision: false,
-    // Add similar properties for other input fields
-  });
-  //
 
   const [focused, setFocused] = useState("");
-  // const [logo, setLogo] = useState(null);
-  const [selectedComponent, setSelectedComponent] = useState(null);
-  // const fileInputRef = useRef(null);
-  console.log(inputs);
+
   const handleFocus = (fieldName) => {
     setFocused(fieldName);
   };
@@ -131,6 +120,7 @@ function AddressFields({ data, typ, selectedCompany }) {
       },
     }));
   };
+  const [selectedComponent, setSelectedComponent] = useState(null);
 
   const handleFormClick = (e) => {
     e.stopPropagation();
@@ -143,26 +133,6 @@ function AddressFields({ data, typ, selectedCompany }) {
       setSelectedComponent(componentName); // Show the selected component
     }
   };
-  //
-  const getInputClassName = (fieldName) => {
-    return `address-border ${
-      inputFocus[fieldName] || inputs[fieldName] ? "has-data" : "empty"
-    }`;
-  };
-
-  const getLabelClassName = (fieldName) => {
-    return `${inputFocus[fieldName] || inputs[fieldName] ? "floating" : ""}`;
-  };
-
-  const handleInputFocus = (fieldName) => {
-    setInputFocus({ ...inputFocus, [fieldName]: true });
-  };
-
-  const handleInputBlur = (fieldName) => {
-    setInputFocus({ ...inputFocus, [fieldName]: false });
-  };
-
-  //
 
   return (
     <div className="cp-company-container">
@@ -170,33 +140,31 @@ function AddressFields({ data, typ, selectedCompany }) {
         {/* First Row */}
         <div className="cp-row">
           {/* Address Type float */}
-          <div
-            className={`cp-input-with-dropdown floating-label-group ${getLabelClassName(
-              "addressType"
-            )}`}
-          >
+          <div className={`cp-input-with-dropdown floating-label-group`}>
             <select
               name="addressType"
+              placeholder="Address Type"
               // placeholder="Address Type"
-              className={getInputClassName("addressType")}
+              className={`address-border ${inputs.addressType ? "filled" : ""}`}
               onChange={handleInputChange}
               // value={inputs.addressType}
-              onFocus={() => handleInputFocus("addressType")}
-              onBlur={() => handleInputBlur("addressType")}
+              onFocus={() => handleFocus("addressType")}
+              onBlur={() => handleBlur("addressType")}
               value={
                 typ === "R"
                   ? inputs.regOfficeAddress?.addressType
                   : inputs.branchOfficeAddress?.addressType
               }
+              // value={inputs.addressType}
             >
-              <option value="" hidden></option>
+              <option value="" disabled></option>
               <option value="Head Office / Principal Place of Business">
                 Head Office / Principal Place of Business
               </option>
               <option value="Factory">Factory</option>
               <option value="Registered Office">Registered Office</option>
             </select>
-            {/* <label
+            <label
               htmlFor="addressType"
               className={
                 focused === "addressType" || inputs.addressType
@@ -205,18 +173,10 @@ function AddressFields({ data, typ, selectedCompany }) {
               }
             >
               Address Type*
-            </label> */}
-            <label
-              htmlFor="addressType"
-              className={getLabelClassName("addressType")}
-            >
-              Address Type*
             </label>
+
             <button className="dropdown-icon-right">
-              <i
-                className="fa fa-chevron-down"
-                style={{ color: "#127186" }}
-              ></i>
+              <i className="fa fa-chevron-down"></i>
             </button>
           </div>
           {/* add button */}
@@ -239,6 +199,7 @@ function AddressFields({ data, typ, selectedCompany }) {
           <div className="cp-input-with-dropdown floating-label-group">
             <select
               name="selectBranch"
+              placeholder="Select Branch"
               className={`address-border ${
                 inputs.selectBranch ? "filled" : ""
               }`}
@@ -292,6 +253,7 @@ function AddressFields({ data, typ, selectedCompany }) {
           <div className="cp-input-with-dropdown floating-label-group">
             <select
               name="unitDivision"
+              placeholder="UnitDivision"
               className={`address-border ${
                 inputs.unitDivision ? "filled" : ""
               }`}

@@ -189,6 +189,9 @@ body {
 .cp-input-with-dropdown select:focus:not(.empty) {
   border-color: #0196B9;
 }
+.cp-input-with-icon.personal:hover{
+  border: 1.5px solid #9B660E;
+}
 
 
 .floating-label-group label {
@@ -1101,6 +1104,11 @@ input {
 .custom-border {
   border: 1px solid #B4B4B4;
 }
+.custom-border.filled,
+.custom-border.active {
+  border-color: #9B660E;
+}
+
 /* .custom-border:hover {
   border-color: #9B660E;
   background-color: #9B660E; /* If you want to change the background color as well on hover */
@@ -1609,4 +1617,120 @@ select{
   font-size: 16px; /* Adjust the size as needed */
  
 }
+
+
+/* floating label personal */
+.floating-label-personal {
+  position: relative;
+  /* No need for padding-top if you are positioning the label with JS and class changes */
+}
+
+
+.customLegal-border.filled,
+.customLegal-border.active {
+  border-color: #A3184B;
+}
+
+.floating-label-personal label {
+  position: absolute;
+  left: 10px;
+  top: 50%; /* Start at the vertical middle */
+  transform: translateY(-50%); /* Center vertically */
+  transition: all 0.2s ease;
+  color: #aaa; /* Placeholder color */
+  pointer-events: none;
+  background-color: white; /* Ensures the label has a background */
+  padding: 0 3px; /* Provides padding so the background doesn't cut off */
+}
+
+
+
+/* Style for floating label when input is active */
+.floating-label-personal input:focus + label,
+.floating-label-personal input.filled + label,
+.floating-label-personal select:focus + label,
+.floating-label-personal select.filled + label {
+  top: -8px;
+  left: 10px;
+  transform: translateY(0);
+  font-size: 12px;
+  color: #9B660E;
+  z-index: 10;
+}
+
+/* css for input with icon bank */
+.cp-input-with-icon.bank:hover{
+  border: 1.5px solid #A666F8;
+}
+
+.floating-label-personal {
+  position: relative;
+  /* No need for padding-top if you are positioning the label with JS and class changes */
+}
+
+
+.customLegal-border.filled,
+.customLegal-border.active {
+  border-color: #A3184B;
+}
+
+.floating-label-personal label {
+  position: absolute;
+  left: 10px;
+  top: 50%; /* Start at the vertical middle */
+  transform: translateY(-50%); /* Center vertically */
+  transition: all 0.2s ease;
+  color: #aaa; /* Placeholder color */
+  pointer-events: none;
+  background-color: white; /* Ensures the label has a background */
+  padding: 0 3px; /* Provides padding so the background doesn't cut off */
+}
+
+
+
+/* Style for floating label when input is active */
+.floating-label-personal input:focus + label,
+.floating-label-personal input.filled + label,
+.floating-label-personal select:focus + label,
+.floating-label-personal select.filled + label {
+  top: -8px;
+  left: 10px;
+  transform: translateY(0);
+  font-size: 12px;
+  color: #9B660E;
+  z-index: 10;
+}
+
+
+/* contact focused */
+.contact-border.filled,
+.contact-border.active {
+  border-color: #5C5831;
+}
+
+.contact-border {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-border:focus {
+  border-color: #5C5831; /* Highlight color when focused */
+}
+
+/* Change the focus color for the input field and dropdown selection */
+.contact-border:focus:not(.empty),
+.cp-input-with-dropdown select:focus:not(.empty) {
+  border-color: #5C5831;
+}
+
+.cp-input-with-icon.contact:hover{
+  border: 1.5px solid #5C5831;
+}
+
+
 

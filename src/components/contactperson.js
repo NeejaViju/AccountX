@@ -101,14 +101,14 @@ export default function ContactPersonDetails() {
               </div>
             </div>
             <span className="separator"></span>
-            {/* Person Name Float */}
+            {/* Designation Float */}
 
             <div className="cp-input-with-dropdown  floating-label-contact">
               <input
                 type="text"
                 name="designation"
                 placeholder="Designation"
-                className={`address-border ${
+                className={`contact-border ${
                   inputs.designation ? "filled" : ""
                 }`}
                 onChange={handleInputChange}
@@ -146,13 +146,13 @@ export default function ContactPersonDetails() {
 
           {/* Second Row */}
           <div className="cp-row">
-            <div className="cp-input-with-icon mobile">
+            <div className="cp-input-with-icon contact">
               <div className="inputs-container">
-                <div
-                  className="mobileNumer-dropdown"
-                  style={{ color: "#5C5831" }}
-                >
-                  <select className="mobileDropDown">
+                <div className="mobileNumer-dropdown">
+                  <select
+                    className="mobileDropDown"
+                    style={{ color: "#5C5831" }}
+                  >
                     <option value="miss">+91</option>
                     <option value="miss">+11</option>
                   </select>
@@ -160,12 +160,12 @@ export default function ContactPersonDetails() {
                 </div>
               </div>
 
-              <div className=" floating-label-contact">
+              <div className="floating-label-contact">
                 <input
                   type="text"
                   name="mobileNumber"
                   placeholder="Mobile Number"
-                  className={`address-border ${
+                  className={`contact-border ${
                     inputs.mobileNumber ? "filled" : ""
                   }`}
                   onChange={handleInputChange}
@@ -183,17 +183,17 @@ export default function ContactPersonDetails() {
                 >
                   Mobile Number*
                 </label>
-                <span className="separator"></span>
               </div>
             </div>
+            <span className="separator"></span>
 
             <div className="cp-input-with-dropdown">
-              <div className="cp-input-with-icon floating-label-contact">
+              <div className="cp-input-with-dropdown floating-label-contact">
                 <input
                   type="text"
                   name="emailId"
                   placeholder="Email ID"
-                  className={`address-border ${inputs.emailId ? "filled" : ""}`}
+                  className={`contact-border ${inputs.emailId ? "filled" : ""}`}
                   onChange={handleInputChange}
                   onFocus={() => handleFocus("emailId")}
                   onBlur={() => handleBlur("emailId")}
@@ -210,12 +210,15 @@ export default function ContactPersonDetails() {
               </div>
             </div>
 
-            <div className="cp-input-with-icon mobile">
+            <div className="cp-input-with-icon CONTACT">
               <div className="inputs-container">
                 <div className="mobileNumer-dropdown">
                   <select className="mobileDropDown">
-                    <option value="0443">0443</option>
+                    <option value="" disabled></option>
+                    <option value="0443">044</option>
+                    <option value="0452">0443</option>
                     <option value="0452">0452</option>
+                    <option value="0452">0422</option>
                   </select>
                   <span
                     className="dropdown-icon"
@@ -228,7 +231,7 @@ export default function ContactPersonDetails() {
                   type="text"
                   name="landLine"
                   placeholder="24816100"
-                  className={`address-border ${
+                  className={`contact-border ${
                     inputs.landLine ? "filled" : ""
                   }`}
                   onChange={handleInputChange}
