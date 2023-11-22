@@ -1752,3 +1752,8 @@ select{
 .cp-input-with-dropdown select:focus:not(.empty) {
   border-color: #5C5831;
 }
+
+.customBank-border:focus:not(.empty),
+.dropdown-icon-right select:focus:not(.empty) {
+  border-color: #A666F8;
+}

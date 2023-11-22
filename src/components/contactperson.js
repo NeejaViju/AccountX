@@ -103,12 +103,10 @@ export default function ContactPersonDetails() {
             </div>
             <span className="separator"></span>
             {/* Designation Float */}
-
-            <div className="cp-input-with-dropdown  floating-label-contact">
-              <input
-                type="text"
+             
+            <div className="cp-input-with-dropdown floating-label-contact">
+              <select
                 name="designation"
-                placeholder="Designation"
                 className={`customContact-border ${
                   inputs.designation ? "filled" : ""
                 }`}
@@ -116,7 +114,16 @@ export default function ContactPersonDetails() {
                 onFocus={() => handleFocus("designation")}
                 onBlur={() => handleBlur("designation")}
                 value={inputs.designation}
-              />
+              >
+                <option value="" disabled hidden></option>
+                <option value="type1">Proprietor</option>
+                <option value="type2">Director</option>
+                <option value="type3">Chairman</option>
+                <option value="type2">CEO</option>
+                <option value="type2">Partner</option>
+                <option value="type2">Salesman</option>
+                <option value="type2">Cashier</option>
+              </select>
               <label
                 htmlFor="designation"
                 className={
@@ -127,7 +134,14 @@ export default function ContactPersonDetails() {
               >
                 Designation
               </label>
+              <button
+                className="dropdown-icon-right" style={{ color: "#5C5831" }}
+                
+              >
+                <i className="fa fa-chevron-down"></i>
+              </button>
             </div>
+
             {/* add button */}
             <button
               className="contact-button-container"

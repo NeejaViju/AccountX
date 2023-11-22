@@ -267,8 +267,8 @@ export default function BankDetails() {
                 Account Type*
               </label>
               <button
-                className="dropdown-icon-right"
-                style={{ color: "#A666F8" }}
+                className="dropdown-icon-right" style={{ color: "#A666F8" }}
+                
               >
                 <i className="fa fa-chevron-down"></i>
               </button>
