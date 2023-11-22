@@ -213,8 +213,11 @@ export default function ContactPersonDetails() {
               <div className="inputs-container">
                 <div className="mobileNumer-dropdown">
                   <select className="mobileDropDown">
-                    <option value="0443">0443</option>
+                  <option value="" disabled></option>
+                    <option value="0443">044</option>
+                    <option value="0452">0443</option>
                     <option value="0452">0452</option>
+                    <option value="0452">0422</option>
                   </select>
                   <span
                     className="dropdown-icon"
@@ -226,7 +229,7 @@ export default function ContactPersonDetails() {
                 <input
                   type="text"
                   name="landLine"
-                  placeholder="24816100"
+                  placeholder="Landline"
                   className={`address-border ${
                     inputs.landLine ? "filled" : ""
                   }`}
