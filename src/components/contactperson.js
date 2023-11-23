@@ -80,7 +80,7 @@ export default function ContactPersonDetails() {
                 <input
                   type="text"
                   name="personName"
-                  placeholder="Person Name*"
+                  placeholder="Person Name"
                   className={`address-border ${
                     inputs.personName ? "filled" : ""
                   }`}
@@ -97,7 +97,7 @@ export default function ContactPersonDetails() {
                       : ""
                   }
                 >
-                  Person Name
+                  Person Name*
                 </label>
               </div>
             </div>
@@ -345,7 +345,7 @@ export default function ContactPersonDetails() {
             <div>
               <input
                 type="text"
-                placeholder="Name of the person"
+                placeholder="Name of the Person"
                 className="customContact-border"
               />
             </div>

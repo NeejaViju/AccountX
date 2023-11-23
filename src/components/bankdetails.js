@@ -98,7 +98,7 @@ export default function BankDetails() {
                 <input
                   type="text"
                   name="accountName"
-                  placeholder="Account Name*"
+                  placeholder="Account Name"
                   className={`address-border ${
                     inputs.accountName ? "filled" : ""
                   }`}
@@ -264,7 +264,7 @@ export default function BankDetails() {
                     : ""
                 }
               >
-                Account Type*
+                Account Type
               </label>
               <button
                 className="dropdown-icon-right" style={{ color: "#A666F8" }}
