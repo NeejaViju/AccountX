@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AddNewDesignation from "./formComponents/unitdivison";
+import AddNewDesignation from "./formComponents/adddesignation";
 export default function ContactPersonDetails() {
   // Contact person float
 

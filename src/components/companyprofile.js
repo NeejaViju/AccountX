@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import uploadIcon from "../icons/Icon feather-upload@2x.png";
+import { ReactComponent as CheckCircleIcon } from '../icons/Icon feather-check-circle.svg';
+
 
 export default function CompanyProfile({ comProfile, selectedCompany }) {
   const [inputs, setInputs] = useState({
@@ -48,18 +50,26 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
     (company) => company._id === selectedCompany
   );
 
+  //gst validation 
+  const [isGstValid, setIsGstValid] = useState(null); // null, true, or false
+
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
     if (name === "gstNumber") {
-      // Convert value to uppercase only for GST field
+      const uppercaseValue = value.toUpperCase();
+      // Perform your GST validation logic here and set isGstValid
+      const isValid = uppercaseValue.length === 15; // Update with actual validation logic
+      setIsGstValid(isValid);
+
       setInputs((prevInputs) => ({
         ...prevInputs,
-        [name]: value.toUpperCase(),
+        [name]: uppercaseValue,
       }));
     } else {
       // Keep other fields as they are
-      setInputs((prevInputs) => ({
+    setInputs((prevInputs) => ({
         ...prevInputs,
         [name]: value,
       }));
@@ -84,9 +94,8 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
   };
 
   const getInputClassName = (fieldName) => {
-    return `address-border ${
-      inputFocus[fieldName] || inputs[fieldName] ? "has-data" : "empty"
-    }`;
+    return `address-border ${inputFocus[fieldName] || inputs[fieldName] ? "has-data" : "empty"
+      }`;
   };
 
   const getLabelClassName = (fieldName) => {
@@ -105,27 +114,29 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
     <div className="cp-company-container">
       <div className="cp-column">
         <div className="cp-row">
-          <div
-            className={`floating-label-group ${getLabelClassName("gstNumber")}`}
-          >
-            <input
-              type="text"
-              name="gstNumber"
-              placeholder="Enter GST Number"
-              className={getInputClassName("gstNumber")}
-              onChange={handleInputChange}
-              value={inputs.gstNumber}
-              maxLength={15}
-              onFocus={() => handleInputFocus("gstNumber")}
-              onBlur={() => handleInputBlur("gstNumber")}
-            />
-            <label
-              htmlFor="gstNumber"
-              className={getLabelClassName("gstNumber")}
-            >
-              GST Number*
-            </label>
-          </div>
+        <div className={`floating-label-group ${getLabelClassName("gstNumber")}`}>
+  <div className="input-icon-container">
+    <input
+      type="text"
+      name="gstNumber"
+      placeholder="Enter GST Number"
+      className={getInputClassName("gstNumber")}
+      onChange={handleInputChange}
+      value={inputs.gstNumber}
+      maxLength={15}
+      onFocus={() => handleInputFocus("gstNumber")}
+      onBlur={() => handleInputBlur("gstNumber")}
+    />
+    <label htmlFor="gstNumber" className={getLabelClassName("gstNumber")}>
+      GST Number*
+    </label>
+    {inputs.gstNumber.length === 15 && (
+      <CheckCircleIcon
+        className={`gst-validation-icon ${isGstValid ? 'valid' : 'invalid'}`}
+      />
+    )}
+  </div>
+</div>
 
           <div
             className={`cp-input-with-dropdown floating-label-group ${getLabelClassName(
@@ -139,13 +150,19 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
               value={inputs.companyType}
               onFocus={() => handleInputFocus("companyType")}
               onBlur={() => handleInputBlur("companyType")}
-            >
-              <option value="" hidden>
-                Company Type*
-              </option>
-              <option value="Type1">Type 1</option>
-              <option value="Type2">Type 2</option>
-              <option value="Type3">Type 3</option>
+              
+              >
+              <option value="" hidden disabled>Company Type*</option>
+              <option value="Type1">Proprietorship</option>
+              <option value="Type2">Partnership [Firm]</option>
+              <option value="Type3">Private Limited Company</option>
+              <option value="Limited Liability Partnership">Limited Liability Partnership</option>
+              <option value="Limited Liability Company">Limited Liability Company</option>
+              <option value="Cooperative">Cooperative</option>
+              <option value="Public Limited Company">Public Limited Company</option>
+              <option value="Public Listed Company">Public Listed Company</option>
+              <option value="Limited Company">Limited Company</option>
+              <option value="Nonprofit">Nonprofit</option>
             </select>
             <label
               htmlFor="companyType"

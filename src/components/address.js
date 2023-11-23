@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
-import {
-  AddressTypeForm,
-  AddUnitDivision,
-  AddNewBranch,
-} from "./formComponents/unitdivison";
+import AddressTypeForm from "./formComponents/addaddresstype";
+import AddNewBranch from "./formComponents/addbranch";
+import AddUnitDivision from "./formComponents/addunitdivname";
 
 export default function Addresses({ selectedCompany }) {
   const [data, setData] = useState({});

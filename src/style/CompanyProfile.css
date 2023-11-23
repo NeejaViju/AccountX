@@ -313,3 +313,47 @@ input {
 .floating-label-group select.empty:not(:focus) + label {
   display: none;
 }
+
+
+
+.input-icon-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .gst-validation-icon {
+    position: absolute;
+    right: 10px; /* Adjust as needed */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px; /* Adjust as needed */
+    height: 20px; /* Adjust as needed */
+  }
+  
+  /* CSS classes for valid and invalid states */
+  .gst-validation-icon.valid {
+    fill: green;
+    /* margin-top: -2px; */
+    z-index: 1;
+    /* top: 159px; */
+    /* left: 460px; */
+    width: 15px;
+    height: 40px;
+  }
+  
+  .gst-validation-icon.invalid {
+    fill: grey;
+    /* margin-top: -2px; */
+    z-index: 1;
+    /* top: 159px; */
+    /* left: 460px; */
+    width: 15px;
+    height: 40px;
+  }
+  
+  /* You may need to adjust your input styles so the icon does not overlap the text */
+  .input-gstNumber {
+    padding-right: 30px; /* Adjust as needed */
+  }
+  
