@@ -77,7 +77,7 @@ export default function BankDetails() {
         <div className="cp-column">
           {/* First Row */}
 
-          <div className="cp-row" style={{ display: "flex" }}>
+          <div className="cp-row" >
             <div className="cp-input-with-icon bank">
               <div className="inputs-container">
                 {/* <div className="chooseBank-container"> */}
@@ -98,8 +98,8 @@ export default function BankDetails() {
                 <input
                   type="text"
                   name="accountName"
-                  placeholder="Account Name*"
-                  className={`customBank-border ${
+                  placeholder="Account Name"
+                  className={`address-border ${
                     inputs.accountName ? "filled" : ""
                   }`}
                   onChange={handleInputChange}
@@ -169,7 +169,6 @@ export default function BankDetails() {
 
               <i
                 className="fa fa-search new-search-icon-inside-input"
-                style={{ color: "#A666F8" }}
                 aria-hidden="true"
               ></i>
             </div>
@@ -230,8 +229,7 @@ export default function BankDetails() {
                 Branch Name
               </label>
               <i
-                className="fa fa-search new-search-icon-inside-input"
-                style={{ color: "#A666F8" }}
+                className="fa fa-search new-search-icon-inside-input"                
                 aria-hidden="true"
               ></i>
             </div>
@@ -264,11 +262,11 @@ export default function BankDetails() {
                     : ""
                 }
               >
-                Account Type*
+                Account Type
               </label>
               <button
-                className="dropdown-icon-right"
-                style={{ color: "#A666F8" }}
+                className="dropdown-icon-right" 
+                
               >
                 <i className="fa fa-chevron-down"></i>
               </button>

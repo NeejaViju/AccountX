@@ -173,8 +173,7 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
             <button className="dropdown-icon-right">
               <i
                 className="fa fa-chevron-down"
-                style={{ color: "#127186" }}
-              ></i>
+               ></i>
             </button>
           </div>
 
@@ -261,7 +260,7 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
           <div className="cp-input-with-icon mobile">
             <div className="inputs-container">
               <div className="mobileNumer-dropdown">
-                <select className="mobileDropDown" style={{ color: "#127186" }}>
+                <select className="mobileDropDown">
                   <option value="miss">+91</option>
                   <option value="miss">+11</option>
                 </select>
@@ -337,7 +336,6 @@ export default function CompanyProfile({ comProfile, selectedCompany }) {
             </div>
             <i
               className="fa fa-search new-search-icon-inside-input"
-              style={{ color: "#127186" }}
               aria-hidden="true"
             ></i>
           </div>
