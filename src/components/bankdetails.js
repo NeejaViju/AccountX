@@ -169,7 +169,6 @@ export default function BankDetails() {
 
               <i
                 className="fa fa-search new-search-icon-inside-input"
-                style={{ color: "#A666F8" }}
                 aria-hidden="true"
               ></i>
             </div>
@@ -230,8 +229,7 @@ export default function BankDetails() {
                 Branch Name
               </label>
               <i
-                className="fa fa-search new-search-icon-inside-input"
-                style={{ color: "#A666F8" }}
+                className="fa fa-search new-search-icon-inside-input"                
                 aria-hidden="true"
               ></i>
             </div>
@@ -267,7 +265,7 @@ export default function BankDetails() {
                 Account Type
               </label>
               <button
-                className="dropdown-icon-right" style={{ color: "#A666F8" }}
+                className="dropdown-icon-right" 
                 
               >
                 <i className="fa fa-chevron-down"></i>

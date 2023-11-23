@@ -58,8 +58,7 @@ export default function PersonalDetails() {
               <div className="inputs-container">
                 {/*  <div className="choosebank-container">*/}
                   <select
-                    className="mobileDropDown"
-                    style={{ color: "#724A1E" }}
+                    className="mobileDropDown"                    
                   >
                     <option value="miss">Miss.</option>
                     <option value="mr">Mr.</option>
@@ -222,7 +221,6 @@ export default function PersonalDetails() {
               </label>
               <button
                 className="dropdown-icon-right"
-                style={{ color: "#724A1E" }}
               >
                 <i className="fa fa-chevron-down"></i>
               </button>
@@ -348,7 +346,6 @@ export default function PersonalDetails() {
 
               <i
                 class="fa fa-search new-search-icon-inside-input"
-                style={{ color: "#724A1E" }}
                 aria-hidden="true"
               ></i>
             </div>

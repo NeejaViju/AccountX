@@ -62,8 +62,7 @@ export default function ContactPersonDetails() {
               <div className="inputs-container">
                {/* <div className="mobileNumer-dropdown">*/}
                   <select
-                    className="mobileDropDown"
-                    style={{ color: "#5C5831" }}
+                    className="mobileDropDown"                   
                   >
                     <option value="miss">Miss.</option>
                     <option value="mr">Mr.</option>
@@ -135,7 +134,7 @@ export default function ContactPersonDetails() {
                 Designation
               </label>
               <button
-                className="dropdown-icon-right" style={{ color: "#5C5831" }}
+                className="dropdown-icon-right" 
                 
               >
                 <i className="fa fa-chevron-down"></i>
@@ -165,8 +164,7 @@ export default function ContactPersonDetails() {
               <div className="inputs-container">
                 <div className="mobileNumer-dropdown">
                   <select
-                    className="mobileDropDown"
-                    style={{ color: "#5C5831" }}
+                    className="mobileDropDown"                   
                   >
                     <option value="miss">+91</option>
                     <option value="miss">+11</option>
@@ -239,8 +237,7 @@ export default function ContactPersonDetails() {
                   </select>
                   <span
                     className="dropdown-icon"
-                    style={{ color: "#5C5831" }}
-                  ></span>
+                   ></span>
                 </div>
               </div>
               <div className="floating-label-contact">

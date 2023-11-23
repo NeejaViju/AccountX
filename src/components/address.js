@@ -229,8 +229,7 @@ function AddressFields({ typ }) {
             </label>
             <button
               className="dropdown-icon-right"
-              style={{ color: "#127186" }}
-            >
+              >
               <i className="fa fa-chevron-down"></i>
             </button>
           </div>
@@ -283,8 +282,7 @@ function AddressFields({ typ }) {
             </label>
             <button
               className="dropdown-icon-right"
-              style={{ color: "#127186" }}
-            >
+              >
               <i className="fa fa-chevron-down"></i>
             </button>
           </div>
@@ -456,7 +454,6 @@ function AddressFields({ typ }) {
             </label>
             <i
               className="fa fa-search new-search-icon-inside-input"
-              style={{ color: "#127186" }}
               aria-hidden="true"
             ></i>
           </div>
@@ -485,7 +482,6 @@ function AddressFields({ typ }) {
             </label>
             <i
               className="fa fa-search new-search-icon-inside-input"
-              style={{ color: "#127186" }}
               aria-hidden="true"
             ></i>
           </div>
@@ -540,7 +536,6 @@ function AddressFields({ typ }) {
             </label>
             <i
               className="fa fa-search new-search-icon-inside-input"
-              style={{ color: "#127186" }}
               aria-hidden="true"
             ></i>
           </div>
@@ -598,7 +593,6 @@ function AddressFields({ typ }) {
             </label>
             <i
               className="fa fa-search new-search-icon-inside-input"
-              style={{ color: "#127186" }}
               aria-hidden="true"
             ></i>
           </div>
