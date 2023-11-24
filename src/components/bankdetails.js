@@ -82,6 +82,7 @@ export default function BankDetails() {
               <div className="inputs-container">
                 {/* <div className="chooseBank-container"> */}
                 <select className="mobileDropDown">
+                <option value="miss">M/s.</option>
                   <option value="miss">Miss.</option>
                   <option value="mr">Mr.</option>
                   <option value="miss">Mrs.</option>
