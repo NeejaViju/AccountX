@@ -178,7 +178,7 @@ export default function ContactPersonDetails() {
                   type="text"
                   name="mobileNumber"
                   placeholder="Mobile Number"
-                  className={`contact-border ${
+                  className={`customContact-border ${
                     inputs.mobileNumber ? "filled" : ""
                   }`}
                   onChange={handleInputChange}

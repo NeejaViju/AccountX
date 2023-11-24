@@ -159,7 +159,7 @@ body {
   width: 1px;
   background-color: black;
   margin: 4px 2px;
-  height: 30px;
+  height: 33px;
   margin-left: 50px;
   margin-top: 4px;
 
@@ -1733,7 +1733,15 @@ select{
   border-color: #5C5831; /* Highlight color when focused */
 }
 
-
+.customContact-border {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  position: relative;
+  z-index: 1;
+}
 /* Change the focus color for the input field and dropdown selection */
 .contact-border:focus:not(.empty),
 .cp-input-with-dropdown select:focus:not(.empty) {
