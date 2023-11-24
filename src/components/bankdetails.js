@@ -203,6 +203,10 @@ export default function BankDetails() {
               >
                 Bank Name*
               </label>
+              <i
+                className="fa fa-search new-search-icon-inside-input"                
+                aria-hidden="true"
+              ></i>
             </div>
             {/* Branch Name Float */}
             <div className="cp-input-with-dropdown  floating-label-bank">
