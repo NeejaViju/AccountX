@@ -153,6 +153,17 @@ body {
   margin-top: 4px;
 }
 
+/*add line between download and share icons*/
+.partition {
+  position: absolute;
+  width: 1px;
+  background-color: black;
+  margin: 4px 2px;
+  height: 30px;
+  margin-left: 50px;
+  margin-top: 4px;
+
+}
 .mobileDropDown{
   padding-left: 10px;
 }
@@ -1354,7 +1365,6 @@ select{
 }
 
 
-
 /* Hide the browser's default checkbox */
 .container input {
   position: absolute;
@@ -1753,7 +1763,3 @@ select{
   border-color: #5C5831;
 }
 
-.customBank-border:focus:not(.empty),
-.dropdown-icon-right select:focus:not(.empty) {
-  border-color: #A666F8;
-}
