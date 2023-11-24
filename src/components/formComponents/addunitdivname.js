@@ -1,8 +1,8 @@
 export default function AddressTypeForm() {
   return (
     <div className="address-form-container">
-      <div className="title-bar">Add New Unit Division</div>
-      <input type="text" placeholder="Address Name" className="address-input" />
+      <div className="title-bar">Add New Unit/Division</div>
+      <input type="text" placeholder="Unit/Division Name" className="address-input" />
       <select className="address-select">
         <option value="" disabled >
           Under
