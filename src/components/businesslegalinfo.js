@@ -167,13 +167,12 @@ export default function BusinessLegalInfo() {
                 className="download-dg0signature-legal"
               >
                 CIN Certificate.pdf &nbsp;
-            
-                <i className="fa fa-download" aria-hidden="true"  ></i>
-              </a> &nbsp;
-              
-               <i className="fa fa-share-alt" aria-hidden="true"></i>
-              </button>
-            
+                <i className="fa fa-download" aria-hidden="true"></i>
+              </a>{" "}
+              &nbsp;
+              <i className="fa fa-share-alt" aria-hidden="true"></i>
+            </button>
+
             <div className=" cp-input-with-dropdown  floating-label-legal">
               <input
                 type="text"
@@ -202,10 +201,12 @@ export default function BusinessLegalInfo() {
               >
                 TAN Certificate.pdf &nbsp;
                 <i className="fa fa-download" aria-hidden="true"></i>
-              </a> &nbsp;
+              </a>{" "}
+              &nbsp;
+              <span className="separator"></span>
               <i className="fa fa-share-alt" aria-hidden="true"></i>
+              <span className="separator"></span>
             </button>
-            
           </div>
 
           {/* ... remaining code ... */}
@@ -230,21 +231,20 @@ export default function BusinessLegalInfo() {
                 MSME
               </label>
             </div>
-            
+
             <button className="download-button">
               <a
                 //href="/path-to-your-cin-certificate.pdf" // Replace with the actual link to the CIN certificate PDF
                 download="MSME_Certificate.pdf"
                 className="download-dg0signature-legal"
               >
-                MSME Certificate.pdf  &nbsp;
-               
+                MSME Certificate.pdf &nbsp;
                 <i className="fa fa-download" aria-hidden="true"></i>
-              </a> &nbsp;
-              
+              </a>{" "}
+              &nbsp;
               <i className="fa fa-share-alt" aria-hidden="true"></i>
             </button>
-            
+
             <div className=" cp-input-with-dropdown  floating-label-legal">
               <input
                 type="text"
